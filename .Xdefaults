@@ -1,0 +1,19 @@
+! .xresources: config for stuff old enough (or luddite enough) to still use it.
+
+URxvt*background: black
+URxvt*foreground: lightgrey
+URxvt*font: -xos4-terminus-medium-r-normal--14-140-72-72-c-80-iso10646-1,xft:unifont
+URxvt*scrollBar: false
+URxvt*secondaryScreen: false
+URxvt*secondaryScroll: false
+URxvt*urgentOnBell: true
+URxvt*cutchars: '"'()*,<>[]{}|"'"
+URxvt*termName: rxvt
+
+URxvt.keysym.M-u: perl:mark-and-yank:activate_mark_url_mode
+URxvt.perl-lib: /home/bma/.config/urxvt/
+URxvt.perl-ext: mark-and-yank
+URxvt.urlLauncher: www
+URxvt.underlineURLs: true
+
+xpdf.initialZoom: width

@@ -1,0 +1,16 @@
+[user]
+	name = Benjamin M. A'Lee
+	email = bma@bma.cx
+	signingkey = 166891C7
+[alias]
+	st = status
+	ci = commit
+	logall = log -M --graph --all --decorate
+	dw = diff --color-words
+	dc = diff --cached
+	dwc= diff --cached --color-words
+	unstage = reset HEAD --
+[color]
+	diff = auto
+	status = auto
+	branch = auto

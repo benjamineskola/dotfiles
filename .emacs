@@ -68,4 +68,15 @@
   (setq auto-mode-alist (cons '("mutt-" . mail-mode) auto-mode-alist)))
 (add-hook 'mail-mode-hook 'axels-mail-mode-hook) 
 
-(server-start)
+(custom-set-variables
+  ;; custom-set-variables was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ )
+(custom-set-faces
+  ;; custom-set-faces was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ '(font-lock-comment-face ((((class color) (min-colors 8) (background dark)) (:foreground "red")))))

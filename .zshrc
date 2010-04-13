@@ -6,17 +6,8 @@ alias w3m='w3m -F -v'
 alias grep='egrep'
 alias feh="feh -FZ"
 
-VIMVER=$($EDITOR --version|head -n 1|cut -f 5 -d ' ')
-if [[ "$VIMVER" -ge 7.0 ]]; then
-   alias -g v="$EDITOR -p"
-   alias -g vi="$EDITOR -p"
-   alias -g vim="$EDITOR -p"
-else
-   # Vim too old to support tabs.
-   alias -g v="$EDITOR"
-   alias -g vi="$EDITOR"
-   alias -g vim="$EDITOR"
-fi
+alias e="$EDITOR"
+alias se="sudo $EDITOR"
 
 # define useful aliases for ls based on which *nix we're on.
 case $OSTYPE in

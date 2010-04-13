@@ -1,7 +1,14 @@
+#!/bin/zsh
+
 test -e /usr/local/lib/X11/fonts/terminus-font && xset +fp /usr/local/lib/X11/fonts/terminus-font
 
 setxkbmap -option compose:ralt,ctrl:nocaps gb
 #echo 'keycode 49 = grave notsign'|xmodmap -
+
+eval `keychain --eval`
+ssh-add -l > /dev/null || ssh-add
+
+. $HOME/.zshenv
 
 xmodmap -e "pointer = 1 8 3 4 5 6 7 2 9 10 11 12 13"
 XID=`xinput list|grep Logitech|awk '/pointer/{sub(/^.*id=/,""); sub(/[ \t].*$/, ""); print}'`

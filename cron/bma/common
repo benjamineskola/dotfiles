@@ -1,3 +1,3 @@
 GIT_SSH=$HOME/bin/ssh4git
 
-35 * * * * for i in $HOME/.config $HOME/.config-x11 $HOME/.data $HOME/.private; do test -d $i && test -d $i/.git && git --git-dir $i/.git pull; done
+35 * * * * for i in $HOME/.config $HOME/.config-x11 $HOME/.data $HOME/.private; do git --git-dir $i/.git pull; done

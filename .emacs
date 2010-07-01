@@ -79,3 +79,7 @@
  '(fg:erc-color-face12 ((t (:foreground "magenta"))))
  '(fg:erc-color-face2 ((t (:foreground "magenta"))))
  '(font-lock-comment-face ((nil (:foreground "red")))))
+
+(dolist (file
+	 (file-expand-wildcards "~/.emacs.d/conf/*.el"))
+  (load file))

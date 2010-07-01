@@ -5,7 +5,11 @@
 (setq make-backup-files nil)
 (setq default-major-mode 'text-mode)
 
+(setq bbdb-north-american-phone-numbers-p nil)
+
 (menu-bar-mode nil)
+(setq require-final-newline t)
+(setq vc-follow-symlinks t)
 
 (define-key global-map (kbd "RET") 'newline-and-indent)
 

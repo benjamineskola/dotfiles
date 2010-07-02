@@ -87,3 +87,8 @@
 (dolist (file
 	 (file-expand-wildcards "~/.emacs.d/conf/*.el"))
   (load file))
+
+(setq cssm-indent-level 8)
+(setq cssm-newline-before-closing-bracket t)
+(setq cssm-indent-function #'cssm-c-style-indenter)
+(setq cssm-mirror-mode nil)

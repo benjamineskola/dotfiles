@@ -7,7 +7,7 @@
 
 (setq bbdb-north-american-phone-numbers-p nil)
 
-(menu-bar-mode nil)
+(menu-bar-mode -1)
 (setq require-final-newline t)
 (setq vc-follow-symlinks t)
 

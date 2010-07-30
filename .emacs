@@ -83,5 +83,7 @@
 (setq cssm-indent-function #'cssm-c-style-indenter)
 (setq cssm-mirror-mode nil)
 
+(add-to-list 'auto-mode-alist '("\\.tpl\\'" . html-mode))
+
 (global-linum-mode 1)
 (setq linum-format "%d ")

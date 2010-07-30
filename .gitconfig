@@ -14,3 +14,7 @@
 	diff = auto
 	status = auto
 	branch = auto
+[merge]
+	tool = emerge
+[merge "tool"]
+	cmd = emacsclient -t -a \"\" -e \"(emerge-files-with-ancestor $LOCAL $REMOTE $BASE $MERGED)\"

@@ -75,7 +75,7 @@
 (defface identica-reply-face '((t (:foreground "white" :background "black"))) "")
 
 (dolist (file
-	 (file-expand-wildcards "~/.emacs.d/conf/*.el"))
+	 (file-expand-wildcards "~/.emacs.d/conf/[a-zA-Z0-9]*.el"))
   (load file))
 
 (setq cssm-indent-level 8)

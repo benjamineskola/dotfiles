@@ -48,7 +48,8 @@ PROMPT="; "
 
 case $TERM in
 		xterm*|rxvt*|screen*)
-				preexec () {print -Pn "\033]0;\\[%n@%m:%~\\] $1 \007"}
+				CMD=$(sed 's/\\/\\\\/g' <<< "$1")
+				preexec () {print -Pn "\033]0;\\[%n@%m:%~\\] $CMD \007"}
 				preexec
 		;;
 esac

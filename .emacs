@@ -40,13 +40,13 @@
 (setq org-agenda-include-diary t)
 
 (setq org-agenda-files
-      (list "~/.data/org/todo.org"))
+      (list "~/.data/org/todo.org" "~/.data/org/todo.org_archive"))
 
 (setq european-calendar-style t)
 
 ;; set up org-mode/remember
 (org-remember-insinuate)
-(setq org-directory "~/.data/org")
+(setq org-directory "~/.data/org/")
 (setq org-default-notes-file (concat org-directory "/todo.org"))
 (define-key global-map "\C-cr" 'org-remember)
 (setq org-remember-templates

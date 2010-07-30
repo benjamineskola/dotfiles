@@ -82,3 +82,6 @@
 (setq cssm-newline-before-closing-bracket t)
 (setq cssm-indent-function #'cssm-c-style-indenter)
 (setq cssm-mirror-mode nil)
+
+(global-linum-mode 1)
+(setq linum-format "%d ")

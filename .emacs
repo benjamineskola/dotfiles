@@ -71,8 +71,8 @@
   (setq auto-mode-alist (cons '("mutt-" . mail-mode) auto-mode-alist)))
 (add-hook 'mail-mode-hook 'axels-mail-mode-hook)
 
-(defface font-lock-comment-face ((nil (:foreground "red"))))
-(defface identica-reply-face ((t nil)))
+(defface font-lock-comment-face '((nil (:foreground "red"))) "")
+(defface identica-reply-face '((t (:foreground "white" :background "black"))) "")
 
 (dolist (file
 	 (file-expand-wildcards "~/.emacs.d/conf/*.el"))

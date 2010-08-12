@@ -27,7 +27,7 @@
 	     (c-set-offset 'inclass 8)
 	     (c-set-offset 'knr-argdecl-intro 8)
 	     (local-set-key (kbd "RET") 'newline-and-indent)
-	     )
+	     ))
 
 ;; ruby
 (add-hook 'ruby-mode-hook

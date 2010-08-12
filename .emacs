@@ -98,3 +98,7 @@
 
 (global-linum-mode 1)
 (setq linum-format "%d ")
+
+(column-number-mode)
+(display-time)
+(setq display-time-24hr-format t)

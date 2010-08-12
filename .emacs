@@ -11,8 +11,6 @@
 (setq require-final-newline t)
 (setq vc-follow-symlinks t)
 
-(define-key global-map (kbd "RET") 'newline-and-indent)
-
 ;; c
 (defun bsd () (interactive)
   (c-set-style "bsd")
@@ -27,6 +25,7 @@
   (c-set-offset 'arglist-cont-nonempty 4)
   (c-set-offset 'inclass 8)
   (c-set-offset 'knr-argdecl-intro 8)
+  (local-set-key (kbd "RET") 'newline-and-indent)
   )
 
 (add-hook 'c-mode-common-hook 'bsd)

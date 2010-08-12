@@ -31,6 +31,19 @@
 
 (add-hook 'c-mode-common-hook 'bsd)
 
+;; ruby
+(add-hook 'ruby-mode-hook
+	  '(lambda () (interactive)
+	     (setq indent-tabs-mode t)
+	     (setq ruby-indent-tabs-mode t)
+	     (setq ruby-indent-level 8)
+	     (local-set-key (kbd "RET") 'newline-and-indent)
+	     ))
+
+;; python
+(add-hook 'python-mode-hook
+	  '(lambda () (local-set-key (kbd "RET") 'newline-and-indent)))
+
 ;; org-mode stuff
 (require 'org-install)
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))

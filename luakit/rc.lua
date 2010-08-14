@@ -96,7 +96,7 @@ mode_binds = {
 
         -- Clipboard
         bind.key({},          "p",        function (w) w:navigate(luakit.selection()) end),
-        bind.key({},          "P",        function (w) w:new_tab(luakit.selection())  end),
+        bind.key({},          "P",        function (w) w:new_window(luakit.selection())  end),
 
         -- Commands
         bind.buf("^o$",                   function (w, c) w:enter_cmd(":open ") end),
@@ -116,7 +116,7 @@ mode_binds = {
         -- Tab
         bind.buf("^[0-9]*gT$",            function (w, b) w:prev_tab(tonumber(string.match(b, "^(%d*)gT$") or 1)) end),
         bind.buf("^[0-9]*gt$",            function (w, b) w:next_tab(tonumber(string.match(b, "^(%d*)gt$") or 1)) end),
-        bind.buf("^gH$",                  function (w)    w:new_tab(HOMEPAGE) end),
+        bind.buf("^gH$",                  function (w)    w:new_window(HOMEPAGE) end),
         bind.buf("^d$",                   function (w)    w:close_tab() end),
 
         bind.buf("^gh$",                  function (w) w:navigate(HOMEPAGE) end),
@@ -144,7 +144,7 @@ mode_binds = {
 commands = {
  -- bind.cmd({Command, Alias1, ...},      function (w, arg, opts) .. end, opts),
     bind.cmd({"open",    "o"},            function (w, a) w:navigate(a) end),
-    bind.cmd({"tabopen", "t"},            function (w, a) w:new_tab(a) end),
+    bind.cmd({"tabopen", "t"},            function (w, a) w:new_window(a) end),
     bind.cmd({"back"        },            function (w, a) w:back(tonumber(a) or 1) end),
     bind.cmd({"forward", "f"},            function (w, a) w:forward(tonumber(a) or 1) end),
     bind.cmd({"scroll"      },            function (w, a) w:scroll_vert(a) end),
@@ -522,6 +522,34 @@ window_helpers = {
         view.show_scrollbars = false
         w:update_tab_count()
     end,
+
+    -- Create new window
+    new_window = function(ww,uri)
+        local w = build_window()
+
+	-- Pack the window table full of the common helper functions
+	for k, v in pairs(window_helpers) do w[k] = v end
+
+        attach_window_signals(w)
+
+        -- Apply window theme
+        w:apply_window_theme()
+
+	-- Populate notebook with tabs
+	--for _, uri in ipairs(uris or {}) do
+	w:new_tab(uri)
+	--end
+
+	-- Make sure something is loaded
+	if w.tabs:count() == 0 then
+	   w:new_tab(HOMEPAGE)
+	end
+
+	-- Set initial mode
+	w:set_mode()
+
+	return w
+     end,
 
     -- close the current tab
     close_tab = function(w)

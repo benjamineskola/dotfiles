@@ -35,6 +35,7 @@ export VISUAL=$EDITOR
 
 TMP=/tmp/bma
 TMPDIR=$TMP
+mkdir -p $TMP
 ln -sf $TMP ~/.tmp
 
 RXVT_SOCKET=$TMP/urxvt-socket-`hostname`

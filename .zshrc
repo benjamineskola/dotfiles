@@ -94,7 +94,3 @@ if [[ -d $ZDOTDIR/zshrc.d/ ]]; then
 		. $i
 	done
 fi
-
-rem -g|sed 1,2d
-echo
-fortune ~/doc/misc/dhammapada

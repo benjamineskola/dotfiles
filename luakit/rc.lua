@@ -66,7 +66,8 @@ end)
 search_engines = {
     google      =  "http://google.com/search?q={0}",
     imdb        =  "http://imdb.com/find?s=all&q={0}",
-    sourceforge =  "http://sf.net/search/?words={0}"
+    sourceforge =  "http://sf.net/search/?words={0}",
+    wikipedia   =  "https://secure.wikimedia.org/wikipedia/en/wiki/Special:Search/{0}"
 }
 
 -- Add key bindings to be used across all windows
@@ -102,6 +103,7 @@ mode_binds = {
         bind.buf("^o$",                   function (w, c) w:enter_cmd(":open ") end),
         bind.buf("^t$",                   function (w, c) w:enter_cmd(":tabopen ") end),
         bind.buf("^,g$",                  function (w, c) w:enter_cmd(":websearch google ") end),
+        bind.buf("^,w$",                  function (w, c) w:enter_cmd(":websearch wikipedia ") end),
 
         -- Searching
         bind.key({},          "/",        function (w) w:start_search(true)  end),

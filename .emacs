@@ -15,8 +15,11 @@
 (setq linum-format "%d ")
 
 (column-number-mode)
+
 (display-time)
 (setq display-time-24hr-format t)
+
+(setq show-trailing-whitespace t)
 
 ;; c
 (add-hook 'c-mode-common-hook

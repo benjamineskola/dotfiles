@@ -11,6 +11,13 @@
 (setq require-final-newline t)
 (setq vc-follow-symlinks t)
 
+(global-linum-mode 1)
+(setq linum-format "%d ")
+
+(column-number-mode)
+(display-time)
+(setq display-time-24hr-format t)
+
 ;; c
 (add-hook 'c-mode-common-hook
 	  '(lambda () (interactive)
@@ -29,6 +36,32 @@
 	     (local-set-key (kbd "RET") 'newline-and-indent)
 	     ))
 
+;; css
+(setq cssm-indent-level 8)
+(setq cssm-newline-before-closing-bracket t)
+(setq cssm-indent-function #'cssm-c-style-indenter)
+(setq cssm-mirror-mode nil)
+
+;; mail
+(or
+  (assoc "mutt-" auto-mode-alist)
+  (setq auto-mode-alist (cons '("mutt-" . mail-mode) auto-mode-alist)))
+
+(add-hook 'mail-mode-hook '(lambda ()
+  (flush-lines "^\\(> \n\\)*> -- \n\\(\n?> .*\\)*") ;;; Kills quoted sigs.
+  (not-modified) ;;; We haven't changed the buffer, haven't we? *g*
+  (mail-text) ;;; Jumps to the beginning of the mail text
+)
+
+;; php
+(add-to-list 'auto-mode-alist '("\\.tpl\\'" . html-mode))
+
+;; python
+(add-hook 'python-mode-hook
+	  '(lambda ()
+	     (local-set-key (kbd "RET") 'newline-and-indent)
+	     (add-to-list 'safe-local-variable-values '(encoding . utf-8))))
+
 ;; ruby
 (add-hook 'ruby-mode-hook
 	  '(lambda () (interactive)
@@ -37,12 +70,6 @@
 	     (setq ruby-indent-level 8)
 	     (local-set-key (kbd "RET") 'newline-and-indent)
 	     ))
-
-;; python
-(add-hook 'python-mode-hook
-	  '(lambda ()
-	     (local-set-key (kbd "RET") 'newline-and-indent)
-	     (add-to-list 'safe-local-variable-values '(encoding . utf-8))))
 
 ;; org-mode stuff
 (require 'org-install)
@@ -65,25 +92,12 @@
 (setq org-remember-templates
       '(("Todo" ?t "** TODO %?\n  %i\n  %a" "~/.data/org/todo.org" "Tasks")))
 
+;; functions
 (defun wc ()
   (interactive)
   (message "Word count: %s" (how-many "\\w+" (point-min) (point-max))))
 
-;; stuff related to mutt.
-(defun axels-mail-mode-hook ()
-  (turn-on-auto-fill) ;;; Auto-Fill is necessary for mails
-  (turn-on-font-lock) ;;; Font-Lock is always cool *g*
-  (flush-lines "^\\(> \n\\)*> -- \n\\(\n?> .*\\)*") ;;; Kills quoted sigs. 
-  (not-modified) ;;; We haven't changed the buffer, haven't we? *g*
-  (mail-text) ;;; Jumps to the beginning of the mail text
-  (setq make-backup-files nil) ;;; No backups necessary.
-)
-
-(or
-  (assoc "mutt-" auto-mode-alist)
-  (setq auto-mode-alist (cons '("mutt-" . mail-mode) auto-mode-alist)))
-(add-hook 'mail-mode-hook 'axels-mail-mode-hook)
-
+;; faces
 (set-face-foreground 'font-lock-comment-face "red")
 
 (add-hook 'identica-mode-hook
@@ -94,17 +108,3 @@
 (dolist (file
 	 (file-expand-wildcards "~/.emacs.d/conf/[a-zA-Z0-9]*.el"))
   (load file))
-
-(setq cssm-indent-level 8)
-(setq cssm-newline-before-closing-bracket t)
-(setq cssm-indent-function #'cssm-c-style-indenter)
-(setq cssm-mirror-mode nil)
-
-(add-to-list 'auto-mode-alist '("\\.tpl\\'" . html-mode))
-
-(global-linum-mode 1)
-(setq linum-format "%d ")
-
-(column-number-mode)
-(display-time)
-(setq display-time-24hr-format t)

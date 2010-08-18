@@ -1,3 +1,5 @@
+setopt allexport
+
 HOSTNAME=`hostname -f | cut -d . -f 1`
 DOMAIN=`hostname -f | cut -d . -f 2-`
 FQDN=$HOSTNAME.$DOMAIN

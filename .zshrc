@@ -29,10 +29,10 @@ elif [[ -x `which lesspipe.sh 2> /dev/null` ]]; then
 	eval `lesspipe.sh`
 fi
 
-if [[ -x =bsdtar ]]; then
+if [[ -x `which bsdtar` ]]; then
 	   alias tar=bsdtar
 fi
-if [[ -x =bsdtar || $OSTYPE == FreeBSD ]]; then
+if [[ -x `which bsdtar` || $OSTYPE == FreeBSD ]]; then
 	   alias unzip="tar xf"
 	   alias zip="tar"
 fi

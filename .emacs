@@ -40,7 +40,9 @@
 
 ;; python
 (add-hook 'python-mode-hook
-	  '(lambda () (local-set-key (kbd "RET") 'newline-and-indent)))
+	  '(lambda ()
+	     (local-set-key (kbd "RET") 'newline-and-indent)
+	     (add-to-list 'safe-local-variable-values '(encoding . utf-8))))
 
 ;; org-mode stuff
 (require 'org-install)

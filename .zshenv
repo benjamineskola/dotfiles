@@ -32,8 +32,8 @@ test -x ~/.data/lib/perl5/site_perl/ && PERLLIB=`echo ~/.data/lib/perl5/site_per
 test -x ~/.data/share/man && MANPATH=~/.data/share/man:`manpath`
 test -x ~/.data/lib/python && PYTHONPATH=~/.data/lib/python:$PYTHONPATH
 
-export EDITOR="emacsclient -t -a ''"
-export VISUAL=$EDITOR
+EDITOR="$HOME/bin/e"
+VISUAL=$EDITOR
 
 TMP=/tmp/bma
 TMPDIR=$TMP

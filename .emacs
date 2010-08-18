@@ -106,5 +106,9 @@
 	     ))
 
 (dolist (file
-	 (file-expand-wildcards "~/.emacs.d/conf/[a-zA-Z0-9]*.el"))
+	 (append
+	  (file-expand-wildcards "~/.emacs.d/conf/[a-zA-Z0-9]*.el")
+	  (file-expand-wildcards "~/.emacs.d/[a-zA-Z0-9]*.el")
+	  )
+	 )
   (load file))

@@ -54,7 +54,7 @@
   (flush-lines "^\\(> \n\\)*> -- \n\\(\n?> .*\\)*") ;;; Kills quoted sigs.
   (not-modified) ;;; We haven't changed the buffer, haven't we? *g*
   (mail-text) ;;; Jumps to the beginning of the mail text
-)
+))
 
 ;; php
 (add-to-list 'auto-mode-alist '("\\.tpl\\'" . html-mode))

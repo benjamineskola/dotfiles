@@ -1,7 +1,19 @@
 ;; ERC
+  (require 'erc-join)
+  (require 'erc-autoaway)
+  (require 'erc-button)
+  (require 'erc-fill)
+  (require 'erc-match)
+  (require 'erc-menu)
+  (require 'erc-netsplit)
+  (require 'erc-networks)
+  (require 'erc-ring)
+  (require 'erc-stamp)
+  (require 'erc-track)
+  (require 'erc-log)
+  (require 'tls)
 
-(add-hook 'erc-mode-hook '(lambda ()
-  (global-linum-mode nil)
+
   (setq erc-log-channels-directory "~/.data/erc/logs/")
   (setq erc-log-insert-log-on-open nil)
   (setq erc-log-file-coding-system 'utf-8)
@@ -36,21 +48,6 @@
 	erc-fill-prefix "         "
 	erc-insert-timestamp-function 'erc-insert-timestamp-left)
 
-  (defun erc-cmd-BAN (nick)
-    (let* ((chan (erc-default-target))
-	   (who (erc-get-server-user nick))
-	   (host (erc-server-user-host who))
-	   (user (erc-server-user-login who)))
-      (erc-send-command (format "MODE %s +b *!%s@*" chan user host))))
-
-  (defun erc-cmd-KICKBAN (nick &rest reason)
-    (setq reason (mapconcat #'identity reason " "))
-    (and (string= reason "")
-	 (setq reason nil))
-    (erc-cmd-BAN nick)
-    (erc-send-command (format "KICK %s %s %s"
-			      (erc-default-target) nick (or reason "Kicked (kickban)"))))
-
   (add-hook 'erc-insert-post-hook 'erc-truncate-buffer)
 
   (define-key erc-mode-map (kbd "C-c C-c") ()) ; disable mapping for erc-toggle-interpret-controls
@@ -80,6 +77,22 @@
   (set-face-foreground 'erc-keyword-face "red")
   (set-face-foreground 'erc-my-nick-face "red")
 
+  (defun erc-cmd-BAN (nick)
+    (let* ((chan (erc-default-target))
+	   (who (erc-get-server-user nick))
+	   (host (erc-server-user-host who))
+	   (user (erc-server-user-login who)))
+      (erc-send-command (format "MODE %s +b *!%s@*" chan user host))))
+
+  (defun erc-cmd-KICKBAN (nick &rest reason)
+    (setq reason (mapconcat #'identity reason " "))
+    (and (string= reason "")
+	 (setq reason nil))
+    (erc-cmd-BAN nick)
+    (erc-send-command (format "KICK %s %s %s"
+			      (erc-default-target) nick (or reason "Kicked (kickban)"))))
+
+
   (add-hook 'erc-join-hook 'bitlbee-identify)
   (defun bitlbee-identify ()
     "If we're on the bitlbee server, send the identify command to the
@@ -89,18 +102,6 @@
       (erc-message "PRIVMSG" (format "%s identify %s"
 				     (erc-default-target)
 				     (netrc-password "bitlbee.subvert.org.uk")))))
-  
-  (defun iswitchb-local-keys ()
-    (mapc (lambda (K)
-	    (let* ((key (car K)) (fun (cdr K)))
-	      (define-key iswitchb-mode-map (edmacro-parse-keys key) fun)))
-	  '(("<right>" . iswitchb-next-match)
-	    ("<left>"  . iswitchb-prev-match)
-	    ("<up>"    . ignore             )
-	    ("<down>"  . ignore             ))))
-
-  (add-hook 'iswitchb-define-mode-map-hook 'iswitchb-local-keys)
-
 
   (defadvice erc-track-find-face (around erc-track-find-face-promote-query activate)
     (if (erc-query-buffer-p)
@@ -146,6 +147,18 @@ erc-modified-channels-alist. Should be executed on window change."
        (add-hook 'erc-send-completed-hook (lambda (str)
 					    (erc-bar-update-overlay)))))
 
+(add-hook 'erc-mode-hook '(lambda ()
+  (linum-mode -1)
+  (defun iswitchb-local-keys ()
+    (mapc (lambda (K)
+	    (let* ((key (car K)) (fun (cdr K)))
+	      (define-key iswitchb-mode-map (edmacro-parse-keys key) fun)))
+	  '(("<right>" . iswitchb-next-match)
+	    ("<left>"  . iswitchb-prev-match)
+	    ("<up>"    . ignore             )
+	    ("<down>"  . ignore             ))))
+
+  (add-hook 'iswitchb-define-mode-map-hook 'iswitchb-local-keys)
 ))
 
 (defun run-erc-oftc () "Connect to IRC on OFTC." (interactive)
@@ -164,21 +177,7 @@ erc-modified-channels-alist. Should be executed on window change."
   (erc-tls :server "irc.freenode.net" :port 7000
 	   :nick "bmalee" :full-name "Benjamin M. A'Lee"))
 
-(defun run-erc () "Connect to IRC." (interactive)
-  (require 'erc-join)
-  (require 'erc-autoaway)
-  (require 'erc-button)
-  (require 'erc-fill)
-  (require 'erc-match)
-  (require 'erc-menu)
-  (require 'erc-netsplit)
-  (require 'erc-networks)
-  (require 'erc-ring)
-  (require 'erc-stamp)
-  (require 'erc-track)
-  (require 'erc-log)
-  (require 'tls)
-
+(defun run-erc-servers () "Connect to IRC." (interactive)
   (run-erc-oftc)
   (run-erc-uwcs)
   (run-erc-bitlbee)

@@ -21,6 +21,8 @@
 
 (setq show-trailing-whitespace t)
 
+(add-to-list 'load-path "~/.emacs.d/")
+
 ;; c
 (add-hook 'c-mode-common-hook
 	  '(lambda () (interactive)
@@ -114,10 +116,11 @@
 	     (linum-mode nil)
 	     ))
 
-(dolist (file
-	 (append
-	  (file-expand-wildcards "~/.emacs.d/conf/[a-zA-Z0-9]*.el")
-	  (file-expand-wildcards "~/.emacs.d/[a-zA-Z0-9]*.el")
-	  )
-	 )
-  (load file))
+(global-set-key [f1] 'help)
+
+(require 'twittering-mode)
+(require 'identica-mode)
+
+(defun run-erc () (interactive)
+  (require 'erc-conf)
+  (run-erc-servers))

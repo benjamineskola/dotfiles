@@ -14,7 +14,7 @@ main = do
     xmproc <- spawnPipe "xmobar"
     xmonad defaultConfig {
 	  modMask = mod4Mask -- Use Super instead of Alt
-	, terminal = "urxvtcd"
+	, terminal = "urxvtc"
 	, keys = keymap
 	, manageHook = manageDocks <+> manageHook defaultConfig
 	, layoutHook = avoidStruts  $  layoutHook defaultConfig

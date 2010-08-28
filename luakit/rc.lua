@@ -116,6 +116,7 @@ mode_binds = {
 
         -- Commands
         bind.buf("^o$",                     function (w, c) w:enter_cmd(":open ") end),
+        bind.buf("^O$",                     function (w, c) w:enter_cmd(":open "..w:get_current().uri) end),
         bind.buf("^t$",                     function (w, c) w:enter_cmd(":tabopen ") end),
         bind.buf("^,g$",                    function (w, c) w:enter_cmd(":websearch google ") end),
         bind.buf("^,w$",                    function (w, c) w:enter_cmd(":websearch wikipedia ") end),

@@ -1,15 +1,27 @@
 import XMonad
+import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.ManageDocks
+import XMonad.Util.Run(spawnPipe)
 
 import System.Exit
+import System.IO
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
 
-main = xmonad defaultConfig {
+main = do
+    xmproc <- spawnPipe "xmobar"
+    xmonad defaultConfig {
 	  modMask = mod4Mask -- Use Super instead of Alt
 	, terminal = "urxvtcd"
 	, keys = keymap
+	, manageHook = manageDocks <+> manageHook defaultConfig
+	, layoutHook = avoidStruts  $  layoutHook defaultConfig
+	, logHook = dynamicLogWithPP $ xmobarPP
+	  { ppOutput = hPutStrLn xmproc
+	  , ppTitle = xmobarColor "green" "" . shorten 50
+	  }
 }
 
 keymap conf@(XConfig {XMonad.modMask = modm}) = M.fromList $ [

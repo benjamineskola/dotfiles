@@ -1,6 +1,7 @@
 import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.UrgencyHook
 import XMonad.Util.Run(spawnPipe)
 
 import System.Exit
@@ -12,7 +13,8 @@ import qualified Data.Map        as M
 
 main = do
     xmproc <- spawnPipe "xmobar"
-    xmonad defaultConfig {
+    xmonad $ withUrgencyHook NoUrgencyHook
+	   $ defaultConfig {
 	  modMask = mod4Mask -- Use Super instead of Alt
 	, terminal = "urxvtc"
 	, keys = keymap
@@ -21,6 +23,7 @@ main = do
 	, logHook = dynamicLogWithPP $ xmobarPP
 	  { ppOutput = hPutStrLn xmproc
 	  , ppTitle = xmobarColor "green" "" . shorten 50
+	  , ppUrgent = xmobarColor "red" "" . xmobarStrip
 	  }
 }
 

@@ -2,6 +2,8 @@ import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.UrgencyHook
+import XMonad.Prompt
+import XMonad.Prompt.Shell
 import XMonad.Util.Run(spawnPipe)
 
 import System.Exit
@@ -29,8 +31,7 @@ main = do
 
 keymap conf@(XConfig {XMonad.modMask = modm}) = M.fromList $ [
       ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf) -- launch a terminal
-    , ((modm,               xK_p     ), spawn "exe=`dmenu_path | dmenu` && eval \"exec $exe\"") -- launch dmenu
-    , ((modm .|. shiftMask, xK_p     ), spawn "gmrun") -- launch gmrun
+    , ((modm,               xK_p     ), shellPrompt defaultXPConfig {font="-*-terminus-*-r-*-*-12-*-*-*-*-*-*-*"})
     , ((modm .|. shiftMask, xK_c     ), kill) -- close focused window
     , ((modm,               xK_space ), sendMessage NextLayout) -- Rotate through the available layout algorithms
     , ((modm .|. shiftMask, xK_space ), setLayout $ XMonad.layoutHook conf) --  Reset the layouts on the current workspace to default

@@ -11,6 +11,7 @@
 	dwc= diff --cached --color-words
 	unstage = reset HEAD --
 	not-in = "!sh -c 'for i in `git branch|grep [0-9]|cut -c 2-`; do l=`git log $0..$i|wc -l`; if [ $l -gt 0 ]; then echo $i; fi; done'"
+	co = checkout
 [color]
 	diff = auto
 	status = auto

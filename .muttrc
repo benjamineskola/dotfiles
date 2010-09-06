@@ -12,6 +12,8 @@ set forward_format="Fwd: %s"
 set mime_forward
 #set sendmail=msmtp
 
+set index_format="%4C %Z %{%b %d} %-15.15L (%?l?%4l&%4c?) %?y?(%y) ?%s"
+
 #set maildir_trash
 
 #mailboxes ! `find ~/mail -type d  -not \( -path '*/.git*' -o -path '*/spam*' -o -path '*/archive*' -prune \) -path '*/cur'|sed 's/\/cur$//'|sort|xargs echo` =spam

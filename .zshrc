@@ -20,6 +20,7 @@ esac
 alias ll='ls -l'
 alias la='ls -A'
 alias lal='ls -lA'
+alias lsd='ls -d'
 
 if [[ -x `which lessfile 2> /dev/null` ]]; then
 	eval `lessfile`

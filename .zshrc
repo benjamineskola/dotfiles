@@ -42,8 +42,10 @@ fi
 # zsh's builtin which is better and faster...
 alias which > /dev/null && unalias which
 
-PROMPT="; "
+# prompt.zsh: shell prompt.
 
+PROMPT="%B[%n@%m]%~%#%b "
+RPROMPT=" %B[%*]%b"
 case $TERM in
 		xterm*|rxvt*|screen*)
 				preexec () {

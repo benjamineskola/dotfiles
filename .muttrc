@@ -11,48 +11,35 @@ set header_cache="~/.mutt/headers"
 set forward_format="Fwd: %s"
 set mime_forward
 #set sendmail=msmtp
+set from="bma@bma.cx"
+set signature='"cat $HOME/.mutt/signature && $HOME/bin/randquote ~/doc/misc/quotes|"'
 
-set index_format="%4C %Z %{%b %d} %-15.15L (%?l?%4l&%4c?) %?y?(%y) ?%s"
+set index_format="%4C %Z %{%m-%d/%H:%M} %-15.15L (%?l?%4l&%4c?) %?y?(%y) ?%s"
 
-#set maildir_trash
-
-#mailboxes ! `find ~/mail -type d  -not \( -path '*/.git*' -o -path '*/spam*' -o -path '*/archive*' -prune \) -path '*/cur'|sed 's/\/cur$//'|sort|xargs echo` =spam
-mailboxes ! `find ~/mail/inbox -type d -path "*/cur"|sed 's/\/cur$//'|sed s,$HOME/mail/inbox,!,g|sort|xargs echo`
-mailboxes =spam
+set nosig_dashes
 
 ignore *
 unignore from to cc subject date user-agent
 hdr_order from to cc subject date user-agent
 
-folder-hook .      set from="bma@bma.cx"
-folder-hook =inbox/lists set from="bma-lists@subvert.org.uk"
-
-send-hook '!~f lists' set from="bma@bma.cx"
-send-hook '~C plymouth.ac.uk' set from="benjamin.alee@students.plymouth.ac.uk"
-
-send-hook '!~C plymouth.ac.uk' set signature='"cat $HOME/.mutt/signature && $HOME/bin/randquote ~/doc/misc/quotes|"'
-send-hook '~C plymouth.ac.uk' set signature=$HOME/.mutt/signature.uni
-
 send-hook . set nocrypt_autoencrypt nopgp_autoencrypt
-set `gpg --list-secret-keys > /dev/null 2>&1 && echo "crypt_autosign crypt_replysign crypt_replysignencrypted crypt_replyencrypt; source ~/.mutt/encrypt-to" || echo "crypt_autosign=no crypt_replysign=no crypt_replysignencrypted=no crypt_replyencrypt=no"`
+set `test $(gpg --list-secret-keys | wc -l) != 0 && echo "crypt_autosign crypt_replysign crypt_replysignencrypted crypt_replyencrypt; source ~/.mutt/encrypt-to" || echo "crypt_autosign=no crypt_replysign=no crypt_replysignencrypted=no crypt_replyencrypt=no"`
 set pgp_auto_decode
 set pgp_use_gpg_agent
 
 alternates (benjamin.(alee|dent)|bmalee)@.*plymouth.ac.uk
 alternates (ben|bma(lee)?|martianspider)[+-][^@]+@(bma.cx|subvert.org.uk|bmalee.eu|benalee.co.uk|termisoc.org)
 alternates (ben|webmaster|admin)@(plymouthart.co.uk|pdarby.co.uk)
-alternates president@termisoc.org
-alternates bele@(.*\.)?(pml|npm).ac.uk
 
 source ~/.mutt/aliases
 source ~/.mutt/colours
 source ~/.mutt/gpg.$OSTYPE.rc
-source ~/.mutt/tprot.rc
 
 macro index A s=archive\ny
 macro pager A s=archive\ny
 macro index S s=spam/false-negative\ny
 macro pager S s=spam/false-negative\ny
 
-macro index G ":mailboxes \`find ~/mail/inbox -type d -path \"*/cur\"|sed 's/\\/cur$//'|sed s,$HOME/mail/inbox,!,g|sort|xargs echo\`\n"
-macro pager G ":mailboxes \`find ~/mail/inbox -type d -path \"*/cur\"|sed 's/\\/cur$//'|sed s,$HOME/mail/inbox,!,g|sort|xargs echo\`\n"
+mailboxes ! =feeds
+
+source `test -e ~/.mutt/muttrc.$(hostname|cut -d . -f 2-) && echo ~/.mutt/muttrc.$(hostname|cut -d . -f 2-) || echo /dev/null`

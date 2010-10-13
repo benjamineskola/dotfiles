@@ -50,7 +50,7 @@ PAPERSIZE=a4
 
 PACKAGESITE=ftp://ftp.freebsd.org/pub/FreeBSD/ports/amd64/packages-8-stable/Latest/
 
-LANG=de_DE.UTF-8
+LANG=en_GB.UTF-8
 LC_COLLATE=C
 
 if [[ -d $HOME/.config/zshenv.d/ ]]; then

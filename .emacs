@@ -82,6 +82,14 @@
 	     (local-set-key (kbd "RET") 'newline-and-indent)
 	     ))
 
+;; shell
+(add-hook 'sh-mode-hook
+	  '(lambda () (interactive)
+	     (setq sh-basic-offset 8
+		   sh-indentation 8
+		   sh-indent-for-case-label 0
+		   sh-indent-for-case-alt '+)))
+
 ;; org-mode stuff
 (require 'org-install)
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))

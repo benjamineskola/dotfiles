@@ -91,6 +91,9 @@ fi
 bindkey -e
 stty stop undef
 
+# Remove / from wordchars, so ^W kills only one path element at a time.
+WORDCHARS=${WORDCHARS/\//}
+
 if [[ -d $ZDOTDIR/zshrc.d/ ]]; then
 	for i in $ZDOTDIR/zshrc.d/*.zsh; do
 		. $i

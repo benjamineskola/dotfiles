@@ -42,4 +42,4 @@ macro pager S s=spam/false-negative\ny
 
 mailboxes ! =feeds
 
-source `test -e ~/.mutt/muttrc.$(hostname|cut -d . -f 2-) && echo ~/.mutt/muttrc.$(hostname|cut -d . -f 2-) || echo /dev/null`
+source `test -e ~/.mutt/muttrc.$(hostname -f|cut -d . -f 2-) && echo ~/.mutt/muttrc.$(hostname -f|cut -d . -f 2-) || echo /dev/null`

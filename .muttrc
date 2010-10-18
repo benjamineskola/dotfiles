@@ -1,3 +1,4 @@
+# -*- conf -*-
 set folder = ~/mail
 set spoolfile = +inbox/
 set mbox = +archive
@@ -19,7 +20,7 @@ set index_format="%4C %Z %{%m-%d/%H:%M} %-15.15L (%?l?%4l&%4c?) %?y?(%y) ?%s"
 set nosig_dashes
 
 ignore *
-unignore from to cc subject date user-agent
+unignore from to cc subject date user-agent organisation
 hdr_order from to cc subject date user-agent
 
 send-hook . set nocrypt_autoencrypt nopgp_autoencrypt

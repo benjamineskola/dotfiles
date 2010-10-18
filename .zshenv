@@ -23,6 +23,7 @@ path=(
 	/usr/sbin
 	/sbin
 	`test -x /usr/pkg/games && echo /usr/pkg/games`
+	`test -x /var/lib/gems && echo /var/lib/gems/*/bin`
 	/usr/local/games
 	/usr/games
 )

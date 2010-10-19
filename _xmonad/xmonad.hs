@@ -1,4 +1,6 @@
 import XMonad
+import XMonad.Actions.UpdateFocus
+import XMonad.Actions.UpdatePointer
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.UrgencyHook
@@ -22,14 +24,16 @@ main = do
 	  modMask = mod4Mask -- Use Super instead of Alt
 	, terminal = "urxvtc"
 	, keys = keymap
-	, workspaces = ws
-	, manageHook = myManageHook
-	, layoutHook = avoidStruts $ layout
-	, logHook = dynamicLogWithPP $ xmobarPP
+	, manageHook = manageDocks <+> manageHook defaultConfig
+	, layoutHook = avoidStruts  $  layoutHook defaultConfig
+	, startupHook = adjustEventInput
+	, handleEventHook = focusOnMouseMove
+	, logHook = (dynamicLogWithPP $ xmobarPP
 	  { ppOutput = hPutStrLn xmproc
 	  , ppTitle = xmobarColor "green" "" . shorten 50
 	  , ppUrgent = xmobarColor "red" "" . xmobarStrip
-	  }
+	  })
+	  >> updatePointer (Relative 0.99 0.01)
 }
 
 ws = ["web", "chat", "3", "4", "5", "6", "7", "todo", "9"]
@@ -64,7 +68,7 @@ keymap conf@(XConfig {XMonad.modMask = modm}) = M.fromList $ [
     , ((modm,               xK_t     ), withFocused $ windows . W.sink) -- Push window back into tiling
     , ((modm              , xK_comma ), sendMessage (IncMasterN 1)) -- Increment the number of windows in the master area
     , ((modm              , xK_period), sendMessage (IncMasterN (-1))) -- Deincrement the number of windows in the master area
- 
+
     , ((modm .|. shiftMask, xK_equal), sendMessage $ IncMasterCols 1)
     , ((modm .|. shiftMask, xK_minus), sendMessage $ IncMasterCols (-1))
     , ((modm .|. controlMask,  xK_equal), sendMessage $ IncMasterRows 1)
@@ -75,7 +79,7 @@ keymap conf@(XConfig {XMonad.modMask = modm}) = M.fromList $ [
     -- See also the statusBar function from Hooks.DynamicLog.
     --
     -- , ((modm              , xK_b     ), sendMessage ToggleStruts)
- 
+
     , ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess)) -- Quit xmonad
     , ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart") -- Restart xmonad
 
@@ -93,7 +97,7 @@ keymap conf@(XConfig {XMonad.modMask = modm}) = M.fromList $ [
         | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
         , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
     ++
- 
+
     --
     -- mod-{w,e,r}, Switch to physical/Xinerama screens 1, 2, or 3
     -- mod-shift-{w,e,r}, Move client to screen 1, 2, or 3

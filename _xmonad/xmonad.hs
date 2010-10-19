@@ -87,7 +87,7 @@ keymap conf@(XConfig {XMonad.modMask = modm}) = M.fromList $ [
 
     , ((0, xK_Print), spawn "scrot")
     , ((controlMask, xK_Print), spawn "sleep 0.2; scrot -s")
-    , ((0, 0xff14), spawn "slock")
+    , ((0, 0xff14), spawn "xscreensaver-command --lock")
     ]
     ++
 

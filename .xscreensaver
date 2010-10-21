@@ -1,0 +1,60 @@
+timeout:	0:05:00
+cycle:		0:10:00
+lock:		True
+lockTimeout:	0:00:00
+passwdTimeout:	0:00:30
+visualID:	default
+installColormap:    True
+verbose:	False
+timestamp:	True
+splash:		True
+splashDuration:	0:00:05
+demoCommand:	xscreensaver-demo
+prefsCommand:	xscreensaver-demo -prefs
+nice:		10
+memoryLimit:	0
+fade:		False
+unfade:		False
+fadeSeconds:	0:00:03
+fadeTicks:	20
+captureStderr:	True
+ignoreUninstalledPrograms:False
+font:		*-medium-r-*-140-*-m-*
+dpmsEnabled:	False
+dpmsStandby:	2:00:00
+dpmsSuspend:	2:00:00
+dpmsOff:	4:00:00
+grabDesktopImages:  False
+grabVideoFrames:    False
+chooseRandomImages: False
+imageDirectory:	
+
+mode:		one
+selected:	50
+
+textMode:	url
+textLiteral:	XScreenSaver
+textFile:	
+textProgram:	fortune
+textURL:	http://planet.debian.org/rss20.xml
+
+programs:								      \
+				bsod -root -no-nt -no-2k -no-msdos	      \
+				  -no-amiga -no-apple2 -no-nvidia -no-os2     \
+				  -no-mac -no-mac1 -no-macsbug -no-macx	      \
+				  -no-os390 -no-vms -no-hvx		      \
+				  -no-blitdamage -no-atm -no-linux	      \
+				  -no-hppalinux -no-solaris -no-sco	      \
+				  -no-hpux -no-tru64			    \n\
+
+
+pointerPollTime:    0:00:05
+pointerHysteresis:  10
+windowCreationTimeout:0:00:30
+initialDelay:	0:00:00
+sgiSaverExtension:  True
+xidleExtension:	True
+GetViewPortIsFullOfLies:False
+procInterrupts:	True
+overlayStderr:	True
+

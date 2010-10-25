@@ -7,7 +7,13 @@
 
 (setq bbdb-north-american-phone-numbers-p nil)
 
+(setq inhibit-startup-screen t)
 (menu-bar-mode -1)
+(tool-bar-mode -1)
+(setq scroll-bar-mode-explicit t)
+(set-scroll-bar-mode 'right)
+(global-set-key (kbd "<mouse-2>") 'yank)
+
 (setq require-final-newline t)
 (setq vc-follow-symlinks t)
 
@@ -104,6 +110,9 @@
 
 ;; faces
 (set-face-foreground 'font-lock-comment-face "red")
+(set-face-foreground 'default "lightgray")
+(set-face-background 'default "black")
+(set-default-font "terminus")
 
 (add-hook 'identica-mode-hook
 	  '(lambda ()

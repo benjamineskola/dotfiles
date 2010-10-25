@@ -103,6 +103,8 @@
 (setq org-remember-templates
       '(("Todo" ?t "** TODO %?\n  %i\n  %a" "~/.data/org/todo.org" "Tasks")))
 
+(set-default 'tramp-default-proxies-alist (quote ((".*" "\\`root\\'" "/ssh:%h:"))))
+
 ;; functions
 (defun wc ()
   (interactive)

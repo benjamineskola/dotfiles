@@ -131,7 +131,3 @@
 
 (require 'twittering-mode)
 (require 'identica-mode)
-
-(defun run-erc () (interactive)
-  (require 'erc-conf)
-  (run-erc-servers))

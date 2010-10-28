@@ -122,7 +122,8 @@
 (set-face-foreground 'font-lock-comment-face "red")
 (set-face-foreground 'default "lightgray")
 (set-face-background 'default "black")
-(set-default-font "terminus")
+
+(add-to-list 'default-frame-alist '(font . "terminus-12"))
 
 (add-hook 'identica-mode-hook
 	  '(lambda ()

@@ -2,7 +2,6 @@ import XMonad
 import XMonad.Actions.UpdateFocus
 import XMonad.Actions.UpdatePointer
 import XMonad.Hooks.DynamicLog
-import XMonad.Hooks.FadeInactive
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.UrgencyHook
 import XMonad.Layout.GridVariants
@@ -35,7 +34,6 @@ main = do
 	  , ppUrgent = xmobarColor "red" "" . xmobarStrip
 	  })
 	  >> updatePointer (Relative 0.99 0.01)
-	  >> fadeInactiveLogHook 0.8
 }
 
 ws = ["web", "chat", "3", "4", "5", "6", "7", "todo", "9"]

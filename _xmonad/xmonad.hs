@@ -2,6 +2,8 @@ import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.UrgencyHook
+import XMonad.Layout.GridVariants
+import XMonad.Layout.PerWorkspace
 import XMonad.Prompt
 import XMonad.Prompt.Shell
 import XMonad.Util.Run(spawnPipe)
@@ -20,14 +22,28 @@ main = do
 	  modMask = mod4Mask -- Use Super instead of Alt
 	, terminal = "urxvtc"
 	, keys = keymap
-	, manageHook = manageDocks <+> manageHook defaultConfig
-	, layoutHook = avoidStruts  $  layoutHook defaultConfig
+	, workspaces = ws
+	, manageHook = myManageHook
+	, layoutHook = avoidStruts $ layout
 	, logHook = dynamicLogWithPP $ xmobarPP
 	  { ppOutput = hPutStrLn xmproc
 	  , ppTitle = xmobarColor "green" "" . shorten 50
 	  , ppUrgent = xmobarColor "red" "" . xmobarStrip
 	  }
 }
+
+ws = ["web", "chat", "3", "4", "5", "6", "7", "todo", "9"]
+
+grid = SplitGrid XMonad.Layout.GridVariants.L 1 1 (1/2) (4/3) (5/100)
+layout = onWorkspace "chat" Full $
+         (grid ||| Full)
+
+myManageHook = composeAll [ className =? "Firefox"  --> doF (W.shift "web")
+		          , title =? "Mail" --> doF (W.shift "chat")
+		          , title =? "Work Mail" --> doF (W.shift "chat")
+		          , title =? "Home Mail" --> doF (W.shift "chat")
+                          , title =? "IRC" --> doF (W.shift "chat")
+                          ] <+> manageDocks <+> manageHook defaultConfig
 
 keymap conf@(XConfig {XMonad.modMask = modm}) = M.fromList $ [
       ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf) -- launch a terminal
@@ -49,6 +65,11 @@ keymap conf@(XConfig {XMonad.modMask = modm}) = M.fromList $ [
     , ((modm              , xK_comma ), sendMessage (IncMasterN 1)) -- Increment the number of windows in the master area
     , ((modm              , xK_period), sendMessage (IncMasterN (-1))) -- Deincrement the number of windows in the master area
  
+    , ((modm .|. shiftMask, xK_equal), sendMessage $ IncMasterCols 1)
+    , ((modm .|. shiftMask, xK_minus), sendMessage $ IncMasterCols (-1))
+    , ((modm .|. controlMask,  xK_equal), sendMessage $ IncMasterRows 1)
+    , ((modm .|. controlMask,  xK_minus), sendMessage $ IncMasterRows (-1))
+
     -- Toggle the status bar gap
     -- Use this binding with avoidStruts from Hooks.ManageDocks.
     -- See also the statusBar function from Hooks.DynamicLog.

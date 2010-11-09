@@ -8,25 +8,12 @@ FQDN=$HOSTNAME.$DOMAIN
 OSTYPE=`uname -s`
 MACHTYPE=`uname -m`
 
-path=(
-	`test -x ~/bin && echo ~/bin`
-	`test -x ~/bin/$OSTYPE && echo ~/bin/$OSTYPE`
-	`test -x ~/bin/$OSTYPE/$MACHTYPE && echo ~/bin/$OSTYPE/$MACHTYPE`
-
-	`test -x /usr/pkg/bin && echo /usr/pkg/bin`
-	/usr/local/bin
-	`test -x /usr/bin/perlbin && echo /usr/bin/perlbin/*` # archlinux crack
-	/usr/bin
-	/bin
-	`test -x /usr/pkg/sbin && echo /usr/pkg/sbin`
-	/usr/local/sbin
-	/usr/sbin
-	/sbin
-	`test -x /usr/pkg/games && echo /usr/pkg/games`
-	`test -x /var/lib/gems && echo /var/lib/gems/*/bin`
-	/usr/local/games
-	/usr/games
-)
+PATH=/bin:/sbin
+PATH=/usr/bin:/usr/sbin:/usr/games:$PATH
+PATH=/usr/local/bin:/usr/local/sbin:/usr/local/games:$PATH
+PATH=/usr/pkg/bin:/usr/pkg/sbin:/usr/pkg/games:$PATH
+if [ -d /var/lib/gems ]; then for i in /var/lib/gems/*; do if [ -d $i/bin]; then PATH=$i:$PATH; fi; done; fi
+PATH=~/bin/$OSTYPE/$MACHTYPE:~/bin/$OSTYPE:~/bin:$PATH
 
 test -x ~/.data/lib && LD_LIBRARY_PATH=~/.data/lib:$LD_LIBRARY_PATH
 test -x ~/.data/lib/perl5/site_perl/ && PERLLIB=`echo ~/.data/lib/perl5/site_perl/*|sed 's/ /:/g'`

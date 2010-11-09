@@ -1,3 +1,2 @@
-@daily          cd ~/mail; git pull && git add archive && git commit -a -m update. && git push; git reack -a -d; git relink--default
-
-@hourly         python2.6 ~/bin/feedread
+@daily          (cd ~/mail; git pull && git add archive && git commit -a -m update. && git push; git repack -a -d; git relink--default) > /dev/null
+@hourly         ~/bin/feedread

@@ -12,7 +12,7 @@ PATH=/bin:/sbin
 PATH=/usr/bin:/usr/sbin:/usr/games:$PATH
 PATH=/usr/local/bin:/usr/local/sbin:/usr/local/games:$PATH
 PATH=/usr/pkg/bin:/usr/pkg/sbin:/usr/pkg/games:$PATH
-if [ -d /var/lib/gems ]; then for i in /var/lib/gems/*; do if [ -d $i/bin]; then PATH=$i:$PATH; fi; done; fi
+if [ -d /var/lib/gems ]; then for i in /var/lib/gems/*; do if [ -d $i/bin ]; then PATH=$i:$PATH; fi; done; fi
 PATH=~/bin/$OSTYPE/$MACHTYPE:~/bin/$OSTYPE:~/bin:$PATH
 export PATH
 

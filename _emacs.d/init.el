@@ -117,6 +117,25 @@
 
 (set-default 'tramp-default-proxies-alist (quote ((".*" "\\`root\\'" "/ssh:%h:"))))
 
+;; org-mode holidays (actually diary-mode)
+(setq holiday-general-holidays
+      '((holiday-fixed 1 1 "New Year's Day")
+       (holiday-fixed 2 14 "Valentine's Day")
+       (holiday-float 3 0 -1 "Mother's Day")
+       (holiday-fixed 4 1 "April Fools' Day")
+       (holiday-fixed 5 1 "International Workers' Day")
+       (holiday-float 6 0 3 "Father's Day")
+       (holiday-fixed 10 31 "Hallowe'en")
+       (holiday-fixed 11 11 "Remembrance Day")
+       (holiday-float 11 0 1 "Remembrance Sunday" 11)
+       (holiday-fixed 12 31 "New Year's Eve"))
+)
+
+(setq calendar-chinese-all-holidays-flag t
+      calendar-christian-all-holidays-flag t
+      calendar-hebrew-all-holidays-flag t
+      calendar-islamic-all-holidays-flag t)
+
 ;; functions
 (defun wc ()
   (interactive)

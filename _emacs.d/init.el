@@ -106,13 +106,7 @@
 (add-hook 'identica-mode-hook
 	  '(lambda ()
 	     (set-face-background 'identica-reply-face nil)
-	     (linum-mode nil)
-	     ))
-
-(add-hook 'twittering-mode-hook
-	  '(lambda ()
-	     (linum-mode nil)
-	     ))
+	     (set-face-foreground 'identica-reply-face nil)))
 
 (global-set-key [f1] 'help)
 

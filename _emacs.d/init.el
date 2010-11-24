@@ -14,6 +14,12 @@
 (setq require-final-newline t)
 (setq vc-follow-symlinks t)
 
+(require 'linum) ; needs to be loaded first.
+(setq linum-disabled-modes-list '(identica-mode twittering-mode))
+(defun linum-on ()
+;  (print major-mode)
+  (unless (or (minibufferp) (member major-mode linum-disabled-modes-list) (string-match "*" (buffer-name)))
+    (linum-mode 1)))
 (global-linum-mode 1)
 (setq linum-format "%d ")
 

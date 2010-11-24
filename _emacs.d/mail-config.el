@@ -32,4 +32,4 @@
 ))
 
 ;; bbdb
-(setq bbdb-north-american-phone-numbers-p nil)x
+(setq bbdb-north-american-phone-numbers-p nil)

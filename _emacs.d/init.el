@@ -64,6 +64,8 @@
 ))
 
 ;; notmuch
+(add-hook 'message-setup-hook 'mml-secure-sign-pgpmime)
+(add-hook 'message-mode-hook '(lambda () (define-key message-mode-map (kbd "M-TAB") 'bbdb-complete-name)))
 (setq notmuch-fcc-dirs
        '((".*@mendeley.com" . "mendeley/archive")
 	 (".*" . "archive")))

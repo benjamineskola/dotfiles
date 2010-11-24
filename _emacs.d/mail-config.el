@@ -30,3 +30,6 @@
                        ("feeds" . "tag:feeds AND tag:unread")
                        ("archive/feeds" . "tag:feeds")
 ))
+
+;; bbdb
+(setq bbdb-north-american-phone-numbers-p nil)x

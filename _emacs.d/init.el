@@ -5,8 +5,6 @@
 (setq make-backup-files nil)
 (setq default-major-mode 'text-mode)
 
-(setq bbdb-north-american-phone-numbers-p nil)
-
 (setq inhibit-startup-screen t)
 (menu-bar-mode -1)
 (tool-bar-mode -1)

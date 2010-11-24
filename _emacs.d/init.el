@@ -67,6 +67,17 @@
 (setq notmuch-fcc-dirs
        '((".*@mendeley.com" . "mendeley/archive")
 	 (".*" . "archive")))
+(setq notmuch-saved-searches '(
+                       ("inbox" . "tag:inbox AND NOT tag:mendeley")
+                       ("personal" . "tag:personal AND tag:unread")
+                       ("inbox/work" . "tag:mendeley AND tag:inbox AND NOT tag:trac")
+                       ("archive" . "*")
+                       ("archive/work" . "tag:mendeley")
+                       ("trac" . "tag:mendeley AND tag:trac AND tag:unread")
+                       ("archive/trac" . "tag:mendeley AND tag:trac")
+                       ("feeds" . "tag:feeds AND tag:unread")
+                       ("archive/feeds" . "tag:feeds")
+))
 
 ;; php
 (add-to-list 'auto-mode-alist '("\\.tpl\\'" . html-mode))

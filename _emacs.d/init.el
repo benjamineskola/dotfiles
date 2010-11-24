@@ -64,6 +64,11 @@
   (mail-text) ;;; Jumps to the beginning of the mail text
 ))
 
+;; notmuch
+(setq notmuch-fcc-dirs
+       '((".*@mendeley.com" . "mendeley/archive")
+	 (".*" . "archive")))
+
 ;; php
 (add-to-list 'auto-mode-alist '("\\.tpl\\'" . html-mode))
 

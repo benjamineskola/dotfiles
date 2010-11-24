@@ -10,8 +10,7 @@
 (setq inhibit-startup-screen t)
 (menu-bar-mode -1)
 (tool-bar-mode -1)
-(setq scroll-bar-mode-explicit t)
-(set-scroll-bar-mode 'right)
+
 (global-set-key (kbd "<mouse-2>") 'yank)
 
 (setq require-final-newline t)
@@ -128,7 +127,10 @@
 (set-face-foreground 'default "lightgray")
 (set-face-background 'default "black")
 
-(add-to-list 'default-frame-alist '(font . "terminus-12"))
+(add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono 11"))
+(add-to-list 'default-frame-alist '(vertical-scroll-bars . right))
+(add-to-list 'default-frame-alist '(menu-bar-lines . 0))
+(add-to-list 'default-frame-alist '(tool-bar-lines . 0))
 
 (add-hook 'identica-mode-hook
 	  '(lambda ()

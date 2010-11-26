@@ -29,6 +29,8 @@
                        ("archive/trac" . "tag:mendeley AND tag:trac")
                        ("feeds" . "tag:feeds AND tag:unread")
                        ("archive/feeds" . "tag:feeds")
+		       ("lists" . "tag:unread and (tag:greenparty or tag:linuxchix or tag:lug or tag:lrug)")
+		       ("archive/lists" . "tag:greenparty or tag:linuxchix or tag:lug or tag:lrug")
 ))
 
 ;; bbdb

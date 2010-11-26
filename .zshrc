@@ -38,7 +38,6 @@ if [[ -x `which bsdtar` || $OSTYPE == FreeBSD ]]; then
 	   alias zip="tar"
 fi
 
-
 # zsh's builtin which is better and faster...
 alias which > /dev/null && unalias which
 
@@ -98,4 +97,8 @@ if [[ -d $ZDOTDIR/zshrc.d/ ]]; then
 	for i in $ZDOTDIR/zshrc.d/*.zsh; do
 		. $i
 	done
+fi
+
+if ! pgrep -f -u$LOGNAME "emacs --daemon" > /dev/null; then
+	emacs --daemon
 fi

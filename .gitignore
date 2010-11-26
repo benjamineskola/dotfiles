@@ -2,3 +2,10 @@
 private
 !cron/
 !_*
+_emacs.d/auto-save-list/
+_emacs.d/url/
+_emacs.d/*google-weather*
+_emacs.d/identica-mode*
+_emacs.d/twittering-mode*
+_emacs.d/.org-id-locations
+_emacs.d/tramp

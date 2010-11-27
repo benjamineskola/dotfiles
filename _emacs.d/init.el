@@ -98,7 +98,7 @@
 (set-face-foreground 'default "lightgray")
 (set-face-background 'default "black")
 
-(add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono 11"))
+(add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono 9"))
 (add-to-list 'default-frame-alist '(vertical-scroll-bars . right))
 (add-to-list 'default-frame-alist '(menu-bar-lines . 0))
 (add-to-list 'default-frame-alist '(tool-bar-lines . 0))

@@ -110,5 +110,8 @@
 
 (global-set-key [f1] 'help)
 
+(setq browse-url-browser-function 'browse-url-generic)
+(setq browse-url-generic-program "www")
+
 (require 'twittering-mode)
 (require 'identica-mode)

@@ -99,6 +99,6 @@ if [[ -d $ZDOTDIR/zshrc.d/ ]]; then
 	done
 fi
 
-if ! pgrep -f -u$LOGNAME "emacs --daemon" > /dev/null; then
+if [ `emacs --version|head -n1|cut -d\  -f3|cut -d. -f1` -ge 23 ] && ! pgrep -f -u$LOGNAME "emacs --daemon" > /dev/null; then
 	emacs --daemon
 fi

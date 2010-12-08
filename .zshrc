@@ -5,6 +5,7 @@ alias w3m='w3m -F -v'
 
 alias grep='egrep'
 alias feh="feh -FZ"
+alias ack="ack-grep -a"
 
 # define useful aliases for ls based on which *nix we're on.
 case $OSTYPE in

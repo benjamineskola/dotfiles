@@ -13,6 +13,8 @@ PATH=/usr/bin:/usr/sbin:/usr/games:$PATH
 PATH=/usr/local/bin:/usr/local/sbin:/usr/local/games:$PATH
 PATH=/usr/pkg/bin:/usr/pkg/sbin:/usr/pkg/games:$PATH
 if [ -d /var/lib/gems ]; then for i in /var/lib/gems/*; do if [ -d $i/bin ]; then PATH=$i/bin:$PATH; fi; done; fi
+if [ -d /usr/lib/hadoop ]; then PATH=$PATH:/usr/lib/hadoop/bin; fi
+if [ -d /usr/lib/hbase ]; then PATH=$PATH:/usr/lib/hbase/bin; fi
 PATH=~/bin/$OSTYPE/$MACHTYPE:~/bin/$OSTYPE:~/bin:$PATH
 export PATH
 

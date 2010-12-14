@@ -7,7 +7,9 @@
 
 (setq inhibit-startup-screen t)
 (menu-bar-mode -1)
-(tool-bar-mode -1)
+(if window-system
+    (tool-bar-mode -1)
+)
 
 (global-set-key (kbd "<mouse-2>") 'yank)
 

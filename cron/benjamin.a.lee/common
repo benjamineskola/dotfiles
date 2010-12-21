@@ -1,4 +1,4 @@
 MAILTO=bma@mendeley.com
 GIT_SSH=$HOME/bin/git-ssh-client
 
-*/10 * * * * dotfiles-pull 600 > /dev/null 2>&1
+*/10 * * * * dotfiles-pull 600

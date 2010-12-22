@@ -22,7 +22,7 @@ main = do
     xmonad $ withUrgencyHook NoUrgencyHook
 	   $ defaultConfig {
 	  modMask = mod4Mask -- Use Super instead of Alt
-	, terminal = "urxvtc"
+	, terminal = "urxvt"
 	, keys = keymap
 	, manageHook = manageDocks <+> manageHook defaultConfig
 	, layoutHook = avoidStruts  $  layoutHook defaultConfig

@@ -14,9 +14,8 @@ ssh-add -l > /dev/null || ssh-add
 xset r on
 #randbg
 unclutter &
-urxvtd -q -o -f
 xscreensaver -nosplash &
-urxvtc -title "IRC" -e ssh -M 0 -t jagger.subvert.org.uk -- tmux attach &
-urxvtc -title "Mail" -e mutt &
+urxvt -title "IRC" -e autossh -t jagger.subvert.org.uk -- tmux attach &
+urxvt -title "Mail" -e mutt &
 
 exec xmonad

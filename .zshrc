@@ -67,7 +67,7 @@ sshnew () {
 if [[ `whoami` != root ]]; then
 	if [[ -x `which keychain` ]]; then
 		eval `keychain --eval -q --dir $HOME/.cache/keychain`
-		ssh-add -l > /dev/null
+		ssh-add -l > /dev/null || ssh-add
 	fi
 fi
 setopt auto_cd auto_pushd pushd_silent chasedots chaselinks

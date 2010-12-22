@@ -9,3 +9,5 @@ _emacs.d/identica-mode*
 _emacs.d/twittering-mode*
 _emacs.d/.org-id-locations
 _emacs.d/tramp
+_xmonad/*
+!_xmonad/*.hs

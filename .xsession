@@ -1,4 +1,5 @@
-#!/bin/zsh
+set -e
+. $HOME/.zshenv
 
 test -e /usr/local/lib/X11/fonts/terminus-font && xset +fp /usr/local/lib/X11/fonts/terminus-font
 
@@ -7,8 +8,6 @@ setxkbmap -option compose:ralt,ctrl:nocaps gb
 
 eval `keychain --eval`
 ssh-add -l > /dev/null || ssh-add
-
-. $HOME/.zshenv
 
 #xrdb $HOME/.config/x11/xresources
 xset r on

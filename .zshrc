@@ -91,6 +91,8 @@ fi
 bindkey -e
 stty stop undef
 
+ulimit -c 0
+
 bindkey '\e[7~' beginning-of-line
 bindkey '\e[8~' end-of-line
 

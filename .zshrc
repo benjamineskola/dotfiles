@@ -91,6 +91,9 @@ fi
 bindkey -e
 stty stop undef
 
+bindkey '\e[7~' beginning-of-line
+bindkey '\e[8~' end-of-line
+
 # Remove / from wordchars, so ^W kills only one path element at a time.
 WORDCHARS=${WORDCHARS/\//}
 

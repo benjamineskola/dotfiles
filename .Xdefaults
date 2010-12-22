@@ -2,7 +2,7 @@
 
 URxvt*background: black
 URxvt*foreground: lightgrey
-URxvt*font: -xos4-terminus-medium-r-normal--14-140-72-72-c-80-iso10646-1,xft:unifont
+URxvt*font: xft:DejaVu Sans Mono:pixelsize=12,xft:unifont
 URxvt*scrollBar: false
 URxvt*secondaryScreen: false
 URxvt*secondaryScroll: false

@@ -1,7 +1,3 @@
-[user]
-	name = Benjamin M. A'Lee
-	email = bma@mendeley.com
-	signingkey = 166891C7
 [alias]
 	st = status -sb
 	ci = commit

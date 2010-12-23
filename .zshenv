@@ -46,6 +46,17 @@ LANG=en_GB.UTF-8
 LC_COLLATE=C
 export LANG LC_COLLATE
 
+case $DOMAIN in
+	mendeley.com|mendeley.lan|mendeley.internal)
+		GIT_AUTHOR_EMAIL=bma@mendeley.com
+		;;
+	*)
+		GIT_AUTHOR_EMAIL=bma@bma.cx
+		;;
+esac
+GIT_COMMITTER_EMAIL=$GIT_AUTHOR_EMAIL
+export GIT_AUTHOR_EMAIL GIT_COMMITTER_EMAIL
+
 if [ -d $HOME/.config/zshenv.d/ ]; then
 	for i in $HOME/.config/zshenv.d/*.zsh; do
 		. $i

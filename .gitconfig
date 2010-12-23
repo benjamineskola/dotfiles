@@ -3,7 +3,7 @@
 	email = bma@mendeley.com
 	signingkey = 166891C7
 [alias]
-	st = status
+	st = status -sb
 	ci = commit
 	l = log -M --graph --all --decorate
 	pp = "!sh -c 'git pull && git push'"

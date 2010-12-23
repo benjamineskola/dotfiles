@@ -18,6 +18,9 @@ case $HOSTNAME in
 			xinput set-prop $XID "Evdev Wheel Emulation Inertia" 10
 		fi
 		;;
+	page)
+		synclient TapButton1=1 TapButton2=1 TapButton3=1
+		;;
 esac
 
 xset r on

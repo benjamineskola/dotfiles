@@ -5,7 +5,7 @@ test -e /usr/local/lib/X11/fonts/terminus-font && xset +fp /usr/local/lib/X11/fo
 
 setxkbmap -option compose:ralt,ctrl:nocaps gb
 
-eval `keychain --eval`
+eval `keychain --eval --dir $HOME/.cache/keychain`
 ssh-add -l > /dev/null || ssh-add
 
 case $HOSTNAME in

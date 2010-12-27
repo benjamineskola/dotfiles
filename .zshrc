@@ -75,7 +75,7 @@ setopt menu_complete no_list_beep
 setopt extended_glob glob_dots nonomatch nocase_glob
 setopt nohist_beep hist_ignore_all_dups share_history inc_append_history
 
-HISTFILE=$XDG_CACHE_HOME/.history
+HISTFILE=$XDG_CACHE_HOME/zsh_history
 HISTSIZE=819200
 SAVEHIST=819200
 setopt check_jobs nohup

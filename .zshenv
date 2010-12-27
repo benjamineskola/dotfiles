@@ -57,6 +57,10 @@ esac
 GIT_COMMITTER_EMAIL=$GIT_AUTHOR_EMAIL
 export GIT_AUTHOR_EMAIL GIT_COMMITTER_EMAIL
 
+export XDG_CACHE_HOME=$HOME/.cache
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_DATA_HOME=$HOME/.data
+
 if [ -d $HOME/.config/zshenv.d/ ]; then
 	for i in $HOME/.config/zshenv.d/*.zsh; do
 		. $i

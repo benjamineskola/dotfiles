@@ -8,6 +8,10 @@ OSTYPE=`uname -s`
 MACHTYPE=`uname -m`
 export OSTYPE MACHTYPE
 
+export XDG_CACHE_HOME=$HOME/.cache
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_DATA_HOME=$HOME/.data
+
 PATH=/bin:/sbin
 PATH=/usr/bin:/usr/sbin:/usr/games:$PATH
 PATH=/usr/local/bin:/usr/local/sbin:/usr/local/games:$PATH
@@ -27,7 +31,7 @@ EDITOR="$HOME/bin/e"
 VISUAL=$EDITOR
 export EDITOR VISUAL
 
-RXVT_SOCKET=$HOME/.cache/urxvt-socket-`hostname`
+RXVT_SOCKET=$XDG_CACHE_HOME/urxvt-socket-`hostname`
 export RXVT_SOCKET
 
 LESS="-ImRswFX"
@@ -36,7 +40,7 @@ export LESS LESSHISTFILE
 
 export LS_COLORS="no=00:fi=00:di=34:ln=35:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:tw=30;42:ow=34;42:st=37;44:ex=31"
 
-export LEDGER_FILE=$HOME/.data/ledger/accounts
+export LEDGER_FILE=$XDG_DATA_HOME/ledger/accounts
 
 export PAPERSIZE=a4
 
@@ -56,10 +60,6 @@ case $DOMAIN in
 esac
 GIT_COMMITTER_EMAIL=$GIT_AUTHOR_EMAIL
 export GIT_AUTHOR_EMAIL GIT_COMMITTER_EMAIL
-
-export XDG_CACHE_HOME=$HOME/.cache
-export XDG_CONFIG_HOME=$HOME/.config
-export XDG_DATA_HOME=$HOME/.data
 
 if [ -d $HOME/.config/zshenv.d/ ]; then
 	for i in $HOME/.config/zshenv.d/*.zsh; do

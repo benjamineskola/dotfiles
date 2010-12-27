@@ -66,7 +66,7 @@ sshnew () {
 
 if [[ `whoami` != root ]]; then
 	if [[ -x `which keychain` ]]; then
-		eval `keychain --eval -q --dir $HOME/.cache/keychain`
+		eval `keychain --eval -q --dir $XDG_CACHE_HOME/keychain`
 		ssh-add -l > /dev/null || ssh-add
 	fi
 fi
@@ -75,7 +75,7 @@ setopt menu_complete no_list_beep
 setopt extended_glob glob_dots nonomatch nocase_glob
 setopt nohist_beep hist_ignore_all_dups share_history inc_append_history
 
-HISTFILE=$HOME/.history
+HISTFILE=$XDG_CACHE_HOME/.history
 HISTSIZE=819200
 SAVEHIST=819200
 setopt check_jobs nohup

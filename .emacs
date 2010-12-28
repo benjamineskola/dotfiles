@@ -1,5 +1,6 @@
 ; -*-Emacs-Lisp-*-
 (add-to-list 'load-path "~/.config/emacs/")
+(require 'gui-setup)
 
 (setq tab-width 8)
 (setq indent-tabs-mode t)
@@ -7,10 +8,6 @@
 (setq default-major-mode 'text-mode)
 
 (setq inhibit-startup-screen t)
-(menu-bar-mode -1)
-(if window-system
-    (tool-bar-mode -1)
-)
 
 (global-set-key (kbd "<mouse-2>") 'yank)
 
@@ -95,15 +92,6 @@
   (message "Word count: %s" (how-many "\\w+" (point-min) (point-max))))
 
 ;; faces
-(set-face-foreground 'font-lock-comment-face "red")
-(set-face-foreground 'default "lightgray")
-(set-face-background 'default "black")
-
-(add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono 9"))
-(add-to-list 'default-frame-alist '(vertical-scroll-bars . right))
-(add-to-list 'default-frame-alist '(menu-bar-lines . 0))
-(add-to-list 'default-frame-alist '(tool-bar-lines . 0))
-
 (add-hook 'identica-mode-hook
 	  '(lambda ()
 	     (set-face-background 'identica-reply-face nil)

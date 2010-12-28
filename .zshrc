@@ -5,7 +5,6 @@ alias w3m='w3m -F -v'
 
 alias grep='egrep'
 alias feh="feh -FZ"
-alias ack="ack-grep -a"
 
 # define useful aliases for ls based on which *nix we're on.
 case $OSTYPE in
@@ -22,6 +21,12 @@ alias ll='ls -l'
 alias la='ls -A'
 alias lal='ls -lA'
 alias lsd='ls -d'
+
+if [[ -e /etc/debian_version ]]; then
+	alias ack="ack-grep -a"
+else
+	alias ack="ack -a"
+fi
 
 if [[ -x `which lessfile 2> /dev/null` ]]; then
 	eval `lessfile`

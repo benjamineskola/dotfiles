@@ -104,6 +104,8 @@ bindkey '\e[8~' end-of-line
 # Remove / from wordchars, so ^W kills only one path element at a time.
 WORDCHARS=${WORDCHARS/\//}
 
+mkdir -p ${XDG_CACHE_HOME}
+
 if [[ -d $ZDOTDIR/zshrc.d/ ]]; then
 	for i in $ZDOTDIR/zshrc.d/*.zsh; do
 		. $i

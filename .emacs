@@ -6,6 +6,8 @@
 (setq indent-tabs-mode t)
 (setq make-backup-files nil)
 (setq default-major-mode 'text-mode)
+(setq auto-save-list-file-prefix "~/.cache/emacs/auto-save-list/.saves-"
+      user-emacs-directory "~/.config/emacs/")
 
 (setq inhibit-startup-screen t)
 

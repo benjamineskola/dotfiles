@@ -1,4 +1,5 @@
 ; -*-Emacs-Lisp-*-
+(add-to-list 'load-path "~/.config/emacs/")
 
 (setq tab-width 8)
 (setq indent-tabs-mode t)
@@ -31,8 +32,6 @@
 (setq display-time-24hr-format t)
 
 (setq show-trailing-whitespace t)
-
-(add-to-list 'load-path "~/.emacs.d/")
 
 ;; c
 (add-hook 'c-mode-common-hook

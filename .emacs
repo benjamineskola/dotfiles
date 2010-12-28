@@ -1,36 +1,35 @@
 ; -*-Emacs-Lisp-*-
 (add-to-list 'load-path "~/.config/emacs/")
 (require 'gui-setup)
+(require 'linum-hack)
 
-(setq tab-width 8)
 (setq indent-tabs-mode t)
-(setq make-backup-files nil)
+(setq tab-width 8)
+
 (setq default-major-mode 'text-mode)
+(setq make-backup-files nil)
+
 (setq auto-save-list-file-prefix "~/.cache/emacs/auto-save-list/.saves-"
       user-emacs-directory "~/.config/emacs/")
 
+(setq display-time-24hr-format t)
 (setq inhibit-startup-screen t)
-
-(global-set-key (kbd "<mouse-2>") 'yank)
-
 (setq require-final-newline t)
+(setq show-trailing-whitespace t)
 (setq vc-follow-symlinks t)
 
-(require 'linum) ; needs to be loaded first.
+(setq browse-url-browser-function 'browse-url-generic)
+(setq browse-url-generic-program "www")
+
 (setq linum-disabled-modes-list '(identica-mode twittering-mode))
-(defun linum-on ()
-;  (print major-mode)
-  (unless (or (minibufferp) (member major-mode linum-disabled-modes-list) (string-match "*" (buffer-name)))
-    (linum-mode 1)))
-(global-linum-mode 1)
 (setq linum-format "%d ")
 
+(global-linum-mode 1)
 (column-number-mode)
-
 (display-time)
-(setq display-time-24hr-format t)
 
-(setq show-trailing-whitespace t)
+(global-set-key [f1] 'help)
+(global-set-key (kbd "<mouse-2>") 'yank)
 
 ;; c
 (add-hook 'c-mode-common-hook
@@ -51,10 +50,10 @@
 	     ))
 
 ;; css
-(setq cssm-indent-level 8)
-(setq cssm-newline-before-closing-bracket t)
-(setq cssm-indent-function #'cssm-c-style-indenter)
-(setq cssm-mirror-mode nil)
+(setq cssm-indent-level 8
+      cssm-newline-before-closing-bracket t
+      cssm-indent-function #'cssm-c-style-indenter
+      cssm-mirror-mode nil)
 
 ;; mail
 (require 'mail-config)
@@ -98,11 +97,6 @@
 	  '(lambda ()
 	     (set-face-background 'identica-reply-face nil)
 	     (set-face-foreground 'identica-reply-face nil)))
-
-(global-set-key [f1] 'help)
-
-(setq browse-url-browser-function 'browse-url-generic)
-(setq browse-url-generic-program "www")
 
 (require 'twittering-mode)
 (require 'identica-mode)

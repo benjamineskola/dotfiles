@@ -1,2 +1,2 @@
-*/15 * * * *   online && (sync_nnmaildir -g && offlineimap && sync_nnmaildir -m)
+*/15 * * * *   online && offlineimap
 2-59/15 * * * * online && unison news

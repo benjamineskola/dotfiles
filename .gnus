@@ -1,10 +1,10 @@
 (setq gnus-select-method
       '(nnimap "mail" (nnimap-address "localhost")))
 
-(if (not (eq (getenv "HOSTNAME") "bma-desktop")) ; don't want usenet at work.
+(if (not (string-equal (getenv "HOSTNAME") "bma-desktop")) ; don't want usenet at work.
     (setq gnus-secondary-select-methods '((nntp "nntp.aioe.org") (nntp "news.gmane.org"))))
 
-(setq gnus-message-archive-group "nnmaildir+mail:archive"
+(setq gnus-message-archive-group "nnimap+mail:archive"
       nndraft-directory "~/mail/drafts"
       nntp-marks-directory "~/.data/news/marks"
       gnus-cache-directory "~/.data/news/cache"

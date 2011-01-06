@@ -15,23 +15,5 @@
 (add-hook 'message-setup-hook 'mml-secure-sign-pgpmime)
 (add-hook 'message-mode-hook '(lambda () (define-key message-mode-map (kbd "M-TAB") 'bbdb-complete-name)))
 
-;; notmuch
-(setq notmuch-fcc-dirs
-       '((".*@mendeley.com" . "mendeley/archive")
-	 (".*" . "archive")))
-(setq notmuch-saved-searches '(
-                       ("inbox" . "tag:inbox AND NOT tag:mendeley")
-                       ("personal" . "tag:personal AND tag:unread")
-                       ("inbox/work" . "tag:mendeley AND tag:inbox AND NOT tag:trac")
-                       ("archive" . "*")
-                       ("archive/work" . "tag:mendeley")
-                       ("trac" . "tag:mendeley AND tag:trac AND tag:unread")
-                       ("archive/trac" . "tag:mendeley AND tag:trac")
-                       ("feeds" . "tag:feeds AND tag:unread")
-                       ("archive/feeds" . "tag:feeds")
-		       ("lists" . "tag:unread and (tag:greenparty or tag:linuxchix or tag:lug or tag:lrug)")
-		       ("archive/lists" . "tag:greenparty or tag:linuxchix or tag:lug or tag:lrug")
-))
-
 ;; bbdb
 (setq bbdb-north-american-phone-numbers-p nil)

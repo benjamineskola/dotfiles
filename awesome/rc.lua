@@ -12,7 +12,7 @@ require("naughty")
 beautiful.init("/usr/share/awesome/themes/default/theme.lua")
 
 -- This is used later as the default terminal to run.
-terminal = "xterm"
+terminal = "urxvt"
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.

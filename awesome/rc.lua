@@ -7,6 +7,8 @@ require("beautiful")
 -- Notification library
 require("naughty")
 
+require("obvious.battery")
+
 -- {{{ Variable definitions
 -- Where to find stuff?
 ostype = os.getenv("OSTYPE")
@@ -132,6 +134,7 @@ for s = 1, screen.count() do
         },
         mylayoutbox[s],
         mytextclock,
+	obvious.battery(),
         s == 1 and mysystray or nil,
         mytasklist[s],
         layout = awful.widget.layout.horizontal.rightleft

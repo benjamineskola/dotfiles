@@ -1,4 +1,4 @@
-require ["fileinto", "regex", "envelope", "subaddress"];
+require ["fileinto", "regex", "envelope", "subaddress", "variables"];
 
 if anyof (envelope :detail "to" "mendeley",
           envelope :detail "to" "redalert") {
@@ -31,4 +31,11 @@ if anyof (envelope :detail "to" "mendeley",
 	stop;
 }
 
-if header :regex "List-Id" ".*" { fileinto "lists"; stop; }
+if header :regex "List-Id" ".*" {
+	if allof (not envelope :detail "to" "lists",
+	          envelope :regex "to" "-(.*)@") {
+		fileinto "lists/${1}";
+		stop;
+	}
+	fileinto "lists"; stop;
+}

@@ -7,6 +7,12 @@ if anyof (envelope :detail "to" "mendeley",
 		keep; stop;
 	}
 
+	if allof (header :contains "from" "Cron Daemon",
+	          anyof (header :contains "subject" "/usr/lib/nagios/plugins/check_http",
+		         header :contains "subject" "munin-cron")) {
+		discard; stop;
+	}
+
 	if anyof (header :contains "to" "sysadmin+reports",
 	          header :contains "to" "dm-failure-reports",
 	          header :contains "to" "web-failure-reports",
@@ -15,9 +21,24 @@ if anyof (envelope :detail "to" "mendeley",
 		stop;
 	}
 
-	if allof (header :contains "from" "Cron Daemon",
-	          header :contains "subject" "munin-cron") {
-		discard; stop;
+	if header :regex "to" ".*+social@mendeley\.com" {
+		fileinto "mendeley/social";
+		stop;
+	}
+
+	if header :regex "from" "nagios@monitor.*\.mendeley\.com" {
+		fileinto "mendeley/nagios";
+		stop;
+	}
+
+	if header :regex "to" "^redalert+.*" {
+		fileinto "mendeley/redalert";
+		stop;
+	}
+
+	if header :regex "subject" "^Debian package updates?" {
+		fileinto "mendeley/pkgupdate";
+		stop;
 	}
 
 	if header :regex "List-Id" ".*" {

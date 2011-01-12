@@ -11,7 +11,7 @@ if anyof (envelope :detail "to" "mendeley",
 	          header :contains "to" "dm-failure-reports",
 	          header :contains "to" "web-failure-reports",
 	          header :contains "to" "squid-performace-reports") {
-		fileinto "mendeley.stats";
+		fileinto "mendeley/stats";
 		stop;
 	}
 
@@ -22,7 +22,7 @@ if anyof (envelope :detail "to" "mendeley",
 
 	if header :regex "List-Id" ".*" {
 		if not header :contains "List-Id" "mendeley.com" {
-			fileinto "mendeley.lists";
+			fileinto "mendeley/lists";
 			stop;
 		}
 	}

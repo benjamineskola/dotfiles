@@ -1,5 +1,6 @@
 (setq gnus-select-method
-      '(nnimap "mail" (nnimap-address "localhost")))
+      '(nnimap "mail" (nnimap-stream shell)))
+(setq imap-shell-program "env MAIL=maildir:~/mail:LAYOUT=fs /usr/lib/dovecot/imap 2> /dev/null")
 
 (if (not (string-equal (getenv "HOSTNAME") "bma-desktop")) ; don't want usenet at work.
     (setq gnus-secondary-select-methods '((nntp "nntp.aioe.org") (nntp "news.gmane.org"))))

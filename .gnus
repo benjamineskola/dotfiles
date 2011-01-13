@@ -17,3 +17,4 @@
       gnus-save-newsrc-file nil)
 
 (setq gnus-buttonized-mime-types '("multipart/signed"))
+(setq gnus-summary-line-format "%U%R |%-20,20f |%&user-date; %37=|%4L|%B %s\n")

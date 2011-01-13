@@ -18,3 +18,8 @@
 
 (setq gnus-buttonized-mime-types '("multipart/signed"))
 (setq gnus-summary-line-format "%U%R |%-20,20f |%&user-date; %37=|%4L|%B %s\n")
+
+(eval-after-load "mm-decode"
+ '(progn
+      (add-to-list 'mm-discouraged-alternatives "text/html")
+      (add-to-list 'mm-discouraged-alternatives "text/richtext")))

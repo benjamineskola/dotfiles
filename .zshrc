@@ -22,6 +22,8 @@ alias la='ls -A'
 alias lal='ls -lA'
 alias lsd='ls -d'
 
+alias apg="apg -n 1 -c /dev/urandom"
+
 if [[ -e /etc/debian_version ]]; then
 	alias ack="ack-grep -a"
 else

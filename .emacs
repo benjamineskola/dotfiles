@@ -1,5 +1,7 @@
 ; -*-Emacs-Lisp-*-
 (add-to-list 'load-path "~/.config/emacs/")
+(dolist (dir (file-expand-wildcards "~/.data/elisp/*" t)) (add-to-list 'load-path dir))
+
 (require 'gui-setup)
 (require 'linum-hack)
 
@@ -100,3 +102,5 @@
 
 (require 'twittering-mode)
 (require 'identica-mode)
+(require 'google-weather)
+(require 'org-google-weather)

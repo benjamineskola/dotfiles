@@ -10,7 +10,7 @@ URxvt*urgentOnBell: true
 URxvt*cutchars: '"'()*,<>[]{}|"'"
 URxvt*termName: rxvt
 
-URxvt.keysym.M-u: perl:mark-and-yank:activate_mark_url_mode
+URxvt.keysym.Mod4-s: perl:mark-and-yank:activate_mark_url_mode
 URxvt.perl-lib: /home/bma/.config/urxvt/
 URxvt.perl-ext: mark-and-yank
 URxvt.urlLauncher: www

@@ -23,3 +23,9 @@
  '(progn
       (add-to-list 'mm-discouraged-alternatives "text/html")
       (add-to-list 'mm-discouraged-alternatives "text/richtext")))
+
+; i don't like having read messages hidden by default.
+(defun gnus-group-select-group-all ()
+  (interactive)
+  (gnus-group-select-group t))
+(define-key gnus-agent-group-mode-map (kbd "C-m") 'gnus-group-select-group-all)

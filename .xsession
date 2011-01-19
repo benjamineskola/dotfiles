@@ -27,6 +27,6 @@ xset r on
 unclutter &
 xscreensaver -nosplash &
 urxvt -title "IRC" -e autossh -t jagger.subvert.org.uk -- tmux attach &
-urxvt -title "Mail" -e mutt &
+emacs -title "Mail" -f gnus &
 
 exec awesome

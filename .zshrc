@@ -24,6 +24,14 @@ alias lsd='ls -d'
 
 alias apg="apg -n 1 -c /dev/urandom"
 
+alias acs="apt-cache search"
+alias acsh="apt-cache show"
+alias acsno="apt-cache search -n"
+alias sagi="sudo apt-get install"
+alias sagn="sudo apt-get install --no-install-recommends"
+alias sagr="sudo apt-get purge"
+alias sagu="sudo apt-get update"
+
 if [[ -e /etc/debian_version ]]; then
 	alias ack="ack-grep -a"
 else

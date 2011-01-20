@@ -1,10 +1,5 @@
 # autoload all executable files in $fpath
 autoload -U $^fpath/*(.xN:t)
-alias rem='rem -qg'
-alias w3m='w3m -F -v'
-
-alias grep='egrep'
-alias feh="feh -FZ"
 
 # define useful aliases for ls based on which *nix we're on.
 case $OSTYPE in
@@ -21,6 +16,15 @@ alias ll='ls -l'
 alias la='ls -A'
 alias lal='ls -lA'
 alias lsd='ls -d'
+
+alias rem='rem -qg'
+alias w3m='w3m -F -v'
+
+alias grep='egrep'
+alias feh="feh -FZ"
+
+alias df="df -P"
+alias tf="tail -F"
 
 alias apg="apg -n 1 -c /dev/urandom"
 

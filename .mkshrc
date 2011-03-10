@@ -29,35 +29,31 @@ alias tf="tail -F"
 
 alias apg="apg -n 1 -c /dev/urandom"
 
-alias acs="apt-cache search"
-alias acsh="apt-cache show"
-alias acsno="apt-cache search -n"
-alias sagi="sudo apt-get install"
-alias sagn="sudo apt-get install --no-install-recommends"
-alias sagr="sudo apt-get purge"
-alias sagu="sudo apt-get update"
+case $OSTYPE in
+	Linux)
+		if [[ -e /etc/debian_version ]]; then
+			alias ack="ack-grep -a"
 
-if [[ -e /etc/debian_version ]]; then
-	alias ack="ack-grep -a"
-else
-	alias ack="ack -a"
-fi
+			alias acs="apt-cache search"
+			alias acsh="apt-cache show"
+			alias acsno="apt-cache search -n"
+			alias sagi="sudo apt-get install --no-install-recommends"
+			alias sagir="sudo apt-get install"
+			alias sagr="sudo apt-get purge"
+			alias sagu="sudo apt-get update"
+			alias sagup="sudo apt-get upgrade"
 
-if [[ -x `which lessfile 2> /dev/null` ]]; then
-	eval `lessfile`
-elif [[ -x `which lesspipe 2> /dev/null` ]]; then
-	eval `lesspipe`
-elif [[ -x `which lesspipe.sh 2> /dev/null` ]]; then
-	eval `lesspipe.sh`
-fi
-
-if [[ -x `which bsdtar` ]]; then
-	   alias tar=bsdtar
-fi
-if [[ -x `which bsdtar` || $OSTYPE == FreeBSD ]]; then
-	   alias unzip="tar xf"
-	   alias zip="tar"
-fi
+			eval `lesspipe`
+		else
+			alias ack="ack -a"
+		fi
+		[[ -x `which bsdtar` ]] && alias tar=bsdtar && alias unzip="tar xf"
+		;;
+	FreeBSD)
+		eval `lesspipe.sh`
+		alias unzip="tar xf"
+		;;
+esac
 
 case $TERM in
 	xterm*|rxvt*|screen*)

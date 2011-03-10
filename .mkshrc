@@ -61,10 +61,10 @@ fi
 
 case $TERM in
 	xterm*|rxvt*|screen*)
-		PS1=$'\E]0;${USER}@${HOSTNAME}:${PWD/${HOME}/\~}\a\E[0;37;1m${USER}@${HOSTNAME}:${PWD/${HOME}/\~}>\E[0m '
+		PS1=$'\E]0;$(whoami)@${HOSTNAME}:${PWD/${HOME}/\~}\a\E[0;37;1m$(whoami)@${HOSTNAME}:${PWD/${HOME}/\~}>\E[0m '
 	;;
 	*)
-		PS1=$'\E[0;37;1m${USER}@${HOSTNAME}:${PWD/${HOME}/\~}>\E[0m '
+		PS1=$'\E[0;37;1m$(whoami)@${HOSTNAME}:${PWD/${HOME}/\~}>\E[0m '
 	;;
 esac
 

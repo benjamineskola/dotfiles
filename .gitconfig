@@ -1,7 +1,8 @@
 [alias]
 	st = status -sb
 	ci = commit
-	l = log -M --graph --all --decorate
+	l = log -M --graph --decorate --pretty=oneline --abbrev-commit
+	la = log -M --graph --all --decorate --pretty=oneline --abbrev-commit
 	pp = "!sh -c 'git pull && git push'"
 	dw = diff --color-words
 	dc = diff --cached

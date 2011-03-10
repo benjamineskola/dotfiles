@@ -1,3 +1,5 @@
+# -*- sh -*=
+
 HOSTNAME=`hostname -f | cut -d . -f 1`
 DOMAIN=`hostname -f | cut -d . -f 2-`
 FQDN=$HOSTNAME.$DOMAIN
@@ -17,6 +19,7 @@ PATH=/usr/bin:/usr/sbin:/usr/games:$PATH
 PATH=/usr/local/bin:/usr/local/sbin:/usr/local/games:$PATH
 PATH=/usr/pkg/bin:/usr/pkg/sbin:/usr/pkg/games:$PATH
 if [ -d /var/lib/gems ]; then for i in /var/lib/gems/*; do if [ -d $i/bin ]; then PATH=$i/bin:$PATH; fi; done; fi
+if [ -d /usr/lib/perl5/vendor_perl/bin/ ]; then PATH=/usr/lib/perl5/vendor_perl/bin/:$PATH; fi
 if [ -d /usr/lib/hadoop ]; then PATH=$PATH:/usr/lib/hadoop/bin; fi
 if [ -d /usr/lib/hbase ]; then PATH=$PATH:/usr/lib/hbase/bin; fi
 PATH=~/bin/$OSTYPE/$MACHTYPE:~/bin/$OSTYPE:~/bin:$PATH
@@ -61,9 +64,3 @@ case $DOMAIN in
 esac
 GIT_COMMITTER_EMAIL=$GIT_AUTHOR_EMAIL
 export GIT_AUTHOR_EMAIL GIT_COMMITTER_EMAIL
-
-if [ -d $HOME/.config/zshenv.d/ ]; then
-	for i in $HOME/.config/zshenv.d/*.zsh; do
-		. $i
-	done
-fi

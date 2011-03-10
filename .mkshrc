@@ -1,0 +1,85 @@
+# -*- sh -*-
+
+. ~/.environment
+
+# define useful aliases for ls based on which *nix we're on.
+case $OSTYPE in
+	Linux)
+		alias ls='ls --color=auto -Fh' ;;
+	FreeBSD|Darwin)
+		alias ls='ls -GhTp' ;;
+	*)
+		alias ls='ls -Fh' ;;
+esac
+
+# and some generic ones.
+alias ll='ls -l'
+alias la='ls -A'
+alias lal='ls -lA'
+alias lsd='ls -d'
+
+alias rem='rem -qg'
+alias w3m='w3m -F -v'
+
+alias grep='egrep'
+alias feh="feh -FZ"
+
+alias df="df -P"
+alias tf="tail -F"
+
+alias apg="apg -n 1 -c /dev/urandom"
+
+alias acs="apt-cache search"
+alias acsh="apt-cache show"
+alias acsno="apt-cache search -n"
+alias sagi="sudo apt-get install"
+alias sagn="sudo apt-get install --no-install-recommends"
+alias sagr="sudo apt-get purge"
+alias sagu="sudo apt-get update"
+
+if [[ -e /etc/debian_version ]]; then
+	alias ack="ack-grep -a"
+else
+	alias ack="ack -a"
+fi
+
+if [[ -x `which lessfile 2> /dev/null` ]]; then
+	eval `lessfile`
+elif [[ -x `which lesspipe 2> /dev/null` ]]; then
+	eval `lesspipe`
+elif [[ -x `which lesspipe.sh 2> /dev/null` ]]; then
+	eval `lesspipe.sh`
+fi
+
+if [[ -x `which bsdtar` ]]; then
+	   alias tar=bsdtar
+fi
+if [[ -x `which bsdtar` || $OSTYPE == FreeBSD ]]; then
+	   alias unzip="tar xf"
+	   alias zip="tar"
+fi
+
+case $TERM in
+	xterm*|rxvt*|screen*)
+		PS1=$'\E]0;${USER}@${HOSTNAME}:${PWD/${HOME}/\~}\a\E[0;37;1m${USER}@${HOSTNAME}:${PWD/${HOME}/\~}>\E[0m '
+	;;
+	*)
+		PS1=$'\E[0;37;1m${USER}@${HOSTNAME}:${PWD/${HOME}/\~}>\E[0m '
+	;;
+esac
+
+if [[ `whoami` != root ]]; then
+	if [[ -x `which keychain` ]]; then
+		eval `keychain --eval -q --dir $XDG_CACHE_HOME/keychain`
+		ssh-add -l > /dev/null || ssh-add
+	fi
+fi
+
+HISTFILE=$XDG_CACHE_HOME/ksh_history
+HISTSIZE=819200
+SAVEHIST=819200
+
+stty stop undef
+ulimit -c 0
+
+mkdir -p ${XDG_CACHE_HOME}

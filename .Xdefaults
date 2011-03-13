@@ -16,4 +16,10 @@ URxvt.perl-ext: mark-and-yank
 URxvt.urlLauncher: www
 URxvt.underlineURLs: true
 
+UXTerm*foreground: lightgrey
+UXTerm*background: black
+UXTerm*metaSendsEscape: true
+UXTerm*faceName: DejaVu Sans Mono
+UXTerm*faceSize: 8
+
 xpdf.initialZoom: width

@@ -1,4 +1,4 @@
 MAILTO=bma@mendeley.com
 GIT_SSH=$HOME/bin/git-ssh-client
 
-* * * * * $HOME/bin/online && $HOME/bin/dotfiles-pull 600
+12 * * * * $HOME/bin/online && $HOME/bin/dotfiles-pull 600

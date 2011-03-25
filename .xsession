@@ -26,7 +26,13 @@ esac
 xset r on
 unclutter &
 xscreensaver -nosplash &
-urxvt -title "IRC" -e autossh -t jagger.subvert.org.uk -- tmux attach &
-emacs -title "Mail" -f gnus &
+
+while true; do urxvtd -q -o; done &
+while ! pgrep urxvtd; do sleep 0.1; done
+
+urxvtc -title "IRC" -e autossh -t jagger.subvert.org.uk -- '$SHELL' -ic irc &
+urxvtc -title "Mail" -e $SHELL -ic mutt &
+urxvtc -title "identi.ca" -e ttytter -apibase=http://identi.ca/api -authtype=basic -user=bma -ansi -wrap -readline -mentions &
+urxvtc -title "twitter" -e ttytter -user=bma -ansi -wrap -readline -mentions &
 
 exec xmonad

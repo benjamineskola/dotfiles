@@ -29,4 +29,4 @@ xscreensaver -nosplash &
 urxvt -title "IRC" -e autossh -t jagger.subvert.org.uk -- tmux attach &
 emacs -title "Mail" -f gnus &
 
-exec awesome
+exec xmonad

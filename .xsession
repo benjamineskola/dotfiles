@@ -1,7 +1,5 @@
 set -e
-. $HOME/.zshenv
-
-test -e /usr/local/lib/X11/fonts/terminus-font && xset +fp /usr/local/lib/X11/fonts/terminus-font
+. $HOME/.environment
 
 setxkbmap -option compose:ralt,ctrl:nocaps gb
 

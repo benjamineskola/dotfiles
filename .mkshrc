@@ -78,4 +78,6 @@ SAVEHIST=819200
 stty stop undef
 ulimit -c 0
 
+bindkey -e 2>/dev/null || true # ksh might be zsh which is braindead and assumes i want vi keybindings.
+
 mkdir -p ${XDG_CACHE_HOME}

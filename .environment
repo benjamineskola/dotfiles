@@ -1,4 +1,4 @@
-# -*- sh -*=
+# vim:ft=sh
 
 HOSTNAME=`hostname -f | cut -d . -f 1`
 DOMAIN=`hostname -f | cut -d . -f 2-`
@@ -30,7 +30,11 @@ test -x ~/.data/lib/perl5/site_perl/ && PERLLIB=`echo ~/.data/lib/perl5/site_per
 test -x ~/.data/share/man && MANPATH=~/.data/share/man:`manpath`
 test -x ~/.data/lib/python && PYTHONPATH=~/.data/lib/python:$PYTHONPATH
 
-EDITOR="$HOME/bin/e"
+EDITOR=vi
+if [ -x `which vim` ]; then
+	EDITOR=vim
+	alias vi=vim
+fi
 VISUAL=$EDITOR
 export EDITOR VISUAL
 

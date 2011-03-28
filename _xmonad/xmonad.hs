@@ -5,13 +5,9 @@ import System.Exit
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
-import System.Environment (getEnvironment)
-import Data.Maybe (fromMaybe)
-
-getWorkspaces host = case host of
-	"kropotkin" -> withScreens' 2 ["web","2","3","4","5","6","7","8","9","music"] ["mail","2","3","4","5","6","7","8","9","twit"]
-	"goldman" -> ["web","mail","3","4","5","6","7","8","twit","music"]
-	_ -> ["1","2","3","4","5","6","7","8","9","0"]
+getWorkspaces n = case n of
+	2 -> withScreens' 2 ["web","2","3","4","5","6","7","8","9","music"] ["mail","2","3","4","5","6","7","8","9","twit"]
+	1 -> withScreens 1 ["web","mail","3","4","5","6","7","8","twit","music"]
 	where
 		withScreens' 2 x y = flatten (zip (map ("0_" ++) x) (map ("1_" ++) y)) -- HAX!
 		withScreens' _ _ _ = error "not implemented"
@@ -20,12 +16,11 @@ getWorkspaces host = case host of
 
 
 main = do
-	home   <- fmap (fromMaybe "/" . lookup "HOME") getEnvironment
-	host   <- fmap (fromMaybe "" . lookup "HOSTNAME") getEnvironment
+	nScreens <- countScreens
 	xmonad defaultConfig
 		{ modMask = mod4Mask -- Use Super instead of Alt
 		, terminal = "urxvtc"
-		, workspaces = getWorkspaces host
+		, workspaces = getWorkspaces nScreens
 		, keys = myKeys
 		} where
 

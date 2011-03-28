@@ -5,12 +5,29 @@ import System.Exit
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
-main = xmonad defaultConfig
-        { modMask = mod4Mask -- Use Super instead of Alt
-        , terminal = "urxvtc"
-	, workspaces = withScreens 2 (workspaces defaultConfig)
-	, keys = myKeys
-        } where
+import System.Environment (getEnvironment)
+import Data.Maybe (fromMaybe)
+
+getWorkspaces host = case host of
+	"kropotkin" -> withScreens' 2 ["web","2","3","4","5","6","7","8","9","music"] ["mail","2","3","4","5","6","7","8","9","twit"]
+	"goldman" -> ["web","mail","3","4","5","6","7","8","twit","music"]
+	_ -> ["1","2","3","4","5","6","7","8","9","0"]
+	where
+		withScreens' 2 x y = flatten (zip (map ("0_" ++) x) (map ("1_" ++) y)) -- HAX!
+		withScreens' _ _ _ = error "not implemented"
+		toList (x,y) = [x,y]
+		flatten l = concat (map toList l)
+
+
+main = do
+	home   <- fmap (fromMaybe "/" . lookup "HOME") getEnvironment
+	host   <- fmap (fromMaybe "" . lookup "HOSTNAME") getEnvironment
+	xmonad defaultConfig
+		{ modMask = mod4Mask -- Use Super instead of Alt
+		, terminal = "urxvtc"
+		, workspaces = getWorkspaces host
+		, keys = myKeys
+		} where
 
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf) -- launch a terminal
@@ -46,7 +63,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     --
 
     [((m .|. modm, k), windows $ onCurrentScreen f i)
-     | (i, k) <- zip (workspaces' conf) [xK_1 .. xK_9]
+     | (i, k) <- zip (workspaces' conf) ([xK_1 .. xK_9] ++ [xK_0])
      , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
 
     ++

@@ -5,22 +5,12 @@ import System.Exit
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
-getWorkspaces n = case n of
-	2 -> withScreens' 2 ["web","2","3","4","5","6","7","8","9","music"] ["mail","2","3","4","5","6","7","8","9","twit"]
-	1 -> withScreens 1 ["web","mail","3","4","5","6","7","8","twit","music"]
-	where
-		withScreens' 2 x y = flatten (zip (map ("0_" ++) x) (map ("1_" ++) y)) -- HAX!
-		withScreens' _ _ _ = error "not implemented"
-		toList (x,y) = [x,y]
-		flatten l = concat (map toList l)
-
-
 main = do
 	nScreens <- countScreens
 	xmonad defaultConfig
 		{ modMask = mod4Mask -- Use Super instead of Alt
 		, terminal = "urxvtc"
-		, workspaces = getWorkspaces nScreens
+		, workspaces = withScreens nScreens (map show ([1..9]++[0]))
 		, keys = myKeys
 		} where
 

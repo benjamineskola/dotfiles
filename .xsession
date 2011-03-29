@@ -23,7 +23,6 @@ esac
 
 xset r on
 unclutter &
-xscreensaver -nosplash &
 
 while true; do urxvtd -q -o; done &
 while ! pgrep urxvtd; do sleep 0.1; done

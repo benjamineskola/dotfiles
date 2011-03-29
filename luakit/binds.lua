@@ -58,26 +58,26 @@ add_binds("all", {
     but({},     8,  function (w) w:back()     end),
     but({},     9,  function (w) w:forward()  end),
 
-    -- Open link in new tab or navigate to selection
+    -- Open link in new window or navigate to selection
     but({},     2,  function (w, m)
         -- Ignore button 2 clicks in form fields
         if not m.context.editable then
-            -- Open hovered uri in new tab
+            -- Open hovered uri in new window
             local uri = w:get_current().hovered_uri
             if uri then
-                w:new_tab(uri, false)
-            else -- Open selection in current tab
+                window.new{w:search_open(uri)}
+            else -- Open selection in current window
                 uri = luakit.get_selection()
                 if uri then w:navigate(w:search_open(uri)) end
             end
         end
     end),
 
-    -- Open link in new tab when Ctrl-clicked.
+    -- Open link in new window when Ctrl-clicked.
     but({"Control"}, 1, function (w, m)
         local uri = w:get_current().hovered_uri
         if uri then
-            w:new_tab(uri, false)
+            window.new{w:search_open(uri)}
         end
     end),
 })
@@ -156,7 +156,7 @@ add_binds("normal", {
     key({},          "P",           function (w, m)
                                         local uri = luakit.get_selection()
                                         if not uri then w:error("Empty selection.") return end
-                                        for i = 1, m.count do w:new_tab(w:search_open(uri)) end
+                                        for i = 1, m.count do window.new{w:search_open(uri)} end
                                     end, {count = 1}),
 
     -- Yanking
@@ -170,10 +170,8 @@ add_binds("normal", {
     key({"Control"}, "a",           function (w)    w:navigate(w:inc_uri(1)) end),
     key({"Control"}, "x",           function (w)    w:navigate(w:inc_uri(-1)) end),
     buf("^o$",                      function (w, c) w:enter_cmd(":open ")    end),
-    buf("^t$",                      function (w, c) w:enter_cmd(":tabopen ") end),
     buf("^w$",                      function (w, c) w:enter_cmd(":winopen ") end),
     buf("^O$",                      function (w, c) w:enter_cmd(":open "    .. (w:get_current().uri or "")) end),
-    buf("^T$",                      function (w, c) w:enter_cmd(":tabopen " .. (w:get_current().uri or "")) end),
     buf("^W$",                      function (w, c) w:enter_cmd(":winopen " .. (w:get_current().uri or "")) end),
     buf("^,g$",                     function (w, c) w:enter_cmd(":open google ") end),
 
@@ -186,28 +184,10 @@ add_binds("normal", {
     key({"Control"}, "o",           function (w, m) w:back(m.count)    end),
     key({"Control"}, "i",           function (w, m) w:forward(m.count) end),
 
-    -- Tab
-    key({"Control"}, "Page_Up",     function (w)       w:prev_tab() end),
-    key({"Control"}, "Page_Down",   function (w)       w:next_tab() end),
-    key({"Control"}, "Tab",         function (w)       w:next_tab() end),
-    key({"Shift","Control"}, "Tab", function (w)       w:prev_tab() end),
-    buf("^gT$",                     function (w, b, m) w:prev_tab(m.count) end, {count=1}),
-    buf("^gt$",                     function (w, b, m) if not w:goto_tab(m.count) then w:next_tab() end end, {count=0}),
-
-    key({"Control"}, "t",           function (w)    w:new_tab(homepage) end),
-    key({"Control"}, "w",           function (w)    w:close_tab()       end),
-    key({},          "d",           function (w, m) for i=1,m.count do w:close_tab()      end end, {count=1}),
-
-    key({},          "<",           function (w, m) w.tabs:reorder(w:get_current(), w.tabs:current() - m.count) end, {count=1}),
-    key({},          ">",           function (w, m) w.tabs:reorder(w:get_current(), (w.tabs:current() + m.count) % w.tabs:count()) end, {count=1}),
-    key({"Mod1"},    "Page_Up",     function (w, m) w.tabs:reorder(w:get_current(), w.tabs:current() - m.count) end, {count=1}),
-    key({"Mod1"},    "Page_Down",   function (w, m) w.tabs:reorder(w:get_current(), (w.tabs:current() + m.count) % w.tabs:count()) end, {count=1}),
-
-    buf("^gH$",                     function (w, b, m) for i=1,m.count do w:new_tab(homepage) end end, {count=1}),
     buf("^gh$",                     function (w)       w:navigate(homepage) end),
 
-    -- Open tab from current tab history
-    buf("^gy$",                     function (w) w:new_tab(w:get_current().history or "") end),
+    -- Open window from current window history
+    buf("^gy$",                     function (w) window.new{w:get_current().uri or ""} end),
 
     key({},          "r",           function (w) w:reload() end),
     key({},          "R",           function (w) w:reload(true) end),
@@ -241,14 +221,6 @@ add_binds({"command", "search"}, {
     key({"Mod1"},    "b",       function (w) w:backward_word() end),
 })
 
--- Switching tabs with Mod1+{1,2,3,...}
-mod1binds = {}
-for i=1,10 do
-    table.insert(mod1binds,
-        key({"Mod1"}, tostring(i % 10), function (w) w.tabs:switch(i) end))
-end
-add_binds("normal", mod1binds)
-
 -- Command bindings which are matched in the "command" mode from text
 -- entered into the input bar.
 add_cmds({
@@ -263,7 +235,6 @@ add_cmds({
 
  -- cmd({command, alias1, ...}, function (w, arg, opts) .. end, opts),
  -- cmd("co[mmand]",            function (w, arg, opts) .. end, opts),
-    cmd("c[lose]",              function (w) w:close_tab() end),
     cmd("print",                function (w) w:eval_js("print()", "rc.lua") end),
     cmd("reload",               function (w) w:reload() end),
     cmd("restart",              function (w) w:restart() end),
@@ -274,7 +245,6 @@ add_cmds({
     cmd("inc[rease]",           function (w, a) w:navigate(w:inc_uri(tonumber(a) or 1)) end),
     cmd("o[pen]",               function (w, a) w:navigate(w:search_open(a)) end),
     cmd("scroll",               function (w, a) w:scroll_vert(a) end),
-    cmd("t[abopen]",            function (w, a) w:new_tab(w:search_open(a)) end),
     cmd("w[inopen]",            function (w, a) window.new{w:search_open(a)} end),
     cmd({"javascript",   "js"}, function (w, a) w:eval_js(a, "javascript") end),
 

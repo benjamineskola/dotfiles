@@ -1,4 +1,5 @@
-set -e
+# vim:ft=sh
+#set -e
 . $HOME/.environment
 
 setxkbmap -option compose:ralt,ctrl:nocaps gb

@@ -1,3 +1,4 @@
+! vim:ft=xdefaults
 ! .xresources: config for stuff old enough (or luddite enough) to still use it.
 
 URxvt*background: black

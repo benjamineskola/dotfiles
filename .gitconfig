@@ -1,3 +1,4 @@
+# vim:ft=gitconfig
 [alias]
 	st = status -sb
 	ci = commit

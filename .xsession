@@ -28,9 +28,10 @@ unclutter &
 while true; do urxvtd -q -o; done &
 while ! pgrep urxvtd; do sleep 0.1; done
 
-urxvtc -title "IRC" -e autossh -t jagger.subvert.org.uk -- '$SHELL' -ic irc &
-urxvtc -title "Mail" -e $SHELL -ic mutt &
-urxvtc -title "identi.ca" -e ttytter -apibase=http://identi.ca/api -authtype=basic -user=bma -ansi -wrap -readline -mentions &
-urxvtc -title "twitter" -e ttytter -user=bma -ansi -wrap -readline -mentions &
+urxvtc -title "IRC" -e autossh -t jagger.subvert.org.uk -- exec '\$SHELL' -ic 'irc' &
+urxvtc -title identi.ca -e ttytter -readline -ansi -wrap -authtype=basic -apibase=http://identi.ca/api -user=bma &
+urxvtc -title twitter -e ttytter -readline -ansi -wrap &
+urxvtc -title "Mail" -e mutt &
+urxvtc -title "News" -e rtin &
 
 exec xmonad

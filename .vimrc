@@ -10,3 +10,8 @@ set background=dark
 
 " /bin/sh is always POSIX, because what the fuck.
 let g:is_posix = 1
+
+let g:xterm16_colormap = 'soft'
+let g:xterm16_brightness = 'high'
+let &t_Co = 256
+colo xterm16

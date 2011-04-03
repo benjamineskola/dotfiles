@@ -7,7 +7,7 @@ set statusline=%<%f\ %h%m%y%r%=%-14.(%l,%c%V%)\ %P
 set laststatus=2
 set encoding=utf-8
 set background=dark
-set ignorecase smartcase
+set ignorecase smartcase hlsearch
 set number
 set pastetoggle=<F11>
 set showcmd
@@ -21,5 +21,8 @@ let g:xterm16_brightness = 'high'
 let &t_Co = 256
 colo xterm16
 
-nmap <Tab> :bnext<CR>
-nmap <S-Tab> :bprevious<CR>
+map <Tab> :bnext<CR>
+map <S-Tab> :bprevious<CR>
+
+map Y y$
+nmap <C-l> :nohl<CR>:redraw<CR>

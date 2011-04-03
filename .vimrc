@@ -12,6 +12,7 @@ set number
 set pastetoggle=<F11>
 set showcmd
 set wildmenu
+set t_ti= t_te=
 
 " /bin/sh is always POSIX, because what the fuck.
 let g:is_posix = 1

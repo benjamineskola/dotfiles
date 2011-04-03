@@ -5,7 +5,6 @@ URxvt*background: black
 URxvt*foreground: lightgrey
 URxvt*font: xft:DejaVu Sans Mono:pixelsize=12,xft:unifont
 URxvt*scrollBar: false
-URxvt*secondaryScreen: false
 URxvt*secondaryScroll: false
 URxvt*urgentOnBell: true
 URxvt*cutchars: '"'()*,<>[]{}|"'"

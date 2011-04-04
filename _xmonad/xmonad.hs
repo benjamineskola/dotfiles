@@ -38,8 +38,7 @@ getManageHook n = composeAll
 	, resource =? "spotify.exe"	--> doF (W.shift music)
 	, resource =? "explorer.exe"	--> doF (W.shift music)
 	] where
-		lastScreen = (show (n-1)) ++ "_"
 		mail = if n == 2 then "1_1" else "0_2"
-		twit = lastScreen ++ "9"
+		twit = "0_9"
 		web = "0_1"
 		music = "0_0"

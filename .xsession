@@ -29,6 +29,7 @@ while true; do urxvtd -q -o; done &
 while ! pgrep urxvtd; do sleep 0.1; done
 
 urxvtc -title "IRC" -e autossh -t jagger.subvert.org.uk -- exec '\$SHELL' -ic 'irc' &
+urxvtc -title "XMPP" -e autossh -t joni.subvert.org.uk -- exec '\$SHELL' -ic 'xmpp' &
 urxvtc -title identi.ca -e ttytter -readline -ansi -wrap -authtype=basic -apibase=http://identi.ca/api -user=bma &
 urxvtc -title twitter -e ttytter -readline -ansi -wrap &
 urxvtc -title "Mail" -e mutt &

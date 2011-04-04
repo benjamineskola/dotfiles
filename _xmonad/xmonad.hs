@@ -1,5 +1,6 @@
 import XMonad
 import XMonad.Layout.IndependentScreens
+import XMonad.Hooks.UrgencyHook
 
 import System.Exit
 import qualified XMonad.StackSet as W
@@ -7,7 +8,7 @@ import qualified Data.Map        as M
 
 main = do
 	nScreens <- countScreens
-	xmonad defaultConfig
+	xmonad $ withUrgencyHook dzenUrgencyHook { args = ["-bg", "darkred", "-xs", show nScreens, "-w", "200"] } $ defaultConfig
 		{ modMask = mod4Mask -- Use Super instead of Alt
 		, terminal = "urxvtc"
 		, workspaces = withScreens nScreens (map show ([1..9]++[0]))

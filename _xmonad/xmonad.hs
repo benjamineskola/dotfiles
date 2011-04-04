@@ -28,7 +28,8 @@ toAdd conf@(XConfig {XMonad.modMask = modm}) =
      , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
 
 getManageHook n = composeAll
-	[ className =? "MPlayer"        --> doFloat
+	[ className =? "MPlayer"	--> doFloat
+	, className =? "Xmessage"	--> doFloat
 	, title =? "IRC"	--> doF (W.shift mail)
 	, title =? "Mail"	--> doF (W.shift mail)
 	, title =? "News"	--> doF (W.shift mail)

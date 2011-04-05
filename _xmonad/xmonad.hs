@@ -8,7 +8,7 @@ import qualified Data.Map        as M
 
 main = do
 	nScreens <- countScreens
-	xmonad $ withUrgencyHook dzenUrgencyHook { args = ["-bg", "darkred", "-xs", show nScreens, "-w", "200"] } $ defaultConfig
+	xmonad $ withUrgencyHookC dzenUrgencyHook { args = ["-bg", "darkred", "-xs", show nScreens, "-w", "200"] } urgencyConfig { remindWhen = Every 5 } $ defaultConfig
 		{ modMask = mod4Mask -- Use Super instead of Alt
 		, terminal = "urxvtc"
 		, workspaces = withScreens nScreens (map show ([1..9]++[0]))

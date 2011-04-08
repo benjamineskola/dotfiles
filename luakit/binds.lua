@@ -184,6 +184,23 @@ add_binds("normal", {
     key({"Control"}, "o",           function (w, m) w:back(m.count)    end),
     key({"Control"}, "i",           function (w, m) w:forward(m.count) end),
 
+    -- Tab
+    key({"Control"}, "Page_Up",     function (w)       w:prev_tab() end),
+    key({"Control"}, "Page_Down",   function (w)       w:next_tab() end),
+    key({"Control"}, "Tab",         function (w)       w:next_tab() end),
+    key({"Shift","Control"}, "Tab", function (w)       w:prev_tab() end),
+    buf("^gT$",                     function (w, b, m) w:prev_tab(m.count) end, {count=1}),
+    buf("^gt$",                     function (w, b, m) if not w:goto_tab(m.count) then w:next_tab() end end, {count=0}),
+
+    key({"Control"}, "w",           function (w)    w:close_tab()       end),
+    key({},          "d",           function (w, m) for i=1,m.count do w:close_tab()      end end, {count=1}),
+
+    key({},          "<",           function (w, m) w.tabs:reorder(w:get_current(), w.tabs:current() - m.count) end, {count=1}),
+    key({},          ">",           function (w, m) w.tabs:reorder(w:get_current(), (w.tabs:current() + m.count) % w.tabs:count()) end, {count=1}),
+    key({"Mod1"},    "Page_Up",     function (w, m) w.tabs:reorder(w:get_current(), w.tabs:current() - m.count) end, {count=1}),
+    key({"Mod1"},    "Page_Down",   function (w, m) w.tabs:reorder(w:get_current(), (w.tabs:current() + m.count) % w.tabs:count()) end, {count=1}),
+
+    buf("^gH$",                     function (w, b, m) for i=1,m.count do window.new{homepage} end end, {count=1}),
     buf("^gh$",                     function (w)       w:navigate(homepage) end),
 
     -- Open window from current window history
@@ -221,6 +238,14 @@ add_binds({"command", "search"}, {
     key({"Mod1"},    "b",       function (w) w:backward_word() end),
 })
 
+-- Switching tabs with Mod1+{1,2,3,...}
+mod1binds = {}
+for i=1,10 do
+    table.insert(mod1binds,
+        key({"Mod1"}, tostring(i % 10), function (w) w.tabs:switch(i) end))
+end
+add_binds("normal", mod1binds)
+
 -- Command bindings which are matched in the "command" mode from text
 -- entered into the input bar.
 add_cmds({
@@ -235,6 +260,7 @@ add_cmds({
 
  -- cmd({command, alias1, ...}, function (w, arg, opts) .. end, opts),
  -- cmd("co[mmand]",            function (w, arg, opts) .. end, opts),
+    cmd("c[lose]",              function (w) w:close_tab() end),
     cmd("print",                function (w) w:eval_js("print()", "rc.lua") end),
     cmd("reload",               function (w) w:reload() end),
     cmd("restart",              function (w) w:restart() end),

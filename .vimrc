@@ -10,7 +10,6 @@ set showcmd
 set statusline=%<%f\ %h%m%y%r%=%-14.(%l,%c%V%)\ %P
 set t_ti= t_te=
 set wildmenu
-set t_ti= t_te=
 
 " appearance.
 set background=dark

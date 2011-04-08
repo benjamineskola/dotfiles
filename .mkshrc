@@ -27,7 +27,7 @@ alias feh="feh -FZ"
 alias df="df -P"
 alias tf="tail -F"
 
-alias apg="apg -n 1 -c /dev/urandom"
+alias apg="apg -a 1 -n 1 -c /dev/urandom"
 
 case $OSTYPE in
 	Linux)

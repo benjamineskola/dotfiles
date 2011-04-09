@@ -23,10 +23,9 @@ case $HOSTNAME in
 esac
 
 xset r on
-unclutter &
+xset b off
 
-while true; do urxvtd -q -o; done &
-while ! pgrep urxvtd; do sleep 0.1; done
+urxvtd -q -o -f
 
 urxvtc -title "IRC" -e autossh -t jagger.subvert.org.uk -- 'exec \$SHELL -ic "exec\ irc"' &
 urxvtc -title "XMPP" -e autossh -t joni.subvert.org.uk -- 'exec \$SHELL -ic "exec\ xmpp"' &

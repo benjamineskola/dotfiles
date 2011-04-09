@@ -4,3 +4,4 @@ private
 !_*
 _xmonad/*
 !_xmonad/*.hs
+_vim/.netrwhist

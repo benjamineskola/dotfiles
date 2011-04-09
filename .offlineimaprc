@@ -1,4 +1,4 @@
-# -*- conf -*-
+# vim:ft=dosini
 
 [general]
 accounts = Jagger

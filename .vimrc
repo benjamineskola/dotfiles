@@ -3,6 +3,7 @@ set backspace=indent,eol,start
 set encoding=utf-8
 set ignorecase smartcase hlsearch
 set laststatus=2
+set modeline
 set noexpandtab ts=8 sw=8
 set number
 set pastetoggle=<F11>

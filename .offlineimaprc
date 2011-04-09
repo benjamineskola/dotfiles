@@ -1,0 +1,23 @@
+# -*- conf -*-
+
+[general]
+accounts = Jagger
+ui = Noninteractive.Quiet
+metadata = ~/.cache/offlineimap
+
+[Account Jagger]
+localrepository = Local
+remoterepository = Remote
+
+[Repository Local]
+type = Maildir
+localfolders = ~/mail
+sep = /
+
+[Repository Remote]
+type = IMAP
+remotehost = mail.subvert.org.uk
+remoteuser = bma
+ssl = on
+preauthtunnel = ssh -i ~/.ssh/id_rsa_mail -q mail.subvert.org.uk '/home/bma/bin/maild'
+maxconnections = 3

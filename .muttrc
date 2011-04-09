@@ -1,0 +1,33 @@
+set folder=$HOME/mail
+set spoolfile=+INBOX
+set record=+archive
+set mbox=+archive
+
+set hostname=bma.cx
+set sort=threads
+set edit_headers
+set nomark_old
+set nohelp
+
+mailboxes =INBOX =lists =mendeley =mendeley/social =mendeley/redalert =mendeley/trac `echo ~/mail/lists/*/|sed "s,$HOME/mail/,=,g"`
+unmailboxes =lists/new =lists/cur =lists/tmp
+
+color attachment brightyellow default
+color hdrdefault cyan default
+color indicator brightyellow red
+color markers red default
+color quoted brightblue default
+color quoted1 red default
+color quoted2 green default
+color quoted3 magenta default
+color signature cyan default
+color status yellow blue
+color tree red default
+
+color index brightblue default '~P' # from me
+color index cyan default '~p' # personal
+color index brightcyan default '~G' # PGP
+color index brightred default '~F' # flagged
+color index green default '~Q' # replied
+color index brightwhite default '~N|~O' # new
+color index red default '~D' # deleted

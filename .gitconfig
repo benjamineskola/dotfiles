@@ -6,10 +6,10 @@
 	l = log -M --graph --decorate --pretty=oneline --abbrev-commit
 	la = log -M --graph --all --decorate --pretty=oneline --abbrev-commit
 	pp = "!sh -c 'if [ $0 = sh ];then i="";else i=$0;fi; git pull $i $@ && git push $i $@'"
-	dw = diff --color-words
-	dc = diff --cached
-	dwc= diff --cached --color-words
-	not-in = "!sh -c 'for i in `git branch|grep [0-9]|cut -c 2-`; do l=`git log $0..$i|wc -l`; if [ $l -gt 0 ]; then echo $i; fi; done'"
+	di = diff -M
+	dw = diff --color-words -M
+	dc = diff --cached -M
+	dwc= diff --cached --color-words -M
 [color]
 	diff = auto
 	status = auto

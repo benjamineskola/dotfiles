@@ -30,10 +30,10 @@ toAdd conf@(XConfig {XMonad.modMask = modm}) =
 getManageHook n = composeAll
 	[ className =? "MPlayer"	--> doFloat
 	, className =? "Xmessage"	--> doFloat
-	, title =? "IRC"	--> doF (W.shift mail)
+	, title =? "IRC"	--> doF (W.shift chat)
 	, title =? "Mail"	--> doF (W.shift mail)
 	, title =? "News"	--> doF (W.shift mail)
-	, title =? "XMPP"	--> doF (W.shift mail)
+	, title =? "XMPP"	--> doF (W.shift chat)
 	, title =? "identi.ca"	--> doF (W.shift twit)
 	, title =? "twitter"	--> doF (W.shift twit)
 	, className =? "luakit"	--> doF (W.shift web)
@@ -42,8 +42,9 @@ getManageHook n = composeAll
 	, resource =? "explorer.exe"	--> doF (W.shift music)
 	] where
 		mail = if n == 2 then "1_1" else "0_2"
+		chat = if n == 2 then "0_1" else "0_3"
 		twit = "0_9"
-		web = "0_1"
+		web = if n == 2 then "0_2" else "0_1"
 		music = "0_0"
 
 uh n = withUrgencyHookC dzenUrgencyHook { args = ["-bg", "darkred", "-xs", n, "-w", "200"] } urgencyConfig { remindWhen = Every 5 }

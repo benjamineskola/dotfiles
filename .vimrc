@@ -1,4 +1,4 @@
-set autoindent smartindent
+set autoindent
 set backspace=indent,eol,start
 set encoding=utf-8
 set ignorecase smartcase hlsearch

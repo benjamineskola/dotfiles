@@ -29,3 +29,14 @@ map <S-Tab> :bprevious<CR>
 
 map Y y$
 nmap <C-l> :nohl<CR>:redraw<CR>
+
+" emacs-like editing in command mode
+cnoremap <C-A> <Home>
+cnoremap <C-B> <Left>
+cnoremap <C-D> <Del>
+cnoremap <C-E> <End>
+cnoremap <C-F> <Right>
+cnoremap <C-N> <Down>
+cnoremap <C-P> <Up>
+cnoremap <Esc><C-B> <S-Left>
+cnoremap <Esc><C-F> <S-Right>

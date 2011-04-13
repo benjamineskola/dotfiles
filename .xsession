@@ -22,6 +22,7 @@ case $HOSTNAME in
 		;;
 esac
 
+xrdb $XDG_CONFIG_HOME/xdefaults
 xset r on
 xset b off
 

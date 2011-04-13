@@ -29,8 +29,8 @@ urxvtd -q -o -f
 
 urxvtc -title "IRC" -e autossh -t jagger.subvert.org.uk -- 'exec \$SHELL -ic "exec\ irc"' &
 urxvtc -title "XMPP" -e autossh -t joni.subvert.org.uk -- 'exec \$SHELL -ic "exec\ xmpp"' &
-urxvtc -title identi.ca -e ttytter -readline -ansi -wrap -authtype=basic -apibase=http://identi.ca/api -user=bma &
-urxvtc -title twitter -e ttytter -readline -ansi -wrap &
+urxvtc -title identi.ca -e ttytter -readline -ansi -wrap -mentions -authtype=basic -apibase=http://identi.ca/api -user=bma &
+urxvtc -title twitter -e ttytter -readline -ansi -wrap -mentions &
 urxvtc -title "Mail" -e mutt &
 urxvtc -title "News" -e emacs -nw -f gnus &
 

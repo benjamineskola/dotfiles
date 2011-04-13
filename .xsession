@@ -32,6 +32,6 @@ urxvtc -title "XMPP" -e autossh -t joni.subvert.org.uk -- 'exec \$SHELL -ic "exe
 urxvtc -title identi.ca -e ttytter -readline -ansi -wrap -authtype=basic -apibase=http://identi.ca/api -user=bma &
 urxvtc -title twitter -e ttytter -readline -ansi -wrap &
 urxvtc -title "Mail" -e mutt &
-urxvtc -title "News" -e rtin &
+urxvtc -title "News" -e emacs -nw -f gnus &
 
 exec xmonad

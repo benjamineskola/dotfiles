@@ -5,3 +5,8 @@ private
 _xmonad/*
 !_xmonad/*.hs
 _vim/.netrwhist
+enchant
+gtk-2.0
+_ssh/known_hosts
+_ssh/id_*
+_mozilla

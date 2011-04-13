@@ -8,17 +8,15 @@ eval `keychain --eval --dir $XDG_CACHE_HOME/keychain`
 ssh-add -l > /dev/null || ssh-add
 
 case $HOSTNAME in
-	murphy|bma-desktop)
+	murphy|kropotkin)
+		xrandr --output DVI-0 --right-of HDMI-0
 		xmodmap -e "pointer = 1 8 3 4 5 6 7 2 9 10 11 12 13"
-		XID=`xinput list|grep Logitech|awk '/pointer/{sub(/^.*id=/,""); sub(/[ \t].*$/, ""); print}'`
+		XID=`xinput list|egrep '(Logitech|USB Trackball)'|awk '/pointer/{sub(/^.*id=/,""); sub(/[ \t].*$/, ""); print}'`
 		if [ "x$XID" != "x" ]; then
 			xinput set-prop $XID "Evdev Wheel Emulation Button" 9
 			xinput set-prop $XID "Evdev Wheel Emulation" 254
 			xinput set-prop $XID "Evdev Wheel Emulation Inertia" 10
 		fi
-		;;
-	page)
-		synclient TapButton1=1 TapButton2=1 TapButton3=1
 		;;
 esac
 

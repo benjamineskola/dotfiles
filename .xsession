@@ -34,4 +34,6 @@ urxvtc -title twitter -e ttytter -readline -ansi -wrap &
 urxvtc -title "Mail" -e mutt &
 urxvtc -title "News" -e emacs -nw -f gnus &
 
+remind -z1 -k'xmessage "%s" &' ~/.reminders &
+
 exec xmonad

@@ -1,0 +1,6 @@
+include "%S/en_US.UTF-8/Compose"
+<Multi_key> <M> <U> : "無"
+<Multi_key> <minus> <greater> : "→"
+<Multi_key> <less> <minus> : "←"
+<Multi_key> <caret> <caret> : "↑"
+<Multi_key> <v> <v> : "↓"

@@ -1,8 +1,9 @@
-office chainsaw files office newoffice wby-ldap
+all lan hadoop staging live backup datamining solr mongo monitor misc ny
+lan chainsaw files office newoffice wby-ldap wby-puppet tequila qa-dashboard novm1
 oldhadoop hadoop1 hadoop2 hadoop3 hadoop4 hadoop5
 newhadoop hadoop6 hadoop7 hadoop8 hadoop9 hadoop10 hadoop11 hadoop12 hadoop13 hadoop14 hadoop15
 hadoop oldhadoop newhadoop
-staging staging-http staging-mysql
+staging staging-http staging-mysql staging-puppet
 staging-http http1.staging http2.staging
 staging-mysql mysql-m-a.staging mysql-m-b.staging mysql-s-a.staging mysql-s-b.staging
 live live-http live-mysql
@@ -16,5 +17,6 @@ hbase datamining2 datamining3 datamining4
 solr solr1 solr2 solr3
 mongo mongo1 mongo2
 monitor monitor1 monitor2 monitor3
-misc dev1 services vpn1
+misc dev1 services vpn1 mx1
+ny us-ny-proxy1 us-ny-proxy2 us-ny-vpn1
 switches uk-tata-switch1 uk-gs2-int1 192.168.1.1 192.168.1.5 backup-switch 192.168.11.2

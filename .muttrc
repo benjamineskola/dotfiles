@@ -17,7 +17,7 @@ alternates (bma|benjamin.a.lee)@mendeley.com
 alternates (benjamin.(alee|dent)|bmalee)@.*plymouth.ac.uk
 alternates bele@(.*\.)?(pml|npm).ac.uk
 
-folder-hook .		set from="bma@bma.cx"
+folder-hook .		set from="bma@bma.cx" record="+archive" signature="~/.signature"
 folder-hook =mendeley	set from="bma@mendeley.com" record="+mendeley/archive" signature="~/.signature.work"
 
 color attachment brightyellow default

@@ -52,3 +52,12 @@ map <PageUp> <nop>
 map <PageDown> <nop>
 map <Home> <nop>
 map <End> <nop>
+
+imap <up> <Esc>
+imap <down> <Esc>
+imap <left> <Esc>
+imap <right> <Esc>
+imap <PageUp> <Esc>
+imap <PageDown> <Esc>
+imap <Home> <Esc>
+imap <End> <Esc>

@@ -19,5 +19,5 @@ type = IMAP
 remotehost = mail.subvert.org.uk
 remoteuser = bma
 ssl = on
-preauthtunnel = ssh -i ~/.ssh/id_rsa_mail -q mail.subvert.org.uk '/home/bma/bin/maild'
+preauthtunnel = ssh -i ~/.private/ssh/id_rsa_mail -q mail.subvert.org.uk '/home/bma/bin/maild'
 maxconnections = 3

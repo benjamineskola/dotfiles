@@ -8,5 +8,7 @@ _vim/.netrwhist
 enchant
 gtk-2.0
 _ssh/known_hosts
+_ssh/authorized_keys
 _ssh/id_*
+!_ssh/id_rsa*.pub
 _mozilla

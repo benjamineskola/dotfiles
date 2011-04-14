@@ -1,3 +1,6 @@
 [submodule "urxvt"]
 	path = urxvt
 	url = git://github.com/muennich/urxvt-perls.git
+[submodule "_vim/nerdcommenter"]
+	path = _vim/nerdcommenter
+	url = git://github.com/scrooloose/nerdcommenter.git

@@ -24,6 +24,8 @@ syntax on
 filetype plugin indent on
 let g:is_posix = 1 " /bin/sh is always POSIX, because what the fuck.
 
+let g:NERDSpaceDelims = 1
+
 map <Tab> :bnext<CR>
 map <S-Tab> :bprevious<CR>
 

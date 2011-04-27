@@ -1,7 +1,7 @@
 set autoindent
 set backspace=indent,eol,start
 set encoding=utf-8
-set ignorecase smartcase hlsearch
+set ignorecase smartcase hlsearch incsearch
 set laststatus=2
 set modeline
 set noexpandtab ts=8 sw=8
@@ -61,3 +61,8 @@ imap <PageUp> <Esc>
 imap <PageDown> <Esc>
 imap <Home> <Esc>
 imap <End> <Esc>
+
+nnoremap / /\v
+vnoremap / /\v
+
+nnoremap ; :

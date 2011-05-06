@@ -38,6 +38,8 @@ getManageHook n = composeAll
 	, title =? "twitter"	--> doF (W.shift twit)
 	, className =? "luakit"	--> doF (W.shift web)
 	, className =? "Www"	--> doF (W.shift web)
+	, className =? "Chrome"	--> doF (W.shift web)
+	, className =? "Firefox"	--> doF (W.shift web)
 	, resource =? "spotify.exe"	--> doF (W.shift music)
 	, resource =? "explorer.exe"	--> doF (W.shift music)
 	] where

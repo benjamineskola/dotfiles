@@ -17,10 +17,4 @@ URxvt.keysym.Mod4-u: perl:url-select:select_next
 URxvt.urlLauncher: www
 URxvt.underlineURLs: true
 
-UXTerm*foreground: lightgrey
-UXTerm*background: black
-UXTerm*metaSendsEscape: true
-UXTerm*faceName: DejaVu Sans Mono
-UXTerm*faceSize: 8
-
 xpdf.initialZoom: width

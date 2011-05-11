@@ -24,6 +24,8 @@ syntax on
 filetype plugin indent on
 let g:is_posix = 1 " /bin/sh is always POSIX, because what the fuck.
 
+au FileType python set expandtab ts=4 sw=4 sts=4
+
 let g:NERDSpaceDelims = 1
 
 map <Tab> :bnext<CR>

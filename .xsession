@@ -37,7 +37,6 @@ else
 fi
 
 urxvtc -title "IRC" -e autossh -t jagger.subvert.org.uk -- 'exec \$SHELL -ic "exec\ irc"' &
-urxvtc -title "XMPP" -e autossh -t joni.subvert.org.uk -- 'exec \$SHELL -ic "exec\ xmpp"' &
 urxvtc -title twitter   -e ttytter -rc=$HOME/.private/ttytterrc-twitter -lat=$LAT -long=$LON &
 urxvtc -title identi.ca -e ttytter -rc=$HOME/.private/ttytterrc-identica -lat=$LAT -long=$LON &
 urxvtc -title "Mail" -e mutt &

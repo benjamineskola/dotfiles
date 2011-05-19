@@ -7,13 +7,12 @@ import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
 main = do
-	nScreens <- countScreens
 	xmonad $ uh "1" $ uh "2" $ defaultConfig
 		{ modMask = mod4Mask -- Use Super instead of Alt
 		, terminal = "urxvtc"
-		, workspaces = withScreens nScreens (map show ([1..9]++[0]))
+		, workspaces = map show ([1..9]++[0])
 		, keys = newKeys
-		, manageHook = getManageHook nScreens
+		, manageHook = myManageHook
 		} where
 
 defKeys    = keys defaultConfig
@@ -22,12 +21,9 @@ newKeys x  = foldr (uncurry M.insert) (delKeys x) (toAdd    x)
 toRemove XConfig{modMask = modm} = [
 	(modm .|. shiftMask, xK_p     )
 	]
-toAdd conf@(XConfig {XMonad.modMask = modm}) =
-    [((m .|. modm, k), windows $ onCurrentScreen f i)
-     | (i, k) <- zip (workspaces' conf) ([xK_1 .. xK_9] ++ [xK_0])
-     , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
+toAdd XConfig{modMask = modm} = []
 
-getManageHook n = composeAll
+myManageHook = composeAll
 	[ className =? "MPlayer"	--> doFloat
 	, className =? "Xmessage"	--> doFloat
 	, title =? "IRC"	--> doF (W.shift chat)
@@ -43,10 +39,10 @@ getManageHook n = composeAll
 	, resource =? "spotify.exe"	--> doF (W.shift music)
 	, resource =? "explorer.exe"	--> doF (W.shift music)
 	] where
-		mail = if n == 2 then "1_1" else "0_2"
+		web = "1"
+		mail = "2"
 		chat = mail
-		twit = "0_9"
-		web = "0_1"
-		music = "0_0"
+		twit = "9"
+		music = "0"
 
 uh n = withUrgencyHookC dzenUrgencyHook { args = ["-bg", "darkred", "-xs", n, "-w", "200"] } urgencyConfig { remindWhen = Every 5 }

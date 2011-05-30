@@ -1,6 +1,8 @@
 ; -*-Emacs-Lisp-*-
 ; vim:ft=lisp
 
+(shell-command "(cd ~/.data && git pull)")
+
 (add-to-list 'load-path "~/.config/emacs/")
 (setq indent-tabs-mode t)
 (setq tab-width 8)
@@ -42,3 +44,19 @@
 
 (autoload 'w3m "w3m" "Interface for w3m on Emacs." t)
 (require 'w3m)
+
+(defun commit-newsrc-to-git ()
+  (interactive)
+  (shell-command "(cd ~/.data && git add -u news && git commit -q -m 'updating gnus.' && git push -q)"))
+
+(defun save-and-commit ()
+  (interactive)
+  (gnus-group-save-newsrc)
+  (commit-newsrc-to-git))
+
+(add-hook 'gnus-after-exiting-gnus-hook 'commit-newsrc-to-git)
+(add-hook 'gnus-after-getting-new-news-hook 'save-and-commit)
+
+(add-hook 'gnus-group-mode-hook
+	  '(lambda ()
+	     (local-set-key "s" 'save-and-commit)))

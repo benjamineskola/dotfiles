@@ -21,7 +21,13 @@ newKeys x  = foldr (uncurry M.insert) (delKeys x) (toAdd    x)
 toRemove XConfig{modMask = modm} = [
 	(modm .|. shiftMask, xK_p     )
 	]
-toAdd XConfig{modMask = modm} = []
+toAdd conf@(XConfig {XMonad.modMask = modm}) = [
+	((m .|. modm, k), windows $ f i)
+	| (i, k) <- zip (XMonad.workspaces conf) ([xK_1 .. xK_9] ++ [xK_0])
+	, (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]
+	]
+
+
 
 myManageHook = composeAll
 	[ className =? "MPlayer"	--> doFloat

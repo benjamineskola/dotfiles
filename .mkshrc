@@ -55,7 +55,7 @@ case $OSTYPE in
 		;;
 esac
 
-PS1="\$(whoami)@${HOSTNAME}:\$(test \$PWD = \$HOME && echo '~' || basename \${PWD})> "
+PS1="\$(whoami)@${HOSTNAME}:\$(test \"\$PWD\" = \$HOME && echo '~' || basename \"\${PWD}\")> "
 PS1INIT="$(print \\001)"
 PS1INIT="$PS1INIT$(print \\r)$PS1INIT"
 ESC=$(print \\033)

@@ -1,5 +1,9 @@
 require ["fileinto", "regex", "envelope", "subaddress", "variables"];
 
+if header :contains "X-Spam-Flag" "YES" {
+	fileinto "spam-possible";
+}
+
 if header :regex "List-Id" ".*" {
 	if not header :contains "List-Id" "mendeley.com" {
 		if allof (not envelope :detail "to" "lists",

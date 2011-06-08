@@ -31,6 +31,9 @@ alias apg="apg -a 1 -n 1 -c /dev/urandom"
 alias rename=$(which rename) # mksh has a builtin 'rename'; alias will override builtin
 alias pt="pstree -auUlp"
 
+rem(){(cd ~; $(which rem) $@)}
+alias remcal='rem -cuc -w$COLUMNS'
+
 case $OSTYPE in
 	Linux)
 		if [[ -e /etc/debian_version ]]; then

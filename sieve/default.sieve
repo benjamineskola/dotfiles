@@ -1,3 +1,5 @@
+# vim:ft=sieve
+
 require ["fileinto", "regex", "envelope", "subaddress", "variables"];
 
 if header :contains "X-Spam-Flag" "YES" {

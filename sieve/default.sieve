@@ -18,15 +18,14 @@ if header :regex "List-Id" ".*" {
 if anyof (envelope :detail "to" "mendeley",
           envelope :detail "to" "redalert") {
 
-	if header :contains "to" "bma+bytemark@mendeley.com" {
+	if header :contains "to" ["bma+bytemark@mendeley.com", "bma+exonetric@mendeley.com"] {
 		keep; stop;
 	}
 
 	if anyof (allof (header :contains "from" "Cron Daemon",
 	                 header :contains "subject" ["/usr/lib/nagios/plugins/check_http","munin-cron"]),
-	          header :contains "to" ["sysadmin+reports","dm-failure-reports","web-failure-reports","squid-performance-reports"],
-	          header :regex "from" "nagios@monitor.*\.mendeley\.com",
-	          header :regex "subject" "^Debian package updates?") {
+	          header :contains "to" ["sysadmin+reports","dm-failure-reports","web-failure-reports","squid-performance-reports", "weeklystats", "dailystats"],
+	          header :regex "subject" ["^Debian package updates?", "/var/www/htdocs/crons/cron.php"]) {
 		discard; stop;
 	}
 
@@ -48,4 +47,3 @@ if anyof (envelope :detail "to" "mendeley",
 	fileinto "mendeley";
 	stop;
 }
-

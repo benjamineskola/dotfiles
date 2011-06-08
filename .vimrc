@@ -25,6 +25,7 @@ filetype plugin indent on
 let g:is_posix = 1 " /bin/sh is always POSIX, because what the fuck.
 
 au FileType python set expandtab ts=4 sw=4 sts=4
+au FileType puppet set expandtab ts=2 sw=2 sts=2
 
 let g:NERDSpaceDelims = 1
 

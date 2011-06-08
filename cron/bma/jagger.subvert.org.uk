@@ -1,2 +1,2 @@
-@daily          (cd ~/mail; git pull && git add archive && git commit -a -m update. && git push; git repack -a -d; git relink--default) > /dev/null
-@hourly         ~/bin/feedread
+@hourly	$HOME/bin/gettweet >> $HOME/.data/tweets && sort $HOME/.data/tweets | uniq -f 1 | sponge $HOME/.data/tweets
+@hourly	feedread -t 4

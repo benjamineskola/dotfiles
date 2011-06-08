@@ -1,1 +1,3 @@
 extra_cluster_file = ~/.config/clusters
+terminal = urxvt
+always_tile = no

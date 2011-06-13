@@ -1,5 +1,11 @@
 # vim:ft=sh
 
+if [ -z "$TMUX" ]; then
+	pgrep tmux || tmux start-server
+	tmux ls|grep "^$TERM"|grep -v attached|cut -d: -f1|xargs -n1 -r tmux kill-session -t
+	exec tmux -2 new-session -s $TERM-$(date +%s)-$$
+fi
+
 . ~/.environment
 
 # define useful aliases for ls based on which *nix we're on.
@@ -60,17 +66,17 @@ case $OSTYPE in
 		;;
 esac
 
-PS1="\$(whoami)@${HOSTNAME}:\$(test \"\$PWD\" = \$HOME && echo '~' || basename \"\${PWD}\")> "
+PS1="\$(whoami)@${HOSTNAME}:\$(test \"\$PWD\" = \$HOME && echo '~' || basename \"\${PWD}\")"
 PS1INIT="$(print \\001)"
 PS1INIT="$PS1INIT$(print \\r)$PS1INIT"
 ESC=$(print \\033)
 BEL=$(print \\007)
 case $TERM in
 	xterm*|rxvt*|screen*)
-		PS1="${PS1INIT}${ESC}]0;${PS1}${BEL}${ESC}[0;01;1m${PS1}${ESC}[0m"
+		PS1="${PS1INIT}${ESC}]0;${PS1}${BEL}${ESC}[0;01;1m${PS1}> ${ESC}[0m"
 	;;
 	*)
-		PS1="${PS1INIT}${ESC}[0;01;1m${PS1}${ESC}[0m"
+		PS1="${PS1INIT}${ESC}[0;01;1m${PS1}> ${ESC}[0m"
 	;;
 esac
 

@@ -1,14 +1,25 @@
 # vim:ft=sh
 
-HOSTNAME=`hostname -f | cut -d . -f 1`
-DOMAIN=`hostname -f | cut -d . -f 2-`
-FQDN=$HOSTNAME.$DOMAIN
-export HOSTNAME DOMAIN FQDN
-
 # store the name of the operating system and architecture.
 OSTYPE=`uname -s`
 MACHTYPE=`uname -m`
 export OSTYPE MACHTYPE
+
+case $OSTYPE in
+	Linux)
+		# don't assume that hostname without arguments returns a FQDN
+		HOSTNAME=`hostname -f | cut -d . -f 1`
+		DOMAIN=`hostname -f | cut -d . -f 2-`
+		;;
+	*)
+		# freebsd defaults to including the domain; solaris only supports this
+		HOSTNAME=`hostname | cut -d . -f 1`
+		DOMAIN=`hostname | cut -d . -f 2-`
+		;;
+esac
+
+FQDN=$HOSTNAME.$DOMAIN
+export HOSTNAME DOMAIN FQDN
 
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_CONFIG_HOME=$HOME/.config

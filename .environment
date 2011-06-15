@@ -12,7 +12,7 @@ case $OSTYPE in
 		;;
 	*)
 		# freebsd defaults to including the domain; solaris does not support excluding it.
-		FQDN=$(hostname -f)
+		FQDN=$(hostname)
 		;;
 esac
 

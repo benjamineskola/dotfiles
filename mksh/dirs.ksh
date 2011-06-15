@@ -167,6 +167,12 @@ function pushd {
 		done
 		cd_csh "${DIRSTACK[0]}" || return 1
 	else
+		if ! [[ -e "$1" ]]; then
+			print -u2 "pushd: No such file or directory: $1"
+			(( isnoglob )) || set +o noglob
+			return 1
+		fi
+
 		set -A DIRSTACK -- placeholder "${DIRSTACK[@]}"
 		cd_csh "$1" || return 1
 	fi

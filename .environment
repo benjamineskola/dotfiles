@@ -7,18 +7,17 @@ export OSTYPE MACHTYPE
 
 case $OSTYPE in
 	Linux)
-		# don't assume that hostname without arguments returns a FQDN
-		HOSTNAME=`hostname -f | cut -d . -f 1`
-		DOMAIN=`hostname -f | cut -d . -f 2-`
+		# don't assume that hostname without arguments returns a FQDN.
+		FQDN=$(hostname -f)
 		;;
 	*)
-		# freebsd defaults to including the domain; solaris only supports this
-		HOSTNAME=`hostname | cut -d . -f 1`
-		DOMAIN=`hostname | cut -d . -f 2-`
+		# freebsd defaults to including the domain; solaris does not support excluding it.
+		FQDN=$(hostname -f)
 		;;
 esac
 
-FQDN=$HOSTNAME.$DOMAIN
+HOSTNAME=${FQDN%%.*}
+DOMAIN=${FQDN#*.}
 export HOSTNAME DOMAIN FQDN
 
 export XDG_CACHE_HOME=$HOME/.cache

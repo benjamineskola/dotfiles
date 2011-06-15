@@ -1,11 +1,5 @@
 # vim:ft=sh
 
-if [ -z "$TMUX" ] && [ "$0" = "mksh" -o "$0" = "-mksh" ]; then
-	pgrep tmux || tmux start-server
-	tmux ls|grep "^$TERM"|grep -v attached|cut -d: -f1|xargs -n1 -r tmux kill-session -t
-	exec tmux -2 new-session -s $TERM-$(date +%s)-$$
-fi
-
 . ~/.environment
 
 # define useful aliases for ls based on which *nix we're on.

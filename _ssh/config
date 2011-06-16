@@ -1,37 +1,20 @@
-Host *.subvert.org.uk subvert.org.uk joni jagger murphy bma-desktop uk-tata-switch1 uk-gs2-int1 us-ny-switch1 10.0.0.1 10.0.13.1 10.2.0.1 192.168.1.1 192.168.1.5 192.168.1.4 192.168.11.2 switch*
-	 User bma
-
-Host jagger jagger.subvert.org.uk subvert.org.uk 80.68.88.238 2001:41c8:1:55a8::2
-	HostName jagger.subvert.org.uk
-
-Host vmadmin jagger.vmadmin.bytemark.co.uk
-	HostName jagger.vmadmin.bytemark.co.uk
+Host jagger.vmadmin.bytemark.co.uk
 	User jagger
 
-Host bolan
-	HostName bolan.subvert.org.uk
-
 Host *.freeshell.org freeshell.org
-	#HostName tty.freeshell.org
+	HostName tty.freeshell.org
 	User bmalee
 	CheckHostIP no
 
 Host git.subvert.org.uk github.com
 	IdentityFile ~/.private/ssh/id_rsa_git
 
-Host joni joni.subvert.org.uk joni.lan 93.97.240.50 2001:470:1f08:bfd::2
-	HostName joni.subvert.org.uk
-
 Host kropotkin
-	User bma
 	ProxyCommand ssh vpn.mendeley.com ssh london.office nc %h %p
 
 Host *
-	User benjamin.a.lee
+	User bma
 	CheckHostIP yes
 	Compression yes
 	ForwardAgent yes
-	#ForwardX11 no
-	#ForwardX11Trusted no
 	HashKnownHosts no
-	ServerAliveInterval 5

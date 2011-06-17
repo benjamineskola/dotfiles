@@ -34,6 +34,9 @@ alias pt="pstree -auUlp"
 rem(){(cd ~; $(which rem) $@)}
 alias remcal='rem -cuc -w$COLUMNS'
 
+sudo(){ command sudo $SHELL -ic "$*"; }
+redo(){ cmd=$(fc -l -n -1); echo $cmd; sudo "$cmd"; }
+
 case $OSTYPE in
 	Linux)
 		if [[ -e /etc/debian_version ]]; then

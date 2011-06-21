@@ -59,7 +59,9 @@ myManageHook = composeAll
 	, className =? "luakit"	--> doF (W.shift web)
 	, className =? "Www"	--> doF (W.shift web)
 	, className =? "Chrome"	--> doF (W.shift web)
+	, className =? "Chromium"	--> doF (W.shift web)
 	, className =? "Firefox"	--> doF (W.shift web)
+	, className =? "Iceweasel"	--> doF (W.shift web)
 	, resource =? "spotify.exe"	--> doF (W.shift music)
 	, resource =? "explorer.exe"	--> doF (W.shift music)
 	] where

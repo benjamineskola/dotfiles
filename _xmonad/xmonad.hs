@@ -1,15 +1,20 @@
 import XMonad
 
-import XMonad.Util.Run (spawnPipe)
 import XMonad.Hooks.DynamicLog
-import XMonad.Hooks.UrgencyHook
 import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.UrgencyHook
+import XMonad.Layout.IM
+import XMonad.Layout.NoBorders
+import XMonad.Layout.Reflect
+import XMonad.Util.Run (spawnPipe)
 
+import Data.Ratio ((%))
 import System.Exit
 import System.IO
-import qualified XMonad.StackSet as W
-import qualified Data.Map        as M
 import System.Posix.Unistd (getSystemID, nodeName)
+
+import qualified Data.Map        as M
+import qualified XMonad.StackSet as W
 
 main = do
 	host <- fmap nodeName getSystemID
@@ -23,12 +28,13 @@ main = do
 		, keys = newKeys
 		, manageHook = myManageHook <+> manageDocks
 		, logHook = myLogHook d
-		, layoutHook = avoidStruts $ (tall ||| Mirror tall ||| Full)
+		, layoutHook = avoidStruts $ (tall ||| Mirror tall ||| noBorders Full ||| cssh)
 		, normalBorderColor  = "#303030"
 		, focusedBorderColor = "#909090"
 		} where
 
-tall = Tall 1 (3/100) (1/2)
+cssh = reflectVert (Mirror (gridIM (1%10) (ClassName "Cssh")))
+tall = smartBorders (Tall 1 (3/100) (1/2))
 defKeys    = keys defaultConfig
 delKeys x  = foldr M.delete           (defKeys x) (toRemove x)
 newKeys x  = foldr (uncurry M.insert) (delKeys x) (toAdd    x)
@@ -69,7 +75,6 @@ myLogHook h = dynamicLogWithPP $ defaultPP
     , ppHiddenNoWindows = dzenColor "#606060" "" . pad
     , ppLayout          = dzenColor "#909090" "" . pad
     , ppUrgent          = dzenColor "#000000" "#ff0000" . pad . dzenStrip
-    , ppOrder		= \(ws:_:t:_) -> [ws,t]
     , ppTitle           = shorten 100
     , ppWsSep           = ""
     , ppSep             = " "

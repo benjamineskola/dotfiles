@@ -1,20 +1,34 @@
 import XMonad
-import XMonad.Layout.IndependentScreens
+
+import XMonad.Util.Run (spawnPipe)
+import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.UrgencyHook
+import XMonad.Hooks.ManageDocks
 
 import System.Exit
+import System.IO
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
+import System.Posix.Unistd (getSystemID, nodeName)
 
 main = do
-	xmonad $ uh "1" $ uh "2" $ defaultConfig
+	host <- fmap nodeName getSystemID
+	let width = if host == "goldman" then "640" else "960"
+	d <- spawnPipe ("dzen2 -w " ++ width ++ " -ta l")
+	spawn ("conky -c ~/.config/conky/dzen | sed -ur 's/\\)([0-9])%/)0\\1%/g' | dzen2 -w "++width++" -x "++width++" -ta r")
+	xmonad $ withUrgencyHook NoUrgencyHook $ defaultConfig
 		{ modMask = mod4Mask -- Use Super instead of Alt
 		, terminal = "urxvtc"
 		, workspaces = map show ([1..9]++[0])
 		, keys = newKeys
-		, manageHook = myManageHook
+		, manageHook = myManageHook <+> manageDocks
+		, logHook = myLogHook d
+		, layoutHook = avoidStruts $ (tall ||| Mirror tall ||| Full)
+		, normalBorderColor  = "#303030"
+		, focusedBorderColor = "#909090"
 		} where
 
+tall = Tall 1 (3/100) (1/2)
 defKeys    = keys defaultConfig
 delKeys x  = foldr M.delete           (defKeys x) (toRemove x)
 newKeys x  = foldr (uncurry M.insert) (delKeys x) (toAdd    x)
@@ -26,8 +40,6 @@ toAdd conf@(XConfig {XMonad.modMask = modm}) = [
 	| (i, k) <- zip (XMonad.workspaces conf) ([xK_1 .. xK_9] ++ [xK_0])
 	, (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]
 	]
-
-
 
 myManageHook = composeAll
 	[ className =? "MPlayer"	--> doFloat
@@ -51,4 +63,15 @@ myManageHook = composeAll
 		twit = "9"
 		music = "0"
 
-uh n = withUrgencyHookC dzenUrgencyHook { args = ["-bg", "darkred", "-xs", n, "-w", "200"] } urgencyConfig { remindWhen = Every 5 }
+myLogHook h = dynamicLogWithPP $ defaultPP
+    { ppCurrent         = dzenColor "#303030" "#909090" . pad
+    , ppHidden          = dzenColor "#909090" "" . pad
+    , ppHiddenNoWindows = dzenColor "#606060" "" . pad
+    , ppLayout          = dzenColor "#909090" "" . pad
+    , ppUrgent          = dzenColor "#000000" "#ff0000" . pad . dzenStrip
+    , ppOrder		= \(ws:_:t:_) -> [ws,t]
+    , ppTitle           = shorten 100
+    , ppWsSep           = ""
+    , ppSep             = " "
+    , ppOutput          = hPutStrLn h
+    }

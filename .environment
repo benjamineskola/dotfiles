@@ -1,24 +1,14 @@
 # vim:ft=sh
 
+FQDN=$(hostname -f || hostname) # on solaris, hostname -f won't work
+HOSTNAME=${FQDN%%.*}
+DOMAIN=${FQDN#*.}
+export HOSTNAME DOMAIN FQDN
+
 # store the name of the operating system and architecture.
 OSTYPE=`uname -s`
 MACHTYPE=`uname -m`
 export OSTYPE MACHTYPE
-
-case $OSTYPE in
-	Linux)
-		# don't assume that hostname without arguments returns a FQDN.
-		FQDN=$(hostname -f)
-		;;
-	*)
-		# freebsd defaults to including the domain; solaris does not support excluding it.
-		FQDN=$(hostname)
-		;;
-esac
-
-HOSTNAME=${FQDN%%.*}
-DOMAIN=${FQDN#*.}
-export HOSTNAME DOMAIN FQDN
 
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_CONFIG_HOME=$HOME/.config

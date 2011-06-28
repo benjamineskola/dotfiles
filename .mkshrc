@@ -63,7 +63,7 @@ case $OSTYPE in
 		;;
 esac
 
-PS1='${USER}@${HOSTNAME}:$(basename ${PWD/$HOME/~})'
+PS1='${USER}@${HOSTNAME}:$(basename "${PWD/$HOME/~}")'
 case $TERM in
 	xterm*|rxvt*|screen*)
 		PS1=$'\1\r\1\e]0;'${PS1}$'\7\e[0;01;1m\1'${PS1}$'> \1\e[0m\1'

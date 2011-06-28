@@ -30,7 +30,7 @@ else
 	LON=-0.0303
 fi
 
-urxvtc -title "IRC" -e autossh -t jagger.subvert.org.uk -- 'exec \$SHELL -ic "exec\ irc\ $(hostname|cut -d. -f1)"' &
+urxvtc -title "IRC" -e autossh -t jagger.subvert.org.uk -- 'exec \$SHELL -ic "exec\ irc\ $HOSTNAME"' &
 urxvtc -title twitter   -e ttytter -rc=$HOME/.private/ttytterrc-twitter -lat=$LAT -long=$LON &
 urxvtc -title identi.ca -e ttytter -rc=$HOME/.private/ttytterrc-identica -lat=$LAT -long=$LON &
 urxvtc -title "Mail" -e mutt &

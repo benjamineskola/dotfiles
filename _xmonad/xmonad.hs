@@ -4,6 +4,7 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.UrgencyHook
 import XMonad.Layout.IM
+import XMonad.Layout.GridVariants
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Reflect
 import XMonad.Util.Run (spawnPipe)
@@ -33,7 +34,7 @@ main = do
 		, focusedBorderColor = "#909090"
 		} where
 
-cssh = reflectVert (Mirror (gridIM (1%10) (ClassName "Cssh")))
+cssh = reflectVert (Mirror (withIM (1%10) (ClassName "Cssh") (Grid (4/3))))
 tall = smartBorders (Tall 1 (3/100) (1/2))
 defKeys    = keys defaultConfig
 delKeys x  = foldr M.delete           (defKeys x) (toRemove x)
@@ -44,7 +45,12 @@ toRemove XConfig{modMask = modm} = [
 toAdd conf@(XConfig {XMonad.modMask = modm}) = [
 	((m .|. modm, k), windows $ f i)
 	| (i, k) <- zip (XMonad.workspaces conf) ([xK_1 .. xK_9] ++ [xK_0])
-	, (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]
+	, (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]] ++
+	[
+	  ((modm .|. shiftMask, xK_equal), sendMessage $ IncMasterCols 1)
+	, ((modm .|. shiftMask, xK_minus), sendMessage $ IncMasterCols (-1))
+	, ((modm .|. controlMask,  xK_equal), sendMessage $ IncMasterRows 1)
+	, ((modm .|. controlMask,  xK_minus), sendMessage $ IncMasterRows (-1))
 	]
 
 myManageHook = composeAll

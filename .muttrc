@@ -11,7 +11,7 @@ set nohelp
 
 set header_cache=$XDG_CACHE_HOME/mutt/
 
-mailboxes =INBOX =lists =mendeley =mendeley/social =mendeley/redalert =mendeley/trac `echo ~/mail/lists/*/|sed "s,$HOME/mail/,=,g"`
+mailboxes =INBOX =lists =feeds =mendeley =mendeley/social =mendeley/redalert =mendeley/trac `echo ~/mail/lists/*/|sed "s,$HOME/mail/,=,g"`
 unmailboxes =lists/new =lists/cur =lists/tmp
 
 alternates (bma|benjamin.alee|ben)@(bma.cx|subvert.org.uk|bmalee.eu|benalee.co.uk)

@@ -5,6 +5,7 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.UrgencyHook
 import XMonad.Layout.IM
 import XMonad.Layout.GridVariants
+import XMonad.Layout.Named
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Reflect
 import XMonad.Util.Run (spawnPipe)
@@ -29,13 +30,15 @@ main = do
 		, keys = newKeys
 		, manageHook = myManageHook <+> manageDocks
 		, logHook = myLogHook d
-		, layoutHook = avoidStruts $ (tall ||| Mirror tall ||| noBorders Full ||| cssh)
+		, layoutHook = avoidStruts $ (tall ||| wide ||| noBorders Full ||| cssh)
 		, normalBorderColor  = "#303030"
 		, focusedBorderColor = "#909090"
 		} where
 
-cssh = reflectVert (Mirror (withIM (1%10) (ClassName "Cssh") (Grid (4/3))))
-tall = smartBorders (Tall 1 (3/100) (1/2))
+cssh = named "Cssh" $ reflectVert $ Mirror $ withIM (1%10) (ClassName "Cssh") $ Grid (4/3)
+tall = smartBorders $ Tall 1 (3/100) (1/2)
+wide = named "Wide" $ Mirror tall
+
 defKeys    = keys defaultConfig
 delKeys x  = foldr M.delete           (defKeys x) (toRemove x)
 newKeys x  = foldr (uncurry M.insert) (delKeys x) (toAdd    x)
@@ -81,9 +84,9 @@ myLogHook h = dynamicLogWithPP $ defaultPP
     { ppCurrent         = dzenColor "#303030" "#909090" . pad
     , ppHidden          = dzenColor "#909090" "" . pad
     , ppHiddenNoWindows = dzenColor "#606060" "" . pad
-    , ppLayout          = dzenColor "#909090" "" . pad
-    , ppUrgent          = dzenColor "#000000" "#ff0000" . pad . dzenStrip
-    , ppTitle           = shorten 100
+    , ppLayout          = dzenColor "#909090" ""
+    , ppUrgent          = dzenColor "#000000" "#ff0000" . dzenStrip
+    , ppTitle           = shorten 100 . pad
     , ppWsSep           = ""
     , ppSep             = " "
     , ppOutput          = hPutStrLn h

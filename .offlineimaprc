@@ -2,7 +2,7 @@
 
 [general]
 accounts = Jagger
-ui = Noninteractive.Quiet
+ui = quiet
 metadata = ~/.cache/offlineimap
 
 [Account Jagger]

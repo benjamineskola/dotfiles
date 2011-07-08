@@ -34,8 +34,8 @@ alias pt="pstree -auUlp"
 rem(){(cd ~; $(which rem) $@)}
 alias remcal='rem -cuc -w$COLUMNS'
 
-sudo(){ command sudo $SHELL -ic "$*"; }
-redo(){ cmd=$(fc -l -n -1); echo $cmd; sudo "$cmd"; }
+alias sudo='sudo '
+redo(){ fc -e "sed -i\"''\" 's/^/sudo '/"; }
 
 case $OSTYPE in
 	Linux)

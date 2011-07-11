@@ -22,7 +22,7 @@ main = do
 	host <- fmap nodeName getSystemID
 	let width = if host == "goldman" then "640" else "960"
 	d <- spawnPipe ("dzen2 -w " ++ width ++ " -ta l")
-	spawn ("conky -c ~/.config/conky/dzen | sed -ur 's/\\)([0-9])%/)0\\1%/g' | dzen2 -w "++width++" -x "++width++" -ta r")
+	spawn ("status | dzen2 -w "++width++" -x "++width++" -ta r")
 	xmonad $ withUrgencyHook NoUrgencyHook $ defaultConfig
 		{ modMask = mod4Mask -- Use Super instead of Alt
 		, terminal = "urxvtc"

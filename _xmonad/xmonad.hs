@@ -8,6 +8,8 @@ import XMonad.Layout.GridVariants
 import XMonad.Layout.Named
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Reflect
+import XMonad.Prompt
+import XMonad.Prompt.Shell
 import XMonad.Util.Run (spawnPipe)
 
 import Data.Ratio ((%))
@@ -44,6 +46,7 @@ delKeys x  = foldr M.delete           (defKeys x) (toRemove x)
 newKeys x  = foldr (uncurry M.insert) (delKeys x) (toAdd    x)
 toRemove XConfig{modMask = modm} = [
 	(modm .|. shiftMask, xK_p     )
+	, (modm, xK_p     )
 	]
 toAdd conf@(XConfig {XMonad.modMask = modm}) = [
 	((m .|. modm, k), windows $ f i)
@@ -54,6 +57,8 @@ toAdd conf@(XConfig {XMonad.modMask = modm}) = [
 	, ((modm .|. shiftMask, xK_minus), sendMessage $ IncMasterCols (-1))
 	, ((modm .|. controlMask,  xK_equal), sendMessage $ IncMasterRows 1)
 	, ((modm .|. controlMask,  xK_minus), sendMessage $ IncMasterRows (-1))
+
+	, ((modm, xK_r), shellPrompt defaultXPConfig)
 	]
 
 myManageHook = composeAll

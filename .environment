@@ -70,3 +70,14 @@ GIT_COMMITTER_EMAIL=$GIT_AUTHOR_EMAIL
 export GIT_AUTHOR_EMAIL GIT_COMMITTER_EMAIL
 
 export TODOTXT_CFG_FILE=${XDG_DATA_HOME}/todo/config
+
+if [ $HOSTNAME = "kropotkin" ]; then
+	# work
+	LAT=51.5223
+	LON=-0.10985
+else
+	# probably laptop, use home coords.
+	LAT=51.547
+	LON=-0.0303
+fi
+export LAT LON

@@ -20,16 +20,6 @@ xset b off
 
 urxvtd -q -o -f
 
-if [ $HOSTNAME = "kropotkin" ]; then
-	# work
-	LAT=51.5223
-	LON=-0.10985
-else
-	# probably laptop, use home coords.
-	LAT=51.547
-	LON=-0.0303
-fi
-
 urxvtc -title "IRC" -e autossh -t jagger.subvert.org.uk -- 'exec \$SHELL -ic "exec\ irc\ $HOSTNAME"' &
 urxvtc -title twitter   -e ttytter -rc=$HOME/.private/ttytterrc-twitter -lat=$LAT -long=$LON &
 urxvtc -title identi.ca -e ttytter -rc=$HOME/.private/ttytterrc-identica -lat=$LAT -long=$LON &

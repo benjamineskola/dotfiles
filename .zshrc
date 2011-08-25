@@ -1,7 +1,5 @@
 # vim:ft=sh
 
-. ~/.environment
-
 # define useful aliases for ls based on which *nix we're on.
 case $OSTYPE in
 	Linux)
@@ -34,8 +32,7 @@ alias pt="pstree -auUlp"
 rem(){(cd ~; $(which rem) $@)}
 alias remcal='rem -cuc -w$COLUMNS'
 
-alias sudo='sudo '
-redo(){ fc -e "sed -i\"''\" 's/^/sudo '/"; }
+sudo(){command sudo zsh -ic '"$0" "$@"' "$@";}
 
 case $OSTYPE in
 	Linux)
@@ -63,14 +60,14 @@ case $OSTYPE in
 		;;
 esac
 
-PS1='${USER}@${HOSTNAME}:$(basename "${PWD/$HOME/~}")'
+BASE_PROMPT="%n@%m:%~"
+PROMPT="%B$BASE_PROMPT>%b "
+TITLE_PROMPT=$BASE_PROMPT
 case $TERM in
 	xterm*|rxvt*|screen*)
-		PS1=$'\1\r\1\e]0;'${PS1}$'\7\e[0;01;1m\1'${PS1}$'> \1\e[0m\1'
-	;;
-	*)
-		PS1=$'\1\r\1\e[0;01;1m\1'$PS1$'> \1\e[0m\1'
-	;;
+		precmd() {print -Pn "\e]0;$TITLE_PROMPT\a";}
+		preexec() {TITLE_PROMPT="$BASE_PROMPT $1";}
+		;;
 esac
 
 if [[ `whoami` != root ]]; then
@@ -80,7 +77,7 @@ if [[ `whoami` != root ]]; then
 	fi
 fi
 
-HISTFILE=$XDG_CACHE_HOME/ksh_history
+HISTFILE=$XDG_CACHE_HOME/zsh_history
 HISTSIZE=819200
 SAVEHIST=819200
 
@@ -90,5 +87,3 @@ ulimit -c 0
 bindkey -e 2>/dev/null || true # ksh might be zsh which is braindead and assumes i want vi keybindings.
 
 mkdir -p ${XDG_CACHE_HOME}
-
-. ${XDG_CONFIG_HOME}/mksh/dirs.ksh

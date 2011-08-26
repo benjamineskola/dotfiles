@@ -77,7 +77,7 @@ if [ $HOSTNAME = "kropotkin" ]; then
 	LON=-0.10985
 else
 	# probably laptop, use home coords.
-	LAT=51.547
-	LON=-0.0303
+	LAT=51.54753
+	LON=-0.03003
 fi
 export LAT LON

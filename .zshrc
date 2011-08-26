@@ -26,13 +26,12 @@ alias df="df -P"
 alias tf="tail -F"
 
 alias apg="apg -a 1 -n 1 -c /dev/urandom"
-alias rename=$(which rename) # mksh has a builtin 'rename'; alias will override builtin
 alias pt="pstree -auUlp"
 
 rem(){(cd ~; $(which rem) $@)}
 alias remcal='rem -cuc -w$COLUMNS'
 
-sudo(){command sudo zsh -ic '"$0" "$@"' "$@";}
+sudo(){command sudo $SHELL -ic '"$0" "$@"' "$@";}
 
 case $OSTYPE in
 	Linux)
@@ -52,7 +51,10 @@ case $OSTYPE in
 		else
 			alias ack="ack -a"
 		fi
-		[[ -x `which bsdtar` ]] && alias tar=bsdtar && alias unzip="tar xf"
+		if [[ -x `which bsdtar` ]]; then
+			alias tar=bsdtar
+			alias unzip="tar xf"
+		fi
 		;;
 	FreeBSD)
 		eval `lesspipe.sh`
@@ -80,10 +82,25 @@ fi
 HISTFILE=$XDG_CACHE_HOME/zsh_history
 HISTSIZE=819200
 SAVEHIST=819200
+setopt nohist_beep hist_ignore_all_dups share_history inc_append_history
 
+setopt check_jobs nohup
+setopt nobeep nonomatch
+
+if [[ `whoami` != root ]]; then
+	autoload -U compinit
+	compinit
+	zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+fi
+
+bindkey -e
 stty stop undef
 ulimit -c 0
 
-bindkey -e 2>/dev/null || true # ksh might be zsh which is braindead and assumes i want vi keybindings.
+bindkey '\e[7~' beginning-of-line
+bindkey '\e[8~' end-of-line
+
+# Remove / from wordchars, so ^W kills only one path element at a time.
+WORDCHARS=${WORDCHARS/\//}
 
 mkdir -p ${XDG_CACHE_HOME}

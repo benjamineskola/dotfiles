@@ -15,8 +15,6 @@ alias ll='ls -l'
 alias la='ls -A'
 alias lal='ls -lA'
 alias lsd='ls -d'
-
-alias rem='rem -qg'
 alias w3m='w3m -F -v'
 
 alias grep='egrep'
@@ -28,10 +26,10 @@ alias tf="tail -F"
 alias apg="apg -a 1 -n 1 -c /dev/urandom"
 alias pt="pstree -auUlp"
 
-rem(){(cd ~; $(which rem) $@)}
+rem(){ (cd ~; $(which rem) -qg $@); }
 alias remcal='rem -cuc -w$COLUMNS'
 
-sudo(){command sudo $SHELL -ic '"$0" "$@"' "$@";}
+sudo(){ command sudo $SHELL -ic '"$0" "$@"' "$@"; }
 
 case $OSTYPE in
 	Linux)
@@ -67,8 +65,8 @@ PROMPT="%B$BASE_PROMPT>%b "
 TITLE_PROMPT=$BASE_PROMPT
 case $TERM in
 	xterm*|rxvt*|screen*)
-		precmd() {print -Pn "\e]0;$TITLE_PROMPT\a";}
-		preexec() {TITLE_PROMPT="$BASE_PROMPT $1";}
+		precmd() { print -Pn "\e]0;$TITLE_PROMPT\a"; }
+		preexec() { TITLE_PROMPT="$BASE_PROMPT $1"; }
 		;;
 esac
 

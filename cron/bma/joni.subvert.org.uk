@@ -1,3 +1,5 @@
+*/15 * * * *	chronic $HOME/bin/dotfiles-pull 600
+
 32 * * * *	rsync -a --delete --exclude private.git -e "ssh -i /usr/home/bma/.ssh/id_rsa_rsync" jagger::repos/ repos/
 */15 * * * *	rsync -a --delete -e "ssh -i /usr/home/bma/.ssh/id_rsa_rsync" jagger::logs/ .data/irssi/logs/
-*/15 * * * *	offlineimap
+*/15 * * * *	pkill -9 -f "/usr/local/bin/offlineimap"; rm -f .cache/offlineimap/lock; offlineimap

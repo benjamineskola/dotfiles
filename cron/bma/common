@@ -1,3 +1,1 @@
 GIT_SSH=$HOME/bin/git-ssh-client
-
-*/10 * * * * $HOME/bin/online && chronic $HOME/bin/dotfiles-pull 600

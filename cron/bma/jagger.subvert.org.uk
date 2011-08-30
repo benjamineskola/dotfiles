@@ -1,2 +1,4 @@
+*/15 * * * *	chronic $HOME/bin/dotfiles-pull 600
+
 @hourly	$HOME/bin/gettweet >> $HOME/.data/tweets && sort $HOME/.data/tweets | uniq -f 1 | sponge $HOME/.data/tweets
 @hourly	feedread -t 4

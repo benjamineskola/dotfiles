@@ -1,2 +1,4 @@
-*/15 * * * *	online && offlineimap
+*/15 * * * *	online && chronic $HOME/bin/dotfiles-pull 600
+
+*/15 * * * *	pkill -9 -f "/usr/local/bin/offlineimap"; rm -f .cache/offlineimap/lock; online && offlineimap
 @daily		/usr/home/bma/bin/zsnapshot zroot

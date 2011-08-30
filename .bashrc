@@ -1,7 +1,7 @@
 # vim:ft=sh
 shell=$(which zsh)
-if [ -x "$shell" ]; then
-	if [ -n "$PS1" ]; then
+if [ -n "$PS1" ]; then
+	if [ -x "$shell" ]; then
 		SHELL=$shell
 		export SHELL
 		case $0 in

@@ -14,10 +14,9 @@ set wildmenu
 
 " appearance.
 set background=dark
-let g:xterm16_colormap = 'soft'
-let g:xterm16_brightness = 'high'
 let &t_Co = 256
-colo xterm16
+let g:solarized_termtrans = 1
+colo solarized
 syntax on
 
 " filetype stuff.

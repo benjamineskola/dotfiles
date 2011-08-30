@@ -1,5 +1,5 @@
 # vim:ft=sh
-#shell=$(which zsh)
+shell=$(which zsh)
 if [ -x "$shell" -a -n "$PS1" ]; then
 	SHELL=$shell
 	export SHELL

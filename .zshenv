@@ -63,7 +63,7 @@ case $DOMAIN in
 		GIT_AUTHOR_EMAIL=bma@mendeley.com
 		;;
 	*)
-		GIT_AUTHOR_EMAIL=bma@bma.cx
+		GIT_AUTHOR_EMAIL=bma@bma.li
 		;;
 esac
 GIT_COMMITTER_EMAIL=$GIT_AUTHOR_EMAIL

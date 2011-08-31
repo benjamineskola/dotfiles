@@ -1,0 +1,2 @@
+ssh-add -l > /dev/null || ssh-add
+mkdir -p ${XDG_CACHE_HOME}

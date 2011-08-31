@@ -11,6 +11,8 @@ if [ -n "$PS1" ]; then
 			exec $SHELL;;
 		esac
 	fi
-	. ./.zshenv
-	. ./.zshrc
+	. $HOME/.zshenv
+	. $XDG_CONFIG_HOME/aliases.sh
+	PS1='\u@\h:\w> '
+	. $HOME/.shrc
 fi

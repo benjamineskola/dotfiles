@@ -81,9 +81,3 @@ else
 	LON=-0.03003
 fi
 export LAT LON
-
-if [[ `whoami` != root ]]; then
-	if [[ -x `which keychain` ]]; then
-		eval `keychain --eval -q --dir $XDG_CACHE_HOME/keychain`
-	fi
-fi

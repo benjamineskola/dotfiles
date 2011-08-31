@@ -1,2 +1,7 @@
-ssh-add -l > /dev/null || ssh-add
+if [[ `whoami` != root ]]; then
+	if [[ -x `which keychain` ]]; then
+		eval `keychain --eval -q --dir $XDG_CACHE_HOME/keychain`
+		ssh-add -l > /dev/null || ssh-add
+	fi
+fi
 mkdir -p ${XDG_CACHE_HOME}

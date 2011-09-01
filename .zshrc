@@ -3,9 +3,13 @@
 . $XDG_CONFIG_HOME/aliases.sh
 
 _git_no_changes() { (git diff-index --quiet --cached HEAD --ignore-submodules -- && git diff-files --quiet --ignore-submodules;) >/dev/null 2>&1 }
+_git_origin_differs() {
+	r=$(git config "branch.$(git name-rev --name-only HEAD 2>/dev/null).remote")
+	[ $(git rev-parse HEAD ${r}/HEAD 2>&1|sort -u|wc -l) != 1 ]
+}
 _git_prompt_info() {
 	([ -d .git ] || git rev-parse --git-dir > /dev/null 2>&1) || return
-	b=$(git name-rev --name-only HEAD 2>/dev/null); test -n "$b" && (printf ":$b"; _git_no_changes || printf "!")
+	b=$(git name-rev --name-only HEAD 2>/dev/null); test -n "$b" && (printf ":$b"; _git_no_changes || printf "!"; _git_origin_differs && printf "?")
 }
 
 BASE_PROMPT="%n@%m:%~"

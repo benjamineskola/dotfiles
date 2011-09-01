@@ -2,12 +2,17 @@
 
 . $XDG_CONFIG_HOME/aliases.sh
 
+_git_no_changes() { (git diff-index --quiet --cached HEAD --ignore-submodules -- && git diff-files --quiet --ignore-submodules;) >/dev/null 2>&1 }
+_git_prompt_info() {
+	([ -d .git ] || git rev-parse --git-dir > /dev/null 2>&1) || return
+	b=$(git name-rev --name-only HEAD 2>/dev/null); test -n "$b" && (printf ":$b"; _git_no_changes || printf "!")
+}
+
 BASE_PROMPT="%n@%m:%~"
-PROMPT="%B$BASE_PROMPT>%b "
 TITLE_PROMPT=$BASE_PROMPT
 case $TERM in
 	xterm*|rxvt*|screen*)
-		precmd() { print -Pn "\e]0;$TITLE_PROMPT\a"; }
+		precmd() { PROMPT="%B$BASE_PROMPT$(_git_prompt_info)>%b "; print -Pn "\e]0;$TITLE_PROMPT\a"; }
 		preexec() { TITLE_PROMPT="$BASE_PROMPT $1"; }
 		;;
 esac

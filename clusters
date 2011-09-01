@@ -1,14 +1,16 @@
-all lan hadoop staging live backup datamining solr mongo monitor misc ny
-lan chainsaw files office newoffice wby-ldap wby-puppet tequila qa-dashboard novm1
+all lan hadoop staging live backup datamining solr mongo monitor misc redis memcache
+lan chainsaw files office newoffice qa-dashboard
+redis redis-a redis-b
+memcache memcache1 memcache2
 olddellhadoop hadoop1 hadoop2 hadoop3 hadoop4 hadoop5
-broadberryhadoop hadoop6 hadoop7 hadoop8 hadoop9 hadoop10 hadoop11 hadoop12 hadoop13 hadoop14 hadoop15
-newdellhadoop hadoop16 hadoop17 hadoop18 hadoop19 hadoop20 hadoop21 hadoop22 hadoop23 hadoop24 hadoop25
+broadberryhadoop hadoop6 hadoop7 hadoop8 hadoop9 hadoop11 hadoop12 hadoop13 hadoop14
+newdellhadoop hadoop16 hadoop21 hadoop22 hadoop23 hadoop24 hadoop25
 hadoop olddellhadoop broadberryhadoop newdellhadoop
-staging staging-http staging-mysql staging-puppet
-staging-http http1.staging http2.staging
-staging-mysql mysql-m-a.staging mysql-m-b.staging mysql-s-a.staging mysql-s-b.staging
+staging staging-http staging-mysql stag-puppet
+staging-http stag-http1 stag-http2
+staging-mysql stag-mysql-m-a stag-mysql-m-b stag-mysql-s-a stag-mysql-s-b
 live live-http live-mysql
-live-http http1.live http2.live http3.live
+live-http http1 http2 http3 ec2dura
 live-mysql mysql-m-a.live mysql-m-b.live mysql-s-a.live mysql-s-b.live
 backup backup1 mysqlb1 mysqlb2
 datamining datamining1 hbase dm-serv-live dm-serv-staging
@@ -17,7 +19,7 @@ dm-serv-staging datamining7 datamining8
 hbase datamining2 datamining3 datamining4
 solr solr1 solr2 solr3
 mongo mongo1 mongo2
-monitor monitor1 monitor2 monitor3
-misc dev1 services vpn1 mx1
-ny us-ny-proxy1 us-ny-proxy2 us-ny-vpn1
-switches uk-tata-switch1 uk-gs2-int1 192.168.1.1 192.168.1.5 backup-switch 192.168.11.2
+monitor monitor1 monitor2
+misc dev1 services mx1 util1 util2 trac
+#ny us-ny-proxy1 us-ny-proxy2 us-ny-vpn1
+#switches uk-tata-switch1 uk-gs2-int1 192.168.1.1 192.168.1.5 backup-switch 192.168.11.2

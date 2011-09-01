@@ -22,22 +22,4 @@ alternates bele@(.*\.)?(pml|npm).ac.uk
 folder-hook .		set from="bma@bma.cx" record="+archive" signature="~/.signature"
 folder-hook =mendeley	set from="bma@mendeley.com" record="+mendeley/archive" signature="~/.signature.work"
 
-color attachment brightyellow default
-color hdrdefault cyan default
-color indicator brightyellow red
-color markers red default
-color quoted brightblue default
-color quoted1 red default
-color quoted2 green default
-color quoted3 magenta default
-color signature cyan default
-color status yellow blue
-color tree red default
-
-color index brightblue default '~P' # from me
-color index cyan default '~p' # personal
-color index brightcyan default '~G' # PGP
-color index brightred default '~F' # flagged
-color index green default '~Q' # replied
-color index brightwhite default '~N|~O' # new
-color index red default '~D' # deleted
+source .config/mutt/colours

@@ -14,5 +14,4 @@ if [ -n "$PS1" ]; then
 	. $HOME/.zshenv
 	. $XDG_CONFIG_HOME/aliases.sh
 	PS1='\u@\h:\w> '
-	. $HOME/.shrc
 fi

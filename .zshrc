@@ -36,4 +36,10 @@ bindkey '\e[8~' end-of-line
 # Remove / from wordchars, so ^W kills only one path element at a time.
 WORDCHARS=${WORDCHARS/\//}
 
-. $HOME/.shrc
+if [[ `whoami` != root ]]; then
+	if [[ -x `which keychain` ]]; then
+		eval `keychain --eval -q --dir $XDG_CACHE_HOME/keychain`
+		ssh-add -l > /dev/null || ssh-add
+	fi
+fi
+mkdir -p ${XDG_CACHE_HOME}

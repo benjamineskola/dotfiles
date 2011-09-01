@@ -32,6 +32,8 @@ alias remcal='rem -cuc -w$COLUMNS'
 
 sudo(){ command sudo $SHELL -ic '"$0" "$@"' "$@"; }
 
+deadlinks(){ i="$1"; test -n "$i" || i=.; find -L "$i" -type l; }
+
 case $OSTYPE in
 	Linux)
 		if [[ -e /etc/debian_version ]]; then

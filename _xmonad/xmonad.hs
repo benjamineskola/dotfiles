@@ -33,8 +33,6 @@ main = do
 		, manageHook = myManageHook <+> manageDocks
 		, logHook = myLogHook d
 		, layoutHook = avoidStruts $ (tall ||| wide ||| noBorders Full ||| cssh)
-		, normalBorderColor  = "#303030"
-		, focusedBorderColor = "#909090"
 		} where
 
 cssh = named "Cssh" $ reflectVert $ Mirror $ withIM (1%10) (ClassName "Cssh") $ Grid (4/3)

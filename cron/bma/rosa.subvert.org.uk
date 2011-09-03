@@ -1,0 +1,1 @@
+*/15 * * * *	eval $(cat .cache/keychain/rosa-sh) && chronic $HOME/bin/dotfiles-pull 600

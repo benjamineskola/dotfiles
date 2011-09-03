@@ -1,1 +1,1 @@
-*/15 * * * *	eval $(cat .cache/keychain/rosa-sh) && chronic $HOME/bin/dotfiles-pull 600
+*/10 * * * *	cd src/bma.cx && git pull && jekyll

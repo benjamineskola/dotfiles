@@ -1,0 +1,1 @@
+07,37 * * * *	eval $(cat .cache/keychain/$HOSTNAME-sh) && chronic /usr/home/bma/bin/dotfiles-pull

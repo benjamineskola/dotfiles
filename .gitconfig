@@ -15,8 +15,10 @@
 	status = auto
 	branch = auto
 [merge]
-	tool = vimdiff3
-[mergetool "vimdiff3"]
-	cmd = vim -f -d -c \"wincmd J\" \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
+	tool = threesome
+
+[mergetool "threesome"]
+	cmd = "vim -f $BASE $LOCAL $REMOTE $MERGED -c 'ThreesomeInit'"
+	trustExitCode = true
 [push]
 	default = tracking

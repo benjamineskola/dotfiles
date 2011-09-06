@@ -1,9 +1,12 @@
 [submodule "urxvt"]
 	path = urxvt
 	url = git://github.com/muennich/urxvt-perls.git
-[submodule "_vim/nerdcommenter"]
+[submodule "_vim/bundle/nerdcommenter"]
 	path = _vim/nerdcommenter
 	url = git://github.com/scrooloose/nerdcommenter.git
-[submodule "_vim/vim-colors-solarized"]
+[submodule "_vim/bundle/vim-colors-solarized"]
 	path = _vim/vim-colors-solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
+[submodule "_vim/bundle/pathogen"]
+	path = _vim/bundle/pathogen
+	url = https://github.com/tpope/vim-pathogen.git

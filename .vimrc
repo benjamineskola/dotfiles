@@ -1,3 +1,7 @@
+runtime bundle/pathogen/autoload/pathogen.vim
+call pathogen#infect()
+call pathogen#helptags()
+
 set autoindent
 set backspace=indent,eol,start
 set encoding=utf-8
@@ -68,7 +72,3 @@ nnoremap / /\v
 vnoremap / /\v
 
 nnoremap ; :
-
-runtime bundle/pathogen/autoload/pathogen.vim
-call pathogen#infect()
-call pathogen#helptags()

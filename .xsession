@@ -9,7 +9,7 @@ ssh-add -l > /dev/null || ssh-add
 
 case $HOSTNAME in
 	kropotkin)
-		xrandr --output DVI-I_2/digital --right-of DVI-D_1
+		xrandr --output DVI-I_2/digital --right-of DVI-I_1/digital
 		xmodmap -e "pointer = 1 8 3 4 5 6 7 2 9 10 11 12 13"
 		;;
 esac

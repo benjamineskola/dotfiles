@@ -1,6 +1,6 @@
 # vim:ft=sh
 #set -e
-. $HOME/.environment
+. $HOME/.zshenv
 
 setxkbmap -option compose:ralt,ctrl:nocaps gb
 

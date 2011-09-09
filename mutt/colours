@@ -24,7 +24,7 @@
 # base03, bg, black, any of the non brights
 
 # basic colors ---------------------------------------------------------
-color normal        brightyellow    default         
+color normal        default         default
 color error         red             default         
 color tilde         black           default         
 color message       cyan            default         

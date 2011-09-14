@@ -38,6 +38,8 @@ map <S-Tab> :bprevious<CR>
 map Y y$
 nmap <C-l> :nohl<CR>:redraw<CR>
 
+command W w !sudo tee % > /dev/null
+
 " emacs-like editing in command mode
 cnoremap <C-A> <Home>
 cnoremap <C-B> <Left>

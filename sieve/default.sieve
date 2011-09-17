@@ -26,7 +26,7 @@ if anyof (envelope :detail "to" "mendeley",
 
 	if anyof (allof (header :contains "from" "Cron Daemon",
 	                 header :contains "subject" ["/usr/lib/nagios/plugins/check_http","munin-cron"]),
-	          header :contains "to" ["sysadmin+reports","dm-failure-reports","web-failure-reports","squid-performance-reports", "weeklystats", "dailystats"],
+	          header :contains "to" ["sysadmin+reports","dm-failure-reports","web-failure-reports","squid-performance-reports", "weeklystats", "dailystats", "monthlystats"],
 	          header :regex "subject" ["^Debian package updates?", "/var/www/htdocs/crons/cron.php"]) {
 		discard; stop;
 	}

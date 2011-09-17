@@ -31,6 +31,10 @@ if anyof (envelope :detail "to" "mendeley",
 		discard; stop;
 	}
 
+	if header :contains ["to","cc"] ["london+funnelfantasy","london+activation","london+retention"] {
+		discard; stop;
+	}
+
 	if header :contains "from" "trac@office.mendeley.com" {
 		fileinto "mendeley/trac";
 		stop;

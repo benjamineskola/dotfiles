@@ -1,2 +1,2 @@
 */15 * * * *	pkill -9 -f "/usr/local/bin/offlineimap"; rm -f .cache/offlineimap/lock; online && offlineimap
-@daily		/usr/home/bma/bin/zsnapshot zroot
+0 * * * *	eval $(cat .cache/keychain/$HOSTNAME-sh) && rsync -a --delete --exclude .cache --exclude Cache --exclude media --exclude mail ~/ joni.subvert.org.uk:.data/goldman-backup/

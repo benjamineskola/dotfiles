@@ -1,4 +1,4 @@
-all lan hadoop staging live backup datamining solr mongo monitor misc redis memcache
+all lan hadoop staging live backup datamining solr mongo monitor misc redis memcache new-hbase
 lan chainsaw files office newoffice qa-dashboard tequila
 redis redis-a redis-b
 memcache memcache1 memcache2
@@ -17,6 +17,7 @@ datamining datamining1 hbase dm-serv-live dm-serv-staging datamining10
 dm-serv-live datamining5 datamining6
 dm-serv-staging datamining7 datamining8
 hbase datamining2 datamining3 datamining4
+new-hbase hbase1 hbase2 hbase3
 solr solr1 solr2 solr3
 mongo mongo1 mongo2
 monitor monitor1 monitor2

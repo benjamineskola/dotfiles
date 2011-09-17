@@ -4,6 +4,4 @@ if [ -n "$BASH_VERSION" ]; then
 	if [ -f "$HOME/.bashrc" ]; then
 		. "$HOME/.bashrc"
 	fi
-else
-	ENV=$HOME/.shrc; export ENV
 fi

@@ -1,1 +1,1 @@
-*/10 * * * *	cd src/bma.cx && git pull && jekyll
+*/10 * * * *	cd src/bma.li && git pull && jekyll

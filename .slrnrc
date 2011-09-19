@@ -8,8 +8,8 @@ server "nntp.olduse.net" ".data/newsrc-oldusenet"
 
 set editor_command "vim -c %d '%s'
 
-charset display utf8
-charset outgoing "utf8"
+charset display "UTF-8"
+charset outgoing "UTF-8"
 
 set display_cursor_bar 1
 set use_blink 1

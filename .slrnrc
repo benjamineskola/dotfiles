@@ -1,0 +1,63 @@
+set username "bma"
+set hostname "bma.li"
+set realname "Benjamin M. A'Lee"
+
+server "nntp.aioe.org" ".data/newsrc-usenet"
+server "news.gmane.org" ".data/newsrc-gmane"
+server "nntp.olduse.net" ".data/newsrc-oldusenet"
+
+set editor_command "vim -c %d '%s'
+
+charset display utf8
+charset outgoing "utf8"
+
+set display_cursor_bar 1
+set use_blink 1
+
+header_display_format -1 "%F%B%-5S [%10r]:%t%49s %-19g[%17d]"
+visible_headers "From:,Subject:,Newsgroups:,Followup-To:,Reply-To:,Date:"
+
+% colours
+color article           "lightgray"     "default"
+color author            "magenta"       "default"
+color boldtext          "brightblue"    "default" "bold"
+color box               "default"         "white"
+color cursor            "brightgreen"   "default"
+color date              "lightgray"     "default"
+color description       "lightgray"     "default"
+color error             "red"           "default" "blink"
+color frame             "yellow"        "blue"
+color from_myself       "brightmagenta" "default" "bold"
+color group             "lightgray"     "default" "bold"
+color grouplens_display "lightgray"     "default"
+color header_name       "green"         "default" "bold"
+color header_number     "green"         "default"
+color headers           "brightcyan"    "default"
+color neg_score         "green"         "default"
+color pos_score         "blue"          "default"
+color high_score        "red"           "default" "bold"
+color italicstext       "magenta"       "default" "bold"
+color menu              "yellow"        "black" "bold"
+color menu_press        "lightgray"     "yellow"
+color message           "lightgray"     "default"
+color normal            "lightgray"     "default"
+color pgpsignature      "lightgray"     "default"
+color quotes            "red"           "default"
+color quotes1           "magenta"       "default"
+color quotes2           "brown"         "default"
+color quotes3           "brown"         "default"
+color quotes4           "brown"         "default"
+color quotes5           "brown"         "default"
+color quotes6           "brown"         "default"
+color quotes7           "brown"         "default"
+color response_char     "green"         "default" "bold"
+color signature         "red"           "default"
+color selection         "yellow"        "blue"  "bold"
+color status            "yellow"        "black" "bold"
+color subject           "lightgray"     "default"
+color thread_number     "lightgray"     "default" "bold"
+color tilde             "green"         "default" "bold"
+color tree              "red"           "default" "bold"
+color underlinetext     "cyan"          "default" "underline"
+color url               "white"         "default" "bold"
+color verbatim          "green"         "default"

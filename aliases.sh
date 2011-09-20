@@ -27,17 +27,10 @@ alias tf="tail -F"
 alias apg="apg -a 1 -n 1 -c /dev/urandom"
 alias pt="pstree -auUlp"
 
+alias sudo="sudo "
+
 rem(){ (cd ~; $(which rem) -qg $@); }
 alias remcal='rem -cuc -w$COLUMNS'
-
-sudo(){
-	case "$1" in
-		-*)
-			command sudo $@;;
-		*)
-			command sudo $SHELL -ic '"$0" "$@"' "$@";;
-	esac
-}
 
 deadlinks(){ i="$1"; test -n "$i" || i=.; find -L "$i" -type l; }
 

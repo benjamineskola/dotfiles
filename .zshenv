@@ -81,3 +81,5 @@ else
 	LON=-0.03003
 fi
 export LAT LON
+
+export TZ=Europe/London

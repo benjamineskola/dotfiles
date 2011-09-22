@@ -18,3 +18,4 @@ Host *
 	Compression yes
 	ForwardAgent yes
 	HashKnownHosts no
+	ServerAliveInterval 300

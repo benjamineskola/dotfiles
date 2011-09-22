@@ -9,9 +9,6 @@ Host *.freeshell.org freeshell.org
 Host git.subvert.org.uk github.com
 	IdentityFile ~/.private/ssh/id_rsa_git
 
-Host kropotkin
-	ProxyCommand ssh vpn.mendeley.com ssh london.office nc %h %p
-
 Host *
 	User bma
 	CheckHostIP yes

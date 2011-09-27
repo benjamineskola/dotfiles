@@ -1,0 +1,2 @@
+*/30 * * * *	rsync -a jagger.subvert.org.uk::dns/ /usr/local/etc/tinydns/root/; cd /usr/local/etc/tinydns/root/; make -sQ >/dev/null
+15,45 * * * *	cd /usr/local/etc/puppet; HEAD=$(git rev-parse HEAD); git fetch; git reset --hard origin/master > /dev/null; git clean -f; if [ $HEAD != $(git rev-parse HEAD) ]; then service puppetmaster restart; fi

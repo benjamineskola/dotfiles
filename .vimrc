@@ -4,9 +4,11 @@ call pathogen#helptags()
 
 set autoindent
 set backspace=indent,eol,start
+set cpoptions+=n
 set encoding=utf-8
 set ignorecase smartcase hlsearch incsearch
 set laststatus=2
+set list listchars=tab:»·,trail:·,eol:¶,nbsp:¬
 set modeline
 set noexpandtab ts=8 sw=8
 set number
@@ -22,6 +24,10 @@ let &t_Co = 256
 let g:solarized_termtrans = 1
 colo solarized
 syntax on
+
+highlight LineNr ctermbg=none
+highlight NonText ctermbg=none ctermfg=black
+highlight SpecialKey ctermbg=none ctermfg=black
 
 " filetype stuff.
 filetype plugin indent on

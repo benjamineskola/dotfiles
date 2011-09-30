@@ -8,7 +8,6 @@ set cpoptions+=n
 set encoding=utf-8
 set ignorecase smartcase hlsearch incsearch
 set laststatus=2
-set list listchars=tab:»·,trail:·,eol:¶,nbsp:¬
 set modeline
 set noexpandtab ts=8 sw=8
 set number
@@ -19,6 +18,8 @@ set t_ti= t_te=
 set wildmenu
 
 " appearance.
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+
 set background=dark
 let &t_Co = 256
 let g:solarized_termtrans = 1
@@ -26,15 +27,26 @@ colo solarized
 syntax on
 
 highlight LineNr ctermbg=none
-highlight NonText ctermbg=none ctermfg=black
-highlight SpecialKey ctermbg=none ctermfg=black
 
 " filetype stuff.
 filetype plugin indent on
 let g:is_posix = 1 " /bin/sh is always POSIX, because what the fuck.
 
+fun! HighlightWhitespace()
+  syn match ExtraWhitespace /\s\+$/ containedin=ALL
+  syn match ExtraWhiteSpace /\t\+ \t*/ containedin=ALL
+  syn match ExtraWhiteSpace /\t* \t\+/ containedin=ALL
+
+  if &ft =~ 'python\|puppet\|vim'
+    syn match ExtraWhitespace /^ *\t\+ */ containedin=ALL
+  else
+    syn match ExtraWhitespace /^ \+\t*/ containedin=ALL
+  endif
+endfun
+
+au Syntax * call HighlightWhitespace()
 au FileType python set expandtab ts=4 sw=4 sts=4
-au FileType puppet set expandtab ts=2 sw=2 sts=2
+au FileType puppet,vim set expandtab ts=2 sw=2 sts=2
 
 let g:NERDSpaceDelims = 1
 

@@ -6,9 +6,6 @@ Host *.freeshell.org freeshell.org
 	User bmalee
 	CheckHostIP no
 
-Host git.subvert.org.uk github.com
-	IdentityFile ~/.private/ssh/id_rsa_git
-
 Host *
 	User bma
 	CheckHostIP yes

@@ -58,6 +58,8 @@ nmap <C-l> :nohl<CR>:redraw<CR>
 
 command W w !sudo tee % > /dev/null
 
+nnoremap <F5> :GundoToggle<CR>
+
 " emacs-like editing in command mode
 cnoremap <C-A> <Home>
 cnoremap <C-B> <Left>

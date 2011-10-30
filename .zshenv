@@ -83,3 +83,10 @@ fi
 export LAT LON
 
 export TZ=Europe/London
+
+if [ $OSTYPE = FreeBSD ]; then
+	case $TERM in
+		rxvt*)
+		export TERM=rxvt;;
+	esac
+fi

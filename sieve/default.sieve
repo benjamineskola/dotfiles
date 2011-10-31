@@ -17,9 +17,7 @@ if header :regex "List-Id" ".*" {
 	}
 }
 
-if anyof (envelope :detail "to" "mendeley",
-          envelope :detail "to" "redalert") {
-
+if envelope :domain :is ["From", "To"] "mendeley.com" {
 	if header :contains "to" ["bma+bytemark@mendeley.com", "bma+exonetric@mendeley.com"] {
 		keep; stop;
 	}
@@ -27,7 +25,7 @@ if anyof (envelope :detail "to" "mendeley",
 	if anyof (allof (header :contains "from" "Cron Daemon",
 	                 header :contains "subject" ["/usr/lib/nagios/plugins/check_http","munin-cron"]),
 	          header :contains "to" ["sysadmin+reports","dm-failure-reports","web-failure-reports","squid-performance-reports", "weeklystats", "dailystats", "monthlystats"],
-	          header :regex "subject" ["^Debian package updates?", "/var/www/htdocs/crons/cron.php"]) {
+	          header :regex "subject" ["^(\[0-9\]+ )?Debian package update", "/var/www/htdocs/crons/cron.php"]) {
 		discard; stop;
 	}
 

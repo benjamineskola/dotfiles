@@ -3,7 +3,7 @@ set spoolfile=+INBOX
 set record=+archive
 set mbox=+archive
 
-set hostname=bma.cx
+set hostname=bma.li
 set sort=threads
 set edit_headers
 set nomark_old
@@ -19,7 +19,7 @@ alternates (bma|benjamin.a.lee)@mendeley.com
 alternates (benjamin.(alee|dent)|bmalee)@.*plymouth.ac.uk
 alternates bele@(.*\.)?(pml|npm).ac.uk
 
-folder-hook .		set from="bma@bma.cx" record="+archive" signature="~/.signature"
-folder-hook =mendeley	set from="bma@mendeley.com" record="+mendeley/archive" signature="~/.signature.work"
+folder-hook .		set from="bma@bma.cx" record="+archive" signature="~/.signature" hostname=bma.li
+folder-hook =mendeley	set from="bma@mendeley.com" record="+mendeley/archive" signature="~/.signature.work" hostname=mendeley.com
 
 source .config/mutt/colours

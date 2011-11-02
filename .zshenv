@@ -45,8 +45,8 @@ LESS="-ImRswFX"
 LESSHISTFILE="-"
 export LESS LESSHISTFILE
 
-export LS_COLORS="no=00:fi=00:di=00;34:ln=35:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:tw=30;42:ow=34;42:st=37;44:ex=31" # gnu
-export LSCOLORS=exfxcxdxbxegedabagacad # bsd
+export LS_COLORS="no=00:fi=00:di=01;34:ln=35:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:tw=30;42:ow=34;42:st=37;44:ex=31" # gnu
+export LSCOLORS=Exfxcxdxbxegedabagacad # bsd
 
 export LEDGER_FILE=$XDG_DATA_HOME/ledger/accounts
 
@@ -59,7 +59,7 @@ LC_COLLATE=C
 export LANG LC_COLLATE
 
 case $DOMAIN in
-	mendeley.com|mendeley.lan|mendeley.internal)
+	mendeley.com|mendeley.lan|mendeley.internal|chonp.net)
 		GIT_AUTHOR_EMAIL=bma@mendeley.com
 		;;
 	*)

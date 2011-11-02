@@ -22,4 +22,6 @@ alternates bele@(.*\.)?(pml|npm).ac.uk
 folder-hook .		set from="bma@bma.cx" record="+archive" signature="~/.signature" hostname=bma.li
 folder-hook =mendeley	set from="bma@mendeley.com" record="+mendeley/archive" signature="~/.signature.work" hostname=mendeley.com
 
-source .config/mutt/colours
+color status white blue
+color indicator brightyellow red
+color hdrdefault cyan default

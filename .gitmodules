@@ -4,9 +4,6 @@
 [submodule "_vim/bundle/nerdcommenter"]
 	path = _vim/bundle/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter.git
-[submodule "_vim/bundle/solarized"]
-	path = _vim/bundle/solarized
-	url = https://github.com/altercation/vim-colors-solarized.git
 [submodule "_vim/bundle/pathogen"]
 	path = _vim/bundle/pathogen
 	url = https://github.com/tpope/vim-pathogen.git

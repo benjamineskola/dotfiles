@@ -21,9 +21,10 @@ set wildmenu
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 
 set background=dark
+let g:xterm16_colormap = 'soft'
+let g:xterm16_brightness = 'high'
 let &t_Co = 256
-let g:solarized_termtrans = 1
-colo solarized
+colo xterm16
 syntax on
 
 highlight LineNr ctermbg=none

@@ -72,3 +72,10 @@ if [[ "$(id -un)" = root ]]; then
 		fi
 	}
 fi
+
+f() {
+	find $@ | fgrep -v .git/ | while read f; do
+		test -d "$f" && printf "\033[01;34m"
+		printf "$f\033[0m\n"
+	done
+}

@@ -62,3 +62,13 @@ case $OSTYPE in
 		alias unzip="tar xf"
 		;;
 esac
+
+if [[ "$(id -un)" = root ]]; then
+	sudo() {
+		if [ "$1" != "-u" ]; then
+			echo "You're already root, fool.";
+		else
+			command sudo "$@"
+		fi
+	}
+fi

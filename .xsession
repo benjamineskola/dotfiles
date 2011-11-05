@@ -20,11 +20,9 @@ xset b off
 
 urxvtd -q -o -f
 
-urxvtc -title "IRC" -e autossh -t jagger.subvert.org.uk -- 'exec \$SHELL -ic "exec\ irc\ $HOSTNAME"' &
-urxvtc -title twitter   -e ttytter -rc=$HOME/.private/ttytterrc-twitter -lat=$LAT -long=$LON &
-urxvtc -title identi.ca -e ttytter -rc=$HOME/.private/ttytterrc-identica -lat=$LAT -long=$LON &
+urxvtc -title "IRC" -e autossh -t bakunin.subvert.org.uk -- exec irc $HOSTNAME &
+urxvtc -title twitter -e nctweet &
 urxvtc -title "Mail" -e mutt &
-urxvtc -title "News" -e emacs -nw -f gnus &
 
 remind -z1 -k'xmessage "%s" &' ~/.reminders &
 

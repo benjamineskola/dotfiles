@@ -29,7 +29,7 @@ alias pt="pstree -auUlp"
 
 alias sudo="sudo "
 
-rem(){ (cd ~; $(which rem) -qg $@); }
+rem(){ (cd ~; command rem -qg $@); }
 alias remcal='rem -cuc -w$COLUMNS'
 
 deadlinks(){ i="$1"; test -n "$i" || i=.; find -L "$i" -type l; }

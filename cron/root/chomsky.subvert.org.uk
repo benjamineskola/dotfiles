@@ -1,0 +1,4 @@
+@daily	zbackup
+@daily	chronic backup
+
+*/30 * * * *	grep Package /var/puppet/state/state.yaml|egrep -o "[a-zA-Z0-9_-]+"|sort -u|grep -v "^Package$" > /usr/local/etc/pkg_leaves.exclude

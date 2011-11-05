@@ -1,3 +1,0 @@
-32 * * * *	rsync -a --delete --exclude private.git -e "ssh -i /usr/home/bma/.ssh/id_rsa_rsync" jagger::repos/ repos/
-*/15 * * * *	rsync -a --delete -e "ssh -i /usr/home/bma/.ssh/id_rsa_rsync" jagger::logs/ .data/irssi/logs/
-*/15 * * * *	rsync -a --exclude "*dovecot*" --delete-after --delete-excluded -e "ssh -i /usr/home/bma/.ssh/id_rsa_rsync" jagger::mail/ mail/

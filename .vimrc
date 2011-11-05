@@ -57,7 +57,7 @@ map <S-Tab> :bprevious<CR>
 map Y y$
 nmap <C-l> :nohl<CR>:redraw<CR>
 
-command W w !sudo tee % > /dev/null
+command! W w !sudo tee % > /dev/null
 
 nnoremap <F5> :GundoToggle<CR>
 

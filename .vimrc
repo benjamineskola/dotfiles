@@ -6,6 +6,7 @@ set autoindent
 set backspace=indent,eol,start
 set cpoptions+=n
 set encoding=utf-8
+set hidden
 set ignorecase smartcase hlsearch incsearch
 set laststatus=2
 set modeline

@@ -34,6 +34,10 @@ filetype plugin indent on
 let g:is_posix = 1 " /bin/sh is always POSIX, because what the fuck.
 
 fun! HighlightWhitespace()
+  if &ft == 'mail'
+    return
+  endif
+
   syn match ExtraWhitespace /\s\+$/ containedin=ALL
   syn match ExtraWhiteSpace /\t\+ \t*/ containedin=ALL
   syn match ExtraWhiteSpace /\t* \t\+/ containedin=ALL

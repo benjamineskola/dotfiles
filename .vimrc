@@ -38,7 +38,7 @@ fun! HighlightWhitespace()
   syn match ExtraWhiteSpace /\t\+ \t*/ containedin=ALL
   syn match ExtraWhiteSpace /\t* \t\+/ containedin=ALL
 
-  if &ft =~ 'python\|puppet\|vim'
+  if &ft =~ 'nginx\|python\|puppet\|vim'
     syn match ExtraWhitespace /^ *\t\+ */ containedin=ALL
   else
     syn match ExtraWhitespace /^ \+\t*/ containedin=ALL
@@ -47,7 +47,7 @@ endfun
 
 au Syntax * call HighlightWhitespace()
 au FileType python set expandtab ts=4 sw=4 sts=4
-au FileType puppet,vim set expandtab ts=2 sw=2 sts=2
+au FileType nginx,puppet,vim set expandtab ts=2 sw=2 sts=2
 
 let g:NERDSpaceDelims = 1
 

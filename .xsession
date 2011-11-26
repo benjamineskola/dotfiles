@@ -4,9 +4,6 @@
 
 setxkbmap -option compose:ralt,ctrl:nocaps gb
 
-eval `keychain --eval --dir $XDG_CACHE_HOME/keychain`
-ssh-add -l > /dev/null || ssh-add
-
 case $HOSTNAME in
 	kropotkin)
 		xrandr --output DVI-I_2/digital --right-of DVI-I_1/digital

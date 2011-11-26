@@ -6,10 +6,10 @@ _git_no_changes() { (git diff-index --quiet --cached HEAD --ignore-submodules --
 _git_origin_differs() {
 	b=$(git name-rev --name-only HEAD 2>/dev/null)
 	r=$(git config "branch.${b}.remote")
-	[ $(git rev-parse ${b} ${r}/${b} 2>&1|sort -u|wc -l) != 1 ]
+	[[ $(git rev-parse ${b} ${r}/${b} 2>&1|sort -u|wc -l) != 1 ]]
 }
 _git_prompt_info() {
-	([ -d .git ] || git rev-parse --git-dir > /dev/null 2>&1) || return
+	([[ -d .git ]] || git rev-parse --git-dir > /dev/null 2>&1) || return
 	b=$(git name-rev --name-only HEAD 2>/dev/null); test -n "$b" && (printf ":$b"; _git_no_changes || printf "!"; _git_origin_differs && printf "?")
 }
 
@@ -32,7 +32,7 @@ setopt nobeep nonomatch
 setopt auto_cd auto_pushd pushd_silent
 setopt extended_glob
 
-if [[ `whoami` != root ]]; then
+if [[ "$(id -un)" != root ]]; then
 	autoload -U compinit
 	compinit -d $XDG_CACHE_HOME/zcompdump
 	zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'

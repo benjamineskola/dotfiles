@@ -48,24 +48,24 @@ case $OSTYPE in
 			alias sagu="sudo apt-get update"
 			alias sagup="sudo apt-get upgrade"
 
-			eval `lesspipe`
+			eval "$(lesspipe)"
 		else
 			alias ack="ack -a"
 		fi
-		if [[ -x `which bsdtar` ]]; then
+		if [[ -x "$(which bsdtar)" ]]; then
 			alias tar=bsdtar
 			alias unzip="tar xf"
 		fi
 		;;
 	FreeBSD)
-		eval `lesspipe.sh`
+		eval "$(lesspipe.sh)"
 		alias unzip="tar xf"
 		;;
 esac
 
 if [[ "$(id -un)" = root ]]; then
 	sudo() {
-		if [ "$1" != "-u" ]; then
+		if [[ "$1" != "-u" ]]; then
 			echo "You're already root, fool.";
 		else
 			command sudo "$@"

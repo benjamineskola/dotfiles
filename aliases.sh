@@ -79,3 +79,14 @@ f() {
 		printf "$f\033[0m\n"
 	done
 }
+
+alias todo-work="task unblocked project:work"
+alias todo-all="task unblocked"
+alias todo-nonwork="task unblocked project.noword:work"
+
+case $DOMAIN in
+	*chonp.net|*mendeley*)
+	alias todo=todo-work;;
+	*)
+	alias todo=todo-nonwork;;
+esac

@@ -57,8 +57,4 @@ fi
 mkdir -p ${XDG_CACHE_HOME}
 
 rem
-if [[ $HOSTNAME = kropotkin ]]; then
-	task unblocked project:work
-else
-	task unblocked project.noword:work
-fi
+todo

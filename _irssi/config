@@ -1,98 +1,77 @@
 servers = (
-  { address = "eu.irc6.net"; chatnet = "IRCnet"; port = "6667"; },
-  { address = "open.ircnet.net"; chatnet = "IRCnet"; port = "6667"; },
-  { address = "irc.efnet.org"; chatnet = "EFNet"; port = "6667"; },
-  { 
-    address = "irc.undernet.org";
-    chatnet = "Undernet";
-    port = "6667";
-  },
-  { address = "irc.dal.net"; chatnet = "DALnet"; port = "6667"; },
-  { 
-    address = "irc.quakenet.org";
-    chatnet = "QuakeNet";
-    port = "6667";
-  },
-  { address = "irc.oftc.net"; chatnet = "OFTC"; port = "6667"; },
   {
-    address = "irc.gamesurge.net";
-    chatnet = "GameSurge";
-    port = "6667";
+    address = "irc6.oftc.net";
+    chatnet = "OFTC";
+    port = "6697";
+    use_ssl = "yes";
+    ssl_verify = "no";
+    family = "inet6";
+    autoconnect = "yes";
   },
-  { address = "irc.webchat.org"; chatnet = "WebChat"; port = "6667"; },
-  { address = "irc.rizon.net"; chatnet = "Rizon"; port = "6667"; },
-  { address = "irc.link-net.org"; chatnet = "LinkNet"; port = "6667"; },
-  { address = "silc.silcnet.org"; chatnet = "SILC"; port = "706"; }
+  {
+    address = "ipv6.chat.freenode.net";
+    chatnet = "freenode";
+    port = "7000";
+    use_ssl = "yes";
+    ssl_verify = "no";
+    family = "inet6";
+    autoconnect = "yes";
+  },
+  {
+    address = "irc.uwcs.co.uk";
+    chatnet = "uwcs";
+    port = "6669";
+    use_ssl = "yes";
+    ssl_verify = "no";
+    autoconnect = "yes";
+  },
+  {
+    address = "localhost";
+    chatnet = "bitlbee";
+    port = "6667";
+    use_ssl = "no";
+    ssl_verify = "no";
+    autoconnect = "yes";
+  },
+  {
+    address = "irc.mendeley.com";
+    chatnet = "mendeley";
+    port = "7000";
+    use_ssl = "yes";
+    ssl_verify = "no";
+    autoconnect = "yes";
+  }
 );
 
 chatnets = {
-  IRCnet = {
-    type = "IRC";
-    max_kicks = "4";
-    max_msgs = "5";
-    max_whois = "4";
-    max_query_chans = "5";
-  };
-  EFNet = { 
-    type = "IRC";
-    max_kicks = "4";
-    max_msgs = "3";
-    max_whois = "1";
-  };
-  Undernet = {
+  OFTC = {
     type = "IRC";
     max_kicks = "1";
     max_msgs = "3";
     max_whois = "30";
   };
-  DALnet = {
-    type = "IRC";
-    max_kicks = "4";
-    max_msgs = "3";
-    max_whois = "30";
-  };
-  QuakeNet = {
-    type = "IRC";
-    max_kicks = "1";
-    max_msgs = "3";
-    max_whois = "30";
-  };
-  OFTC = { 
-    type = "IRC";
-    max_kicks = "1";
-    max_msgs = "3";
-    max_whois = "30";
-  };
-  GameSurge = {
-    type = "IRC";
-    max_kicks = "1";
-    max_msgs = "3";
-    max_whois = "30";
-  };
-  WebChat = {
-    type = "IRC";
-    max_kicks = "1";
-    max_msgs = "3";
-    max_whois = "30";
-  };
-  Rizon = { 
-    type = "IRC";
-    max_kicks = "1";
-    max_msgs = "3";
-    max_whois = "30";
-  };
-  LinkNet = {
-    type = "IRC";
-    max_kicks = "1";
-    max_msgs = "3";
-    max_whois = "30";
-  };
-  SILC = { type = "SILC"; };
+  freenode = { type = "IRC"; };
+  uwcs = { type = "IRC"; };
+  bitlbee = { type = "IRC"; };
+  mendeley = { type = "IRC"; };
 };
 
 channels = (
-  { name = "#irssi"; chatnet = "ircnet"; autojoin = "No"; },
-  { name = "silc"; chatnet = "silc"; autojoin = "No"; }
+  { name = "#termisoc"; chatnet = "oftc"; autojoin = "yes"; },
+  { name = "#mensearch"; chatnet = "mendeley"; autojoin = "yes"; },
+  { name = "#sysadmin"; chatnet = "mendeley"; autojoin = "yes"; },
+  { name = "#datamining"; chatnet = "mendeley"; autojoin = "yes"; },
+  #{
+  #  name = "#london-hack-space";
+  #  chatnet = "freenode";
+  #  autojoin = "yes";
+  #},
+  { name = "#work"; chatnet = "uwcs"; autojoin = "yes"; },
+  { name = "#wuglug"; chatnet = "uwcs"; autojoin = "yes"; },
+  { name = "#music"; chatnet = "uwcs"; autojoin = "yes"; },
+  { name = "#london"; chatnet = "uwcs"; autojoin = "yes"; },
+  { name = "#fosdem"; chatnet = "uwcs"; autojoin = "yes"; },
+  { name = "#ranarchism"; chatnet = "freenode"; autojoin = "yes"; }
 );
 
 aliases = {
@@ -112,7 +91,7 @@ aliases = {
   WII = "whois $0 $0";
   WW = "whowas";
   W = "who";
-  N = "names";
+  N = "/anames";
   M = "msg";
   T = "topic";
   C = "clear";
@@ -143,60 +122,97 @@ aliases = {
   ATAG = "WINDOW SERVER";
   UNSET = "set -clear";
   RESET = "set -default";
+  "o\\" = "say /o\\\\";
+  "/n" = "/anames";
+  names = "/anames";
 };
 
-statusbar = {
-  # formats:
-  # when using {templates}, the template is shown only if it's argument isn't
-  # empty unless no argument is given. for example {sb} is printed always,
-  # but {sb $T} is printed only if $T isn't empty.
-
-  items = {
-    # start/end text in statusbars
-    barstart = "{sbstart}";
-    barend = "{sbend}";
-
-    topicbarstart = "{topicsbstart}";
-    topicbarend = "{topicsbend}";
-
-    # treated "normally", you could change the time/user name to whatever
-    time = "{sb $Z}";
-    user = "{sb {sbnickmode $cumode}$N{sbmode $usermode}{sbaway $A}}";
-
-    # treated specially .. window is printed with non-empty windows,
-    # window_empty is printed with empty windows
-    window = "{sb $winref:$tag/$itemname{sbmode $M}}";
-    window_empty = "{sb $winref{sbservertag $tag}}";
-    prompt = "{prompt $[.15]itemname}";
-    prompt_empty = "{prompt $winname}";
-    topic = " $topic";
-    topic_empty = " Irssi v$J - http://www.irssi.org";
-
-    # all of these treated specially, they're only displayed when needed
-    lag = "{sb Lag: $0-}";
-    act = "{sb Act: $0-}";
-    more = "-- more --";
+settings = {
+  core = {
+    real_name = "Benjamin M. A'Lee";
+    user_name = "bma";
+    nick = "bma";
+    log_timestamp = "%m-%d/%H:%M ";
+    timestamp_format = "%d/%H:%M";
   };
-
-  # there's two type of statusbars. root statusbars are either at the top
-  # of the screen or at the bottom of the screen. window statusbars are at
-  # the top/bottom of each split window in screen.
+  "fe-text" = {
+    actlist_sort = "level,recent";
+    actlist_names = "yes";
+    colors = "yes";
+  };
+  "fe-common/core" = {
+    autolog = "yes";
+    autolog_path = "~/.data/irssi/logs/$tag/$0/%Y.log";
+    term_charset = "UTF-8";
+    activity_hide_level = "JOINS PARTS QUITS MODES";
+    beep_msg_level = "MSGS NOTICES DCC DCCMSGS HILIGHT";
+    bell_beeps = "yes";
+    hide_colors = "yes";
+    theme = "default";
+    show_nickmode_empty = "no";
+  };
+  "perl/core/scripts" = {
+    autoaway_timeout = "10";
+    chanact_sort = "activity";
+    chanact_filter = "2";
+    bitlbee_typing_allwin = "yes";
+  };
+};
+logs = { };
+ignores = (
+  { level = "MODES"; channels = ( "&bitlbee" ); },
+  { mask = "JohnMaus"; level = "ALL"; replies = "yes"; },
+  { mask = "Omega"; level = "ALL"; replies = "yes"; },
+  { mask = "Omega-"; level = "ALL"; replies = "yes"; },
+  { mask = "|Omega|"; level = "ALL"; replies = "yes"; },
+  { mask = "*!*@75.105.195.234"; level = "ALL"; replies = "yes"; },
+  {
+    mask = "*!*@75-105-195-234.cust.wildblue.net";
+    level = "ALL";
+    replies = "yes";
+  },
+  {
+    mask = "*!*@gateway/web/freenode/ip.83.128.121.37";
+    level = "ALL";
+    replies = "yes";
+  },
+  { mask = "cobra_bub"; level = "ALL"; replies = "yes"; }
+);
+hilights = (
+  {
+    text = "[[:<:]]bma(lee)?[[:>:]]";
+    color = "%Y";
+    act_color = "%M";
+    nick = "yes";
+    word = "yes";
+    regexp = "yes";
+  },
+  {
+    text = "[[:<:]]ben[[:>:]]";
+    color = "%Y";
+    act_color = "%M";
+    nick = "yes";
+    word = "yes";
+    regexp = "yes";
+    channels = (
+      "#termisoc",
+      "#termisoc-test",
+      "#mensearch",
+      "#sysadmin",
+      "#datamining",
+      "#web",
+      "#qa",
+      "#desktop",
+      "#無"
+    );
+  }
+);
+keyboard = (
+  { key = "^G"; id = "multi"; data = "erase_line;insert_text /ws "; }
+);
+statusbar = {
   default = {
-    # the "default statusbar" to be displayed at the bottom of the window.
-    # contains all the normal items.
     window = {
-      disabled = "no";
-
-      # window, root
-      type = "window";
-      # top, bottom
-      placement = "bottom";
-      # number
-      position = "1";
-      # active, inactive, always
-      visible = "active";
-
-      # list of items in statusbar in the display order
       items = {
         barstart = { priority = "100"; };
         time = { };
@@ -204,63 +220,12 @@ statusbar = {
         window = { };
         window_empty = { };
         lag = { priority = "-1"; };
-        act = { priority = "10"; };
+        chanact = { };
         more = { priority = "-1"; alignment = "right"; };
         barend = { priority = "100"; alignment = "right"; };
-      };
-    };
-
-    # statusbar to use in inactive split windows
-    window_inact = {
-      type = "window";
-      placement = "bottom";
-      position = "1";
-      visible = "inactive";
-      items = {
-        barstart = { priority = "100"; };
-        window = { };
-        window_empty = { };
-        more = { priority = "-1"; alignment = "right"; };
-        barend = { priority = "100"; alignment = "right"; };
-      };
-    };
-
-    # we treat input line as yet another statusbar :) It's possible to
-    # add other items before or after the input line item.
-    prompt = {
-      type = "root";
-      placement = "bottom";
-      # we want to be at the bottom always
-      position = "100";
-      visible = "always";
-      items = {
-        prompt = { priority = "-1"; };
-        prompt_empty = { priority = "-1"; };
-        # treated specially, this is the real input line.
-        input = { priority = "10"; };
-      };
-    };
-
-    # topicbar
-    topic = {
-      type = "root";
-      placement = "top";
-      position = "1";
-      visible = "always";
-      items = {
-        topicbarstart = { priority = "100"; };
-        topic = { };
-        topic_empty = { };
-        topicbarend = { priority = "100"; alignment = "right"; };
+        window_switcher = { };
+        typing_notice = { };
       };
     };
   };
-};
-settings = {
-  core = {
-    real_name = "Benjamin M. A'Lee";
-    user_name = "bma";
-    nick = "bma";
-  };
-  "fe-text" = { actlist_sort = "refnum"; };
 };

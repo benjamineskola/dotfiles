@@ -12,7 +12,7 @@ URxvt*cutchars: '"'()*,<>[]{}|"'"
 URxvt.perl-lib: /home/bma/.config/urxvt/
 URxvt.perl-ext: keyboard-select,url-select
 URxvt.keysym.Mod4-Escape: perl:keyboard-select:activate
-URxvt.keysym.Mod4-u: perl:url-select:select_next
+URxvt.keysym.Mod4-s: perl:url-select:select_next
 URxvt.urlLauncher: www
 URxvt.underlineURLs: true
 

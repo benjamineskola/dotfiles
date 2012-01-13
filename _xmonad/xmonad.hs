@@ -57,6 +57,7 @@ toAdd conf@(XConfig {XMonad.modMask = modm}) = [
 	, ((modm .|. controlMask,  xK_minus), sendMessage $ IncMasterRows (-1))
 
 	, ((modm, xK_r), shellPrompt defaultXPConfig)
+	, ((modm, xK_a), focusUrgent)
 	]
 
 myManageHook = composeAll

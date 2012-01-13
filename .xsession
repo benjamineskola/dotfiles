@@ -23,4 +23,4 @@ urxvtc -title "Mail" -e mutt &
 
 remind -z1 -k'xmessage "%s" &' ~/.reminders &
 
-exec awesome
+exec xmonad

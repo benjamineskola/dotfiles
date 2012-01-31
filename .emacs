@@ -47,20 +47,3 @@
 
 (autoload 'w3m "w3m" "Interface for w3m on Emacs." t)
 (require 'w3m)
-
-;;(defun commit-newsrc-to-git ()
-;;  (interactive)
-;;  (shell-command "(cd ~/.data && git add -u news > /dev/null && git commit -q -m 'updating gnus.' && git fetch && git merge -s ours origin/master && git push -q)"))
-;;
-;;(defun save-and-commit ()
-;;  (interactive)
-;;  (gnus-group-save-newsrc)
-;;  (commit-newsrc-to-git))
-;;
-;;(add-hook 'gnus-after-exiting-gnus-hook 'commit-newsrc-to-git)
-;;(add-hook 'gnus-after-getting-new-news-hook 'save-and-commit)
-;;(add-hook 'gnus-started-hook '(lambda () (shell-command "(cd ~/.data && git pull)")))
-;;
-;;(add-hook 'gnus-group-mode-hook
-;;	  '(lambda ()
-;;	     (local-set-key "s" 'save-and-commit)))

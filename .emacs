@@ -39,7 +39,8 @@
       gnus-treat-display-smileys nil
       gnus-group-line-format "%M%S%p%P%5y:%B%(%G%)%O\n"
       gnus-read-newsrc-file nil
-      gnus-save-newsrc-file nil)
+      gnus-save-newsrc-file nil
+      gnus-agent nil)
 
 (setq gnus-buttonized-mime-types '("multipart/signed"))
 (setq gnus-summary-line-format "%U%R |%-20,20f |%&user-date; %37=|%4L|%B %s\n")

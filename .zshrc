@@ -44,6 +44,7 @@ ulimit -c 0
 
 bindkey '\e[7~' beginning-of-line
 bindkey '\e[8~' end-of-line
+bindkey '\e[3~' delete-char
 
 # Remove / from wordchars, so ^W kills only one path element at a time.
 WORDCHARS=${WORDCHARS/\//}

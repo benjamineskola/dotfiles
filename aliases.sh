@@ -60,6 +60,12 @@ case $OSTYPE in
 	FreeBSD)
 		eval "$(lesspipe.sh)"
 		alias unzip="tar xf"
+
+		alias spi="sudo portinstall"
+		alias spd="sudo pkg_deinstall"
+		sps() { type=$1; shift; cd /usr/ports; for i in $@; do make search ${type}=$i; done | less; }
+		alias spsn="sps name"
+		alias spsk="sps key"
 		;;
 esac
 

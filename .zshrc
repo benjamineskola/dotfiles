@@ -51,7 +51,7 @@ WORDCHARS=${WORDCHARS/\//}
 
 if [[ $OSTYPE = FreeBSD ]]; then
 	# FreeBSD pam_ssh doesn't make the agent data available.
-	if [[ "$SSH_AUTH_SOCK" ]]; then
+	if [[ -n "$SSH_AUTH_SOCK" ]]; then
 		printf "SSH_AUTH_SOCK=$SSH_AUTH_SOCK; export SSH_AUTH_SOCK;\nSSH_AGENT_PID=$SSH_AGENT_PID; export SSH_AGENT_PID" > "$XDG_CONFIG_HOME/_ssh/agent-$HOSTNAME"
 	fi
 fi

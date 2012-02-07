@@ -55,6 +55,3 @@ if [[ $OSTYPE = FreeBSD ]]; then
 	fi
 fi
 mkdir -p ${XDG_CACHE_HOME}
-
-rem
-todo

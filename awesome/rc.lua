@@ -12,6 +12,7 @@ require("naughty")
 ostype = os.getenv("OSTYPE")
 if ostype == "Linux" then
    awesome_path = "/usr/share/awesome"
+   require("obvious.battery") -- not quite the right test for this
 else
    awesome_path = "/usr/local/share/awesome"
 end
@@ -129,6 +130,7 @@ for s = 1, screen.count() do
         },
         mylayoutbox[s],
         mytextclock,
+        ostype == "Linux" and obvious.battery() or nil,
         s == 1 and mysystray or nil,
         mytasklist[s],
         layout = awful.widget.layout.horizontal.rightleft

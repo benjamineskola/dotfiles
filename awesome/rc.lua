@@ -8,8 +8,16 @@ require("beautiful")
 require("naughty")
 
 -- {{{ Variable definitions
+-- Where to find stuff?
+ostype = os.getenv("OSTYPE")
+if ostype == "Linux" then
+   awesome_path = "/usr/share/awesome"
+else
+   awesome_path = "/usr/local/share/awesome"
+end
+
 -- Themes define colours, icons, and wallpapers
-beautiful.init("/usr/share/awesome/themes/default/theme.lua")
+beautiful.init(awesome_path .. "/themes/default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "urxvtc"

@@ -7,12 +7,15 @@ require("beautiful")
 -- Notification library
 require("naughty")
 
+-- Widget library
+require("vicious")
+
+
 -- {{{ Variable definitions
 -- Where to find stuff?
 ostype = os.getenv("OSTYPE")
 if ostype == "Linux" then
    awesome_path = "/usr/share/awesome"
-   require("obvious.battery") -- not quite the right test for this
 else
    awesome_path = "/usr/local/share/awesome"
 end
@@ -119,6 +122,16 @@ for s = 1, screen.count() do
                                               return awful.widget.tasklist.label.currenttags(c, s)
                                           end, mytasklist.buttons)
 
+-- Initialize widget
+memwidget = widget({ type = "textbox" })
+-- Register widget
+vicious.register(memwidget, vicious.widgets.mem, "Mem: $1% ")
+
+-- Initialize widget
+cpuwidget = widget({ type = "textbox" })
+-- Register widget
+vicious.register(cpuwidget, vicious.cpu, "Cpu: $1%")
+
     -- Create the wibox
     mywibox[s] = awful.wibox({ position = "top", screen = s })
     -- Add widgets to the wibox - order matters
@@ -130,7 +143,8 @@ for s = 1, screen.count() do
         },
         mylayoutbox[s],
         mytextclock,
-        ostype == "Linux" and obvious.battery() or nil,
+        cpuwidget,
+        memwidget,
         s == 1 and mysystray or nil,
         mytasklist[s],
         layout = awful.widget.layout.horizontal.rightleft

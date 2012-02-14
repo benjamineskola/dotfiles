@@ -1,0 +1,8 @@
+include "/usr/share/themes/Clearlooks/gtk-2.0/gtkrc"
+
+style "font"
+{
+	font_name = "Droid Sans 12"
+}
+widget_class "*" style "font"
+gtk-font-name = "Droid Sans 12"

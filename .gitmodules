@@ -16,3 +16,6 @@
 [submodule "_vim/bundle/nginx.vim"]
 	path = _vim/bundle/nginx.vim
 	url = https://github.com/vim-scripts/nginx.vim.git
+[submodule "_vim/bundle/ledger"]
+	path = _vim/bundle/ledger
+	url = https://github.com/cypok/vim-ledger.git

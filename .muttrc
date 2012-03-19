@@ -1,4 +1,4 @@
-set folder=$HOME/mail
+set folder=imaps://bma@mail.subvert.org.uk/
 set spoolfile=+INBOX
 set record=+archive
 set mbox=+archive
@@ -14,12 +14,12 @@ set header_cache=$XDG_CACHE_HOME/mutt/
 mailboxes =INBOX =lists =feeds =mendeley =mendeley/social =mendeley/redalert =mendeley/trac `echo ~/mail/lists/*/|sed "s,$HOME/mail/,=,g"`
 unmailboxes =lists/new =lists/cur =lists/tmp
 
-alternates (bma|benjamin.alee|ben)@(bma.cx|subvert.org.uk|bmalee.eu|benalee.co.uk)
+alternates (bma|benjamin.alee|ben)@(bma.(li|cx)|subvert.org.uk|bmalee.eu|benalee.co.uk)
 alternates (bma|benjamin.a.lee)@mendeley.com
 alternates (benjamin.(alee|dent)|bmalee)@.*plymouth.ac.uk
 alternates bele@(.*\.)?(pml|npm).ac.uk
 
-folder-hook .		set from="bma@bma.cx" record="+archive" signature="~/.signature" hostname=bma.li
+folder-hook .		set from="bma@bma.li" record="+archive" signature="~/.signature" hostname=bma.li
 folder-hook =mendeley	set from="bma@mendeley.com" record="+mendeley/archive" signature="~/.signature.work" hostname=mendeley.com
 
 color status white blue

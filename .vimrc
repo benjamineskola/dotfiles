@@ -35,7 +35,7 @@ filetype plugin indent on
 let g:is_posix = 1 " /bin/sh is always POSIX, because what the fuck.
 
 fun! HighlightWhitespace()
-  if &ft == 'mail'
+  if &ft =~ 'mail\|lisp'
     return
   endif
 

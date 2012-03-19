@@ -56,3 +56,8 @@ if [[ $OSTYPE = FreeBSD ]]; then
 	fi
 fi
 mkdir -p ${XDG_CACHE_HOME}
+
+unset MAIL
+mailpath=(${HOME}/mail/INBOX/new/?"You have new mail in INBOX"
+	${HOME}/mail/mendeley/new/?"You have new mail in mendeley"
+)

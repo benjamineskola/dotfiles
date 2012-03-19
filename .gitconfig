@@ -10,6 +10,7 @@
 	dw = diff --color-words -M
 	dc = diff --cached -M
 	dwc= diff --cached --color-words -M
+	unstage = reset HEAD --
 [color]
 	diff = auto
 	status = auto

@@ -1,21 +1,21 @@
-[submodule "urxvt"]
-	path = urxvt
+[submodule ".config/urxvt"]
+	path = .config/urxvt
 	url = git://github.com/muennich/urxvt-perls.git
-[submodule "_vim/bundle/nerdcommenter"]
-	path = _vim/bundle/nerdcommenter
+[submodule ".vim/bundle/nerdcommenter"]
+	path = .vim/bundle/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter.git
-[submodule "_vim/bundle/pathogen"]
-	path = _vim/bundle/pathogen
+[submodule ".vim/bundle/pathogen"]
+	path = .vim/bundle/pathogen
 	url = https://github.com/tpope/vim-pathogen.git
-[submodule "_vim/bundle/threesome"]
-	path = _vim/bundle/threesome
+[submodule ".vim/bundle/threesome"]
+	path = .vim/bundle/threesome
 	url = https://github.com/sjl/threesome.vim.git
-[submodule "_vim/bundle/gundo"]
-	path = _vim/bundle/gundo
+[submodule ".vim/bundle/gundo"]
+	path = .vim/bundle/gundo
 	url = http://github.com/sjl/gundo.vim.git
-[submodule "_vim/bundle/nginx.vim"]
-	path = _vim/bundle/nginx.vim
+[submodule ".vim/bundle/nginx.vim"]
+	path = .vim/bundle/nginx.vim
 	url = https://github.com/vim-scripts/nginx.vim.git
-[submodule "_vim/bundle/ledger"]
-	path = _vim/bundle/ledger
+[submodule ".vim/bundle/ledger"]
+	path = .vim/bundle/ledger
 	url = https://github.com/cypok/vim-ledger.git

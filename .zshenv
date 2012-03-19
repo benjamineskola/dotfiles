@@ -52,14 +52,14 @@ export LEDGER_FILE="${XDG_DATA_HOME}/ledger/accounts"
 
 export PAPERSIZE=a4
 
-PACKAGESITE=ftp://ftp.freebsd.org/pub/FreeBSD/ports/amd64/packages-8-stable/Latest/
+PACKAGESITE=ftp://ftp.freebsd.org/pub/FreeBSD/ports/amd64/packages-9-stable/Latest/
 
 LANG=en_GB.UTF-8
 LC_COLLATE=C
 export LANG LC_COLLATE
 
-case $DOMAIN in
-	mendeley.com|mendeley.lan|mendeley.internal|chonp.net)
+case $FQDN in
+	*.mendeley.com|*.mendeley.lan|*.mendeley.internal|*.chonp.net|kropotkin.*)
 		GIT_AUTHOR_EMAIL=bma@mendeley.com
 		;;
 	*)
@@ -88,5 +88,10 @@ if [ "$OSTYPE" = FreeBSD ]; then
 	case $TERM in
 		rxvt*)
 		export TERM=rxvt;;
+	esac
+elif ! `dpkg -l rxvt-unicode-256color rm 2>&1|grep -q "^ii"`; then
+	case $TERM in
+		rxvt-unicode-256color)
+		export TERM=rxvt-unicode;;
 	esac
 fi

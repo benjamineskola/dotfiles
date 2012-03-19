@@ -1,0 +1,6 @@
+*/15 * * * *	eval $(cat .ssh/agent-kropotkin) && chronic $HOME/bin/dotfiles-pull 600
+#*/15 * * * *	pkill -9 -f "/usr/local/bin/offlineimap"; rm -f .cache/offlineimap/lock; offlineimap
+15 * * * *	eval $(cat .ssh/agent-kropotkin) && fab --hide=running,stdout,status -R all push_config >/dev/null 2>&1
+
+#30 10 * * 3	echo "#mensearch nee naw nee naw nee naw"|nc localhost 6667
+#30 17 * * 5	echo "#mensearch BEER O'CLOCK"|nc localhost 6667

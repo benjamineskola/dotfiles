@@ -1,8 +1,0 @@
-*/15 * * * *	eval $(cat .cache/keychain/kropotkin-sh) && chronic $HOME/bin/dotfiles-pull 600
-
-*/15 * * * *	pkill -9 -f "/usr/local/bin/offlineimap"; rm -f .cache/offlineimap/lock; offlineimap
-*/15 * * * *	eval $(cat .cache/keychain/kropotkin-sh) && push-git $(list-cssh-hosts)
-30 10 * * 3	echo "#mensearch nee naw nee naw nee naw"|nc localhost 12345
-30 17 * * 5	echo "#mensearch BEER O'CLOCK"|nc localhost 12345
-30 10 * * 3	echo "#mensearch nee naw nee naw nee naw"|nc localhost 6667
-30 17 * * 5	echo "#mensearch BEER O'CLOCK"|nc localhost 6667

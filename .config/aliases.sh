@@ -16,16 +16,15 @@ alias ll='ls -l'
 alias la='ls -A'
 alias lal='ls -lA'
 alias lsd='ls -d'
-alias w3m='w3m -F -v'
-
-alias grep='egrep'
-alias feh="feh -FZ"
-
-alias df="df -P"
-alias tf="tail -F"
 
 alias apg="apg -a 1 -n 1 -c /dev/urandom"
+alias dc="dc -e '2k' -f /dev/stdin"
+alias df="df -P"
+alias feh="feh -FZ"
+alias grep='egrep'
 alias pt="pstree -auUlp"
+alias tf="tail -F"
+alias w3m='w3m -F -v'
 
 alias sudo="sudo "
 
@@ -60,6 +59,7 @@ case $OSTYPE in
 	FreeBSD)
 		eval "$(lesspipe.sh)"
 		alias unzip="tar xf"
+		alias ack="ack -a"
 
 		alias spi="sudo portinstall"
 		alias spd="sudo pkg_deinstall"
@@ -69,30 +69,9 @@ case $OSTYPE in
 		;;
 esac
 
-if [[ "$(id -un)" = root ]]; then
-	sudo() {
-		if [[ "$1" != "-u" ]]; then
-			echo "You're already root, fool.";
-		else
-			command sudo "$@"
-		fi
-	}
-fi
-
 f() {
 	find $@ | fgrep -v .git/ | while read f; do
 		test -d "$f" && printf "\033[01;34m"
 		printf "$f\033[0m\n"
 	done
 }
-
-alias todo-work="task unblocked project:work"
-alias todo-all="task unblocked"
-alias todo-nonwork="task unblocked project.noword:work"
-
-case $DOMAIN in
-	*chonp.net|*mendeley*)
-	alias todo=todo-work;;
-	*)
-	alias todo=todo-nonwork;;
-esac

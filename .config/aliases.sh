@@ -75,3 +75,6 @@ f() {
 		printf "$f\033[0m\n"
 	done
 }
+
+bal() { ledger -C -s bal Assets Liabilities -Assets:Loans -Assets:CoinJar -Amazon:GiftCert }
+uncleared() { ledger -U print  }

@@ -20,7 +20,9 @@ case $TERM in
 	xterm*|rxvt*|screen*)
 		precmd() {
 			if [[ -n $(_git_prompt_info) ]]; then
-				RPROMPT="%B[$(_git_prompt_info)]%b"
+				if [[ $(git branch -l) != "* master" || $(_git_prompt_info) != "master" ]]; then
+					RPROMPT="%B[$(_git_prompt_info)]%b"
+				fi
 			else
 				unset RPROMPT
 			fi

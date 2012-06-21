@@ -10,14 +10,15 @@ _git_origin_differs() {
 }
 _git_prompt_info() {
 	([[ -d .git ]] || git rev-parse --git-dir > /dev/null 2>&1) || return
-	b=$(git name-rev --name-only HEAD 2>/dev/null); test -n "$b" && (printf ":$b"; _git_no_changes || printf "!"; _git_origin_differs && printf "?")
+	b=$(git name-rev --name-only HEAD 2>/dev/null); test -n "$b" && (printf "$b"; _git_no_changes || printf "!"; _git_origin_differs && printf "?")
 }
 
 BASE_PROMPT="%n@%m:%~"
 TITLE_PROMPT=$BASE_PROMPT
+PROMPT="%B$BASE_PROMPT>%b "
 case $TERM in
 	xterm*|rxvt*|screen*)
-		precmd() { PROMPT="%B$BASE_PROMPT$(_git_prompt_info)>%b "; print -Pn "\e]0;$TITLE_PROMPT\a"; }
+		precmd() { RPROMPT="%B[$(_git_prompt_info)]%b"; print -Pn "\e]0;$TITLE_PROMPT\a"; }
 		preexec() { TITLE_PROMPT="$BASE_PROMPT $1"; }
 		;;
 esac

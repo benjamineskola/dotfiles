@@ -6,7 +6,7 @@ _git_no_changes() { (git diff-index --quiet --cached HEAD --ignore-submodules --
 _git_origin_differs() {
 	b=$(git name-rev --name-only HEAD 2>/dev/null)
 	r=$(git config "branch.${b}.remote")
-	[[ $(git rev-parse ${b} ${r}/${b} 2>&1|sort -u|wc -l|tr -d ' ') != 1 ]]
+	[[ $(git rev-parse ${b}) != $(git rev-parse ${r}/${b}) ]]
 }
 _git_prompt_info() {
 	([[ -d .git ]] || git rev-parse --git-dir > /dev/null 2>&1) || return

@@ -18,7 +18,14 @@ TITLE_PROMPT=$BASE_PROMPT
 PROMPT="%B$BASE_PROMPT>%b "
 case $TERM in
 	xterm*|rxvt*|screen*)
-		precmd() { RPROMPT="%B[$(_git_prompt_info)]%b"; print -Pn "\e]0;$TITLE_PROMPT\a"; }
+		precmd() {
+			if [[ -n $(_git_prompt_info) ]]; then
+				RPROMPT="%B[$(_git_prompt_info)]%b"
+			else
+				unset RPROMPT
+			fi
+			print -Pn "\e]0;$TITLE_PROMPT\a";
+		}
 		preexec() { TITLE_PROMPT="$BASE_PROMPT $1"; }
 		;;
 esac

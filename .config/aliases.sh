@@ -67,6 +67,8 @@ case $OSTYPE in
 		alias spsn="sps name"
 		alias spsk="sps key"
 		;;
+	Darwin)
+		alias ack="ack -a"
 esac
 
 f() {

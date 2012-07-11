@@ -35,28 +35,21 @@ fi
 VISUAL=$EDITOR
 export EDITOR VISUAL
 
-RXVT_SOCKET="${XDG_CACHE_HOME}/urxvt-socket-${FQDN}"
-export RXVT_SOCKET
-
 LESS="-ImRswFX"
 LESSHISTFILE="-"
 export LESS LESSHISTFILE
 
 export LS_COLORS="no=00:fi=00:di=01;34:ln=35:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:tw=30;42:ow=34;42:st=37;44:ex=31" # gnu
 export LSCOLORS=Exfxcxdxbxegedabagacad # bsd
-
 export LEDGER_FILE="${XDG_DATA_HOME}/ledger/accounts"
-
-export PAPERSIZE=a4
-
-PACKAGESITE=ftp://ftp.freebsd.org/pub/FreeBSD/ports/amd64/packages-9-stable/Latest/
+export PACKAGESITE=ftp://ftp.freebsd.org/pub/FreeBSD/ports/amd64/packages-9-stable/Latest/
 
 LANG=en_GB.UTF-8
 LC_COLLATE=C
 export LANG LC_COLLATE
 
-case $FQDN in
-	*.mendeley.com|*.mendeley.lan|*.mendeley.internal|*.chonp.net)
+case $DOMAIN in
+	*mendeley.*|*.chonp.net)
 		GIT_AUTHOR_EMAIL=bma@mendeley.com
 		;;
 	*)

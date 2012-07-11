@@ -69,6 +69,7 @@ case $OSTYPE in
 		;;
 	Darwin)
 		alias ack="ack -a"
+		;;
 esac
 
 f() {

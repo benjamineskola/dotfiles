@@ -18,4 +18,4 @@
 	url = https://github.com/cypok/vim-ledger.git
 [submodule ".oh-my-zsh"]
 	path = .oh-my-zsh
-	url = ./.oh-my-zsh
+	url = git://github.com/robbyrussell/oh-my-zsh.git

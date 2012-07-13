@@ -3,6 +3,9 @@
 *.bak
 *~
 .*.sw?
+.DS_Store
+.CFUserTextEncoding
+/.Trash
 /.config/_*
 /.config/.git.old/
 /.config/.libreoffice/
@@ -22,5 +25,4 @@
 /.xsession-errors
 /.ssh/agent-*
 /.ssh/authorized_keys
-/.xmonad/*
-!/.xmonad/*.hs
+/.viminfo

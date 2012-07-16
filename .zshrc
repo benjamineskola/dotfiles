@@ -36,3 +36,15 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 
 . $XDG_CONFIG_HOME/aliases.sh
+
+HISTFILE=$XDG_CACHE_HOME/zsh_history
+HISTSIZE=819200
+SAVEHIST=819200
+setopt nohist_beep hist_ignore_all_dups share_history inc_append_history
+
+stty stop undef
+ulimit -c 0
+
+unalias history # oh-my-zsh breaks this.
+
+setopt nonomatch

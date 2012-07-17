@@ -28,10 +28,9 @@ case $TERM in
 			PROMPT="
 %{$fg[magenta]%}%n%{$reset_color%}@%{$fg[yellow]%}%m%{$reset_color%}:%{$fg[green]%}${PWD/#$HOME/~}%{$reset_color%}$(git_prompt_info)
 $(virtualenv_info)> "
-			print -Pn "\e]0;$TITLE_PROMPT\a";
 		}
 		preexec() {
-			TITLE_PROMPT="%n@%m:${PWD/#$HOME/~} — $1"
+			print -Pn "\e]0;%n@%m:${PWD/#$HOME/~}${1:+ — $1}\a";
 		}
 		preexec
 		;;

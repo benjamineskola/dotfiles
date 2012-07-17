@@ -6,6 +6,7 @@
 .DS_Store
 .CFUserTextEncoding
 /.Trash
+/.cache
 /.config/_*
 /.config/.git.old/
 /.config/.libreoffice/

@@ -22,7 +22,6 @@ git_prompt_info() {
 	echo ":%{$fg[magenta]%}${ref#refs/heads/}%{$fg[green]%}$(parse_git_dirty)%{$reset_color%}"
 }
 
-TITLE_PROMPT="[%n@%m:${PWD/#$HOME/~}]"
 case $TERM in
 	xterm*|rxvt*|screen*)
 		precmd() {
@@ -32,8 +31,9 @@ $(virtualenv_info)> "
 			print -Pn "\e]0;$TITLE_PROMPT\a";
 		}
 		preexec() {
-			TITLE_PROMPT="[%n@%m:${PWD/#$HOME/~})] $1"
+			TITLE_PROMPT="%n@%m:${PWD/#$HOME/~} — $1"
 		}
+		preexec
 		;;
 esac
 

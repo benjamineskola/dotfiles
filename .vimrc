@@ -17,7 +17,7 @@ set showcmd
 set statusline=%<%f\ %h%m%y%r%=%-14.(%l,%c%V%)\ %P
 set t_ti= t_te=
 set wildmenu
-set guifont=Menlo\ Regular:h14
+set guifont=Menlo\ Regular:h12
 
 " appearance.
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red

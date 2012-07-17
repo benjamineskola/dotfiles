@@ -3,7 +3,7 @@ autoload -U colors && colors
 virtualenv_info() {
 	[ $VIRTUAL_ENV ] && echo "($(basename $VIRTUAL_ENV))"
 }
-parse_git_dirt() {
+parse_git_dirty() {
 	local SUBMODULE_SYNTAX=''
 	if [[ $POST_1_7_2_GIT -gt 0 ]]; then
 		SUBMODULE_SYNTAX="--ignore-submodules=dirty"
@@ -32,7 +32,7 @@ $(virtualenv_info)> "
 			print -Pn "\e]0;$TITLE_PROMPT\a";
 		}
 		preexec() {
-			TITLE_PROMPT="[%n@%m:$(collapse_pwd)] $1"
+			TITLE_PROMPT="[%n@%m:${PWD/#$HOME/~})] $1"
 		}
 		;;
 esac

@@ -1,50 +1,39 @@
-# Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
-
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="bma"
-
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
-
-# Comment this out to disable weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
-
-# Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment following line if you want red dots to be displayed while waiting for completion
-# COMPLETION_WAITING_DOTS="true"
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
-
-source $ZSH/oh-my-zsh.sh
-
-# Customize to your needs...
+# vim:ft=sh
 
 . $XDG_CONFIG_HOME/aliases.sh
+. $XDG_CONFIG_HOME/prompt.zsh
 
 HISTFILE=$XDG_CACHE_HOME/zsh_history
 HISTSIZE=819200
 SAVEHIST=819200
 setopt nohist_beep hist_ignore_all_dups share_history inc_append_history
 
+setopt check_jobs nohup
+setopt nobeep nonomatch
+setopt auto_cd auto_pushd pushd_silent
+setopt extended_glob
+
+if [[ "$(id -un)" != root ]]; then
+	autoload -U compinit
+	compinit -d $XDG_CACHE_HOME/zcompdump
+	zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+fi
+
+bindkey -e
 stty stop undef
 ulimit -c 0
 
-unalias history # oh-my-zsh breaks this.
+bindkey '\e[7~' beginning-of-line
+bindkey '\e[8~' end-of-line
+bindkey '\e[3~' delete-char
 
-setopt nonomatch
+# Remove / from wordchars, so ^W kills only one path element at a time.
+WORDCHARS=${WORDCHARS/\//}
+
+if [[ $OSTYPE = FreeBSD ]]; then
+	# FreeBSD pam_ssh doesn't make the agent data available.
+	if [[ -n "$SSH_AUTH_SOCK" ]]; then
+		printf "SSH_AUTH_SOCK=$SSH_AUTH_SOCK; export SSH_AUTH_SOCK;\nSSH_AGENT_PID=$SSH_AGENT_PID; export SSH_AGENT_PID" > "$XDG_CONFIG_HOME/_ssh/agent-$HOSTNAME"
+	fi
+fi
+mkdir -p ${XDG_CACHE_HOME}

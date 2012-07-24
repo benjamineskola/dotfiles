@@ -55,6 +55,11 @@ case $OSTYPE in
 			alias tar=bsdtar
 			alias unzip="tar xf"
 		fi
+		if [[ -x "$(which service)" ]]; then
+			alias service='sudo service'
+		else
+			alias service='sudo invoke-rc.d'
+		fi
 		;;
 	FreeBSD)
 		eval "$(lesspipe.sh)"
@@ -66,6 +71,8 @@ case $OSTYPE in
 		sps() { type=$1; shift; cd /usr/ports; for i in $@; do make search ${type}=$i; done | less; }
 		alias spsn="sps name"
 		alias spsk="sps key"
+
+		alias service='sudo service'
 		;;
 	Darwin)
 		alias ack="ack -a"

@@ -1,0 +1,27 @@
+[DEFAULT]
+include = cat ~/src/mr/lib/* 2>/dev/null || true
+
+[Code/ThirdParty/mr]
+checkout = git clone git://git.kitenet.net/mr
+
+[.]
+checkout = git clone git@git:bma/config
+
+[bin]
+checkout = git clone git@git:bma/bin
+fixups = ln -sf ../Code/ThirdParty/mr/mr ~/bin
+
+[.vim/bundle/nerdcommenter]
+checkout = git clone https://github.com/scrooloose/nerdcommenter.git
+[.vim/bundle/pathogen]
+checkout = git clone https://github.com/tpope/vim-pathogen.git pathogen
+[.vim/bundle/threesome]
+checkout = git clone https://github.com/sjl/threesome.vim.git threesome
+[.vim/bundle/gundo]
+checkout = git clone https://github.com/sjl/gundo.vim.git gundo
+[.vim/bundle/nginx]
+checkout = git clone https://github.com/vim-scripts/nginx.vim.git nginx
+[.vim/bundle/ledger]
+checkout = git clone https://github.com/cypok/vim-ledger.git ledger
+[.vim/bundle/cocoa]
+checkout = git clone git://github.com/msanders/cocoa.vim.git cocoa

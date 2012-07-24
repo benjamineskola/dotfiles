@@ -12,6 +12,7 @@ setopt check_jobs nohup
 setopt nobeep nonomatch
 setopt auto_cd auto_pushd pushd_silent
 setopt extended_glob
+setopt correct
 
 if [[ "$(id -un)" != root ]]; then
 	autoload -U compinit

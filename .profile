@@ -1,7 +1,17 @@
-# if running bash
-if [ -n "$BASH_VERSION" ]; then
-	# include .bashrc if it exists
-	if [ -f "$HOME/.bashrc" ]; then
-		. "$HOME/.bashrc"
+# vim:ft=sh
+shell=$(which zsh)
+if [[ -n "$PS1" ]]; then
+	if [[ -x "$shell" && -z "$NO_ZSH" ]]; then
+		SHELL=$shell
+		export SHELL
+		case $0 in
+		-*)
+			exec $SHELL -l;;
+		*)
+			exec $SHELL;;
+		esac
 	fi
+	. $HOME/.zshenv
+	. $XDG_CONFIG_HOME/aliases.sh
+	PS1='\u@\h:\w> '
 fi

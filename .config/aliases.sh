@@ -79,5 +79,5 @@ f() {
 	done
 }
 
-bal() { ledger -C -s bal Assets Liabilities -Assets:Loans -Assets:CoinJar -Amazon:GiftCert }
-uncleared() { ledger -U print  }
+bal() { ledger -C -s bal Assets Liabilities -Assets:Loans -Assets:CoinJar -Amazon:GiftCert; }
+uncleared() { ledger -U print; }

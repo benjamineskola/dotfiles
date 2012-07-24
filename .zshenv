@@ -61,9 +61,11 @@ export GIT_AUTHOR_EMAIL GIT_COMMITTER_EMAIL
 
 export TZ=Europe/London
 
-export WORKON_HOME=$HOME/Code/virtualenvs
-export PROJECT_HOME=$HOME/Code
-. /usr/local/bin/virtualenvwrapper.sh
-if [[ -n "$VIRTUAL_ENV" ]]; then
-	export PATH=$VIRTUAL_ENV/bin:$PATH
+if [ -x /usr/local/bin/virtualenvwrapper.sh ]; then
+	export WORKON_HOME=$HOME/Code/virtualenvs
+	export PROJECT_HOME=$HOME/Code
+	. /usr/local/bin/virtualenvwrapper.sh
+	if [[ -n "$VIRTUAL_ENV" ]]; then
+		export PATH=$VIRTUAL_ENV/bin:$PATH
+	fi
 fi

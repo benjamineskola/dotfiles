@@ -18,6 +18,8 @@ set statusline=%<%f\ %h%m%y%r%=%-14.(%l,%c%V%)\ %P
 set t_ti= t_te=
 set wildmenu
 set guifont=Menlo\ Regular:h12
+set guioptions-=T
+set mouse+=a
 
 " appearance.
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
@@ -57,8 +59,13 @@ au FileType nginx,puppet,vim set expandtab ts=2 sw=2 sts=2
 
 let g:NERDSpaceDelims = 1
 
-map <Tab> :bnext<CR>
-map <S-Tab> :bprevious<CR>
+if has("gui_running")
+  map <Tab> :tabnext<CR>
+  map <S-Tab> :tabprevious<CR>
+else
+  map <Tab> :bnext<CR>
+  map <S-Tab> :bprevious<CR>
+endif
 
 map Y y$
 nmap <C-l> :nohl<CR>:redraw<CR>

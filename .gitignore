@@ -7,23 +7,9 @@
 .CFUserTextEncoding
 /.Trash
 /.cache
-/.config/_*
-/.config/.git.old/
-/.config/.libreoffice/
-/.config/DjVuLibre/
-/.config/Mendeley Ltd./
-/.config/Trolltech.conf
-/.config/autostart/
-/.config/calibre/
-/.config/chromium/
-/.config/enchant/
-/.config/google-chrome
-/.config/gtk-2.0/
-/.adobe
-/.macromedia
-/.serverauth*
-/.zcompdump
-/.xsession-errors
 /.ssh/agent-*
 /.ssh/authorized_keys
 /.viminfo
+/.vim/bundle
+/.*_history
+/.gnupg

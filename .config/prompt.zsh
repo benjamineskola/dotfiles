@@ -30,7 +30,7 @@ case $TERM in
 $(virtualenv_info)> "
 		}
 		preexec() {
-			print -Pn "\e]0;%n@%m:${PWD/#$HOME/~}${1:+ — $1}\a";
+			print -Pn "\e]0;%n@%m:${PWD/#$HOME/~}${1:+ — }${1//\%/%%}\a";
 		}
 		preexec
 		;;

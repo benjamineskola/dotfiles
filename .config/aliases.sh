@@ -33,6 +33,8 @@ alias remcal='rem -cuc -w$COLUMNS'
 
 deadlinks(){ i="$1"; test -n "$i" || i=.; find -L "$i" -type l; }
 
+hdus(){ hadoop fs -dus $@ | sort -rn -k2 | awk '{$2=($2/1024/1024/1024) "G";print $2 "\t" $1}' }
+
 if [ -e "$(which colordiff)" ]; then
 	alias diff='colordiff -u'
 	alias colordiff='colordiff -u'

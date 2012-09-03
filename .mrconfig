@@ -27,3 +27,5 @@ checkout = git clone https://github.com/cypok/vim-ledger.git ledger
 checkout = git clone git://github.com/msanders/cocoa.vim.git cocoa
 [.vim/bundle/speeddating]
 checkout = git clone git://github.com/tpope/vim-speeddating.git speeddating
+[.vim/bundle/scala]
+checkout = git clone git://github.com/derekwyatt/vim-scala scala

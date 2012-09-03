@@ -46,10 +46,8 @@ fun! HighlightWhitespace()
   syn match ExtraWhiteSpace /\t\+ \t*/ containedin=ALL
   syn match ExtraWhiteSpace /\t* \t\+/ containedin=ALL
 
-  if &ft =~ 'nginx\|python\|puppet\|vim'
+  if &ft == 'python'
     syn match ExtraWhitespace /^ *\t\+ */ containedin=ALL
-  else
-    syn match ExtraWhitespace /^ \+\t*/ containedin=ALL
   endif
 endfun
 

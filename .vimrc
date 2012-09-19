@@ -1,6 +1,16 @@
-runtime bundle/pathogen/autoload/pathogen.vim
-call pathogen#infect()
-call pathogen#helptags()
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'tpope/vim-pathogen'
+Bundle 'sjl/threesome.vim'
+Bundle 'sjl/gundo.vim'
+Bundle 'vim-scripts/nginx.vim'
+Bundle 'cypok/vim-ledger'
+Bundle 'msanders/cocoa.vim'
+Bundle 'tpope/vim-speeddating'
+Bundle 'derekwyatt/vim-scala'
 
 set autoindent
 set backspace=indent,eol,start

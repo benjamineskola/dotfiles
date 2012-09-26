@@ -17,7 +17,9 @@ installed=$(brew list -1)
 
 to_install=$(comm -23 <(echo "$wanted") <(echo "$installed"))
 
-for package in $to_install; do
+echo "$to_install" | while read package; do
+	echo brew install $package || true  # don't bail if a single package fails
+
 	brew install $package || true  # don't bail if a single package fails
 done
 

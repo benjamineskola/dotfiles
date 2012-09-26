@@ -11,6 +11,8 @@ Bundle 'cypok/vim-ledger'
 Bundle 'msanders/cocoa.vim'
 Bundle 'tpope/vim-speeddating'
 Bundle 'derekwyatt/vim-scala'
+Bundle 'nvie/vim-flake8'
+Bundle 'tpope/vim-markdown'
 
 set autoindent
 set backspace=indent,eol,start

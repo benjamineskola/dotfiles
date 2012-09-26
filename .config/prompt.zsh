@@ -2,6 +2,7 @@ autoload -U colors && colors
 
 virtualenv_info() {
 	[ $VIRTUAL_ENV ] && echo "($(basename $VIRTUAL_ENV))"
+	rbenv local >/dev/null 2>&1 && echo "($(rbenv local))"
 }
 parse_git_dirty() {
 	local SUBMODULE_SYNTAX=''
@@ -35,4 +36,3 @@ $(virtualenv_info)> "
 		preexec
 		;;
 esac
-

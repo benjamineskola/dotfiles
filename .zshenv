@@ -69,3 +69,4 @@ if [ -x /usr/local/bin/virtualenvwrapper.sh ]; then
 		export PATH=$VIRTUAL_ENV/bin:$PATH
 	fi
 fi
+eval "$(rbenv init -)"

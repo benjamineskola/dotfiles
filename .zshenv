@@ -24,6 +24,7 @@ PATH=/usr/bin:/usr/sbin:/usr/games:$PATH
 PATH=/usr/local/bin:/usr/local/sbin:/usr/local/games:$PATH
 if [ -d /usr/lib/hadoop ]; then PATH=$PATH:/usr/lib/hadoop/bin; fi
 if [ -d /usr/lib/hbase ]; then PATH=$PATH:/usr/lib/hbase/bin; fi
+if [ -d $XDG_DATA_HOME/Haskell/bin ]; then PATH=$XDG_DATA_HOME/Haskell/bin:$PATH; fi
 PATH=~/bin/$OSTYPE/$MACHTYPE:~/bin/$OSTYPE:~/bin:$PATH
 export PATH
 

@@ -24,7 +24,7 @@ set laststatus=2
 set modeline
 set noexpandtab ts=8 sw=8
 set number
-set pastetoggle=<F11>
+set pastetoggle=<F10>
 set showcmd
 set statusline=%<%f\ %h%m%y%r%=%-14.(%l,%c%V%)\ %P
 set t_ti= t_te=

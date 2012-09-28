@@ -32,6 +32,7 @@ set wildmenu
 set guifont=Menlo\ Regular:h12
 set guioptions-=T
 set mouse+=a
+set list listchars=tab:▸\ ,eol:¬
 
 " appearance.
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red

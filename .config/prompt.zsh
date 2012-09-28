@@ -2,7 +2,8 @@ autoload -U colors && colors
 
 virtualenv_info() {
 	[ $VIRTUAL_ENV ] && echo "($(basename $VIRTUAL_ENV))"
-	rbenv local >/dev/null 2>&1 && echo "($(rbenv local))"
+	ruby=$(rbenv version 2>/dev/null|cut -d ' ' -f 1)
+	if [ "$ruby" != "system" ]; then echo "($ruby)"; fi
 }
 parse_git_dirty() {
 	local SUBMODULE_SYNTAX=''

@@ -84,6 +84,11 @@ command! W w !sudo tee % > /dev/null
 
 nnoremap <F5> :GundoToggle<CR>
 
+nmap [o O<Esc>
+nmap ]o o<Esc>
+nmap [e ddkP<Esc>
+nmap ]e ddp<Esc>
+
 " emacs-like editing in command mode
 cnoremap <C-A> <Home>
 cnoremap <C-B> <Left>

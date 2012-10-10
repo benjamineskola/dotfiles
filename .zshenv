@@ -50,12 +50,12 @@ LANG=en_GB.UTF-8
 LC_COLLATE=C
 export LANG LC_COLLATE
 
-case $DOMAIN in
-	*mendeley.*|*.chonp.net)
-		GIT_AUTHOR_EMAIL=bma@mendeley.com
+case $HOSTNAME in
+	kropotkin|bakunin|chomsky|jagger)
+		GIT_AUTHOR_EMAIL=bma@bma.li
 		;;
 	*)
-		GIT_AUTHOR_EMAIL=bma@bma.li
+		GIT_AUTHOR_EMAIL=bma@mendeley.com
 		;;
 esac
 GIT_COMMITTER_EMAIL=$GIT_AUTHOR_EMAIL

@@ -105,3 +105,15 @@ nnoremap / /\v
 vnoremap / /\v
 
 nnoremap ; :
+
+function! BindTimestamp()
+  if &modified
+    let save_cursor = getpos(".")
+    let n = min([20, line("$")])
+    keepjumps exe '1,' . n . 's#\( \+\)\d\+\( *; serial\)#' .
+          \ '\1' . strftime('%s') . '\2#'
+    call histdel('search', -1)
+    call setpos('.', save_cursor)
+  endif
+endfun
+autocmd BufWritePre *.db call BindTimestamp()

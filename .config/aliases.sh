@@ -28,10 +28,9 @@ alias w3m='w3m -F -v'
 
 alias sudo="sudo "
 
-rem(){ (cd ~; command rem -qg $@); }
-alias remcal='rem -cuc -w$COLUMNS'
-
 deadlinks(){ i="$1"; test -n "$i" || i=.; find -L "$i" -type l; }
+
+rlocate(){ locate "$@" | grep "$PWD" | sed "s,^$PWD/,," }
 
 hdus(){ hadoop fs -dus $@ | sort -rn -k2 | awk '{$2=($2/1024/1024/1024) "G";print $2 "\t" $1}' }
 
@@ -45,7 +44,7 @@ fi
 case $OSTYPE in
 	Linux)
 		if [[ -e /etc/debian_version ]]; then
-			alias ack="ack-grep -a"
+			alias ack="ack-grep"
 
 			alias acs="apt-cache search"
 			alias acsh="apt-cache show"
@@ -73,7 +72,6 @@ case $OSTYPE in
 	FreeBSD)
 		eval "$(lesspipe.sh)"
 		alias unzip="tar xf"
-		alias ack="ack -a"
 
 		alias spi="sudo portinstall"
 		alias spd="sudo pkg_deinstall"
@@ -83,17 +81,4 @@ case $OSTYPE in
 
 		alias service='sudo service'
 		;;
-	Darwin)
-		alias ack="ack -a"
-		;;
 esac
-
-f() {
-	find $@ | fgrep -v .git/ | while read f; do
-		test -d "$f" && printf "\033[01;34m"
-		printf "$f\033[0m\n"
-	done
-}
-
-bal() { ledger -C -s bal Assets Liabilities -Assets:Loans -Assets:CoinJar -Amazon:GiftCert; }
-uncleared() { ledger -U print; }

@@ -41,6 +41,23 @@ else
 	alias diff='diff -u'
 fi
 
+pastebin() {
+	if [ -n "$*" ]; then
+		echo "$ $*"
+		exec $@
+	else
+		cat
+	fi | curl -s -F 'clbin=<-' https://clbin.com | read URL
+
+	URL="$URL?hl"
+	echo "$URL"
+
+	if [ "$OSTYPE" = Darwin ]; then
+		echo "$URL" | pbcopy
+	fi
+}
+alias pastebin='pastebin '
+
 case $OSTYPE in
 	Linux)
 		if [[ -e /etc/debian_version ]]; then

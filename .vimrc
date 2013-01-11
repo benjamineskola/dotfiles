@@ -13,6 +13,7 @@ Bundle 'tpope/vim-speeddating'
 Bundle 'derekwyatt/vim-scala'
 Bundle 'nvie/vim-flake8'
 Bundle 'tpope/vim-markdown'
+Bundle 'altercation/vim-colors-solarized'
 
 set autoindent
 set backspace=indent,eol,start
@@ -39,7 +40,9 @@ set background=dark
 let g:xterm16_colormap = 'soft'
 let g:xterm16_brightness = 'high'
 let &t_Co = 256
-colo xterm16
+if has('gui_running') || $TERM == 'xterm-256color'
+  colo solarized
+endif
 syntax on
 
 highlight LineNr ctermbg=none

@@ -28,18 +28,14 @@ set number
 set pastetoggle=<F10>
 set showcmd
 set statusline=%<%f\ %h%m%y%r%=%-14.(%l,%c%V%)\ %P
-set t_ti= t_te=
 set wildmenu
-set guifont=Menlo\ Regular:h12
+set guifont=Inconsolata:h14
 set guioptions-=T
 
 " appearance.
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 
 set background=dark
-let g:xterm16_colormap = 'soft'
-let g:xterm16_brightness = 'high'
-let &t_Co = 256
 if has('gui_running') || $TERM == 'xterm-256color'
   colo solarized
 endif

@@ -45,8 +45,6 @@ if has('gui_running') || $TERM == 'xterm-256color'
 endif
 syntax on
 
-highlight LineNr ctermbg=none
-
 " filetype stuff.
 filetype plugin indent on
 let g:is_posix = 1 " /bin/sh is always POSIX, because what the fuck.

@@ -34,6 +34,9 @@ rlocate(){ locate "$@" | grep "$PWD" | sed "s,^$PWD/,," }
 
 hdus(){ hadoop fs -dus $@ | sort -rn -k2 | awk '{$2=($2/1024/1024/1024) "G";print $2 "\t" $1}' }
 
+ag(){ command ag -aS --color --group $@ | less }
+alias ack=ag
+
 if [ -e "$(which colordiff)" ]; then
 	alias diff='colordiff -u'
 	alias colordiff='colordiff -u'

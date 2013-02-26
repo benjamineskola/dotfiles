@@ -1,1 +1,0 @@
-07,37 * * * *	eval $(cat .cache/keychain/$HOSTNAME-sh) && chronic dotfiles-pull

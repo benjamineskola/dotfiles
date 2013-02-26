@@ -1,1 +1,0 @@
-MAILTO=bma@mendeley.com

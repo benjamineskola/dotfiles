@@ -1,1 +1,0 @@
-*/10 * * * *	cd src/bma.li && chronic git pull && chronic jekyll

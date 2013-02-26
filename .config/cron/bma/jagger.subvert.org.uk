@@ -1,3 +1,0 @@
-@hourly	$HOME/bin/gettweet >> $HOME/.data/tweets && sort $HOME/.data/tweets | uniq -f 1 | sponge $HOME/.data/tweets
-@hourly	sa-learn --spam mail/spam/cur/ > /dev/null && find mail/spam/cur -type f -delete
-@hourly	sa-learn --ham mail/spam-false-positive/cur/ > /dev/null && find mail/spam-false-positive/cur -type f -delete

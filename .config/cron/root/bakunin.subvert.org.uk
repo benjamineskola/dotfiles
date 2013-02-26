@@ -1,4 +1,0 @@
-*/10 * * * *	cd /usr/local/etc/puppet; HEAD=$(git rev-parse HEAD); git fetch; git reset --hard origin/master > /dev/null; git clean -f; if [ $HEAD != $(git rev-parse HEAD) ]; then service puppetmaster restart; fi
-*/30 * * * *	/usr/home/bma/bin/get_required_packages > /usr/local/etc/pkg_leaves.exclude
-
-@daily		zsnapshot tank

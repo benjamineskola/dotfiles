@@ -18,6 +18,7 @@ if [[ "$(id -un)" != root ]]; then
 	autoload -U compinit
 	compinit -d $XDG_CACHE_HOME/zcompdump
 	zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+	zstyle ':completion:*:*:vim:*:*files' ignored-patterns '*.svbin'
 fi
 
 bindkey -e

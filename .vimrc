@@ -62,7 +62,7 @@ endfun
 
 au Syntax * call HighlightWhitespace()
 au FileType python set expandtab ts=4 sw=4 sts=4
-au FileType nginx,puppet,vim set expandtab ts=2 sw=2 sts=2
+au FileType nginx,puppet,vim,ruby set expandtab ts=2 sw=2 sts=2
 
 let g:NERDSpaceDelims = 1
 

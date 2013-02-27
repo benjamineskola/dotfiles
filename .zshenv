@@ -63,6 +63,8 @@ export GIT_AUTHOR_EMAIL GIT_COMMITTER_EMAIL
 
 export TZ=Europe/London
 
+export AWS_CONFIG_FILE=$XDG_CONFIG_HOME/aws.ini
+
 if [ -x /usr/local/bin/virtualenvwrapper_lazy.sh ]; then
 	export WORKON_HOME=$HOME/Code/virtualenvs
 	export PROJECT_HOME=$HOME/Code

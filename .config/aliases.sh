@@ -25,6 +25,8 @@ alias grep='egrep'
 alias pt="pstree -auUlp"
 alias tf="tail -F"
 alias w3m='w3m -F -v'
+alias curl='curl -sS'
+alias plint='puppet-lint --with-filename --no-documentation-check'
 
 alias sudo="sudo "
 

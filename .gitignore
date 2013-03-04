@@ -13,3 +13,5 @@
 /.vim/bundle
 /.*_history
 /.gnupg
+*.svbin
+*.sieve.log

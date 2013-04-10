@@ -31,7 +31,7 @@ if [ -x "$(which vim)" ]; then
 	alias vi=vim
 fi
 if [ "$OSTYPE" = "Darwin" ]; then
-	if [ -x "$(which subl)" -a $(ls /Applications/|grep -q '^Sublime Text.*\.app$') ]; then
+	if [ -x "$(which subl)" ] && ls /Applications/|grep -q '^Sublime Text.*\.app$'; then
 		EDITOR=subl
 	fi
 fi

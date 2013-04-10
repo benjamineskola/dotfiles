@@ -3,3 +3,4 @@
 . $HOME/.aliases
 
 PS1=$'\E[0;37;1m${PWD/${HOME}/\~}>\E[0m '
+HISTFILE=$XDG_CACHE_HOME/mksh_history

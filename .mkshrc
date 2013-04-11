@@ -1,4 +1,5 @@
-# vim:ft=sh
+# -*- sh -*-
+
 . $HOME/.environment
 . $HOME/.aliases
 

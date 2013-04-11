@@ -1,4 +1,4 @@
-# vim:ft=sh
+# -*- sh -*-
 
 alias ls='ls -GhTp'
 alias ll='ls -l'

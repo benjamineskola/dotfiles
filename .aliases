@@ -1,6 +1,13 @@
 # -*- sh -*-
 
-alias ls='ls -GhTp'
+case $OSTYPE in
+	FreeBSD|Darwin)
+		alias ls='ls -GhpT';;
+	Linux)
+		alias ls='ls -hp --color --time-style=+"%d %b %H:%M:%S %Y"';;
+	*)
+		alias ls='ls -Fh';;
+esac
 alias ll='ls -l'
 alias la='ls -A'
 alias lal='ls -lA'

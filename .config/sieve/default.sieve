@@ -1,8 +1,8 @@
 # vim:ft=sieve
 
-require ["fileinto", "regex", "envelope", "subaddress", "variables"];
+require ["fileinto", "regex", "envelope", "subaddress", "variables", "imap4flags"];
 
-if header :regex "From" "@astoncarter.co.uk" {
+if address :domain :is "From" "astoncarter.co.uk" {
 	fileinto "spam"; stop;
 }
 
@@ -17,16 +17,8 @@ if header :regex "To" "root(@.*|$)" {
 	fileinto "root"; stop;
 }
 
-if header :regex "To" ".*@bmalee.eu" {
-	fileinto "bmalee.eu"; stop;
-}
-
-if header :regex "To" ".*@bma.cx" {
-	fileinto "bma.cx"; stop;
-}
-
-if header :regex "To" ".*@.*subvert.org.uk" {
-	fileinto "subvert.org.uk"; stop;
+if header :regex ["to", "cc"] ".*@.*(bmalee.eu|bma.cx|subvert.org.uk)" {
+	fileinto "Old/${1}"; stop;
 }
 
 if anyof(address :is ["from", "to", "cc"] "bma-bbk@bma.li",
@@ -36,6 +28,13 @@ if anyof(address :is ["from", "to", "cc"] "bma-bbk@bma.li",
 	fileinto "Birkbeck"; stop;
 }
 
+if envelope :localpart :is "to" ["bma-hackspace", "bma-newhamcyclist", "bma-fosdem"] {
+	setflag "\\Seen"; fileinto "Deleted Messages"; stop;
+}
 if header :regex "List-Id" ".*" {
+	fileinto "lists"; stop;
+}
+
+if address :detail "to" "bha" {
 	fileinto "lists"; stop;
 }

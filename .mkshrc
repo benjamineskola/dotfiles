@@ -4,4 +4,7 @@
 . $HOME/.aliases
 
 PS1=$'\E[0;37;1m${PWD/${HOME}/\~}>\E[0m '
+if [ -n "$SSH_CLIENT" ]; then
+	PS1=$'\E[0;37;1m$HOSTNAME\E[0m:'$PS1
+fi
 HISTFILE=$XDG_CACHE_HOME/mksh_history

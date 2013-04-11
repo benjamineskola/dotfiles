@@ -30,7 +30,7 @@ else
 	alias diff='diff -u'
 fi
 
-if [[ -x "$(which service)" ]]; then
+if [ -e "$(which service)" ]; then
 	alias service='sudo service'
 else
 	alias service='sudo invoke-rc.d'

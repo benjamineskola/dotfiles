@@ -35,3 +35,7 @@ if [ -e "$(which service)" ]; then
 else
 	alias service='sudo invoke-rc.d'
 fi
+
+usergroups() {
+	ldapsearch -x "(|(member=uid=$1,ou=people,dc=mendeley,dc=com)(memberuid=$1))" dn | grep '^dn'
+}

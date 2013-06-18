@@ -20,20 +20,30 @@ if [ $OSTYPE = Darwin ]; then
 fi
 mkdir -p $XDG_CACHE_HOME
 
-PATH=~/bin/${OSTYPE}/${MACHTYPE}:~/bin/${OSTYPE}:~/bin:$XDG_DATA_HOME/Haskell/bin:/usr/local/bin:/usr/local/sbin:/usr/local/games:/usr/bin:/usr/sbin:/usr/games:/bin:/sbin:/usr/lib/hadoop/bin:/usr/lib/hbase/bin
+PATH=~/bin/${OSTYPE}/${MACHTYPE}:~/bin/${OSTYPE}:~/bin:\
+$XDG_DATA_HOME/Haskell/bin:/usr/local/bin:/usr/local/sbin:\
+/usr/local/games:/usr/bin:/usr/sbin:/usr/games:/bin:/sbin:\
+/usr/lib/hadoop/bin:/usr/lib/hbase/bin
 export PATH
 
 export AWS_CONFIG_FILE=$XDG_CONFIG_HOME/aws.ini
 
 EDITOR=vi
-if [ -x "$(which vim)" ]; then
-	EDITOR=vim
-	alias vi=vim
-fi
-if [ "$OSTYPE" = "Darwin" ]; then
-	if [ -x "$(which subl)" ] && ls /Applications/|grep -q '^Sublime Text.*\.app$'; then
-		EDITOR=subl
+
+if [ $OSTYPE = "Darwin" ]; then
+	EDITOR=emacs
+	alias vi=emacs
+	alias vim=emacs
+else
+	if [ -x "$(which mg)" ]; then
+	EDITOR=mg
+	else
+	EDITOR=vi
+	if [ -x "$(which vim)" ]; then
+		EDITOR=vim
 	fi
+	fi
+alias vi="$EDITOR"
 fi
 VISUAL=$EDITOR
 export EDITOR VISUAL

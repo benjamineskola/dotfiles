@@ -3,6 +3,9 @@
 (add-hook 'find-file-hook 'whitespace-mode)
 (add-hook 'emacs-lisp-mode-hook '(lambda () (setq indent-tabs-mode nil)))
 
+(setq default-tab-width 8)
+(define-key global-map (kbd "RET") 'newline-and-indent)
+
 (setq whitespace-style
       '(face trailing lines space-before-tab newline indentation
              empty space-after-tab tab-mark newline-mark))

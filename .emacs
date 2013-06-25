@@ -17,6 +17,8 @@
 (menu-bar-mode -1)
 (column-number-mode)
 
+(setq backup-directory-alist `(("." . "~/.cache/emacs")))
+
 (if window-system
     (set 'default-frame-alist
          '((background-color . "black")

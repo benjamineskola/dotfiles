@@ -1,3 +1,7 @@
+(add-to-list 'load-path "~/.emacs.d/lisp/")
+(load-library "puppet-mode")
+(add-to-list 'auto-mode-alist '("\\.pp\\'" . puppet-mode))
+
 (set 'inhibit-startup-screen t)
 
 (add-hook 'find-file-hook 'whitespace-mode)

@@ -6,21 +6,21 @@ DOMAIN=${FQDN#*.}
 export HOSTNAME DOMAIN FQDN
 
 # store the name of the operating system and architecture.
-OSTYPE=$(uname -s)
-MACHTYPE=$(uname -m)
-export OSTYPE MACHTYPE
+OS=$(uname -s)
+ARCH=$(uname -m)
+export OS ARCH
 
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_DATA_HOME=$HOME/.data
 
-if [ $OSTYPE = Darwin ]; then
+if [ $OS = Darwin ]; then
 	export XDG_DATA_HOME=$HOME/Library
 	export XDG_CACHE_HOME=$HOME/Library/Caches
 fi
 mkdir -p $XDG_CACHE_HOME
 
-PATH=~/bin/${OSTYPE}/${MACHTYPE}:~/bin/${OSTYPE}:~/bin:\
+PATH=~/bin/${OS}/${ARCH}:~/bin/${OS}:~/bin:\
 $XDG_DATA_HOME/Haskell/bin:/usr/local/bin:/usr/local/sbin:\
 /usr/local/games:/usr/bin:/usr/sbin:/usr/games:/bin:/sbin:\
 /usr/lib/hadoop/bin:/usr/lib/hbase/bin
@@ -30,7 +30,7 @@ export AWS_CONFIG_FILE=$XDG_CONFIG_HOME/aws.ini
 
 EDITOR=vi
 
-if [ $OSTYPE = "Darwin" ]; then
+if [ $OS = "Darwin" ]; then
 	EDITOR=emacs
 	alias vi=emacs
 	alias vim=emacs

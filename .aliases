@@ -1,6 +1,6 @@
 # -*- sh -*-
 
-case $OSTYPE in
+case $OS in
 	FreeBSD|Darwin)
 		alias ls='ls -GhpT';;
 	Linux)

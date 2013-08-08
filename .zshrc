@@ -3,9 +3,9 @@
 . $HOME/.environment
 . $HOME/.aliases
 
-PS1='%B%~>%b '
-if [ -n "$SSH_CLIENT" ]; then
-	PS1='%B$HOSTNAME%b:'$PS1
+PS1='%B%U%~>%u%b '
+if [ -n "$SSH_CLIENT" -o -n "$SUDO_USER" ]; then
+	PS1='%B%U$HOSTNAME%u%b:'$PS1
 fi
 HISTFILE=$XDG_CACHE_HOME/zsh_history
 HISTSIZE=819200

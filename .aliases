@@ -13,7 +13,7 @@ alias la='ls -A'
 alias lal='ls -lA'
 alias lsd='ls -d'
 
-alias curl='curl -sS'
+alias curl='curl -gkLsS'
 alias dc="dc -e '2k' -f /dev/stdin"
 alias grep=egrep
 alias puppet-lint='puppet-lint --with-filename'

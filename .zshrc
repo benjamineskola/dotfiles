@@ -27,5 +27,6 @@ eval "$(rbenv init -)"
 
 if [ ! -L ~/Library/Application\ Support/Sublime\ Text\ 2/Packages/User ]; then
 	echo "Installing Sublime Text config."
+	rm -rf ~/Library/Application\ Support/Sublime\ Text\ 2/Packages/User
 	ln -sf ~/.config/Sublime\ Text ~/Library/Application\ Support/Sublime\ Text\ 2/Packages/User
 fi

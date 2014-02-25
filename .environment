@@ -21,6 +21,7 @@ fi
 mkdir -p $XDG_CACHE_HOME
 
 PATH=~/bin/${OS}/${ARCH}:~/bin/${OS}:~/bin:\
+/usr/local/texlive/2013/bin/x86_64-darwin:\
 $XDG_DATA_HOME/Haskell/bin:/usr/local/bin:/usr/local/sbin:\
 /usr/local/games:/usr/bin:/usr/sbin:/usr/games:/bin:/sbin:\
 /usr/lib/hadoop/bin:/usr/lib/hbase/bin

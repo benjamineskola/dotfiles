@@ -24,3 +24,8 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:
 setopt autolist
 
 eval "$(rbenv init -)"
+
+if [ ! -L ~/Library/Application\ Support/Sublime\ Text\ 2/Packages/User ]; then
+	echo "Installing Sublime Text config."
+	ln -sf ~/.config/Sublime\ Text ~/Library/Application\ Support/Sublime\ Text\ 2/Packages/User
+fi

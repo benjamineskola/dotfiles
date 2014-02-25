@@ -1,0 +1,20 @@
+// Defaults at https://raw.github.com/facelessuser/ApplySyntax/master/ApplySyntax.sublime-settings
+// This file only needs overrides.
+{
+    "syntaxes": [
+
+        {
+            "name": "ShellScript/Shell-Unix-Generic",
+            "rules": [
+                //{"file_name": "profile"},
+                {"file_name": ".*\\.(environment|aliases)$"},
+                //{"file_name": ".*\\.bash.*$"},
+                //{"file_name": ".*\\.z(shrc|shenv|profile|login|logout).*$"},
+                //{"file_name": ".*\\.(bash|sh)$"},
+                {"binary": "sh"},
+                //{"binary": "bash"},
+                {"binary": "zsh"}
+            ]
+        },
+    ]
+}

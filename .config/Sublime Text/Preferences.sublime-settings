@@ -1,5 +1,6 @@
 {
 	"color_scheme": "Packages/Color Scheme - Default/Solarized (Light, Improved).tmTheme",
+	"ensure_newline_at_eof_on_save": true,
 	"font_face": "Inconsolata-dz",
 	"font_size": 13.0,
 	"trim_trailing_white_space_on_save": true

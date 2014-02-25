@@ -31,5 +31,10 @@ if [ $OS = Darwin ]; then
 		rm -rf ~/Library/Application\ Support/Sublime\ Text\ 2/Packages/User
 		ln -sf ~/.config/Sublime\ Text ~/Library/Application\ Support/Sublime\ Text\ 2/Packages/User
 	fi
-	ln -sf /Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl ~/bin
+	if [ ! -L ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User ]; then
+		echo "Installing Sublime Text config."
+		rm -rf ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
+		ln -sf ~/.config/Sublime\ Text ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
+	fi
+	ln -sf /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl ~/bin
 fi

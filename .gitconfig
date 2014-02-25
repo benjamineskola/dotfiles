@@ -23,3 +23,5 @@
 	trustExitCode = true
 [push]
 	default = tracking
+[core]
+	editor = subl -w

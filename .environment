@@ -31,19 +31,15 @@ export AWS_CONFIG_FILE=$XDG_CONFIG_HOME/aws.ini
 EDITOR=vi
 
 if [ $OS = "Darwin" ]; then
-	EDITOR=emacs
-	alias vi=emacs
-	alias vim=emacs
+	EDITOR=subl
+	alias vi=$EDITOR
+	alias vim=$EDITOR
 else
-	if [ -x "$(which mg)" ]; then
-	EDITOR=mg
-	else
 	EDITOR=vi
 	if [ -x "$(which vim)" ]; then
 		EDITOR=vim
 	fi
-	fi
-alias vi="$EDITOR"
+	alias vi="$EDITOR"
 fi
 VISUAL=$EDITOR
 export EDITOR VISUAL

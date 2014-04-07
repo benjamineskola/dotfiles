@@ -1,0 +1,19 @@
+# Default editing configuration
+#
+tabSize = 8
+softTabs = false
+TM_STRIP_WHITESPACE_ON_SAVE = true
+
+[ source.puppet ]
+tabSize = 2
+softTabs = true
+
+
+[ source.ruby ]
+tabSize = 2
+softTabs = true
+
+
+[ source.python ]
+tabSize = 4
+softTabs = true

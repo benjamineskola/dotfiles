@@ -15,12 +15,6 @@
 	diff = auto
 	status = auto
 	branch = auto
-[merge]
-	tool = threesome
-
-[mergetool "threesome"]
-	cmd = "vim -f $BASE $LOCAL $REMOTE $MERGED -c 'ThreesomeInit'"
-	trustExitCode = true
 [push]
 	default = tracking
 [core]

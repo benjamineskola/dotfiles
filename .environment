@@ -32,7 +32,7 @@ export AWS_CONFIG_FILE=$XDG_CONFIG_HOME/aws.ini
 EDITOR=vi
 
 if [ $OS = "Darwin" ]; then
-	EDITOR=subl
+	EDITOR=mate
 	alias vi=$EDITOR
 	alias vim=$EDITOR
 else

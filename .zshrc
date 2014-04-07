@@ -24,17 +24,3 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:
 setopt autolist
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
-if [ $OS = Darwin ]; then
-	if [ ! -L ~/Library/Application\ Support/Sublime\ Text\ 2/Packages/User ]; then
-		echo "Installing Sublime Text config."
-		rm -rf ~/Library/Application\ Support/Sublime\ Text\ 2/Packages/User
-		ln -sf ~/.config/Sublime\ Text ~/Library/Application\ Support/Sublime\ Text\ 2/Packages/User
-	fi
-	if [ ! -L ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User ]; then
-		echo "Installing Sublime Text config."
-		rm -rf ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
-		ln -sf ~/.config/Sublime\ Text ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
-	fi
-	ln -sf /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl ~/bin
-fi

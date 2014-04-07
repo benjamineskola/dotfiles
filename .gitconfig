@@ -24,4 +24,4 @@
 [push]
 	default = tracking
 [core]
-	editor = subl -w
+	editor = mate -w

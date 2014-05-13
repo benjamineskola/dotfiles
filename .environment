@@ -33,14 +33,14 @@ EDITOR=vi
 
 if [ $OS = "Darwin" ]; then
 	EDITOR=mate
-	alias vi=$EDITOR
-	alias vim=$EDITOR
 else
 	EDITOR=vi
-	if [ -x "$(which vim)" ]; then
+	if [ -x "$(which rmate)" ]; then
+		EDITOR=rmate
+		alias mate=rmate
+	elif [ -x "$(which vim)" ]; then
 		EDITOR=vim
 	fi
-	alias vi="$EDITOR"
 fi
 VISUAL=$EDITOR
 export EDITOR VISUAL

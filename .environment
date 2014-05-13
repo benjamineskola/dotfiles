@@ -58,9 +58,9 @@ export GIT_AUTHOR_EMAIL GIT_COMMITTER_EMAIL
 
 LESS="-ImRswFX"
 LESSHISTFILE="$XDG_CACHE_HOME/less_history"
-if [ -x $(which lesspipe.sh) ]; then
+if [ -x "$(which lesspipe.sh)" ]; then
 	export LESSOPEN="|lesspipe.sh %s"
-elif [ -x $(which lesspipe) ]; then
+elif [ -x "$(which lesspipe)" ]; then
 	export LESSOPEN="|lesspipe %s"
 fi
 export LESS LESSHISTFILE

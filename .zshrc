@@ -3,9 +3,11 @@
 . $HOME/.environment
 . $HOME/.aliases
 
-PS1='%B%U%~>%u%b '
-if [ -n "$SSH_CLIENT" -o -n "$SUDO_USER" ]; then
-	PS1='%B%U%m%u%b:'$PS1
+PROMPT='%B%U%~>%u%b '
+if [ -n "$SSH_CLIENT" ]; then
+	PROMPT='%B%U%m%u%b:'$PROMPT
+elif [ -n "$SUDO_USER" ]
+	PROMPT='%B%U%n%u%b@%B%U%m%u%b:'$PROMPT
 fi
 HISTFILE=$XDG_CACHE_HOME/zsh_history
 HISTSIZE=819200

@@ -17,5 +17,3 @@
 	branch = auto
 [push]
 	default = tracking
-[core]
-	editor = mate -w

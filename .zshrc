@@ -6,7 +6,7 @@
 PROMPT='%B%U%~>%u%b '
 if [ -n "$SSH_CLIENT" ]; then
 	PROMPT='%B%U%m%u%b:'$PROMPT
-elif [ -n "$SUDO_USER" ]
+elif [ -n "$SUDO_USER" ]; then
 	PROMPT='%B%U%n%u%b@%B%U%m%u%b:'$PROMPT
 fi
 HISTFILE=$XDG_CACHE_HOME/zsh_history

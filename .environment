@@ -29,20 +29,22 @@ export PATH
 
 export AWS_CONFIG_FILE=$XDG_CONFIG_HOME/aws.ini
 
-EDITOR=vi
-
 if [ $OS = "Darwin" ]; then
 	EDITOR=mate
+	VISUAL="mate -w"
 else
-	EDITOR=vi
 	if [ -x "$(which rmate)" ]; then
 		EDITOR=rmate
+		VISUAL="rmate -w"
 		alias mate=rmate
 	elif [ -x "$(which vim)" ]; then
 		EDITOR=vim
+		VISUAL=vim
+	else
+		EDITOR=vi
+		VISUAL=vi
 	fi
 fi
-VISUAL=$EDITOR
 export EDITOR VISUAL
 
 case $DOMAIN in

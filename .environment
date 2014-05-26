@@ -30,14 +30,12 @@ export PATH
 export AWS_CONFIG_FILE=$XDG_CONFIG_HOME/aws.ini
 
 if [ $OS = "Darwin" ]; then
-	EDITOR=mate
-	VISUAL="mate -w"
+	EDITOR="open -a /Applications/Aquamacs.app"
+	VISUAL="$EDITOR -W"
+	alias vi=$EDITOR
+	alias vim=$EDITOR
 else
-	if [ -x "$(which rmate)" ]; then
-		EDITOR=rmate
-		VISUAL="rmate -w"
-		alias mate=rmate
-	elif [ -x "$(which vim)" ]; then
+	if [ -x "$(which vim)" ]; then
 		EDITOR=vim
 		VISUAL=vim
 	else

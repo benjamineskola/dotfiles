@@ -1,4 +1,10 @@
-(setq inhibit-startup-echo-area-message t)
+(setq inhibit-startup-echo-area-message t
+      inhibit-startup-screen t)
+
+(add-to-list 'find-file-hook
+	     '(lambda ()
+		(if (not (eq nil (get-buffer "*scratch*")))
+		    (kill-buffer "*scratch*"))))
 
 (setq default-frame-alist '((background-color . "black")
 			    (foreground-color . "light grey")))

@@ -9,7 +9,8 @@
   (when (eq system-type 'darwin) ;; mac specific settings
     (setq mac-option-modifier 'meta
 	  mac-right-option-modifier nil
-	  x-select-enable-clipboard t)
+	  x-select-enable-clipboard t
+	  aquamacs-save-options-on-quit nil)
     (global-set-key [kp-delete] 'delete-char) ;; sets fn-delete to be right-delete
     (global-set-key [A-return] 'ns-toggle-fullscreen)
     ))

@@ -1,7 +1,7 @@
 (setq inhibit-startup-echo-area-message t
       inhibit-startup-screen t)
 
-(add-to-list 'find-file-hook
+(add-hook 'find-file-hook
 	     '(lambda ()
 		(if (not (eq nil (get-buffer "*scratch*")))
 		    (kill-buffer "*scratch*"))))
@@ -20,3 +20,6 @@
     (global-set-key [kp-delete] 'delete-char) ;; sets fn-delete to be right-delete
     (global-set-key [A-return] 'ns-toggle-fullscreen)
     ))
+
+; don't want trailing whitespaces.
+(add-hook 'before-save-hook 'delete-trailing-whitespace)

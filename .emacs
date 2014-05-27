@@ -10,8 +10,7 @@
   (when (eq system-type 'darwin) ;; mac specific settings
     (setq mac-option-modifier 'meta
 	  mac-right-option-modifier nil
-	  mac-command-modifier 'super
 	  x-select-enable-clipboard t)
     (global-set-key [kp-delete] 'delete-char) ;; sets fn-delete to be right-delete
-    (global-set-key [s-return] 'ns-toggle-fullscreen)
+    (global-set-key [A-return] 'ns-toggle-fullscreen)
     ))

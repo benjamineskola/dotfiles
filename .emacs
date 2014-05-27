@@ -1,8 +1,7 @@
 (setq inhibit-startup-echo-area-message t)
 
 (setq default-frame-alist '((background-color . "black")
-			    (foreground-color . "light grey")
-			    (font . "Inconsolata-dz 12")))
+			    (foreground-color . "light grey")))
 
 (when window-system
   (tool-bar-mode -1)

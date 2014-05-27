@@ -7,7 +7,8 @@
 		    (kill-buffer "*scratch*"))))
 
 (setq default-frame-alist '((background-color . "black")
-			    (foreground-color . "light grey")))
+			    (foreground-color . "light grey")
+			    (font . "Inconsolata-dz 12")))
 
 (when window-system
   (tool-bar-mode -1)
@@ -16,7 +17,8 @@
     (setq mac-option-modifier 'meta
 	  mac-right-option-modifier nil
 	  x-select-enable-clipboard t
-	  aquamacs-save-options-on-quit nil)
+	  aquamacs-save-options-on-quit nil
+	  aquamacs-autoface-mode nil)
     (global-set-key [kp-delete] 'delete-char) ;; sets fn-delete to be right-delete
     (global-set-key [A-return] 'ns-toggle-fullscreen)
     ))

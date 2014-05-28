@@ -1,7 +1,12 @@
 (require 'package)
-(package-initialize)
 (add-to-list 'package-archives
              '("marmalade" . "http://marmalade-repo.org/packages/") t)
+(package-initialize)
+
+(dolist (p '(smooth-scroll))
+  (when (not (package-installed-p p))
+    (package-install p))
+  (require p))
 
 (setq inhibit-startup-echo-area-message t
       inhibit-startup-screen t)

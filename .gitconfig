@@ -17,3 +17,7 @@
 	branch = auto
 [push]
 	default = tracking
+[diff]
+	renames = copy
+[diff "lisp"]
+	wordRegex = \\(|\\)|[^[:space:]()]+

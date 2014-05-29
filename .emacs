@@ -28,7 +28,8 @@
 	  mac-right-option-modifier nil
 	  x-select-enable-clipboard t
 	  aquamacs-save-options-on-quit nil
-	  aquamacs-autoface-mode nil)
+	  aquamacs-autoface-mode nil
+	  ns-pop-up-frames nil)
     (global-set-key [kp-delete] 'delete-char) ;; sets fn-delete to be right-delete
     (global-set-key [A-return] 'ns-toggle-fullscreen) ;; aquamacs
     (global-set-key [s-return] 'toggle-frame-fullscreen) ;; cocoa emacs

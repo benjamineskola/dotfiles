@@ -14,11 +14,6 @@
 (setq inhibit-startup-echo-area-message t
       inhibit-startup-screen t)
 
-(add-hook 'find-file-hook
-	     '(lambda ()
-		(if (not (eq nil (get-buffer "*scratch*")))
-		    (kill-buffer "*scratch*"))))
-
 (setq default-frame-alist '((background-color . "black")
 			    (foreground-color . "light grey")
 			    (font . "Inconsolata-dz 12")))

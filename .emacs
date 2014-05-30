@@ -8,6 +8,8 @@
   (when (not (package-installed-p p))
     (package-install p))
   (require p))
+(smooth-scroll-mode)
+(cua-selection-mode t)
 
 (setq inhibit-startup-echo-area-message t
       inhibit-startup-screen t)

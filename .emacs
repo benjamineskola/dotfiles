@@ -21,15 +21,25 @@
 (defun ask-before-closing ()
   "Ask whether or not to close, and then close if y was pressed"
   (interactive)
-  (if (yes-or-no-p (format "Are you sure you want to exit Emacs? "))
+  (if (y-or-n-p (format "Are you sure you want to exit Emacs? "))
       (if (< emacs-major-version 22)
           (save-buffers-kill-terminal)
         (save-buffers-kill-emacs))
     (message "Canceled exit")))
 
+(defun close-all-buffers ()
+  "Loop through all buffers and close them."
+  (interactive)
+
+  (dolist (buf (buffer-list))
+    (unless (string= (buffer-name buf) "*scratch*")
+      (kill-buffer buf))))
+
 (when window-system
   (tool-bar-mode -1)
   (global-linum-mode)
+  (global-set-key (kbd "C-x C-c") 'close-all-buffers)
+
   (when (eq system-type 'darwin) ;; mac specific settings
     (setq mac-option-modifier 'meta
 	  mac-right-option-modifier nil
@@ -40,7 +50,7 @@
     (global-set-key [kp-delete] 'delete-char) ;; sets fn-delete to be right-delete
     (global-set-key [A-return] 'ns-toggle-fullscreen) ;; aquamacs
     (global-set-key [s-return] 'toggle-frame-fullscreen) ;; cocoa emacs
-    (global-set-key (kbd "C-x C-c") 'ask-before-closing)
+    (global-set-key (kbd "s-q") 'ask-before-closing)
     ))
 
 ; don't want trailing whitespaces.

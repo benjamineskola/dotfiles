@@ -18,6 +18,15 @@
 			    (foreground-color . "light grey")
 			    (font . "Inconsolata-dz 12")))
 
+(defun ask-before-closing ()
+  "Ask whether or not to close, and then close if y was pressed"
+  (interactive)
+  (if (yes-or-no-p (format "Are you sure you want to exit Emacs? "))
+      (if (< emacs-major-version 22)
+          (save-buffers-kill-terminal)
+        (save-buffers-kill-emacs))
+    (message "Canceled exit")))
+
 (when window-system
   (tool-bar-mode -1)
   (global-linum-mode)
@@ -31,6 +40,7 @@
     (global-set-key [kp-delete] 'delete-char) ;; sets fn-delete to be right-delete
     (global-set-key [A-return] 'ns-toggle-fullscreen) ;; aquamacs
     (global-set-key [s-return] 'toggle-frame-fullscreen) ;; cocoa emacs
+    (global-set-key (kbd "C-x C-c") 'ask-before-closing)
     ))
 
 ; don't want trailing whitespaces.

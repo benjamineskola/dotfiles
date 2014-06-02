@@ -30,8 +30,8 @@ export PATH
 export AWS_CONFIG_FILE=$XDG_CONFIG_HOME/aws.ini
 
 if [ $OS = "Darwin" ]; then
-	EDITOR="aquamacs"
-	VISUAL="open -a /Applications/Aquamacs.app -W" # aquamacs command doesn't support blocking
+	EDITOR="open -a Emacs"
+	VISUAL="$EDITOR -W"
 	alias vi=$EDITOR
 	alias vim=$EDITOR
 	alias emacs=$EDITOR

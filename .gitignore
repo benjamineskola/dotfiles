@@ -1,10 +1,4 @@
-/*
-!/.*
-*.bak
-*~
-.*.sw?
-.DS_Store
-.CFUserTextEncoding
+/[^\.]*
 /.Trash
 /.cache
 /.ssh/agent-*

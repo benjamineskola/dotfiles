@@ -8,4 +8,12 @@
 /.*_history
 /.gnupg
 *.svbin
-*.sieve.log
+.cabal
+.dropbox*
+.fontconfig
+.gem
+.ghc
+.pythonhist
+.rbenv
+.rnd
+.vagrant.d

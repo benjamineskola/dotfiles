@@ -38,3 +38,4 @@
 
 ; don't want trailing whitespaces.
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+(setq require-final-newline t)

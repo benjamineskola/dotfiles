@@ -13,9 +13,9 @@ if allof(address :domain :is "From" "refuge.org.uk",
 	fileinto "Deleted Messages"; stop;
 }
 
-if header :contains "X-DSPAM-Result" "Spam" {
+if header :contains "X-Spam-Flag" "Yes" {
 	setflag "\\Seen";
-	if header :regex "X-DSPAM-Confidence" "^(1|0.([89]|7[5-9]))" {
+	if header :regex "X-Spam-Level" "^\\*{10}" {
 		fileinto "Junk/Confirmed"; stop;
 	}
 	fileinto "Junk"; stop;

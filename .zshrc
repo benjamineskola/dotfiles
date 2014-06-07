@@ -10,7 +10,8 @@ elif [ -n "$SUDO_USER" ]; then
 fi
 case $TERM in
     xterm*|screen*)
-        precmd () {print -Pn "\e]0;%n@%m:%~\a"}
+        print -Pn "\e]0;%n@%m:%~\a"
+        preexec () {print -Pn "\e]0;%n@%m:%~> $2\a"}
         ;;
 esac
 

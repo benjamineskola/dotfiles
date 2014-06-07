@@ -9,6 +9,12 @@ if [ -n "$SSH_CLIENT" ]; then
 elif [ -n "$SUDO_USER" ]; then
 	PROMPT='%B%U%n%u%b@%B%U%m%u%b:'$PROMPT
 fi
+case $TERM in
+    xterm*)
+        precmd () {print -Pn "\e]0;%n@%m:%~\a"}
+        ;;
+esac
+
 HISTFILE=$XDG_CACHE_HOME/zsh_history
 HISTSIZE=819200
 SAVEHIST=819200

@@ -10,7 +10,7 @@ elif [ -n "$SUDO_USER" ]; then
 	PROMPT='%B%U%n%u%b@%B%U%m%u%b:'$PROMPT
 fi
 case $TERM in
-    xterm*)
+    xterm*|screen*)
         precmd () {print -Pn "\e]0;%n@%m:%~\a"}
         ;;
 esac

@@ -11,7 +11,7 @@ fi
 case $TERM in
     xterm*|screen*)
         print -Pn "\e]0;%n@%m:%~\a"
-        preexec () {print -Pn "\e]0;%n@%m:%~> $2\a"}
+        preexec () { print -Pn "\e]0;%n@%m:%~> $1\a" }
         ;;
 esac
 

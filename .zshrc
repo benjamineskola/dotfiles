@@ -33,4 +33,6 @@ compinit -d $XDG_CACHE_HOME/zcompdump
 ## case-insensitive (all),partial-word and then substring completion
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+if [ $(whoami) != root ]; then
+	if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+fi

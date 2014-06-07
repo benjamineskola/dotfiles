@@ -1,7 +1,6 @@
 # -*- sh -*-
 
-. $HOME/.environment
-. $HOME/.aliases
+. $HOME/.shrc
 
 PS1="\[\033[01;04m\]\w\[\033[0m\]> "
 if [ -n "$SSH_CLIENT" ]; then

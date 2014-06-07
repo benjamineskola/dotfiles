@@ -1,0 +1,7 @@
+# -*- sh -*-
+
+. $HOME/.environment
+test -e $HOME/.environment.$(uname -s) && . $HOME/.environment.$(uname -s)
+test -e $HOME/.environment.after && . $HOME/.environment.after
+. $HOME/.aliases
+test -e $HOME/.aliases.$(uname -s) && . $HOME/.aliases.$(uname -s)

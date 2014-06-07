@@ -1,0 +1,4 @@
+# -*- sh -*-
+
+export AWS_CONFIG_FILE=$XDG_CONFIG_HOME/aws.ini
+LESSHISTFILE="$XDG_CACHE_HOME/less_history"

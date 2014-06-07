@@ -1,7 +1,6 @@
 # -*- sh -*-
 
-. $HOME/.environment
-. $HOME/.aliases
+. $HOME/.shrc
 
 PROMPT='%B%U%~>%u%b '
 if [ -n "$SSH_CLIENT" ]; then

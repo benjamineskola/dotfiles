@@ -1,13 +1,6 @@
 # -*- sh -*-
 
-case $OS in
-	FreeBSD|Darwin)
-		alias ls='ls -GhpT';;
-	Linux)
-		alias ls='ls -hp --color --time-style=+"%d %b %H:%M:%S %Y"';;
-	*)
-		alias ls='ls -Fh';;
-esac
+alias ls='ls -Fh'
 alias ll='ls -l'
 alias la='ls -A'
 alias lal='ls -lA'

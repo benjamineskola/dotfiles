@@ -1,0 +1,13 @@
+# -*- sh -*-
+
+export XDG_DATA_HOME=$HOME/Library
+export XDG_CACHE_HOME=$HOME/Library/Caches
+
+EDITOR="open -a Emacs"
+VISUAL="$EDITOR -W"
+alias vi=$EDITOR
+alias vim=$EDITOR
+alias emacs=$EDITOR
+export EDITOR VISUAL
+
+export PATH=/usr/local/texlive/2013/bin/x86_64-darwin:$PATH

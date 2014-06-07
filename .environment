@@ -5,43 +5,18 @@ HOSTNAME=${FQDN%%.*}
 DOMAIN=${FQDN#*.}
 export HOSTNAME DOMAIN FQDN
 
-# store the name of the operating system and architecture.
-OS=$(uname -s)
-ARCH=$(uname -m)
-export OS ARCH
-
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_DATA_HOME=$HOME/.data
 
-if [ $OS = Darwin ]; then
-	export XDG_DATA_HOME=$HOME/Library
-	export XDG_CACHE_HOME=$HOME/Library/Caches
-fi
-mkdir -p $XDG_CACHE_HOME
-
-PATH=~/bin/${OS}/${ARCH}:~/bin/${OS}:~/bin:\
-/usr/local/texlive/2013/bin/x86_64-darwin:\
-$XDG_DATA_HOME/Haskell/bin:/usr/local/bin:/usr/local/sbin:\
-/usr/local/games:/usr/bin:/usr/sbin:/usr/games:/bin:/sbin:\
-/usr/lib/hadoop/bin:/usr/lib/hbase/bin
+PATH=~/bin:/usr/local/bin:/usr/local/sbin:/usr/local/games:/usr/bin:/usr/sbin:/usr/games:/bin:/sbin
 export PATH
 
-export AWS_CONFIG_FILE=$XDG_CONFIG_HOME/aws.ini
-
-if [ $OS = "Darwin" ]; then
-	EDITOR="open -a Emacs"
-	VISUAL="$EDITOR -W"
-	alias vi=$EDITOR
-	alias vim=$EDITOR
-	alias emacs=$EDITOR
-else
-	EDITOR=vi
-	if [ -x "$(which vim)" ]; then
-		EDITOR=vim
-	fi
-	VISUAL=$EDITOR
+EDITOR=vi
+if [ -x "$(which vim)" ]; then
+	EDITOR=vim
 fi
+VISUAL=$EDITOR
 export EDITOR VISUAL
 
 case $DOMAIN in
@@ -57,7 +32,6 @@ GIT_COMMITTER_EMAIL=$GIT_AUTHOR_EMAIL
 export GIT_AUTHOR_EMAIL GIT_COMMITTER_EMAIL
 
 LESS="-ImRswFX"
-LESSHISTFILE="$XDG_CACHE_HOME/less_history"
 if [ -x "$(which lesspipe.sh)" ]; then
 	export LESSOPEN="|lesspipe.sh %s"
 elif [ -x "$(which lesspipe)" ]; then

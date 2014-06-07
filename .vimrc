@@ -27,6 +27,8 @@ au FileType nginx,puppet,vim,ruby set expandtab ts=2 sw=2 sts=2
 
 map <Tab> :bnext<CR>
 map <S-Tab> :bprevious<CR>
+cabbrev tabe e
+cabbrev tabclose bdel
 
 map Y y$
 map qq ZZ

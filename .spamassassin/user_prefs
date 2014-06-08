@@ -5,3 +5,7 @@ score WEBINAR 5.0
 header PRIORITY_URGENT X-Priority =~ /^1$/
 describe PRIORITY_URGENT Urgent flag is set in message.
 score PRIORITY_URGENT 5.0
+
+header PGP_SIGNED Content-Type =~ /application\/pgp-signature/
+describe PGP_SIGNED Message includes a PGP signature.
+score PGP_SIGNED -10.0

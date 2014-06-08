@@ -17,3 +17,4 @@
 .rbenv
 .rnd
 .vagrant.d
+.spamassassin/bayes_*

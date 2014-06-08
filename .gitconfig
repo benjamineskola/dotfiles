@@ -22,4 +22,4 @@
 [diff "lisp"]
 	wordRegex = \\(|\\)|[^[:space:]()]+
 [core]
-	excludesfile = /Users/bma/.gitignore.global
+	excludesfile = ~/.gitignore.global

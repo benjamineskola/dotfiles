@@ -1,3 +1,12 @@
 # -*- sh -*-
 
 alias ls='ls -hp --color --time-style=+"%d %b %H:%M:%S %Y"'
+
+alias apt-get='sudo apt-get'
+alias sagu='apt-get update'
+alias sagup='apt-get upgrade'
+alias sagi='apt-get install'
+alias sagp='apt-get purge'
+alias acsh='apt-cache show'
+alias acs='apt-cache search'
+alias acsno='apt-cache search -n'

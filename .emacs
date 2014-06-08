@@ -1,3 +1,4 @@
+(add-to-list 'load-path "~/.emacs.d/elisp")
 (require 'package)
 (add-to-list 'package-archives
              '("marmalade" . "http://marmalade-repo.org/packages/") t)
@@ -13,10 +14,6 @@
 
 (setq inhibit-startup-echo-area-message t
       inhibit-startup-screen t)
-
-(setq default-frame-alist '((background-color . "black")
-			    (foreground-color . "light grey")
-			    (font . "Inconsolata-dz 12")))
 
 (defun ask-before-closing ()
   "Ask whether or not to close, and then close if y was pressed"
@@ -35,20 +32,9 @@
     (unless (string= (buffer-name buf) "*scratch*")
       (kill-buffer buf))))
 
-(when window-system
-  (tool-bar-mode -1)
-  (global-linum-mode)
-  (global-set-key (kbd "C-x C-c") 'close-all-buffers)
-
-  (when (eq system-type 'darwin) ;; mac specific settings
-    (setq mac-option-modifier 'meta
-	  mac-right-option-modifier nil
-	  x-select-enable-clipboard t
-	  ns-pop-up-frames nil)
-    (global-set-key [kp-delete] 'delete-char) ;; sets fn-delete to be right-delete
-    (global-set-key [s-return] 'toggle-frame-fullscreen)
-    (global-set-key (kbd "s-q") 'ask-before-closing)
-    ))
+(when (display-graphic-p)
+  (require 'gui))
+(require system-type)
 
 ; don't want trailing whitespaces.
 (add-hook 'before-save-hook 'delete-trailing-whitespace)

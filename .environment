@@ -13,7 +13,7 @@ PATH=~/bin:/usr/local/bin:/usr/local/sbin:/usr/local/games:/usr/bin:/usr/sbin:/u
 export PATH
 
 EDITOR=vi
-if [ -x "$(which vim)" ]; then
+if [[ -x "$(which vim)" ]]; then
 	EDITOR=vim
 fi
 VISUAL=$EDITOR
@@ -31,15 +31,11 @@ esac
 GIT_COMMITTER_EMAIL=$GIT_AUTHOR_EMAIL
 export GIT_AUTHOR_EMAIL GIT_COMMITTER_EMAIL
 
-LESS="-ImRswFX"
-if [ -x "$(which lesspipe.sh)" ]; then
+export LESS="-ImRswFX"
+if [[ -x "$(which lesspipe.sh)" ]]; then
 	export LESSOPEN="|lesspipe.sh %s"
-elif [ -x "$(which lesspipe)" ]; then
+elif [[ -x "$(which lesspipe)" ]]; then
 	export LESSOPEN="|lesspipe %s"
 fi
-export LESS LESSHISTFILE
-
-export LS_COLORS="no=00:fi=00:di=34:ln=35:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:tw=30;42:ow=34;42:st=37;44:ex=31" # gnu
-export LSCOLORS=exfxcxdxbxegedabagacad # bsd
 
 export TZ=Europe/London

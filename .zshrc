@@ -3,9 +3,9 @@
 . $HOME/.shrc
 
 PROMPT='%B%U%~>%u%b '
-if [ -n "$SSH_CLIENT" ]; then
+if [[ -n "$SSH_CLIENT" ]]; then
 	PROMPT='%B%U%m%u%b:'$PROMPT
-elif [ -n "$SUDO_USER" ]; then
+elif [[ -n "$SUDO_USER" ]]; then
 	PROMPT='%B%U%n%u%b@%B%U%m%u%b:'$PROMPT
 fi
 case $TERM in
@@ -34,6 +34,6 @@ compinit -d $XDG_CACHE_HOME/zcompdump
 ## case-insensitive (all),partial-word and then substring completion
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
-if [ $(whoami) != root ]; then
+if [[ $(whoami) != root ]]; then
 	if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 fi

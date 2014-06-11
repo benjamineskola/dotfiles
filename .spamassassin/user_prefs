@@ -10,6 +10,10 @@ header READ_RECEIPT Disposition-Notification-To =~ /.+/
 describe READ_RECEIPT A read receipt was requested.
 score READ_RECEIPT 5.0
 
+header READ_RECEIPT_NONSTANDARD Return-Receipt-To =~ /.+/
+describe READ_RECEIPT_NONSTANDARD A read receipt was requested.
+score READ_RECEIPT_NONSTANDARD 5.0
+
 header PGP_SIGNED Content-Type =~ /application\/pgp-signature/
 describe PGP_SIGNED Message includes a PGP signature.
 score PGP_SIGNED -10.0

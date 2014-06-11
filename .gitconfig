@@ -11,18 +11,24 @@
 	dc = diff --cached -M
 	dwc= diff --cached --color-words -M
 	unstage = reset HEAD --
+[branch]
+	autosetuprebase = always
 [color]
 	diff = auto
 	status = auto
 	branch = auto
-[push]
-	default = tracking
+[core]
+	excludesfile = ~/.gitignore.global
 [diff]
 	renames = copy
 [diff "lisp"]
 	wordRegex = \\(|\\)|[^[:space:]()]+
-[core]
-	excludesfile = ~/.gitignore.global
+[difftool]
+	prompt = false
+[merge]
+	tool = opendiff
+[push]
+	default = simple
 [user]
 	name = Benjamin M. A'Lee
 	email = me@benjaminalee.uk

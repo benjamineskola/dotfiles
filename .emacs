@@ -39,3 +39,12 @@
 ; don't want trailing whitespaces.
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (setq require-final-newline t)
+
+; Don't prompt to wrap when isearch reaches the end of a file.
+(defadvice isearch-search (after isearch-no-fail activate)
+  (unless isearch-success
+    (ad-disable-advice 'isearch-search 'after 'isearch-no-fail)
+    (ad-activate 'isearch-search)
+    (isearch-repeat (if isearch-forward 'forward))
+    (ad-enable-advice 'isearch-search 'after 'isearch-no-fail)
+    (ad-activate 'isearch-search)))

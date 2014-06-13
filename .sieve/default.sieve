@@ -21,7 +21,7 @@ if anyof(address :is ["from", "to", "cc"] "bma-bbk@bma.li",
 	fileinto "Birkbeck"; stop;
 }
 
-if envelope :localpart :is "to" "bma-bookclub" {
+if header :is "List-Id" "<intersectional-feminist-book-club.googlegroups.com>" {
 	fileinto "Feminist Book Club";
 	stop;
 }

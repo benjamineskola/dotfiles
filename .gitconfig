@@ -5,7 +5,6 @@
 	ci = commit
 	l = log -M --graph --decorate --abbrev-commit
 	la = log -M --graph --all --decorate --abbrev-commit
-	pp = "!sh -c 'if [ $0 = sh ];then i="";else i=$0;fi; git pull $i $@ && git push $i $@'"
 	di = diff -M
 	dw = diff --color-words -M
 	dc = diff --cached -M

@@ -18,3 +18,5 @@
 .rnd
 .vagrant.d
 .spamassassin/bayes_*
+.emacs.d/*/
+!.emacs.d/elisp

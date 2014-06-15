@@ -15,6 +15,8 @@
 (setq inhibit-startup-echo-area-message t
       inhibit-startup-screen t)
 
+(setq tramp-default-method "ssh")
+
 (defun ask-before-closing ()
   "Ask whether or not to close, and then close if y was pressed"
   (interactive)

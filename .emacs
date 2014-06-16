@@ -1,29 +1,24 @@
 (add-to-list 'load-path "~/.emacs.d/elisp")
-(require 'package)
-(add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/") t)
-(package-initialize)
-(package-refresh-contents)
-
-(dolist (p '(smooth-scroll puppet-mode))
-  (when (not (package-installed-p p))
-    (package-install p))
-  (require p))
-(smooth-scroll-mode)
-(cua-selection-mode t)
-
-(setq inhibit-startup-echo-area-message t
-      inhibit-startup-screen t)
-
-(setq tramp-default-method "ssh")
-(setq indent-tabs-mode nil ; space by default
-      sh-basic-offset 8
-      sh-indentation 8)
-(electric-indent-mode +1)
+(require 'package-config)
 
 (when (display-graphic-p)
   (require 'gui))
 (require system-type)
+
+(setq inhibit-startup-echo-area-message t
+      inhibit-startup-screen t)
+
+(smooth-scroll-mode)
+(cua-selection-mode t)
+
+(setq tramp-default-method "ssh")
+
+; indentation
+(setq indent-tabs-mode nil ; most things I use want spaces by default
+      sh-basic-offset 8
+      sh-indentation 8)
+(add-hook 'sh-mode-hook (lambda () (setq indent-tabs-mode t)))
+(electric-indent-mode +1)
 
 ; don't want trailing whitespaces.
 (add-hook 'before-save-hook 'delete-trailing-whitespace)

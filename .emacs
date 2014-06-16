@@ -17,7 +17,9 @@
 
 (setq tramp-default-method "ssh")
 (setq indent-tabs-mode nil ; space by default
-      sh-basic-offset 8)
+      sh-basic-offset 8
+      sh-indentation 8)
+(electric-indent-mode +1)
 
 (defun ask-before-closing ()
   "Ask whether or not to close, and then close if y was pressed"

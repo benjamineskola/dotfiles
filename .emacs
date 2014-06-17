@@ -33,4 +33,11 @@
     (ad-enable-advice 'isearch-search 'after 'isearch-no-fail)
     (ad-activate 'isearch-search)))
 
+(setq backup-by-copying-when-linked t
+      delete-old-versions t
+      kept-new-versions 6
+      kept-old-versions 2
+      version-control t)
+(add-to-list 'backup-directory-alist `("." . ,(substitute-in-file-name "$XDG_CACHE_HOME/emacs")))
+
 (server-start)

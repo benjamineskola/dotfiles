@@ -15,10 +15,17 @@
 
 ; indentation
 (setq indent-tabs-mode nil ; most things I use want spaces by default
-      js-indent-level 2
+      js-indent-level 8
       sh-basic-offset 8
       sh-indentation 8)
 (add-hook 'sh-mode-hook (lambda () (setq indent-tabs-mode t)))
+(add-hook 'js-mode-hook (lambda () (setq indent-tabs-mode t)))
+(add-to-list 'auto-mode-alist
+             '("\\.json\\'" . (lambda ()
+                                (progn
+                                  (js-mode)
+                                  (setq-local indent-tabs-mode nil)
+                                  (setq-local js-indent-level 2)))))
 (electric-indent-mode +1)
 
 ; don't want trailing whitespaces.

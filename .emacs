@@ -15,6 +15,7 @@
 
 ; indentation
 (setq indent-tabs-mode nil ; most things I use want spaces by default
+      js-indent-level 2
       sh-basic-offset 8
       sh-indentation 8)
 (add-hook 'sh-mode-hook (lambda () (setq indent-tabs-mode t)))

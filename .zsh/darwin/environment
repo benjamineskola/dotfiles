@@ -5,8 +5,8 @@ export XDG_CACHE_HOME=$HOME/Library/Caches
 
 EDITOR="emacsclient -n"
 VISUAL="emacsclient"
-alias vi=$EDITOR
-alias vim=$EDITOR
+alias vi='echo Use emacs'
+alias vim='echo Use emacs'
 alias emacs=$EDITOR
 export EDITOR VISUAL
 

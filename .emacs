@@ -1,4 +1,4 @@
-(add-to-list 'load-path "~/.emacs.d/elisp")
+(add-to-list 'load-path "~/.emacs.d/conf")
 (require 'package-config)
 
 (setq cache-directory (expand-file-name "~/.cache/emacs")) ; do first so 'system-type can override.

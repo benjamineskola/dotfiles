@@ -17,3 +17,5 @@
     (global-set-key [kp-delete] 'delete-char) ;; sets fn-delete to be right-delete
     (global-set-key [s-return] 'toggle-frame-fullscreen)
     (global-set-key (kbd "s-q") 'ask-before-closing))
+
+(setq cache-directory (expand-file-name "~/Library/Caches/emacs"))

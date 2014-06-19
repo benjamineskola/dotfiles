@@ -1,6 +1,7 @@
 (add-to-list 'load-path "~/.emacs.d/elisp")
 (require 'package-config)
 
+(setq cache-directory (expand-file-name "~/.cache/emacs")) ; do first so 'system-type can override.
 (when (display-graphic-p)
   (require 'gui))
 (require system-type)
@@ -46,6 +47,7 @@
       kept-new-versions 6
       kept-old-versions 2
       version-control t)
-(add-to-list 'backup-directory-alist `("." . ,(substitute-in-file-name "$XDG_CACHE_HOME/emacs")))
+
+(add-to-list 'backup-directory-alist `("." . ,cache-directory))
 
 (server-start)

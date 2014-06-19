@@ -10,7 +10,6 @@ alias curl='curl -gkLsS'
 alias dc="dc -e '2k' -f /dev/stdin"
 alias grep=egrep
 alias puppet-lint='puppet-lint --with-filename'
-alias sudo="sudo "
 alias tf="tail -F"
 
 alias ag='ag --pager less -aS -m 2147483647' # 2^31-1, seems to be maximum.
@@ -24,9 +23,9 @@ else
 fi
 
 if [[ -e "$(which service)" ]]; then
-	alias service='sudo service'
+	alias service='command sudo service'
 else
-	alias service='sudo invoke-rc.d'
+	alias service='command sudo invoke-rc.d'
 fi
 
 usergroups() {
@@ -35,5 +34,7 @@ usergroups() {
 
 
 if [[ $(whoami) = root ]]; then
-    alias sudo='echo stop it'
+	alias sudo='echo stop it'
+else
+	alias sudo='sudo '
 fi

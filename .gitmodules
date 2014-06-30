@@ -1,4 +1,0 @@
-[submodule ".private"]
-	path = .private
-	url = mielikki.subvert.org.uk:private.git
-	branch = master

@@ -32,6 +32,29 @@ usergroups() {
 	ldapsearch -x "(|(member=uid=$1,ou=people,dc=mendeley,dc=com)(memberuid=$1))" dn | grep '^dn'
 }
 
+load_balancers() {
+	aws --profile work --output text elb describe-load-balancers --query 'LoadBalancerDescriptions[*].LoadBalancerName' | xargs -n 1 echo
+}
+
+describe_load_balancer() {
+	name=$1
+	if [ -z "$2" ]; then
+		query="*"
+	else
+		query=$2
+	fi
+	aws --output text --profile work elb describe-load-balancers --load-balancer-names "$1" --query "$query"
+}
+
+get_instance_ip() {
+	for instance in $@; do
+		aws --output text --profile work ec2 describe-instances --query 'Reservations[*].Instances[*].PrivateIpAddress' --instance-id "$instance"
+	done
+}
+
+staging_hosts() {
+	get_instance_ip $(describe_load_balancer monolith-staging-frontend 'LoadBalancerDescriptions[*].Instances')
+}
 
 if [[ $(whoami) = root ]]; then
 	alias sudo='echo stop it'

@@ -5,6 +5,7 @@ setopt prompt_subst
 
 # from http://stevelosh.com/blog/2010/02/my-extravagant-zsh-prompt/
 function hg_prompt_info {
+    git branch >/dev/null 2>/dev/null && return
     hg prompt --angle-brackets "\
 < on %{$fg[magenta]%}<branch>%{$reset_color%}>\
 < at %{$fg[yellow]%}<tags|%{$reset_color%}, %{$fg[yellow]%}>%{$reset_color%}>\

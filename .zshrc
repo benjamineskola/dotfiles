@@ -1,13 +1,8 @@
 # -*- sh -*-
 
 . $HOME/.shrc
+. $HOME/.zsh/prompt.zsh
 
-PROMPT='%B%U%~>%u%b '
-if [[ -n "$SSH_CLIENT" ]]; then
-	PROMPT='%B%U%m%u%b:'$PROMPT
-elif [[ -n "$SUDO_USER" ]]; then
-	PROMPT='%B%U%n%u%b@%B%U%m%u%b:'$PROMPT
-fi
 case $TERM in
     xterm*|screen*)
         print -Pn "\e]0;%n@%m:%~\a"

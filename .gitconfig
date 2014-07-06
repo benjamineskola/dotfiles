@@ -5,11 +5,7 @@
 	ci = commit
 	l = log -M --graph --decorate --abbrev-commit
 	la = log -M --graph --all --decorate --abbrev-commit
-	di = diff -M
-	dw = diff --color-words -M
 	dc = diff --cached -M
-	dwc= diff --cached --color-words -M
-	unstage = reset HEAD --
 [branch]
 	autosetuprebase = always
 [color]
@@ -20,12 +16,6 @@
 	excludesfile = ~/.gitignore.global
 [diff]
 	renames = copy
-[diff "lisp"]
-	wordRegex = \\(|\\)|[^[:space:]()]+
-[difftool]
-	prompt = false
-[merge]
-	tool = opendiff
 [push]
 	default = simple
 [user]

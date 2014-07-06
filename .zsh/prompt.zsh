@@ -3,24 +3,25 @@ autoload colors; colors
 
 setopt prompt_subst
 
-# from http://stevelosh.com/blog/2010/02/my-extravagant-zsh-prompt/
-function hg_prompt_info {
-    git branch >/dev/null 2>/dev/null && return
-    hg prompt --angle-brackets "\
-< on %{$fg[magenta]%}<branch>%{$reset_color%}>\
-< at %{$fg[yellow]%}<tags|%{$reset_color%}, %{$fg[yellow]%}>%{$reset_color%}>\
-%{$fg[green]%}<status|modified|unknown><update>%{$reset_color%}<
-patches: <patches|join( → )|pre_applied(%{$fg[yellow]%})|post_applied(%{$reset_color%})|pre_unapplied(%{$fg_bold[black]%})|post_unapplied(%{$reset_color%})>>" 2>/dev/null
+function in_home_subdir {
+	if [[ "$(git rev-parse --show-toplevel 2>/dev/null)" == $HOME && "$PWD" =~ "$HOME/[A-Za-z0-9]" ]]; then
+		return 1
+	else
+		return 0
+	fi
 }
-
+# from http://stevelosh.com/blog/2010/02/my-extravagant-zsh-prompt/
 function prompt_char {
-	git branch >/dev/null 2>/dev/null && echo '±' && return
-	hg root >/dev/null 2>/dev/null && echo '☿' && return
+	if in_home_subdir; then
+		#[[ $PWD =~ "$HOME/[A-Za-z0-9]" ]] && continue
+		git branch >/dev/null 2>/dev/null && echo '±' && return
+	fi
 	echo '○'
 }
 
 # from https://github.com/robbyrussell/oh-my-zsh/blob/master/lib/git.zsh
 function git_prompt_info {
+	in_home_subdir || return
 	ref=$(git symbolic-ref HEAD 2> /dev/null) || return
 	echo "$ZSH_THEME_GIT_PROMPT_PREFIX${ref#refs/heads/}$(parse_git_dirty)$ZSH_THEME_GIT_PROMPT_SUFFIX"
 }
@@ -42,7 +43,7 @@ parse_git_dirty () {
 }
 
 PROMPT='
-%{$fg[blue]%}%n%{$reset_color%} at %{$fg[yellow]%}%m%{$reset_color%} in %{$fg[green]%}${PWD/#$HOME/~}%b%{$reset_color%}$(hg_prompt_info)$(git_prompt_info)
+%{$fg[blue]%}%n%{$reset_color%} at %{$fg[yellow]%}%m%{$reset_color%} in %{$fg[green]%}${PWD/#$HOME/~}%b%{$reset_color%}$(git_prompt_info)
 $(prompt_char) '
 
 ZSH_THEME_GIT_PROMPT_PREFIX=" on %{$fg[magenta]%}"

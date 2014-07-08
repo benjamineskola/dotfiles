@@ -1,10 +1,8 @@
 /[^.]*
 /.Trash
 /.cache
-/.ssh/agent-*
-/.ssh/authorized_keys
-/.ssh/id_*
-!/.ssh/id_*.pub
+/.ssh/*
+!/.ssh/config
 /.viminfo
 /.vim/bundle
 /.*_history
@@ -24,3 +22,6 @@
 /.emacs.d/elpa
 /.emacs.d/auto-save-list
 /.emacs.d/eshell
+/.emacs.d/tramp
+/.gnupg/*
+!/.gnupg/gpg.conf

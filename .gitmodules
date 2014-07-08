@@ -1,0 +1,7 @@
+[submodule ".private"]
+	path = .private
+	url = perkele.subvert.org.uk:private.git
+[submodule "bin"]
+	path = bin
+	url = git://github.com/bma/scripts
+	pushurl = git@github.com:bma/scripts

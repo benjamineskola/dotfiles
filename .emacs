@@ -28,6 +28,11 @@
                                   (setq-local indent-tabs-mode nil)
                                   (setq-local js-indent-level 2)))))
 (electric-indent-mode +1)
+(electric-pair-mode 1)
+
+(show-paren-mode 1)
+(setq show-paren-style 'expression)
+(set-face-background 'show-paren-match "#040")
 
 ; don't want trailing whitespaces.
 (add-hook 'before-save-hook 'delete-trailing-whitespace)

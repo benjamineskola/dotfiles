@@ -1,6 +1,15 @@
 # -*- sh -*-
 
-. $HOME/.shrc
+OS=${OSTYPE%%[0-9.]*}
+
+for file in environment aliases; do
+    cd $HOME/.zsh
+    test -e $file && . ./$file
+    test -e $OS/$file && . ./$OS/$file
+    test -e $file.after && . ./$file.after
+    cd - > /dev/null
+done
+
 . $HOME/.zsh/prompt.zsh
 
 case $TERM in
@@ -31,3 +40,5 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:
 
 . /usr/local/share/chruby/chruby.sh
 . /usr/local/share/chruby/auto.sh
+
+mkdir -p $XDG_CACHE_HOME

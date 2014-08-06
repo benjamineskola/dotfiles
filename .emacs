@@ -41,6 +41,13 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (setq require-final-newline t)
 
+; utf-8 everything
+(set-language-environment 'utf-8)
+(set-default-coding-systems 'utf-8)
+(set-selection-coding-system 'utf-8)
+(set-locale-environment "en_GB.UTF-8")
+(prefer-coding-system 'utf-8)
+
 ; Don't prompt to wrap when isearch reaches the end of a file.
 (defadvice isearch-search (after isearch-no-fail activate)
   (unless isearch-success

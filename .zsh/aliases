@@ -72,6 +72,14 @@ staging_hosts() {
 	get_instance_ip $(describe_load_balancer monolith-staging-frontend 'LoadBalancerDescriptions[*].Instances')
 }
 
+autoscaling_groups() {
+	workaws --output text autoscaling describe-auto-scaling-groups --query 'AutoScalingGroups[*].AutoScalingGroupName' | xargs -n1 echo
+}
+
+autoscaling_instances() {
+	get_instance_ip $(workaws --output text autoscaling describe-auto-scaling-groups --query 'AutoScalingGroups[*].Instances[*].InstanceId' --auto-scaling-group-names "$@")
+}
+
 if [[ $(whoami) = root ]]; then
 	alias sudo='echo stop it'
 else

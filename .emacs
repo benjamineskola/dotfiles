@@ -37,6 +37,8 @@
 (setq-default cursor-type 'bar)
 (set-face-background 'cursor "green")
 
+(setq ruby-insert-encoding-magic-comment nil)
+
 ; don't want trailing whitespaces.
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (setq require-final-newline t)

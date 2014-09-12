@@ -14,7 +14,8 @@ if header :regex "To" "root(@.*|$)" {
 	fileinto "root"; stop;
 }
 
-if anyof(address :is ["from", "to", "cc"] "bma-bbk@bma.li",
+if anyof(address :detail :is ["to", "cc"] ["bbk", "birkbeck"],
+		address :localpart :is ["to", "cc"] "bma-bbk",
 		address :domain :matches ["From", "To", "Cc"] "*bbk.ac.uk",
 		address :domain :is ["From", "To", "Cc"] "birkbeckunion.org"
 	) {

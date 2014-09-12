@@ -25,3 +25,8 @@ if header :is "List-Id" "<intersectional-feminist-book-club.googlegroups.com>" {
 	fileinto "Feminist Book Club";
 	stop;
 }
+
+if header :is "List-Id" "UK FreeBSD Users <ukfreebsd.uk.freebsd.org>" {
+	fileinto "UK FreeBSD";
+	stop;
+}

@@ -1,6 +1,6 @@
 # -*- sh -*-
 
-alias ls='ls -hp --color --time-style=+"%d %b %H:%M:%S %Y"'
+alias ls='ls -Hhp --color --time-style=+"%d %b %H:%M:%S %Y"'
 
 alias apt-get='command sudo apt-get'
 alias sagu='apt-get update'

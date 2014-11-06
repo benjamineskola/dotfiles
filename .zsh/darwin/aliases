@@ -1,4 +1,4 @@
 # -*- sh -*-
 
-alias ls='ls -GhpT'
+alias ls='ls -GhHpT'
 alias fetch='command curl -gkLO'

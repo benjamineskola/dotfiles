@@ -1,15 +1,5 @@
 # -*- sh -*-
 
-OS=${OSTYPE%%[0-9.]*}
-
-for file in environment aliases; do
-    cd $HOME/.zsh
-    test -e $file && . ./$file
-    test -e $OS/$file && . ./$OS/$file
-    test -e $file.after && . ./$file.after
-    cd - > /dev/null
-done
-
 . $HOME/.zsh/prompt.zsh
 
 case $TERM in
@@ -55,6 +45,10 @@ chef-deinit() {
 }
 
 mkdir -p $XDG_CACHE_HOME
+
+test -e ~/.zsh/aliases && . ~/.zsh/aliases
+test -e ~/.zsh/$OS/aliases && . ~/.zsh/$OS/aliases
+test -e ~/.zsh/aliases.after && . ~/.zsh/aliases.after
 
 if [[ "$TERM" == "dumb" ]]; then
   unset RPROMPT

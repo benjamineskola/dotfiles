@@ -1,5 +1,7 @@
 # -*- sh -*-
 
+OS=${OSTYPE%%[0-9.]*}
+
 FQDN=$(hostname -f || hostname) # on solaris, hostname -f won't work
 HOSTNAME=${FQDN%%.*}
 DOMAIN=${FQDN#*.}
@@ -27,3 +29,6 @@ elif [[ -x "$(which lesspipe)" ]]; then
 fi
 
 export TZ=Europe/London
+
+test -e ~/.zsh/$OS/environment && . ~/.zsh/$OS/environment
+test -e ~/.zsh/environment.after && . ~/.zsh/environment.after

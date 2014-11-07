@@ -40,7 +40,19 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:
 
 . /usr/local/share/chruby/chruby.sh
 . /usr/local/share/chruby/auto.sh
-RUBIES+=(/opt/chefdk/embedded)
+
+chef-init() {
+	eval "$(/opt/chefdk/bin/chef shell-init zsh)"
+}
+
+chef-deinit() {
+	unset GEM_ROOT GEM_PATH GEM_HOME
+	for i in {$#path..1}; do
+		if [ "$path[$i]" =~ chefdk ]; then
+			path[$i]=()
+		fi
+	done
+}
 
 mkdir -p $XDG_CACHE_HOME
 

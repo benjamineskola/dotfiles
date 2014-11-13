@@ -12,6 +12,7 @@
 (defvar package-list '(
 		       smooth-scroll
 		       puppet-mode
+		       flycheck
 		       ))
 
 (dolist (p package-list)

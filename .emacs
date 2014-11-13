@@ -68,4 +68,6 @@
 
 (add-to-list 'backup-directory-alist `("." . ,cache-directory))
 
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
 (server-start)

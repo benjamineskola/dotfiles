@@ -9,7 +9,8 @@
 (setq inhibit-startup-echo-area-message t
       inhibit-startup-screen t)
 
-(smooth-scroll-mode)
+(with-eval-after-load 'smooth-scroll-mode
+  (smooth-scroll-mode))
 (cua-selection-mode t)
 
 (setq tramp-default-method "ssh")

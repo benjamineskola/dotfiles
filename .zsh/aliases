@@ -80,6 +80,10 @@ autoscaling_instances() {
 	get_instance_ip $(workaws --output text autoscaling describe-auto-scaling-groups --query 'AutoScalingGroups[*].Instances[*].InstanceId' --auto-scaling-group-names "$@")
 }
 
+ruboblame() {
+	rubocop -f e | while read i; do file=$(echo "$i"| cut -d : -f 1); line=$(echo "$i"|cut -d : -f 2); echo "$i"; git blame -L $line,$line -- "$file"; echo; done
+}
+
 if [[ $(whoami) = root ]]; then
 	alias sudo='echo stop it'
 else

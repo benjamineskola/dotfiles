@@ -10,5 +10,5 @@ alias vim='echo Use emacs'
 alias emacs=$EDITOR
 export EDITOR VISUAL
 
-export PATH=/usr/local/texlive/2014/bin/x86_64-darwin:$PATH
+path=($(find /usr/local \( -name Cellar -o -name Library -o -name src -o -name texmf-dist \) -prune -o -depth +1 -name bin -print) $path)
 export LSCOLORS=exfxcxdxbxegedabagacad

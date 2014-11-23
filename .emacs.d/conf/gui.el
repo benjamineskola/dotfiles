@@ -5,6 +5,6 @@
 
 (setq default-frame-alist '((background-color . "black")
 			    (foreground-color . "light grey")
-			    (font . "Inconsolata-dz 12")))
+			    (font . "Source Code Pro 12")))
 
 (server-start)

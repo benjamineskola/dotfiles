@@ -3,11 +3,9 @@
 export XDG_DATA_HOME=$HOME/Library
 export XDG_CACHE_HOME=$HOME/Library/Caches
 
-EDITOR="emacsclient -n"
-VISUAL="emacsclient"
-alias vi='echo Use emacs'
-alias vim='echo Use emacs'
-alias emacs=$EDITOR
+EDITOR=emacsclient
+VISUAL=emacsclient
+alias emacs='emacsclient -n'
 export EDITOR VISUAL
 
 path=($(find /usr/local \( -name Cellar -o -name Library -o -name src -o -name texmf-dist \) -prune -o -depth +1 -name bin -print) $path)

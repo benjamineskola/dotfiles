@@ -8,5 +8,5 @@ VISUAL=emacsclient
 alias emacs='emacsclient -n'
 export EDITOR VISUAL
 
-path=($(find /usr/local \( -name Cellar -o -name Library -o -name src -o -name texmf-dist \) -prune -o -depth +1 -name bin -print) $path)
+path=(/usr/local/MacGPG2/bin /usr/local/texlive/*/bin/* $path)
 export LSCOLORS=exfxcxdxbxegedabagacad

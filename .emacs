@@ -70,3 +70,9 @@
 (add-to-list 'backup-directory-alist `("." . ,cache-directory))
 
 (add-hook 'after-init-hook #'global-flycheck-mode)
+
+(add-hook 'LaTeX-mode-hook (lambda () (flyspell-mode 1)))
+(setq flyspell-default-dictionary "british"
+      ispell-dictionary "british"
+      ispell-program-name "/usr/local/bin/aspell"
+      ispell-list-command "--list")

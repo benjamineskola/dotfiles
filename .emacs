@@ -71,7 +71,10 @@
 
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
-(add-hook 'LaTeX-mode-hook (lambda () (flyspell-mode 1)))
+(add-hook 'tex-mode-hook 'flyspell-mode)
+(add-hook 'tex-mode-hook 'visual-line-mode)
+(add-hook 'tex-mode-hook (lambda () (setq fill-column 999999)))
+
 (setq flyspell-default-dictionary "british"
       ispell-dictionary "british"
       ispell-program-name "/usr/local/bin/aspell"

@@ -20,7 +20,8 @@
       js-indent-level 8
       ruby-deep-indent-paren nil
       sh-basic-offset 8
-      sh-indentation 8)
+      sh-indentation 8
+      fill-column 80)
 (add-hook 'sh-mode-hook (lambda () (setq indent-tabs-mode t)))
 (add-hook 'js-mode-hook (lambda () (setq indent-tabs-mode t)))
 (add-to-list 'auto-mode-alist
@@ -81,6 +82,13 @@
       ispell-dictionary "british"
       ispell-program-name "/usr/local/bin/aspell"
       ispell-list-command "--list")
+
+(whitespace-mode)
+(setq whitespace-style '(
+			face tabs trailing lines-tail space-before-tab
+			newline indentation empty space-after-tab tab-mark
+      ))
+(fci-mode)
 
 (defvar visual-wrap-column nil)
 (defun set-visual-wrap-column (new-wrap-column &optional buffer)

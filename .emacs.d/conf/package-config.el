@@ -13,6 +13,7 @@
 		       smooth-scroll
 		       puppet-mode
 		       flycheck
+		       fill-column-indicator
 		       ))
 
 (dolist (p package-list)

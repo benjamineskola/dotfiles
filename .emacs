@@ -83,12 +83,12 @@
       ispell-program-name "/usr/local/bin/aspell"
       ispell-list-command "--list")
 
-(whitespace-mode)
+(global-whitespace-mode)
 (setq whitespace-style '(
 			face tabs trailing lines-tail space-before-tab
 			newline indentation empty space-after-tab tab-mark
       ))
-(fci-mode)
+(add-hook 'find-file-hooks 'fci-mode)
 
 (defvar visual-wrap-column nil)
 (defun set-visual-wrap-column (new-wrap-column &optional buffer)

@@ -30,6 +30,9 @@
                                   (js-mode)
                                   (setq-local indent-tabs-mode nil)
                                   (setq-local js-indent-level 2)))))
+
+(add-to-list 'auto-mode-alist `(,(expand-file-name "~/\\.zsh") . sh-mode))
+
 (electric-indent-mode +1)
 (electric-pair-mode 1)
 

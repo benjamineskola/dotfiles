@@ -34,6 +34,7 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:
 
 . /usr/local/share/chruby/chruby.sh
 . /usr/local/share/chruby/auto.sh
+chruby 2
 
 mkdir -p $XDG_CACHE_HOME
 

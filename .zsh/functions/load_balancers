@@ -1,0 +1,1 @@
+aws --output text elb describe-load-balancers --query 'LoadBalancerDescriptions[*].LoadBalancerName' | xargs -n 1 echo

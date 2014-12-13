@@ -1,0 +1,3 @@
+for instance in $@; do
+	aws --output text ec2 describe-instances --query 'Reservations[*].Instances[*].PrivateIpAddress' --instance-id "$instance"
+done

@@ -1,0 +1,9 @@
+if [[ -n "$AWS_PROFILE" ]]; then
+	aws --profile "$AWS_PROFILE"
+else
+	if [[ $HOSTNAME = mbuni ]]; then
+		aws --profile work
+	else
+		aws --profile home
+	fi
+fi

@@ -1,0 +1,9 @@
+case "$1" in
+	pull)
+		shift
+		git up "$@"
+		;;
+	*)
+		command git "$@"
+		;;
+esac

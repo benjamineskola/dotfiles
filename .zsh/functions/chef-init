@@ -1,0 +1,1 @@
+eval "$(/opt/chefdk/bin/chef shell-init zsh)"

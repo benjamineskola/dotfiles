@@ -1,0 +1,6 @@
+unset GEM_ROOT GEM_PATH GEM_HOME
+for i in {$#path..1}; do
+	if [ "$path[$i]" =~ chefdk ]; then
+		path[$i]=()
+	fi
+done

@@ -28,18 +28,6 @@ else
 	alias service='command sudo invoke-rc.d'
 fi
 
-function laststatus {
-	laststatus=$?
-	case $laststatus in
-		0)
-			echo true;;
-		1)
-			echo false;;
-		*)
-			echo $laststatus;;
-	esac
-}
-
 usergroups() {
 	ldapsearch -x "(|(member=uid=$1,ou=people,dc=mendeley,dc=com)(memberuid=$1))" dn | grep '^dn'
 }

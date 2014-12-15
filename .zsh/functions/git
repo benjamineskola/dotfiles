@@ -1,7 +1,41 @@
 case "$1" in
+	clone)
+		url="$1"
+		shift
+		if [[ -n "$1" ]]; then
+			dir="$1"
+			shift
+		else
+			dir=$(basename "$url" .git)
+		fi
+		git clone "$url" "$dir"
+		cd "$dir"
+		email=$(git config user.email)
+		printf "email: [$email] "
+		read
+		if [[ $email != $REPLY ]]; then
+			git config user.email $REPLY
+		fi
+		cd -
+		;;
 	pull)
 		shift
 		git up "$@"
+		;;
+	init)
+		command git "$@"
+		email=$(git config user.email)
+		printf "email: [$email] "
+		read
+		if [[ $email != $REPLY ]]; then
+			git config user.email $REPLY
+		fi
+		printf "set origin: [y/N] "
+		if read -q; echo; then
+			printf "origin: "
+			read
+			git remote add origin $REPLY
+		fi
 		;;
 	*)
 		command git "$@"

@@ -1,4 +1,20 @@
 case "$1" in
+	add|co|checkout)
+		if [[ "$2" = "-p" ]]; then
+			echo "Use 'git addp'/'git undo'"
+			return 1
+		else
+			command git "$@"
+		fi
+		;;
+	ci)
+		if [[ "$@" =~ "--amend" ]]; then
+			echo "Use 'git amend'"
+			return 1
+		else
+			command git "$@"
+		fi
+		;;
 	clone)
 		url="$1"
 		shift
@@ -17,6 +33,10 @@ case "$1" in
 			git config user.email $REPLY
 		fi
 		cd -
+		;;
+	diff)
+		echo "Use git d"
+		return 1
 		;;
 	pull)
 		shift

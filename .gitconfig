@@ -1,15 +1,15 @@
 # vim:ft=gitconfig
 [alias]
-	st = status -sb
-	co = checkout
-	ci = commit
-	l = log -M --graph --decorate --abbrev-commit
-	la = log -M --graph --all --decorate --abbrev-commit
-	d = diff -M
-	dc = diff --cached -M
 	addp = add -p
 	amend = commit --amend -CHEAD
+	ci = commit
+	co = checkout
+	d = diff -M
+	dc = diff --cached -M
 	edit-message = commit --amend -m
+	l = log -M --graph --decorate --abbrev-commit
+	la = log -M --graph --all --decorate --abbrev-commit
+	st = status -sb
 	undo = checkout -p
 [branch]
 	autosetuprebase = always

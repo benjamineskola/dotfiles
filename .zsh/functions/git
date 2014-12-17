@@ -38,9 +38,12 @@ case "$1" in
 		echo "Use git d"
 		return 1
 		;;
-	pull)
+	pull|up)
 		shift
-		git up "$@"
+		(
+			chruby 2
+			command git up "$@"
+		)
 		;;
 	init)
 		command git "$@"

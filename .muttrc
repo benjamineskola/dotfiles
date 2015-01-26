@@ -1,0 +1,6 @@
+set folder=imaps://bma@fastmail.fm@mail.messagingengine.com/INBOX/
+set spoolfile=+
+set mbox=+Archive
+set record=+Sent\ Mail
+
+source ~/.private/mutt_passwd

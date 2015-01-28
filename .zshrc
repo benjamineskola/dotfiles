@@ -35,10 +35,6 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:
 # don't include random latex output in completion for editors.
 zstyle ':completion:*:*:(vi(m|)|emacs(client|)):*:*files' ignored-patterns '*.(aux|dvi|log|ps|pdf|bbl|toc|lot|lof|bcf|blg|fdb_latexmk|fls|run.xml|out)'
 
-. /usr/local/share/chruby/chruby.sh
-. /usr/local/share/chruby/auto.sh
-chruby 2
-
 mkdir -p $XDG_CACHE_HOME
 
 test -e ~/.zsh/aliases && . ~/.zsh/aliases

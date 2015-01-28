@@ -31,3 +31,7 @@ export TZ=Europe/London
 
 test -e ~/.zsh/$OS/environment && . ~/.zsh/$OS/environment
 test -e ~/.zsh/environment.after && . ~/.zsh/environment.after
+
+. /usr/local/share/chruby/chruby.sh
+. /usr/local/share/chruby/auto.sh
+chruby 2

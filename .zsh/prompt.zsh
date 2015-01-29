@@ -42,8 +42,14 @@ parse_git_dirty () {
   fi
 }
 
+chef_prompt_info () {
+	if [[ $(which ruby) =~ chefdk ]]; then
+		echo -n '🍴'
+	fi
+}
+
 PROMPT='
-%{$fg[blue]%}%n%{$reset_color%} at %{$fg[yellow]%}%m%{$reset_color%} in %{$fg[green]%}${PWD/#$HOME/~}%b%{$reset_color%}$(git_prompt_info)
+%{$fg[blue]%}%n%{$reset_color%} at %{$fg[yellow]%}%m%{$reset_color%} in %{$fg[green]%}${PWD/#$HOME/~}%b%{$reset_color%}$(git_prompt_info)$(chef_prompt_info)
 $(prompt_char) '
 RPROMPT='%(?..%{$fg[red]%}✗%{$reset_color%})'
 

@@ -4,7 +4,7 @@ autoload colors; colors
 setopt prompt_subst
 
 function in_home_subdir {
-	if [[ "$(git rev-parse --show-toplevel 2>/dev/null)" == $HOME && "$PWD" =~ "$HOME/[A-Za-z0-9]" ]]; then
+	if [[ "$(hg root 2>/dev/null)" == $HOME && "$PWD" =~ "$HOME/[A-Za-z0-9]" ]]; then
 		return 1
 	else
 		return 0
@@ -14,14 +14,19 @@ function in_home_subdir {
 function prompt_char {
 	if in_home_subdir; then
 		#[[ $PWD =~ "$HOME/[A-Za-z0-9]" ]] && continue
-		git branch >/dev/null 2>/dev/null && echo '±' && return
+		hg root >/dev/null 2>&1 && echo '☿' && return
 	fi
+	git branch >/dev/null 2>&1 && echo '±' && return
 	echo '○'
+}
+
+function hg_prompt_info {
+	in_home_subdir || return
+	hg prompt --angle-brackets " <on %{$fg[magenta]%}<branch>%{$reset_color%}><%{$fg[green]%}<status>%{$reset_color%}><%{$fg[green]%}<update>%{$reset_color%}>" 2>/dev/null
 }
 
 # from https://github.com/robbyrussell/oh-my-zsh/blob/master/lib/git.zsh
 function git_prompt_info {
-	in_home_subdir || return
 	ref=$(git symbolic-ref HEAD 2> /dev/null) || return
 	echo "$ZSH_THEME_GIT_PROMPT_PREFIX${ref#refs/heads/}$(parse_git_dirty)$ZSH_THEME_GIT_PROMPT_SUFFIX"
 }
@@ -49,7 +54,7 @@ chef_prompt_info () {
 }
 
 PROMPT='
-%{$fg[blue]%}%n%{$reset_color%} at %{$fg[yellow]%}%m%{$reset_color%} in %{$fg[green]%}${PWD/#$HOME/~}%b%{$reset_color%}$(git_prompt_info)$(chef_prompt_info)
+%{$fg[blue]%}%n%{$reset_color%} at %{$fg[yellow]%}%m%{$reset_color%} in %{$fg[green]%}${PWD/#$HOME/~}%b%{$reset_color%}$(git_prompt_info)$(hg_prompt_info)$(chef_prompt_info)
 $(prompt_char) '
 RPROMPT='%(?..%{$fg[red]%}✗%{$reset_color%})'
 

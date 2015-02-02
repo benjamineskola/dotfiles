@@ -1,9 +1,9 @@
 if [[ -n "$AWS_PROFILE" ]]; then
-	aws --profile "$AWS_PROFILE"
+	command aws --profile "$AWS_PROFILE" "$@"
 else
 	if [[ $HOSTNAME = mbuni ]]; then
-		aws --profile work
+		command aws --profile work "$@"
 	else
-		aws --profile home
+		command aws --profile home "$@"
 	fi
 fi

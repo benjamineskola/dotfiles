@@ -3,9 +3,8 @@
 export XDG_DATA_HOME=$HOME/Library
 export XDG_CACHE_HOME=$HOME/Library/Caches
 
-EDITOR=emacsclient
-VISUAL=emacsclient
-alias emacs='emacsclient -n'
+EDITOR="subl -w"
+VISUAL="subl -w"
 export EDITOR VISUAL
 
 path=(/usr/local/MacGPG2/bin /usr/local/texlive/*/bin/* $path)

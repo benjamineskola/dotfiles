@@ -1,3 +1,5 @@
+execute pathogen#infect()
+
 set autoindent
 set backspace=indent,eol,start
 set cpoptions+=n

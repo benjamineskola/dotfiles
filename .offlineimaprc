@@ -1,0 +1,19 @@
+# vim:ft=dosini
+[general]
+accounts = Fastmail
+
+[Account Fastmail]
+localrepository = LocalFastmail
+remoterepository = Fastmail
+
+[Repository LocalFastmail]
+type = Maildir
+localfolders = ~/mail
+
+[Repository Fastmail]
+type = IMAP
+ssl = on
+remoteuser = bma@fastmail.fm
+remotehost = mail.messagingengine.com
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+maxconnections = 3

@@ -1,0 +1,8 @@
+Style/AsciiComments:
+  Enabled: false
+
+Style/AndOr:
+  Enabled: false
+
+Style/TrailingComma:
+  EnforcedStyleForMultiline: comma

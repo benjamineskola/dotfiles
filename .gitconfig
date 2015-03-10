@@ -9,6 +9,7 @@
 	edit-message = commit --amend -m
 	l = log -M --graph --decorate --abbrev-commit
 	la = log -M --graph --all --decorate --abbrev-commit
+	pp = !git up && git push
 	st = status -sb
 	undo = checkout -p
 [branch]

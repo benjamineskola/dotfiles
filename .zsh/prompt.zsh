@@ -50,7 +50,7 @@ parse_git_dirty () {
 PROMPT='
 %{$fg[blue]%}%n%{$reset_color%} at %{$fg[yellow]%}%m%{$reset_color%} in %{$fg[green]%}${PWD/#$HOME/~}%b%{$reset_color%}$(git_prompt_info)$(hg_prompt_info)
 $(prompt_char) '
-RPROMPT='%(?..%{$fg[red]%}✗%{$reset_color%})'
+RPROMPT='%(?..%{$fg[red]%}✗%{$reset_color%}) [$(date +%H:%M:%S)]'
 
 ZSH_THEME_GIT_PROMPT_PREFIX=" on %{$fg[magenta]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"

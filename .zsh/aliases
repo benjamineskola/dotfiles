@@ -27,17 +27,3 @@ if [[ -e "$(which service)" ]]; then
 else
 	alias service='command sudo invoke-rc.d'
 fi
-
-usergroups() {
-	ldapsearch -x "(|(member=uid=$1,ou=people,dc=mendeley,dc=com)(memberuid=$1))" dn | grep '^dn'
-}
-
-ruboblame() {
-	rubocop -f e | while read i; do file=$(echo "$i"| cut -d : -f 1); line=$(echo "$i"|cut -d : -f 2); echo "$i"; git blame -L $line,$line -- "$file"; echo; done
-}
-
-if [[ $(whoami) = root ]]; then
-	alias sudo='echo stop it'
-else
-	alias sudo='sudo '
-fi

@@ -1,0 +1,13 @@
+{
+  "syntaxes": [
+    {
+      "name": "ShellScript/Shell-Unix-Generic",
+      "rules": [
+        {"file_name": "/Users/ben/.zsh/.*"},
+        {"binary": "sh"},
+        {"binary": "bash"},
+        {"binary": "zsh"}
+      ]
+    }
+  ]
+}

@@ -16,9 +16,9 @@ set statusline=%<%f\ %h%m%y%r%=%-14.(%l,%c%V%)\ %P
 set wildmenu
 
 " appearance.
-set background=dark
+set background=light
 syntax on
-colorscheme default
+colorscheme solarized
 
 " filetype stuff.
 filetype plugin indent on

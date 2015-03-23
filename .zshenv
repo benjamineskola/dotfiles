@@ -34,6 +34,8 @@ function parse_aws_config {
 }
 
 if [[ $HOSTNAME = mbuni ]]; then
+	export GIT_AUTHOR_EMAIL=bma@mendeley.com
+	export GIT_COMMITTER_EMAIL=bma@mendeley.com
 	eval $(parse_aws_config work)
 else
 	eval $(parse_aws_config home)

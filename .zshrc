@@ -37,6 +37,8 @@ zstyle ':completion:*:*:(vi(m|)|emacs(client|)|subl):*:*files' ignored-patterns 
 
 mkdir -p $XDG_CACHE_HOME
 
+WORDCHARS=${WORDCHARS/\//}
+
 test -e ~/.zsh/aliases && . ~/.zsh/aliases
 test -e ~/.zsh/$OS/aliases && . ~/.zsh/$OS/aliases
 test -e ~/.zsh/aliases.after && . ~/.zsh/aliases.after

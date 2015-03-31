@@ -41,7 +41,9 @@ else
 	eval $(parse_aws_config home)
 fi
 export AWS_ACCESS_KEY_ID=$aws_access_key_id
+export AWS_ACCESS_KEY=$aws_access_key_id
 export AWS_SECRET_ACCESS_KEY=$aws_secret_access_key
+export AWS_SECRET_KEY=$aws_secret_access_key
 export AWS_REGION=eu-west-1
 
 test -e ~/.zsh/$OS/environment && . ~/.zsh/$OS/environment

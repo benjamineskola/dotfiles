@@ -1,13 +1,13 @@
 {
   "extensions":
   [
-    "thor",
-    "podspec",
-    "simplecov",
     "jbuilder",
-    "rb",
+    "podspec",
+    "rabl",
     "rake",
-    "rabl"
+    "rb",
+    "simplecov",
+    "thor"
   ],
   "tab_size": 2,
   "translate_tabs_to_spaces": true

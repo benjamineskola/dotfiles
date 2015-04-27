@@ -1,11 +1,11 @@
 {
   "extensions":
   [
-    ".hgrc",
     ".gitattributes",
-    ".npmrc",
     ".gitconfig",
     ".gitignore",
+    ".hgrc",
+    ".npmrc",
     "ini.dist"
   ]
 }

@@ -1,0 +1,4 @@
+export GIT_AUTHOR_EMAIL=bma@mendeley.com
+export GIT_COMMITTER_EMAIL=bma@mendeley.com
+
+load_aws_config work

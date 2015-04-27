@@ -27,17 +27,11 @@ export EDITOR VISUAL
 export LESS="-ImRswFX"
 export TZ=Europe/London
 
-if [[ $HOSTNAME = mbuni ]]; then
-	export GIT_AUTHOR_EMAIL=bma@mendeley.com
-	export GIT_COMMITTER_EMAIL=bma@mendeley.com
-
-	load_aws_config work
-else
-	load_aws_config home
-fi
+load_aws_config home
 
 test -e ~/.zsh/$OS/environment && . ~/.zsh/$OS/environment
 test -e ~/.zsh/environment.after && . ~/.zsh/environment.after
+test -e ~/.zsh/$HOSTNAME/environment && . ~/.zsh/$HOSTNAME/environment
 
 . /usr/local/share/chruby/chruby.sh
 . /usr/local/share/chruby/auto.sh

@@ -25,12 +25,6 @@ VISUAL=$EDITOR
 export EDITOR VISUAL
 
 export LESS="-ImRswFX"
-if [[ -x "$(which lesspipe.sh)" ]]; then
-	export LESSOPEN="|lesspipe.sh %s"
-elif [[ -x "$(which lesspipe)" ]]; then
-	export LESSOPEN="|lesspipe %s"
-fi
-
 export TZ=Europe/London
 
 if [[ $HOSTNAME = mbuni ]]; then

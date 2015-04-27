@@ -13,6 +13,10 @@ export XDG_DATA_HOME=$HOME/.data
 
 path=(~/bin /usr/local/bin /usr/local/sbin /usr/local/games /usr/bin /usr/sbin /usr/games /bin /sbin)
 
+for fdir in ~/.zsh/$OS/functions ~/.zsh/functions; do
+	test -d $fdir && fpath+=$fdir && autoload -U $fdir/*(:t)
+done
+
 EDITOR=vi
 if [[ -x "$(which vim)" ]]; then
 	EDITOR=vim

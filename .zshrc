@@ -32,11 +32,7 @@ setopt correct
 bindkey -e
 
 ## Completions
-fpath=(~/.zsh/$OS/functions ~/.zsh/functions $fpath)
-
 autoload -U compinit
-autoload -U ~/.zsh/functions/*(:t)
-autoload -U ~/.zsh/$OS/functions/*(:t)
 compinit -d $XDG_CACHE_HOME/zcompdump
 
 ## case-insensitive (all),partial-word and then substring completion

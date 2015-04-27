@@ -21,12 +21,13 @@ export EDITOR=vi
 export VISUAL=$EDITOR
 
 export LESS="-ImRswFX"
+export LESSHISTFILE="$XDG_CACHE_HOME/less_history"
+
 export TZ=Europe/London
 
 load_aws_config home
 
 test -e ~/.zsh/$OS/environment && . ~/.zsh/$OS/environment
-test -e ~/.zsh/environment.after && . ~/.zsh/environment.after
 test -e ~/.zsh/$HOSTNAME/environment && . ~/.zsh/$HOSTNAME/environment
 
 . /usr/local/share/chruby/chruby.sh

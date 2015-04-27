@@ -17,12 +17,8 @@ for fdir in ~/.zsh/$OS/functions ~/.zsh/functions; do
 	test -d $fdir && fpath+=$fdir && autoload -U $fdir/*(:t)
 done
 
-EDITOR=vi
-if [[ -x "$(which vim)" ]]; then
-	EDITOR=vim
-fi
-VISUAL=$EDITOR
-export EDITOR VISUAL
+export EDITOR=vi
+export VISUAL=$EDITOR
 
 export LESS="-ImRswFX"
 export TZ=Europe/London

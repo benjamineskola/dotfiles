@@ -27,3 +27,7 @@ if [[ -e "$(which service)" ]]; then
 else
 	alias service='command sudo invoke-rc.d'
 fi
+
+if [[ -e "$(which vim)" ]]; then
+	alias vi=vim
+fi

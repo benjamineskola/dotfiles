@@ -16,7 +16,7 @@ set statusline=%<%f\ %h%m%y%r%=%-14.(%l,%c%V%)\ %P
 set wildmenu
 
 " appearance.
-set background=light
+set background=dark
 syntax on
 colorscheme solarized
 

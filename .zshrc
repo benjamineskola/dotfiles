@@ -1,13 +1,23 @@
 # -*- sh -*-
 
-. $HOME/.zsh/prompt.zsh
-
 case $TERM in
     xterm*|screen*)
         print -Pn "\e]0;%n@%m:%~\a"
         preexec () { print -Pn "\e]0;%n@%m:%~> $1\a" }
         ;;
 esac
+
+function vcs_info {
+	_vcs_info=''
+	hg root >/dev/null 2>&1 && _vcs_info=" %F{cyan}hg:%F{magenta}$(hg branch)%f"
+	git branch >/dev/null 2>&1 && _vcs_info=" %F{cyan}git:%F{magenta}${$(git symbolic-ref HEAD)#refs/heads/}%f"
+}
+
+autoload add-zsh-hook
+add-zsh-hook precmd vcs_info
+
+setopt prompt_subst
+PROMPT='[%F{blue}%n%f@%F{yellow}%m%f %F{green}%~%f${_vcs_info}] '
 
 HISTFILE=$XDG_CACHE_HOME/zsh_history
 HISTSIZE=819200

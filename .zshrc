@@ -9,7 +9,7 @@ esac
 
 function vcs_info {
 	_vcs_info=''
-	hg root >/dev/null 2>&1 && _vcs_info=" %F{cyan}hg:%F{magenta}$(hg branch)%f"
+	hg root >/dev/null 2>&1 && _vcs_info=" %F{cyan}hg:%F{magenta}$(hg branch 2> /dev/null)%f"
 	git branch >/dev/null 2>&1 && _vcs_info=" %F{cyan}git:%F{magenta}${$(git symbolic-ref HEAD)#refs/heads/}%f"
 }
 
@@ -17,7 +17,7 @@ autoload add-zsh-hook
 add-zsh-hook precmd vcs_info
 
 setopt prompt_subst
-PROMPT='[%F{blue}%n%f@%F{yellow}%m%f %F{green}${${:-${${${(@j:/:M)${(@s:/:)${(%):-%~}}##.#?}:h}%/}/}#./}${${(%):-%1~}#/}%f${_vcs_info}] %0(?.%F{green}✓.%F{red}✗)%f '
+PROMPT='[%(!.%F{red}.%F{blue})%n%f@%F{yellow}%m%f %F{green}${${:-${${${(@j:/:M)${(@s:/:)${(%):-%~}}##.#?}:h}%/}/}#./}${${(%):-%1~}#/}%f${_vcs_info}] %0(?.%F{green}✓.%F{red}✗)%f '
 
 HISTFILE=$XDG_CACHE_HOME/zsh_history
 HISTSIZE=819200
@@ -33,7 +33,7 @@ bindkey -e
 
 ## Completions
 autoload -U compinit
-compinit -d $XDG_CACHE_HOME/zcompdump
+compinit -u -d $XDG_CACHE_HOME/zcompdump
 
 ## case-insensitive (all),partial-word and then substring completion
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'

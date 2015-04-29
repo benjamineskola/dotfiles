@@ -17,7 +17,7 @@ autoload add-zsh-hook
 add-zsh-hook precmd vcs_info
 
 setopt prompt_subst
-PROMPT='[%(!.%F{red}.%F{blue})%n%f@%F{yellow}%m%f %F{green}${${:-${${${(@j:/:M)${(@s:/:)${(%):-%~}}##.#?}:h}%/}/}#./}${${(%):-%1~}#/}%f${_vcs_info}] %0(?.%F{green}✓.%F{red}✗)%f '
+PROMPT='[%(!.%F{red}.%F{blue})%n%f@%F{yellow}%m%f %F{green}${${:-${${${(@j:/:M)${(@s:/:)${(%):-%~}}##.#?}:h}%/}/}#./}${${(%):-%1~}#/}%f${_vcs_info}]%0(?.%F{green}✓.%F{red}✗)%f '
 
 HISTFILE=$XDG_CACHE_HOME/zsh_history
 HISTSIZE=819200
@@ -48,8 +48,3 @@ WORDCHARS=${WORDCHARS/\//}
 test -e ~/.zsh/aliases && . ~/.zsh/aliases
 test -e ~/.zsh/$OS/aliases && . ~/.zsh/$OS/aliases
 test -e ~/.zsh/aliases.after && . ~/.zsh/aliases.after
-
-if [[ "$TERM" == "dumb" ]]; then
-  unset RPROMPT
-  PROMPT='$ '
-fi

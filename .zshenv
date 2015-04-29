@@ -24,6 +24,7 @@ export VISUAL=$EDITOR
 
 export LESS="-ImRswFX"
 export LESSHISTFILE="$XDG_CACHE_HOME/less_history"
+export MANPAGER="less +Gg"
 
 export TZ=Europe/London
 

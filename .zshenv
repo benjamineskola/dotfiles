@@ -1,5 +1,7 @@
 # -*- sh -*-
 
+setopt nonomatch
+
 OS=${OSTYPE%%[0-9.]*}
 
 FQDN=$(hostname -f || hostname) # on solaris, hostname -f won't work

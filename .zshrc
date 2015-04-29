@@ -17,7 +17,7 @@ autoload add-zsh-hook
 add-zsh-hook precmd vcs_info
 
 setopt prompt_subst
-PROMPT='[%F{blue}%n%f@%F{yellow}%m%f %F{green}${${:-${${${(@j:/:M)${(@s:/:)${(%):-%~}}##.#?}:h}%/}/}#./}${${(%):-%1~}#/}%f${_vcs_info}] '
+PROMPT='[%F{blue}%n%f@%F{yellow}%m%f %F{green}${${:-${${${(@j:/:M)${(@s:/:)${(%):-%~}}##.#?}:h}%/}/}#./}${${(%):-%1~}#/}%f${_vcs_info}] %0(?.%F{green}✓.%F{red}✗)%f '
 
 HISTFILE=$XDG_CACHE_HOME/zsh_history
 HISTSIZE=819200

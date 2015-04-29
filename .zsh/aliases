@@ -12,8 +12,7 @@ alias grep=egrep
 alias puppet-lint='puppet-lint --with-filename'
 alias tf="tail -F"
 
-alias ag='ag --pager less -aS -m 2147483647' # 2^31-1, seems to be maximum.
-alias ack=ag
+alias ag='ag --pager less --hidden --ignore .git --ignore .hg -a'
 
 if [[ -e "$(which colordiff)" ]]; then
 	alias diff='colordiff -u'

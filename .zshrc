@@ -13,11 +13,16 @@ function vcs_info {
 	git branch >/dev/null 2>&1 && _vcs_info=" %F{cyan}git:%F{magenta}${$(git symbolic-ref HEAD)#refs/heads/}%f"
 }
 
+function ruby_info {
+	_ruby_info=" ${${${$(ruby --version)##ruby }%% *}%%p*}"
+}
+
 autoload add-zsh-hook
 add-zsh-hook precmd vcs_info
+add-zsh-hook precmd ruby_info
 
 setopt prompt_subst
-PROMPT='[%(!.%F{red}.%F{blue})%n%f@%F{yellow}%m%f %F{green}${${:-${${${(@j:/:M)${(@s:/:)${(%):-%~}}##.#?}:h}%/}/}#./}${${(%):-%1~}#/}%f${_vcs_info}]%0(?.%F{green}✓.%F{red}✗)%f '
+PROMPT='[%(!.%F{red}.%F{blue})%n%f@%F{yellow}%m%f %F{green}${${:-${${${(@j:/:M)${(@s:/:)${(%):-%~}}##.#?}:h}%/}/}#./}${${(%):-%1~}#/}%f${_vcs_info}${_ruby_info}]%0(?.%F{green}✓.%F{red}✗)%f '
 
 HISTFILE=$XDG_CACHE_HOME/zsh_history
 HISTSIZE=819200

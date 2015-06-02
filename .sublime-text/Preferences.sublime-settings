@@ -5,5 +5,11 @@
 	"ensure_newline_at_eof_on_save": true,
 	"font_face": "Source Code Pro",
 	"font_size": 12,
-	"open_files_in_new_window": false
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"open_files_in_new_window": false,
+	"rulers": 80,
+	"trim_trailing_white_space_on_save": true
 }

@@ -3,8 +3,8 @@
 export XDG_DATA_HOME=$HOME/Library
 export XDG_CACHE_HOME=$HOME/Library/Caches
 
-EDITOR="subl -w"
-VISUAL="subl -w"
+EDITOR="atom -w"
+VISUAL=$EDITOR
 export EDITOR VISUAL
 
 path=(/usr/local/MacGPG2/bin /usr/local/texlive/*/bin/* $path)

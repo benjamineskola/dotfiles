@@ -1,0 +1,23 @@
+"*":
+  "exception-reporting":
+    userId: "d73cea11-7484-691d-3884-7da39d96dd04"
+  welcome:
+    showOnStartup: false
+  core:
+    themes: [
+      "solarized-dark-ui"
+      "solarized-dark-syntax"
+    ]
+  editor:
+    fontFamily: "Source Code Pro"
+    fontSize: 12
+    invisibles: {}
+    showIndentGuide: true
+    showInvisibles: true
+    tabLength: 2
+".shell.source":
+  editor:
+    tabLength: 8
+".python.source":
+  editor:
+    tabLength: 4

@@ -5,7 +5,7 @@
     showOnStartup: false
   core:
     themes: [
-      "solarized-dark-ui"
+      "one-dark-ui"
       "solarized-dark-syntax"
     ]
   editor:
@@ -16,3 +16,8 @@
     showInvisibles: true
     softTabs: false
     tabLength: 8
+  "theme-toggler":
+    darkSyntaxTheme: "solarized-dark-syntax"
+    darkUiTheme: "one-dark-ui"
+    lightSyntaxTheme: "solarized-light-syntax"
+    lightUiTheme: "one-light-ui"

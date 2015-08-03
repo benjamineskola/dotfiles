@@ -14,10 +14,5 @@
     invisibles: {}
     showIndentGuide: true
     showInvisibles: true
-    tabLength: 2
-".shell.source":
-  editor:
+    softTabs: false
     tabLength: 8
-".python.source":
-  editor:
-    tabLength: 4

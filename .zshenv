@@ -1,5 +1,3 @@
-# -*- sh -*-
-
 setopt nonomatch
 
 OS=${OSTYPE%%[0-9.]*}

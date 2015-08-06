@@ -1,5 +1,3 @@
-# -*- sh -*-
-
 case $TERM in
     xterm*|screen*)
         print -Pn "\e]0;%n@%m:%~\a"

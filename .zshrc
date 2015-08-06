@@ -1,7 +1,7 @@
 case $TERM in
     xterm*|screen*)
         print -Pn "\e]0;%n@%m:%~\a"
-        preexec () { print -Pn "\e]0;%n@%m:%~> $1\a" }
+        preexec () { print -Pn "\e]0;%n@%m:%~> $1\a"; }
         ;;
 esac
 
@@ -36,7 +36,7 @@ bindkey -e
 
 ## Completions
 autoload -U compinit
-compinit -u -d $XDG_CACHE_HOME/zcompdump
+compinit -u -d "$XDG_CACHE_HOME/zcompdump"
 
 ## case-insensitive (all),partial-word and then substring completion
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
@@ -44,10 +44,10 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:
 # don't include random latex output in completion for editors.
 zstyle ':completion:*:*:(vi(m|)|emacs(client|)|subl|atom):*:*files' ignored-patterns '*.(aux|dvi|log|ps|pdf|bbl|toc|lot|lof|bcf|blg|fdb_latexmk|fls|run.xml|out)'
 
-mkdir -p $XDG_CACHE_HOME
+mkdir -p "$XDG_CACHE_HOME"
 
 WORDCHARS=${WORDCHARS/\//}
 
 test -e ~/.zsh/aliases && . ~/.zsh/aliases
-test -e ~/.zsh/$OS/aliases && . ~/.zsh/$OS/aliases
+test -e ~/.zsh/"$OS"/aliases && . ~/.zsh/"$OS"/aliases
 test -e ~/.zsh/aliases.after && . ~/.zsh/aliases.after

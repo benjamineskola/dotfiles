@@ -14,7 +14,7 @@ export XDG_DATA_HOME=$HOME/.data
 path=(~/bin /usr/local/bin /usr/local/sbin /usr/local/games /usr/bin /usr/sbin /usr/games /bin /sbin)
 
 for fdir in ~/.zsh/$OS/functions ~/.zsh/functions; do
-	test -d $fdir && fpath+=$fdir && autoload -U $fdir/*(:t)
+	test -d "$fdir" && fpath+="$fdir" && autoload -U "$fdir"/*(:t)
 done
 
 export EDITOR=vi
@@ -28,8 +28,8 @@ export TZ=Europe/London
 
 load_aws_config home
 
-test -e ~/.zsh/$OS/environment && . ~/.zsh/$OS/environment
-test -e ~/.zsh/$HOSTNAME/environment && . ~/.zsh/$HOSTNAME/environment
+test -e ~/.zsh/"$OS"/environment && . ~/.zsh/"$OS"/environment
+test -e ~/.zsh/"$HOSTNAME"/environment && . ~/.zsh/"$HOSTNAME"/environment
 
 . /usr/local/share/chruby/chruby.sh
 . /usr/local/share/chruby/auto.sh

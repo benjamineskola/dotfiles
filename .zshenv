@@ -26,10 +26,12 @@ export MANPAGER="less +Gg"
 
 export TZ=Europe/London
 
-load_aws_config home
+export AWS_PROFILE=home
 
 test -e ~/.zsh/"$OS"/environment && . ~/.zsh/"$OS"/environment
 test -e ~/.zsh/"$HOSTNAME"/environment && . ~/.zsh/"$HOSTNAME"/environment
+
+load_aws_config "$AWS_PROFILE"
 
 . /usr/local/share/chruby/chruby.sh
 . /usr/local/share/chruby/auto.sh

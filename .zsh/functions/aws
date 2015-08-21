@@ -1,12 +1,1 @@
-if [[ -n "$AWS_PROFILE" ]]; then
-	command aws --profile "$AWS_PROFILE" "$@"
-else
-	case $HOSTNAME in
-		ELSLABM-*)
-			command aws --profile work "$@"
-		;;
-		*)
-			command aws --profile home "$@"
-		;;
-	esac
-fi
+command aws --profile "$AWS_PROFILE" "$@"

@@ -1,9 +1,12 @@
 if [[ -n "$AWS_PROFILE" ]]; then
 	command aws --profile "$AWS_PROFILE" "$@"
 else
-	if [[ $HOSTNAME = mbuni ]]; then
-		command aws --profile work "$@"
-	else
-		command aws --profile home "$@"
-	fi
+	case $HOSTNAME in
+		ELSLABM-*)
+			command aws --profile work "$@"
+		;;
+		*)
+			command aws --profile home "$@"
+		;;
+	esac
 fi

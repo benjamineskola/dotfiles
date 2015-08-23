@@ -20,11 +20,6 @@
     grammars: [
       "text.tex"
     ]
-  "theme-toggler":
-    darkSyntaxTheme: "solarized-dark-syntax"
-    darkUiTheme: "one-dark-ui"
-    lightSyntaxTheme: "solarized-light-syntax"
-    lightUiTheme: "one-light-ui"
 ".text":
   editor:
     softWrapAtPreferredLineLength: true

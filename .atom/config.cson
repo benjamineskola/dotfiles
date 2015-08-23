@@ -18,8 +18,14 @@
     tabLength: 8
   "spell-check":
     grammars: [
-      "text.tex"
+      "source.gfm"
+      "text"
     ]
+".gfm.source":
+  editor:
+    softWrapAtPreferredLineLength: true
+    softWrap: true
+    preferredLineLength: 120
 ".text":
   editor:
     softWrapAtPreferredLineLength: true

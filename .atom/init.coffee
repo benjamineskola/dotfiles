@@ -1,4 +1,4 @@
 atom.workspace.observeTextEditors (editor) ->
-  console.log editor.getPath()
+  grammar = (g for g in atom.grammars.getGrammars() when g.scopeName is "source.shell")[0]
   if editor.getPath().match(/\/\.zsh/)
-    editor.setGrammar g for g in atom.grammars.getGrammars() when g.name is "Shell Script"
+    editor.setGrammar grammar

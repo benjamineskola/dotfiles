@@ -1,0 +1,5 @@
+for fdir in ~/.zsh/$OS/functions ~/.zsh/functions; do
+	test -d "$fdir" || continue
+	fpath+="$fdir"
+	autoload -U "$fdir"/*(:t)
+done

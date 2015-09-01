@@ -1,0 +1,3 @@
+EDITOR="atom -w"
+VISUAL=$EDITOR
+export EDITOR VISUAL

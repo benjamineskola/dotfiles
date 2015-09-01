@@ -1,9 +1,3 @@
-alias ls='ls -Fh'
-alias ll='ls -l'
-alias la='ls -A'
-alias lal='ls -lA'
-alias lsd='ls -d'
-
 alias curl='curl -gkLsS'
 alias dc="dc -e '2k' -f /dev/stdin"
 alias grep=egrep

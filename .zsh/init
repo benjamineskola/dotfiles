@@ -1,0 +1,12 @@
+source_dir() {
+	if [[ ! -d "$1" ]]; then
+		return 1
+	fi
+
+	for f in "$1"/*(.N,@N); do
+		case "$f" in
+			*~|*.bak|*.old|*.sw?|*.zwc|*.disabled) continue;;
+		esac
+		source "$f"
+	done
+}

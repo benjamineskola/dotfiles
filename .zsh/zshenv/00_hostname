@@ -1,0 +1,4 @@
+FQDN=$(hostname -f || hostname) # on solaris, hostname -f won't work
+HOSTNAME=${FQDN%%.*}
+DOMAIN=${FQDN#*.}
+export HOSTNAME DOMAIN FQDN

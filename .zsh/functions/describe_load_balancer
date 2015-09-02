@@ -1,3 +1,5 @@
+# -*- zsh -*-
+
 name=$1
 if [ -z "$2" ]; then
 	query="*"

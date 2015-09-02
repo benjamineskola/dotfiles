@@ -1,3 +1,5 @@
+# -*- zsh -*-
+
 if [[ -o rcs ]]; then
 	source $ZDOTDIR/init
 

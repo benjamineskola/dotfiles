@@ -1,3 +1,5 @@
+# -*- zsh -*-
+
 laststatus=$?
 case $laststatus in
 	0)

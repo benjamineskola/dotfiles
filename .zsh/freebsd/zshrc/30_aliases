@@ -1,1 +1,3 @@
+# -*- zsh -*-
+
 alias ls='ls -GhHpT'

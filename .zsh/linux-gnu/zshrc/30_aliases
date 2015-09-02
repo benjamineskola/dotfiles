@@ -1,3 +1,5 @@
+# -*- zsh -*-
+
 alias ls='ls -Hhp --color --time-style=+"%d %b %H:%M:%S %Y"'
 
 alias apt-get='sudo apt-get'

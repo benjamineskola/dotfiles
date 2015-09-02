@@ -1,1 +1,3 @@
+# -*- zsh -*-
+
 aws --output text autoscaling describe-auto-scaling-groups --query 'AutoScalingGroups[*].AutoScalingGroupName' | xargs -n1 echo

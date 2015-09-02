@@ -1,3 +1,5 @@
+# -*- zsh -*-
+
 HISTFILE=$XDG_CACHE_HOME/zsh_history
 HISTSIZE=819200
 SAVEHIST=819200

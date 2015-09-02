@@ -1,3 +1,5 @@
+# -*- zsh -*-
+
 egrep -q "^\[profile $1\]" "$HOME/.aws/config" || {echo "unknown profile $1" >&1 ; return 1}
 eval "$(sed -n "/^\[profile $1]$/,/^\\s*\$/{s/ //g; s/^region/aws_region/; /=/p;}" "$HOME/.aws/config")"
 

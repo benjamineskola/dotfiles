@@ -1,2 +1,4 @@
+# -*- zsh -*-
+
 export AWS_PROFILE=work
 magi-env live

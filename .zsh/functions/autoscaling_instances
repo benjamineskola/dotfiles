@@ -1,1 +1,3 @@
+# -*- zsh -*-
+
 get_instance_ip "$(aws --output text autoscaling describe-auto-scaling-groups --query 'AutoScalingGroups[*].Instances[*].InstanceId' --auto-scaling-group-names "$@")"

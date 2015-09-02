@@ -1,2 +1,4 @@
+# -*- zsh -*-
+
 load_aws_config "$AWS_PROFILE"
 

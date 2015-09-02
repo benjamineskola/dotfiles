@@ -1,1 +1,3 @@
+# -*- zsh -*-
+
 command aws --profile "$AWS_PROFILE" "$@"

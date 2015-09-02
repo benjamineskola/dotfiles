@@ -1,3 +1,5 @@
+# -*- zsh -*-
+
 ## Completions
 autoload -U compinit
 compinit -u -d "$XDG_CACHE_HOME/zcompdump"

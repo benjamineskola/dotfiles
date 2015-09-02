@@ -30,7 +30,7 @@
 	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
 	trustexitcode = true
 [push]
-	default = simple
+	default = current
 [user]
 	name = Benjamin M. A'Lee
 	email = me@benjaminalee.uk

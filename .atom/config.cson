@@ -22,6 +22,21 @@
       "text"
       "text.tex.latex"
     ]
+  "env-from-shell":
+    variables: [
+      "PATH"
+      "RUBY_ROOT"
+      "RUBYOPT"
+      "RUBY_ENGINE"
+      "RUBY_VERSION"
+      "GEM_ROOT"
+      "GEM_PATH"
+    ]
+    autoRun: true
+  "auto-run":
+    commands: [
+      "env-from-shell:copy"
+    ]
 ".gfm.source":
   editor:
     softWrapAtPreferredLineLength: true

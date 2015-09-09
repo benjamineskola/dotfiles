@@ -37,6 +37,9 @@
     commands: [
       "env-from-shell:copy"
     ]
+  tabs:
+    enableVcsColoring: true
+    usePreviewTabs: true
 ".coffee.source":
   editor:
     tabType: "soft"

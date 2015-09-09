@@ -37,11 +37,37 @@
     commands: [
       "env-from-shell:copy"
     ]
+".coffee.source":
+  editor:
+    tabType: "soft"
+    tabLength: 2
 ".gfm.source":
   editor:
-    softWrapAtPreferredLineLength: true
-    softWrap: true
     preferredLineLength: 120
+    softWrap: true
+    softWrapAtPreferredLineLength: true
+    tabLength: 4
+    tabType: "soft"
+".html.text":
+  editor:
+    tabType: "soft"
+    tabLength: 2
+".js.source":
+  editor:
+    tabType: "soft"
+    tabLength: 2
+".python.source":
+  editor:
+    tabType: "soft"
+    tabLength: 4
+".ruby.source":
+  editor:
+    tabType: "soft"
+    tabLength: 2
+".rust.source":
+  editor:
+    tabType: "soft"
+    tabLength: 4
 ".text":
   editor:
     softWrapAtPreferredLineLength: true

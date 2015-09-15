@@ -1,7 +1,13 @@
 [submodule ".private"]
 	path = .private
-	url = perkele.subvert.org.uk:private.git
+	url = git@github.com:kirjatoukka/private.git
 [submodule "bin"]
 	path = bin
-	url = git://github.com/bma/scripts
+	url = git@github.com:kirjatoukka/scripts
 	pushurl = git@github.com:bma/scripts
+[submodule ".vim/bundle/pathogen"]
+	path = .vim/bundle/pathogen
+	url = git://github.com/tpope/vim-pathogen.git
+[submodule ".vim/bundle/solarized"]
+	path = .vim/bundle/solarized
+	url = git://github.com/altercation/vim-colors-solarized.git

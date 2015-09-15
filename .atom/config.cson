@@ -40,6 +40,9 @@
   tabs:
     enableVcsColoring: true
     usePreviewTabs: true
+  "terminal-plus":
+    style:
+      fontFamily: "Source Code Pro"
 ".coffee.source":
   editor:
     tabType: "soft"

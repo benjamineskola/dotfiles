@@ -23,7 +23,7 @@
 [diff]
 	renames = copy
 [merge]
-	tool = Kaleidoscope
+	tool = diffmerge
 [mergetool]
 	prompt = false
 [mergetool "Kaleidoscope"]
@@ -34,3 +34,6 @@
 [user]
 	name = Benjamin M. A'Lee
 	email = me@benjaminalee.uk
+[mergetool "diffmerge"]
+	cmd = "diffmerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$(if test -f \"$BASE\"; then echo \"$BASE\"; else echo \"$LOCAL\"; fi)\" \"$REMOTE\""
+	trustExitCode = true

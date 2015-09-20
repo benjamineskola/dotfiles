@@ -10,7 +10,7 @@ esac
 function vcs_info {
        _vcs_info=''
        hg root >/dev/null 2>&1 && _vcs_info=" %F{cyan}hg:%F{magenta}$(hg branch 2> /dev/null)%f"
-       git branch >/dev/null 2>&1 && _vcs_info=" %F{cyan}git:%F{magenta}${$(git symbolic-ref HEAD)#refs/heads/}%f"
+       command git branch >/dev/null 2>&1 && _vcs_info=" %F{cyan}git:%F{magenta}${$(command git symbolic-ref HEAD)#refs/heads/}%f"
 }
 
 function ruby_info {

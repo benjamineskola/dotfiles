@@ -1,0 +1,10 @@
+typeset -A data
+IFS="
+"
+while read "$@"; do
+	data[$REPLY]=$(($data[$REPLY] + 1))
+done
+
+for i in ${(k)data}; do
+	echo "$data[$i]\t$i"
+done | sort -rn

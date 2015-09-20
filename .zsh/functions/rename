@@ -1,0 +1,83 @@
+setopt ERR_RETURN
+
+verbose=""
+noact=0
+
+while getopts vn o
+do  case "$o" in
+    v)  verbose="-v";;
+    n)  noact=1;;
+    esac
+done
+
+shift $((OPTIND-1))
+
+if [ $# -lt 1 ]; then
+    echo "not enough args" >&2
+    return 1
+fi
+
+RE=$1
+shift
+
+case "$RE" in
+    s*)
+        case $(uname -s) in
+            Linux)
+            _rename() {
+                file=$1
+                newfile=$(echo "$file" | sed -r "$RE")
+                _move "$file" "$newfile"
+            }
+            ;;
+            FreeBSD|Darwin)
+            _rename() {
+                file=$1
+                newfile=$(echo "$file" | sed -E "$RE")
+                _move "$file" "$newfile"
+            }
+            ;;
+        esac
+        ;;
+    tr*)
+        #delimiter is the third character, after tr
+        delimiter=${RE#tr}
+        while [ ${#delimiter} -gt 1 ]; do
+            delimiter=${delimiter%%?}
+        done
+        from=${RE#*${delimiter}}
+        from=${from%%${delimiter}*}
+        to=${RE%${delimiter}}
+        to=${to##*${delimiter}}
+        _rename() {
+            file=$1
+            newfile=$(echo "$file" | tr "$from" "$to")
+            _move "$file" "$newfile"
+        }
+        ;;
+    *)
+        return 1;;
+esac
+
+
+_move() {
+    file="$1"
+    newfile="$2"
+
+    if [ $noact = 1 ]; then
+        if [ "$file" != "$newfile" ]; then
+            echo "$file" "->" "$newfile"
+        fi
+    else
+        if [ "$file" != "$newfile" ]; then
+            mkdir -p $verbose "$(dirname "$newfile")"
+            mv $verbose "$file" "$newfile"
+        fi
+    fi
+}
+
+if [ $# -gt 0 ]; then
+    for file in "$@"; do _rename "$file"; done
+else
+    while read file; do _rename "$file"; done
+fi

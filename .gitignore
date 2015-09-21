@@ -1,13 +1,17 @@
 /[^.]*
-!/bin
 *.svbin
+/.*_hist
 /.*_history
+/.account
 /.atom/*/
+/.atom/packages
 /.berkshelf
+/.bundle
 /.cabal
 /.cache
 /.cargo
 /.chef*
+/.cups
 /.data
 /.dropbox*
 /.fontconfig
@@ -16,6 +20,8 @@
 /.gnupg/*
 !/.gnupg/gpg.conf
 /.heroku
+/.lesshst
+/.locks
 /.offlineimap
 /.packer.d
 /.pythonhist

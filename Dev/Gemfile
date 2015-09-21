@@ -1,0 +1,14 @@
+source 'https://rubygems.org'
+
+gem 'git-up'
+gem 'rubocop'
+
+group :chef do
+  gem 'chef'
+  gem 'chefspec'
+  gem 'berkshelf'
+  gem 'foodcritic'
+  gem 'fauxhai'
+  gem 'test-kitchen'
+  gem 'kitchen-vagrant'
+end

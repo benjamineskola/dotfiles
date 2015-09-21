@@ -14,11 +14,13 @@ brew 'heroku-toolbelt'
 brew 'jq'
 brew 'mobile-shell'
 brew 'moreutils'
+# brew 'mysql' # what uses this?
 brew 'python3'
 brew 'ruby-install'
 brew 'rust'
 brew 'the_silver_searcher'
 brew 'tree'
+
 
 # for ruby
 brew 'gdbm'
@@ -30,9 +32,21 @@ brew 'readline'
 cask 'alfred'
 cask 'atom'
 cask 'dropbox'
+cask 'flux'
 cask 'font-source-code-pro'
+cask 'github-desktop'
 cask 'google-chrome'
 cask 'iterm2'
-cask 'packer' if ENV['HOSTNAME'] == 'ELSLABM-155889'
+cask 'steam'
+cask 'tunnelblick'
 cask 'vagrant'
 cask 'virtualbox'
+
+case ENV['HOSTNAME']
+  when 'ELSLABM-155889'
+    cask 'packer'
+  when 'Benjamins-MacBook-Pro'
+    cask 'mactex'
+    cask 'skype'
+    cask 'vlc'
+end

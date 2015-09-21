@@ -1,0 +1,6 @@
+# -*- zsh -*-
+
+egrep -q "^\[$1\]" "$HOME/.private/magi.ini" || {echo "unknown environment $1" >&1 ; return 1}
+eval "$(sed -n "/^\[1]$/,/^\\s*\$/{s/ //g;/=/p;}" "$HOME/.private/magi.ini")"
+
+export DB_HOST DB_USER DB_PASS

@@ -3,11 +3,6 @@
 	url = git@github.com:kirjatoukka/private.git
 	branch = master
 	update = rebase
-[submodule "bin"]
-	path = bin
-	url = git@github.com:kirjatoukka/scripts
-	branch = master
-	update = rebase
 [submodule ".vim/bundle/pathogen"]
 	path = .vim/bundle/pathogen
 	url = git://github.com/tpope/vim-pathogen.git

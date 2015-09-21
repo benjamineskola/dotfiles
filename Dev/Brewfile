@@ -1,4 +1,5 @@
 # -*- ruby -*-
+
 tap 'caskroom/cask'
 tap 'caskroom/fonts'
 tap 'homebrew/bundle'
@@ -18,6 +19,13 @@ brew 'ruby-install'
 brew 'rust'
 brew 'the_silver_searcher'
 brew 'tree'
+
+# for ruby
+brew 'gdbm'
+brew 'libffi'
+brew 'libyaml'
+brew 'openssl'
+brew 'readline'
 
 cask 'alfred'
 cask 'atom'

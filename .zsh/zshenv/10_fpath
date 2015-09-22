@@ -1,4 +1,4 @@
 # -*- zsh -*-
 
-fpath=($fpath ~/.zsh/$OS/functions ~/.zsh/functions)
-autoload -U $^fpath/*(.N:t)
+fpath=($fpath ~/.zsh/$OS/functions.zwc ~/.zsh/functions.zwc)
+autoload -U ${^fpath%.zwc}/*(.N:t)

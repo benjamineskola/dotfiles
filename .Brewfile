@@ -16,6 +16,7 @@ brew 'mobile-shell'
 brew 'moreutils'
 # brew 'mysql' # what uses this?
 brew 'python3'
+brew 'rename'
 brew 'ruby-install'
 brew 'rust'
 brew 'the_silver_searcher'

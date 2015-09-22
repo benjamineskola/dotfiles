@@ -1,5 +1,6 @@
 /[^.]*
 *.svbin
+*.zwc
 /.*_hist
 /.*_history
 /.account

@@ -1,8 +1,8 @@
 # -*- zsh -*-
 
-if git-branch-exists "$1"; then
+if command git show-ref --heads "$1"; then
 	command git checkout "$1"
-elif git-branch-exists "remotes/[^/]+/$1"; then
+elif command git show-ref "$1"; then
 	remote=$(command git branch -a | grep -E "remotes/[^/]+/$1" | cut -d / -f 2-)
 	git checkout -b "$1" "$remote"
 else

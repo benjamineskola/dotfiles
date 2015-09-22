@@ -1,3 +1,0 @@
-# -*- zsh -*-
-
-git branch -a | grep -Eq "^(\*| ) $1$"

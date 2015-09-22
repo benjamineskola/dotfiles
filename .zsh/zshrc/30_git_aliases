@@ -16,5 +16,3 @@ alias gst="command git status -sb"
 alias gundo="command git checkout HEAD -- "
 alias gundop="command git checkout -p HEAD -- "
 alias gup="command git up"
-
-compdef _git-branch gbr

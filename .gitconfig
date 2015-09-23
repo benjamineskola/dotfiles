@@ -9,6 +9,8 @@
 	excludesfile = ~/.gitignore.global
 [diff]
 	renames = copy
+[hub]
+	protocol = https
 [merge]
 	tool = diffmerge
 [mergetool]

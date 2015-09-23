@@ -15,7 +15,6 @@ brew 'hub'
 brew 'jq'
 brew 'mobile-shell'
 brew 'moreutils'
-# brew 'mysql' # what uses this?
 brew 'python3'
 brew 'rename'
 brew 'ruby-install'
@@ -45,6 +44,7 @@ cask 'virtualbox'
 
 case ENV['HOSTNAME']
   when 'ELSLABM-155889'
+    brew 'mysql' # for libmagi
     cask 'packer'
   when 'Benjamins-MacBook-Pro'
     cask 'mactex'

@@ -43,6 +43,9 @@
   "terminal-plus":
     style:
       fontFamily: "Source Code Pro"
+  "tree-view":
+    hideIgnoredNames: true
+    hideVcsIgnoredFiles: true
 ".coffee.source":
   editor:
     tabType: "soft"

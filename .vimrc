@@ -12,7 +12,6 @@ set noexpandtab ts=8 sw=8
 set number
 set pastetoggle=<F10>
 set showcmd
-set statusline=%<%f\ %h%m%y%r%=%-14.(%l,%c%V%)\ %P
 set wildmenu
 
 " appearance.
@@ -49,3 +48,5 @@ function! BindTimestamp()
   endif
 endfun
 autocmd BufWritePre *.db call BindTimestamp()
+
+let  g:airline_powerline_fonts=1 " use powerline fonts

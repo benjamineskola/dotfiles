@@ -13,3 +13,9 @@
 	url = git://github.com/altercation/vim-colors-solarized.git
 	branch = master
 	update = rebase
+[submodule "/Users/ben/.vim/bundle/vim-airline"]
+	path = /Users/ben/.vim/bundle/vim-airline
+	url = https://github.com/bling/vim-airline
+[submodule "Library/Fonts/PowerlineFonts"]
+	path = Library/Fonts/PowerlineFonts
+	url = git@github.com:powerline/fonts.git

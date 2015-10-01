@@ -38,7 +38,6 @@ cask 'font-source-code-pro'
 cask 'google-chrome'
 cask 'iterm2'
 cask 'steam'
-cask 'tunnelblick'
 cask 'vagrant'
 cask 'virtualbox'
 
@@ -46,8 +45,10 @@ case ENV['HOSTNAME']
   when 'ELSLABM-155889'
     brew 'mysql' # for libmagi
     cask 'packer'
+    cask 'viscosity'
   when 'Benjamins-MacBook-Pro'
     cask 'mactex'
     cask 'skype'
     cask 'vlc'
+    cask 'tunnelbear'
 end

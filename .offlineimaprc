@@ -1,28 +1,15 @@
 # vim:ft=dosini
 [general]
-accounts = MendeleySync, Fastmail
+accounts = Fastmail
 
 [Account Fastmail]
-localrepository = LocalFastmail
+localrepository = Local
 remoterepository = Fastmail
 
-[Account MendeleySync]
-remoterepository = Mendeley
-localrepository = FastmailSync
-
-[Repository LocalFastmail]
+[Repository Local]
 type = Maildir
 localfolders = ~/mail
-folderfilter = lambda foldername: not foldername.startswith('INBOX.Mendeley')
-
-[Repository Mendeley]
-type = Gmail
-remoteuser = benjamin.alee@mendeley.com
-folderfilter = lambda foldername: foldername not in ['[Gmail]/Bin'] and '[Airmail]' not in foldername
-sslcacertfile = /etc/ssl/certs/ca-certificates.crt
-nametrans = lambda x: 'INBOX.Mendeley.' + re.sub('\[(Gmail|Airmail)\]', r'\1', x)
-maxconnections = 3
-createfolders = false
+nametrans = lambda n: n not in ['INBOX'] and 'INBOX.' + n or n
 
 [Repository Fastmail]
 type = IMAP
@@ -31,12 +18,4 @@ remoteuser = bma@fastmail.fm
 remotehost = mail.messagingengine.com
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 maxconnections = 3
-
-[Repository FastmailSync]
-type = IMAP
-ssl = on
-remoteuser = bma@fastmail.fm
-remotehost = mail.messagingengine.com
-sslcacertfile = /etc/ssl/certs/ca-certificates.crt
-folderfilter = lambda foldername: foldername.startswith('INBOX.Mendeley.')
-maxconnections = 3
+nametrans = lambda n: re.sub(r'^INBOX\.', '', n)

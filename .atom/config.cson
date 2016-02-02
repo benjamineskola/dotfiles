@@ -1,8 +1,8 @@
 "*":
-  "exception-reporting":
-    userId: "d73cea11-7484-691d-3884-7da39d96dd04"
-  welcome:
-    showOnStartup: false
+  "auto-run":
+    commands: [
+      "env-from-shell:copy"
+    ]
   core:
     themes: [
       "one-dark-ui"
@@ -16,13 +16,8 @@
     showInvisibles: true
     softTabs: false
     tabLength: 8
-  "spell-check":
-    grammars: [
-      "source.gfm"
-      "text"
-      "text.tex.latex"
-    ]
   "env-from-shell":
+    autoRun: true
     variables: [
       "PATH"
       "RUBY_ROOT"
@@ -32,10 +27,13 @@
       "GEM_ROOT"
       "GEM_PATH"
     ]
-    autoRun: true
-  "auto-run":
-    commands: [
-      "env-from-shell:copy"
+  "exception-reporting":
+    userId: "d73cea11-7484-691d-3884-7da39d96dd04"
+  "spell-check":
+    grammars: [
+      "source.gfm"
+      "text"
+      "text.tex.latex"
     ]
   tabs:
     enableVcsColoring: true
@@ -46,10 +44,12 @@
   "tree-view":
     hideIgnoredNames: true
     hideVcsIgnoredFiles: true
+  welcome:
+    showOnStartup: false
 ".coffee.source":
   editor:
-    tabType: "soft"
     tabLength: 2
+    tabType: "soft"
 ".gfm.source":
   editor:
     preferredLineLength: 120
@@ -59,26 +59,26 @@
     tabType: "soft"
 ".html.text":
   editor:
-    tabType: "soft"
     tabLength: 2
+    tabType: "soft"
 ".js.source":
   editor:
-    tabType: "soft"
     tabLength: 2
+    tabType: "soft"
 ".python.source":
   editor:
-    tabType: "soft"
     tabLength: 4
+    tabType: "soft"
 ".ruby.source":
   editor:
-    tabType: "soft"
     tabLength: 2
+    tabType: "soft"
 ".rust.source":
   editor:
-    tabType: "soft"
     tabLength: 4
+    tabType: "soft"
 ".text":
   editor:
-    softWrapAtPreferredLineLength: true
-    softWrap: true
     preferredLineLength: 120
+    softWrap: true
+    softWrapAtPreferredLineLength: true

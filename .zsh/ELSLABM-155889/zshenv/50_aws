@@ -1,4 +1,4 @@
 # -*- zsh -*-
 
-export AWS_PROFILE=worktest
-magi-env test
+export AWS_PROFILE=work
+magi-env live

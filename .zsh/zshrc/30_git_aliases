@@ -17,3 +17,5 @@ alias gst="git status -sb"
 alias gundo="git checkout HEAD -- "
 alias gundop="git checkout -p -- "
 alias gup="git up"
+
+path+=/usr/local/Cellar/git/${${(%):-"$(git --version)"}#* * }/share/git-core/contrib/diff-highlight/

@@ -27,3 +27,9 @@
 [user]
 	name = Benjamin M. A'Lee
 	email = me@benjaminalee.uk
+[interactive]
+	diffFilter = diff-highlight
+[pager]
+	show = diff-highlight | less
+	log = diff-highlight | less
+	diff = diff-highlight | less

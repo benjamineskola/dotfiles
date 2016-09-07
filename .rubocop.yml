@@ -4,5 +4,5 @@ Style/AsciiComments:
 Style/AndOr:
   Enabled: false
 
-Style/TrailingComma:
+Style/TrailingCommaInLiteral:
   EnforcedStyleForMultiline: comma

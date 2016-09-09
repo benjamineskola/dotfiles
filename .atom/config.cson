@@ -5,8 +5,8 @@
     ]
   core:
     themes: [
-      "one-dark-ui"
-      "solarized-dark-syntax"
+      "one-light-ui"
+      "solarized-light-syntax"
     ]
   editor:
     fontFamily: "Source Code Pro"

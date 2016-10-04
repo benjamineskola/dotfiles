@@ -1,6 +1,6 @@
 [submodule ".private"]
 	path = .private
-	url = git@github.com:kirjatoukka/private.git
+	url = git@gitlab.com:benjaminalee/private.git
 	branch = master
 	update = rebase
 [submodule ".vim/bundle/pathogen"]

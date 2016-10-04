@@ -29,5 +29,3 @@ au FileType nginx,puppet,vim,ruby set expandtab ts=2 sw=2 sts=2
 map Y y$
 map qq ZZ
 nmap <C-l> :nohl<CR>:redraw<CR>
-
-let  g:airline_powerline_fonts=1 " use powerline fonts

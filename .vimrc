@@ -29,3 +29,9 @@ au FileType nginx,puppet,vim,ruby set expandtab ts=2 sw=2 sts=2
 map Y y$
 map qq ZZ
 nmap <C-l> :nohl<CR>:redraw<CR>
+
+let mapleader= ","
+map <leader>h :wincmd h<CR>
+map <leader>j :wincmd j<CR>
+map <leader>k :wincmd k<CR>
+map <leader>l :wincmd l<CR>

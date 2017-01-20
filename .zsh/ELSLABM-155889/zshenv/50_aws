@@ -1,4 +1,3 @@
 # -*- zsh -*-
 
-export AWS_PROFILE=work
-magi-env live
+export AWS_PROFILE=work-shared

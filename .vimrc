@@ -17,7 +17,6 @@ set wildmenu
 " appearance.
 set background=dark
 syntax on
-colorscheme solarized
 
 " filetype stuff.
 filetype plugin indent on

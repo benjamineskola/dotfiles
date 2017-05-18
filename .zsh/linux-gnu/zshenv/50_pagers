@@ -1,7 +1,0 @@
-# -*- zsh -*-
-
-if [[ -x "$(which lesspipe.sh)" ]]; then
-       export LESSOPEN="|lesspipe.sh %s"
-elif [[ -x "$(which lesspipe)" ]]; then
-       export LESSOPEN="|lesspipe %s"
-fi

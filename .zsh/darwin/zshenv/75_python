@@ -1,2 +1,0 @@
-export PYTHONPATH=$HOME/Library/Python/2.7
-path=($path $PYTHONPATH/bin)

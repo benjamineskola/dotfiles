@@ -1,3 +1,0 @@
-# -*- zsh -*-
-
-alias fetch='command curl -gkLO'

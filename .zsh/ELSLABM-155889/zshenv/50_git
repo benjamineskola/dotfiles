@@ -1,4 +1,0 @@
-# -*- zsh -*-
-
-export GIT_AUTHOR_EMAIL=bma@elsevier.com
-export GIT_COMMITTER_EMAIL=bma@elsevier.com

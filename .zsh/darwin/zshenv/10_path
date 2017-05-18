@@ -1,3 +1,0 @@
-# -*- zsh -*-
-
-path=(/usr/local/MacGPG2/bin /usr/local/texlive/*/bin/* $path)

@@ -15,7 +15,8 @@ set showcmd
 set wildmenu
 
 " appearance.
-set background=dark
+set background=light
+colo solarized
 syntax on
 
 " filetype stuff.

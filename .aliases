@@ -1,0 +1,60 @@
+# -*- sh -*-
+
+alias be='bundle exec'
+alias curl='curl -gkLsS'
+alias dc="dc -e '2k' -f /dev/stdin"
+alias grep=egrep
+alias puppet-lint='puppet-lint --with-filename'
+alias tf="tail -F"
+
+alias ag='ag --pager less --hidden --ignore .git --ignore .hg -ai'
+alias fetch='command curl -gkLO'
+
+
+if [[ -e "$(which colordiff)" ]]; then
+	alias diff='colordiff -u'
+	alias colordiff='colordiff -u'
+else
+	alias diff='diff -u'
+fi
+
+if [[ -e "$(which service)" ]]; then
+	alias service='command sudo service'
+else
+	alias service='command sudo invoke-rc.d'
+fi
+
+if [[ -e "$(which vim)" ]]; then
+	alias vi=vim
+fi
+
+alias g="git"
+alias gadd="git add"
+alias gaddp="env GIT_EDITOR=vi git add -p"
+alias gamend="git commit --amend -CHEAD"
+alias gbr="git branch -a"
+alias gco="git checkout"
+alias gci="git commit"
+alias gclone="git clone"
+alias gd="git diff -M"
+alias gdc="git diff -M --cached"
+alias gl="git log -M --graph --decorate --abbrev-commit"
+alias gmerge="git merge"
+alias gnew="git checkout -b"
+alias gnuke="git reset --hard"
+alias gp="git push"
+alias greb="env GIT_EDITOR=vi git rebase"
+alias grm="git rm"
+alias gsh="git show"
+alias gst="git status -sb"
+alias gundo="git checkout HEAD -- "
+alias gundop="git checkout -p -- "
+alias gup="git up"
+
+path+=/usr/local/Cellar/git/${${(%):-"$(command git --version)"}#* * }/share/git-core/contrib/diff-highlight
+
+alias ls='ls -GhHpT'
+alias ll='ls -l'
+alias la='ls -A'
+alias lal='ls -lA'
+alias lsd='ls -d'

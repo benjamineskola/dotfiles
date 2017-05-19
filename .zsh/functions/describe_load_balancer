@@ -1,9 +1,0 @@
-# -*- zsh -*-
-
-name=$1
-if [ -z "$2" ]; then
-	query="*"
-else
-	query=$2
-fi
-aws --output text elb describe-load-balancers --load-balancer-names "$name" --query "$query"

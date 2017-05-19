@@ -1,3 +1,0 @@
-# -*- zsh -*-
-
-get_instance_ip "$(describe_load_balancer monolith-staging-frontend 'LoadBalancerDescriptions[*].Instances')"

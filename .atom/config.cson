@@ -6,7 +6,7 @@
       "solarized-light-syntax"
     ]
   editor:
-    fontFamily: "Consolas"
+    fontFamily: "Source Code Pro"
     softWrap: true
   "exception-reporting":
     userId: "9a36e356-fbf5-4dfa-8005-bd3bf7864fd7"

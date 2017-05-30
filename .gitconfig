@@ -6,7 +6,6 @@
 	status = auto
 	branch = auto
 [core]
-	editor = ed
 	excludesfile = ~/.gitignore.global
 [diff]
 	renames = copy
@@ -25,7 +24,7 @@
 [push]
 	default = current
 [user]
-	name = Benjamin M. A'Lee
+	name = Benjamin A'Lee
 	email = me@benjaminalee.uk
 [interactive]
 	diffFilter = diff-highlight

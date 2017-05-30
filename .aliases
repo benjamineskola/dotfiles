@@ -18,15 +18,7 @@ else
 	alias diff='diff -u'
 fi
 
-if [[ -e "$(which service)" ]]; then
-	alias service='command sudo service'
-else
-	alias service='command sudo invoke-rc.d'
-fi
-
-if [[ -e "$(which vim)" ]]; then
-	alias vi=vim
-fi
+alias vi=vim
 
 alias g="git"
 alias gadd="git add"

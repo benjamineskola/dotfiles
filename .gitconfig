@@ -24,8 +24,8 @@
 [push]
 	default = current
 [user]
-	name = Benjamin A'Lee
-	email = me@benjaminalee.uk
+	name = Benjamin Eskola
+	email = ben@eskola.me.uk
 [interactive]
 	diffFilter = diff-highlight
 [pager]

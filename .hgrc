@@ -1,0 +1,16 @@
+[alias]
+log = log -Gf --template 'commit {label('yellow',node|short)}:{label('yellow',rev)} {label('red', branches)} {label('red', tags)} \nAuthor: {author}\nDate: {date|date}\n\n\t{desc|strip|fill68|tabindent}\n\n'
+l = log
+pull = pull --update
+up = pull
+show = !args=""; params=""; for i in $@; do if [ ${i:0:1} = "-" ]; then args="$args $i"; else params="$params $i"; fi; done; hg log ${args:--p} -r ${params:--1}
+sh = show
+
+[ui]
+username = Benjamin Eskola <ben@eskola.me.uk>
+ignore.global = ~/.gitignore.global
+
+[extensions]
+hgext.bookmarks =
+hggit =
+strip =

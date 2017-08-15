@@ -49,20 +49,14 @@ esac
 
 function vcs_info {
        _vcs_info=''
-       hg root >/dev/null 2>&1 && _vcs_info=" %F{cyan}hg:%F{magenta}$(hg branch 2> /dev/null)%f"
        git branch >/dev/null 2>&1 && _vcs_info=" %F{cyan}%F{magenta}${$(git symbolic-ref HEAD)#refs/heads/}%f"
-}
-
-function ruby_info {
-       _ruby_info=" ${${${$(ruby --version)##ruby }%% *}%%p*}"
 }
 
 autoload add-zsh-hook
 add-zsh-hook precmd vcs_info
-add-zsh-hook precmd ruby_info
 
 setopt prompt_subst
-PROMPT='[%(!.%F{red}.%F{blue})%n%f@%F{yellow}%m%f %F{green}${${:-${${${(@j:/:M)${(@s:/:)${(%):-%~}}##.#?}:h}%/}/}#./}${${(%):-%1~}#/}%f${_vcs_info}${_ruby_info}]%0(?.%F{green}✓.%F{red}✗)%f '
+PROMPT='[%(!.%F{red}%n .)%f%F{green}${${:-${${${(@j:/:M)${(@s:/:)${(%):-%~}}##.#?}:h}%/}/}#./}${${(%):-%1~}#/}%f${_vcs_info}]%0(?.%F{green}✓.%F{red}✗)%f '
 
 ## syntax
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

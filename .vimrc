@@ -15,8 +15,19 @@ set showcmd
 set wildmenu
 
 " appearance.
-set background=dark
-colo slate
+let fg_bg = split($COLORFGBG, ";")
+
+" if(fg_bg[1] >= 0 && fg_bg[1] < 6 || fg_bg[1] == 8)
+"   set background=dark
+" else
+"   set background=light
+" endif
+
+if(fg_bg[1] == 8 || fg_bg[1] == 15)
+  colo solarized
+else
+  colo slate
+end
 syntax on
 
 " filetype stuff.

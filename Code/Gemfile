@@ -4,14 +4,3 @@ gem 'pry'
 gem 'rspec'
 gem 'rubocop'
 gem 'rubocop-rspec'
-
-group :chef do
-  gem 'berkshelf'
-  gem 'chef'
-  gem 'chefspec'
-  gem 'fauxhai'
-  gem 'foodcritic'
-  gem 'kitchen-vagrant'
-  gem 'serverspec'
-  gem 'test-kitchen'
-end

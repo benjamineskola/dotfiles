@@ -13,5 +13,8 @@ logtemplate = "commit {label('yellow',node|short)}:{label('yellow',rev)} {label(
 [extensions]
 hgext.bookmarks =
 hggit =
+rebase =
+record =
+shelve =
 show = ~/Code/hgext/show.py
 strip =

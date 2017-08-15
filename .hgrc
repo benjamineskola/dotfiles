@@ -3,7 +3,6 @@ log = log -Gf --template 'commit {label('yellow',node|short)}:{label('yellow',re
 l = log
 pull = pull --update
 up = pull
-show = !args=""; params=""; for i in $@; do if [ ${i:0:1} = "-" ]; then args="$args $i"; else params="$params $i"; fi; done; hg log ${args:--p} -r ${params:--1} -l1
 sh = show
 
 [ui]
@@ -14,3 +13,4 @@ ignore.global = ~/.gitignore.global
 hgext.bookmarks =
 hggit =
 strip =
+show = ~/Code/hgext/show.py

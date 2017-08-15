@@ -19,6 +19,9 @@ else
 fi
 
 alias vi=vim
+if [[ -e "$(which nvim)" ]]; then
+	alias vim=nvim
+fi
 
 alias g="git"
 alias gadd="git add"

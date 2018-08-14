@@ -1,8 +1,8 @@
-from mercurial import cmdutil
+from mercurial import registrar
 from mercurial import commands
 
 cmdtable = {}
-command = cmdutil.command(cmdtable)
+command = registrar.command(cmdtable)
 
 @command('show', [], '[revision]')
 def show(ui, repo, revision='.', **opts):

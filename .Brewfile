@@ -2,7 +2,6 @@
 
 tap 'homebrew/bundle'
 tap 'homebrew/cask'
-tap 'homebrew/services'
 
 brew 'chruby'
 brew 'colordiff'
@@ -15,7 +14,6 @@ brew 'ncdu'
 brew 'neovim'
 brew 'rename'
 brew 'ruby-install'
-brew 'sleepwatcher', restart_service: true
 brew 'srm'
 brew 'the_silver_searcher'
 brew 'trash'

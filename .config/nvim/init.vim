@@ -3,7 +3,6 @@ execute pathogen#infect()
 set hidden
 set ignorecase smartcase
 set modeline
-set noexpandtab ts=8 sw=8
 set number
 set pastetoggle=<F10>
 
@@ -21,9 +20,6 @@ syntax on
 filetype plugin indent on
 let g:is_posix = 1 " /bin/sh is always POSIX, because what the fuck.
 
-au FileType python set expandtab ts=4 sw=4 sts=4
-au FileType nginx,puppet,vim,ruby set expandtab ts=2 sw=2 sts=2
-
 map Y y$
 map qq ZZ
 nmap <C-l> :nohl<CR>:redraw<CR>
@@ -33,3 +29,6 @@ map <leader>h :wincmd h<CR>
 map <leader>j :wincmd j<CR>
 map <leader>k :wincmd k<CR>
 map <leader>l :wincmd l<CR>
+
+let g:EditorConfig_exec_path = '/usr/local/bin/editorconfig'
+let g:EditorConfig_core_mode = 'external_command'

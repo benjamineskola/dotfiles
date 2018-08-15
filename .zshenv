@@ -36,10 +36,3 @@ export PYTHONPATH=$HOME/Library/Python/2.7
 path=($path $PYTHONPATH/bin)
 
 export LSCOLORS=exfxcxdxbxegedabagacad
-
-if [[ $HOSTNAME = ELSLABM-155889 ]]; then
-  export AWS_PROFILE=work
-
-  export GIT_AUTHOR_EMAIL=bma@elsevier.com
-  export GIT_COMMITTER_EMAIL=bma@elsevier.com
-fi

@@ -46,8 +46,6 @@ alias gundo="git checkout HEAD -- "
 alias gundop="git checkout -p -- "
 alias gup="git up"
 
-path+=/usr/local/Cellar/git/${${(%):-"$(command git --version)"}#* * }/share/git-core/contrib/diff-highlight
-
 alias ls='ls -GhHpT'
 alias ll='ls -l'
 alias la='ls -A'

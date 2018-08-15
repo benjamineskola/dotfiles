@@ -1,0 +1,19 @@
+syntax: regex
+^[^.].*
+
+syntax: glob
+*_history
+*.zwc
+.Trash
+.atom/*/
+.bundle
+.dropbox
+.gem
+.git*/
+.gnupg*/*/
+!.gnupg*/*.conf
+.viminfo
+.npm
+.local/share
+.config/nvim/.netrwhist
+.config/nvim/bundle

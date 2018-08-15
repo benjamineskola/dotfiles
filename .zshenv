@@ -27,12 +27,6 @@ export LESS="-ImRswFX"
 export LESSHISTFILE="$XDG_CACHE_HOME/less_history"
 export MANPAGER="less +Gg"
 
-
 export TZ=Europe/London
-
-path=(/usr/local/MacGPG2/bin /usr/local/texlive/*/bin/* $path)
-
-export PYTHONPATH=$HOME/Library/Python/2.7
-path=($path $PYTHONPATH/bin)
 
 export LSCOLORS=exfxcxdxbxegedabagacad

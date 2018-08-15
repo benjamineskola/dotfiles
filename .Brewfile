@@ -1,8 +1,8 @@
 # -*- ruby -*-
 
-tap 'caskroom/cask'
-tap 'caskroom/fonts'
 tap 'homebrew/bundle'
+tap 'homebrew/cask'
+tap 'homebrew/services'
 
 brew 'chruby'
 brew 'colordiff'

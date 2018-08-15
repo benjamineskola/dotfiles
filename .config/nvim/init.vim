@@ -1,3 +1,5 @@
+execute pathogen#infect()
+
 set hidden
 set ignorecase smartcase
 set modeline

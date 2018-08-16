@@ -51,3 +51,7 @@ alias ll='ls -l'
 alias la='ls -A'
 alias lal='ls -lA'
 alias lsd='ls -d'
+
+ducks() {
+	du -csh "$@" | gsort -rh
+}

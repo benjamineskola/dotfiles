@@ -1,3 +1,0 @@
-# -*- zsh -*-
-
-(echo 0; sed 's/$/ +/'; echo p) | dc

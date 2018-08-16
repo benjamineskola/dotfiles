@@ -16,4 +16,5 @@ syntax: glob
 .npm
 .local/share
 .config/nvim/.netrwhist
-.config/nvim/bundle
+.config/nvim/autoload/plug.vim
+.config/nvim/plugged

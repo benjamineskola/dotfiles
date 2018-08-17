@@ -7,6 +7,7 @@ call plug#begin()
 Plug 'editorconfig/editorconfig-vim'
 Plug 'bling/vim-airline'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tpope/vim-surround'
 call plug#end()
 
 set hidden

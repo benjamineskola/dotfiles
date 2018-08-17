@@ -6,6 +6,7 @@ endif
 call plug#begin()
 Plug 'editorconfig/editorconfig-vim'
 Plug 'bling/vim-airline'
+Plug 'ctrlpvim/ctrlp.vim'
 call plug#end()
 
 set hidden
@@ -40,3 +41,5 @@ map <leader>l :wincmd l<CR>
 
 let g:EditorConfig_exec_path = '/usr/local/bin/editorconfig'
 let g:EditorConfig_core_mode = 'external_command'
+
+let g:ctrlp_user_command = 'ag --literal --files-with-matches --nocolor --hidden --filename-pattern "" --ignore .git --ignore .hg --ignore Library %s'

@@ -15,3 +15,7 @@ indent_style = space
 [{*.rb,Gemfile,*.yml}]
 indent_size = 2
 indent_style = space
+
+[{*.vim,.vimrc}]
+indent_size = 2
+indent_style = space

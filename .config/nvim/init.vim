@@ -8,6 +8,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'bling/vim-airline'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-surround'
+Plug 'icymind/NeoSolarized'
 call plug#end()
 
 set hidden
@@ -19,8 +20,9 @@ set pastetoggle=<F10>
 " appearance.
 let fg_bg = split($COLORFGBG, ";")
 
-if(fg_bg[1] == 8 || fg_bg[1] == 15)
-  colo solarized
+set termguicolors
+if len(fg_bg) > 0 && (fg_bg[1] == 8 || fg_bg[1] == 15)
+  colo neosolarized
 else
   colo slate
 end

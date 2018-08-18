@@ -47,3 +47,18 @@ let g:EditorConfig_exec_path = '/usr/local/bin/editorconfig'
 let g:EditorConfig_core_mode = 'external_command'
 
 let g:ctrlp_user_command = 'ag --literal --files-with-matches --nocolor --hidden --filename-pattern "" --ignore .git --ignore .hg --ignore Library %s'
+
+if has ('gui_vimr')
+  map <M-1> 1gt
+  map <M-2> 2gt
+  map <M-3> 3gt
+  map <M-4> 4gt
+  map <M-5> 5gt
+  map <M-6> 6gt
+  map <M-7> 7gt
+  map <M-8> 8gt
+  map <M-9> 9gt
+  map <M-0> :tablast<CR>
+end
+map <C-Tab> gt
+map <C-S-Tab> gT

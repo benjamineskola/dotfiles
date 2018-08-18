@@ -10,7 +10,7 @@ username = Benjamin Eskola <ben@eskola.me.uk>
 ignore.global = ~/.gitignore.global
 logtemplate = "commit {label('yellow',node|short)}:{label('yellow',rev)} {label('red', branches)} {label('red', tags)} \nAuthor: {author}\nDate: {date|date}\n\n\t{desc|strip|fill68|tabindent}\n\n"
 merge = vimdiff
-editor = vimr --wait
+editor = vimr --wait -s
 
 [extensions]
 hgext.bookmarks =

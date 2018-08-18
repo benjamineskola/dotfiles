@@ -19,7 +19,9 @@ else
 fi
 
 alias vi=vim
-if [[ -e "$(which nvim)" ]]; then
+if [[ -e "$(which vimr)" ]]; then
+	alias vim="vimr -n"
+elif [[ -e "$(which nvim)" ]]; then
 	alias vim=nvim
 fi
 

@@ -9,6 +9,7 @@ Plug 'bling/vim-airline'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-surround'
 Plug 'icymind/NeoSolarized'
+Plug 'chriskempson/base16-vim'
 call plug#end()
 
 set hidden
@@ -24,7 +25,7 @@ set termguicolors
 if len(fg_bg) > 0 && (fg_bg[1] == 8 || fg_bg[1] == 15)
   colo neosolarized
 else
-  colo slate
+  colo base16-materia
 end
 syntax on
 

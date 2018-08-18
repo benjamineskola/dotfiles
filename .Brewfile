@@ -1,4 +1,4 @@
-# -*- ruby -*-
+# vim:ft=ruby
 
 tap 'homebrew/bundle'
 tap 'homebrew/cask'

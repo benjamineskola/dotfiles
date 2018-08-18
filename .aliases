@@ -1,4 +1,4 @@
-# -*- sh -*-
+# vim:ft=zsh
 
 alias be='bundle exec'
 alias curl='curl -gkLsS'

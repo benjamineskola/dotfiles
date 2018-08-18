@@ -1,4 +1,4 @@
-# -*- zsh -*-
+# vim:ft=zsh
 
 . ~/.aliases
 

@@ -1,5 +1,9 @@
 # vim:ft=zsh
 
+has_command() {
+	whence "$@" > /dev/null 2>&1
+}
+
 alias be='bundle exec'
 alias curl='curl -gkLsS'
 alias dc="dc -e '2k' -f /dev/stdin"
@@ -11,7 +15,7 @@ alias ag='ag --pager less --hidden --ignore .git --ignore .hg -i'
 alias fetch='command curl -gkLO'
 
 
-if [[ -e "$(which colordiff)" ]]; then
+if has_command colordiff; then
 	alias diff='colordiff -u'
 	alias colordiff='colordiff -u'
 else
@@ -19,15 +23,15 @@ else
 fi
 
 alias vi=vim
-if [[ -e "$(which vimr)" ]]; then
+if has_command vimr; then
 	alias vim="vimr -n"
-elif [[ -e "$(which nvim)" ]]; then
+elif has_command nvim; then
 	alias vim=nvim
 fi
 
 alias g="git"
 alias gadd="git add"
-alias gaddp="env GIT_EDITOR=vi git add -p"
+alias gaddp="git add -p"
 alias gamend="git commit --amend -CHEAD"
 alias gbr="git branch -a"
 alias gco="git checkout"
@@ -40,7 +44,7 @@ alias gmerge="git merge"
 alias gnew="git checkout -b"
 alias gnuke="git reset --hard"
 alias gp="git push"
-alias greb="env GIT_EDITOR=vi git rebase"
+alias greb="git rebase"
 alias grm="git rm"
 alias gsh="git show"
 alias gst="git status -sb"

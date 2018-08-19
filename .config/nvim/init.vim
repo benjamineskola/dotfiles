@@ -19,6 +19,9 @@ set modeline
 set number
 set pastetoggle=<F10>
 
+set grepprg=ag\ --vimgrep\ $*
+set grepformat=%f:%l:%c:%m
+
 " appearance.
 let fg_bg = split($COLORFGBG, ";")
 

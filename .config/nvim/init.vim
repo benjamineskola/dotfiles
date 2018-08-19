@@ -4,13 +4,13 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 call plug#begin()
-Plug 'editorconfig/editorconfig-vim'
 Plug 'bling/vim-airline'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'tpope/vim-surround'
-Plug 'icymind/NeoSolarized'
 Plug 'chriskempson/base16-vim'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'icymind/NeoSolarized'
 Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-surround'
 call plug#end()
 
 set hidden
@@ -34,20 +34,28 @@ syntax on
 filetype plugin indent on
 let g:is_posix = 1 " /bin/sh is always POSIX, because what the fuck.
 
+" plugin settings
+let g:EditorConfig_exec_path = '/usr/local/bin/editorconfig'
+let g:EditorConfig_core_mode = 'external_command'
+
+let g:ctrlp_user_command = 'ag --literal --files-with-matches --nocolor --hidden --filename-pattern "" --ignore .git --ignore .hg --ignore Library %s'
+
+let g:NERDSpaceDelims = 1
+
+" mappings
+let mapleader= ","
+
 map Y y$
 map qq ZZ
 nmap <C-l> :nohl<CR>:redraw<CR>
 
-let mapleader= ","
 map <leader>h :wincmd h<CR>
 map <leader>j :wincmd j<CR>
 map <leader>k :wincmd k<CR>
 map <leader>l :wincmd l<CR>
 
-let g:EditorConfig_exec_path = '/usr/local/bin/editorconfig'
-let g:EditorConfig_core_mode = 'external_command'
-
-let g:ctrlp_user_command = 'ag --literal --files-with-matches --nocolor --hidden --filename-pattern "" --ignore .git --ignore .hg --ignore Library %s'
+map <C-Tab> gt
+map <C-S-Tab> gT
 
 if has ('gui_vimr')
   map <M-1> 1gt
@@ -61,7 +69,3 @@ if has ('gui_vimr')
   map <M-9> 9gt
   map <M-0> :tablast<CR>
 end
-map <C-Tab> gt
-map <C-S-Tab> gT
-
-let g:NERDSpaceDelims = 1

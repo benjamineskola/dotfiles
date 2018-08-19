@@ -10,6 +10,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-surround'
 Plug 'icymind/NeoSolarized'
 Plug 'chriskempson/base16-vim'
+Plug 'scrooloose/nerdcommenter'
 call plug#end()
 
 set hidden
@@ -62,3 +63,5 @@ if has ('gui_vimr')
 end
 map <C-Tab> gt
 map <C-S-Tab> gT
+
+let g:NERDSpaceDelims = 1

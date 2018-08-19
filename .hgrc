@@ -4,6 +4,8 @@ l = log
 pull = pull --update
 up = pull
 sh = show
+pull-all = !hg config paths | cut -d = -f 1 | cut -d . -f 2 | xargs -n 1 hg pull
+push-all = !hg config paths | cut -d = -f 1 | cut -d . -f 2 | xargs -n 1 hg push
 
 [ui]
 username = Benjamin Eskola <ben@eskola.me.uk>

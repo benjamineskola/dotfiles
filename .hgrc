@@ -10,7 +10,7 @@ push-all = !hg config paths | cut -d = -f 1 | cut -d . -f 2 | xargs -n 1 hg push
 [ui]
 username = Benjamin Eskola <ben@eskola.me.uk>
 ignore.global = ~/.gitignore.global
-logtemplate = "commit {label('yellow',node|short)}:{label('yellow',rev)} {label('red', branches)} {label('red', tags)} \nAuthor: {author}\nDate: {date|date}\n\n\t{desc|strip|fill68|tabindent}\n\n"
+logtemplate = "commit {label('yellow',node|short)}:{label('yellow',rev)} {label('red', branches)} {label('red', bookmarks)} {label('red', tags)} \nAuthor: {author}\nDate: {date|date}\n\n\t{desc|strip|fill68|tabindent}\n\n"
 merge = vimdiff
 editor = vimr --wait -s
 

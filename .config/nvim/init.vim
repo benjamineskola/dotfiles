@@ -7,6 +7,7 @@ call plug#begin()
 Plug 'bling/vim-airline'
 Plug 'chriskempson/base16-vim'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'dearrrfish/vim-applescript'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'icymind/NeoSolarized'
 Plug 'scrooloose/nerdcommenter'

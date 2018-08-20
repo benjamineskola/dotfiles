@@ -11,6 +11,7 @@ Plug 'dearrrfish/vim-applescript'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'icymind/NeoSolarized'
 Plug 'scrooloose/nerdcommenter'
+Plug 'sjl/gundo.vim'
 Plug 'tpope/vim-surround'
 call plug#end()
 
@@ -46,6 +47,8 @@ let g:ctrlp_user_command = 'ag --literal --files-with-matches --nocolor --hidden
 
 let g:NERDSpaceDelims = 1
 
+let g:python_host_prog = '/usr/local/bin/python'
+
 " mappings
 let mapleader= ","
 
@@ -60,6 +63,8 @@ map <leader>l :wincmd l<CR>
 
 map <C-Tab> gt
 map <C-S-Tab> gT
+
+nnoremap <F5> :GundoToggle<CR>
 
 if has ('gui_vimr')
   map <M-1> 1gt

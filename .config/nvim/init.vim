@@ -4,7 +4,6 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 call plug#begin()
-Plug 'bling/vim-airline'
 Plug 'chriskempson/base16-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'dearrrfish/vim-applescript'
@@ -13,6 +12,7 @@ Plug 'icymind/NeoSolarized'
 Plug 'scrooloose/nerdcommenter'
 Plug 'sjl/gundo.vim'
 Plug 'tpope/vim-surround'
+Plug 'vim-airline/vim-airline'
 call plug#end()
 
 set hidden
@@ -48,6 +48,10 @@ let g:ctrlp_user_command = 'ag --literal --files-with-matches --nocolor --hidden
 let g:NERDSpaceDelims = 1
 
 let g:python_host_prog = '/usr/local/bin/python'
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+let g:airline_powerline_fonts = 1
 
 " mappings
 let mapleader= ","

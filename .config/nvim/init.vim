@@ -56,14 +56,7 @@ let g:airline_powerline_fonts = 1
 " mappings
 let mapleader= ","
 
-map Y y$
-map qq ZZ
 nmap <C-l> :nohl<CR>:redraw<CR>
-
-map <leader>h :wincmd h<CR>
-map <leader>j :wincmd j<CR>
-map <leader>k :wincmd k<CR>
-map <leader>l :wincmd l<CR>
 
 map <C-Tab> gt
 map <C-S-Tab> gT

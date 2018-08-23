@@ -2,19 +2,21 @@ syntax: regex
 ^[^.].*
 
 syntax: glob
-*_history
+*.padl
 *.zwc
+*_history
+.*hist
 .Trash
 .atom/*/
 .bundle
+.cache
+.config/nvim/*/
 .dropbox
 .gem
+.get_iplayer
 .git*/
 .gnupg*/*/
-!.gnupg*/*.conf
-.viminfo
-.npm
 .local/share
-.config/nvim/.netrwhist
-.config/nvim/autoload/plug.vim
-.config/nvim/plugged
+.localized
+.npm
+.viminfo

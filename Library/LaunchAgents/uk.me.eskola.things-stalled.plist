@@ -7,7 +7,7 @@
         <key>ProgramArguments</key>
         <array>
                 <string>osascript</string>
-                <string>/Users/ben/Code/things-no-next-action.applescript</string>
+		<string>/Users/ben/Code/things-scripts/no-next-action.applescript</string>
         </array>
         <key>StartCalendarInterval</key>
         <dict>

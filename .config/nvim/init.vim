@@ -12,6 +12,7 @@ Plug 'icymind/NeoSolarized'
 Plug 'scrooloose/nerdcommenter'
 Plug 'sjl/gundo.vim'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
 Plug 'vim-airline/vim-airline'
 call plug#end()
 

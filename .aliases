@@ -30,27 +30,9 @@ elif has_command nvim; then
 fi
 
 alias g="git"
-alias gadd="git add"
-alias gaddp="git add -p"
-alias gamend="git commit --amend -CHEAD"
-alias gbr="git branch -a"
-alias gco="git checkout"
-alias gci="git commit"
-alias gclone="git clone"
-alias gd="git diff -M"
-alias gdc="git diff -M --cached"
-alias gl="git log -M --graph --decorate --abbrev-commit"
-alias gmerge="git merge"
-alias gnew="git checkout -b"
-alias gnuke="git reset --hard"
-alias gp="git push"
-alias greb="git rebase"
-alias grm="git rm"
-alias gsh="git show"
-alias gst="git status -sb"
-alias gundo="git checkout HEAD -- "
-alias gundop="git checkout -p -- "
-alias gup="git up"
+git config -l | grep '^alias' | cut -d = -f 1 | cut -d . -f 2 | while read; do alias g$REPLY="git $REPLY"; done
+for i in add clone merge rm; do alias g$i="git $i"; done
+alias gaddp="git ap"
 
 alias ls='ls -GhHpT'
 alias ll='ls -l'

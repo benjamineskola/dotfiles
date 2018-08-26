@@ -34,6 +34,8 @@ git config -l | grep '^alias' | cut -d = -f 1 | cut -d . -f 2 | while read; do a
 for i in add clone merge rm; do alias g$i="git $i"; done
 alias gaddp="git ap"
 
+path+=/usr/local/Cellar/git/${${(%):-"$(command git --version)"}#* * }/share/git-core/contrib/diff-highlight
+
 alias ls='ls -GhHpT'
 alias ll='ls -l'
 alias la='ls -A'

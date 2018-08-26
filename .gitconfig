@@ -16,6 +16,8 @@
 	tool = diffmerge
 [mergetool]
 	prompt = false
+[interactive]
+	diffFilter = diff-highlight
 [push]
 	default = current
 [user]
@@ -41,3 +43,7 @@
 	undo = checkout HEAD --
 	undop = checkout -p --
 	up = pull --rebase --autostash
+[pager]
+	show = diff-highlight | less
+	log = diff-highlight | less
+	diff = diff-highlight | less

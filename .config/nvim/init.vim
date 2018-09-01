@@ -70,6 +70,8 @@ nmap <C-l> :nohl<CR>:redraw<CR>
 
 map <C-Tab> gt
 map <C-S-Tab> gT
+map ]t gt
+map [t gT
 
 nnoremap <F5> :GundoToggle<CR>
 

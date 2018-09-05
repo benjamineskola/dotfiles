@@ -4,17 +4,19 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 call plug#begin()
+Plug 'airblade/vim-gitgutter'
 Plug 'chriskempson/base16-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'dearrrfish/vim-applescript'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'icymind/NeoSolarized'
+Plug 'neomake/neomake'
 Plug 'scrooloose/nerdcommenter'
 Plug 'sjl/gundo.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-airline/vim-airline'
-Plug 'neomake/neomake'
+Plug 'vim-ruby/vim-ruby'
 call plug#end()
 
 set hidden
@@ -57,6 +59,7 @@ let g:airline_powerline_fonts = 1
 
 call neomake#configure#automake('nrwi', 500)
 autocmd! BufReadPost,BufWritePost,BufWinEnter * Neomake
+let g:neomake_open_list = 2
 let g:neomake_rubocop_exe = expand("/Users/ben/.gem/ruby/$RUBY_VERSION/bin/rubocop")
 
 " mappings

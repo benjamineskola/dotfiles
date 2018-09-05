@@ -14,7 +14,7 @@ Plug 'sjl/gundo.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-airline/vim-airline'
-Plug 'vim-syntastic/syntastic'
+Plug 'neomake/neomake'
 call plug#end()
 
 set hidden
@@ -55,13 +55,9 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline_powerline_fonts = 1
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_ruby_checkers = ['mri', 'rubocop']
-let g:syntastic_ruby_rubocop_exec = '/Users/ben/.gem/ruby/$RUBY_VERSION/bin/rubocop'
-let g:syntastic_aggregate_errors = 1
+call neomake#configure#automake('nrwi', 500)
+autocmd! BufReadPost,BufWritePost,BufWinEnter * Neomake
+let g:neomake_rubocop_exe = expand("/Users/ben/.gem/ruby/$RUBY_VERSION/bin/rubocop")
 
 " mappings
 let mapleader= ","

@@ -66,6 +66,7 @@ nmap <C-l> :nohl<CR>:redraw<CR>
 
 map <C-Tab> gt
 map <C-S-Tab> gT
+let g:nremap = {"]t": "", "[t": ""}
 map ]t gt
 map [t gT
 

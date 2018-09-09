@@ -20,6 +20,10 @@ indent_style = space
 indent_size = 2
 indent_style = space
 
+[*.scala]
+indent_size = 2
+indent_style = space
+
 [{*.vim,.vimrc}]
 indent_size = 2
 indent_style = space

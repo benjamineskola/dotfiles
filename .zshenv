@@ -18,9 +18,6 @@ export XDG_CACHE_HOME=$HOME/Library/Caches
 
 export AWS_PROFILE=home
 
-export EDITOR=vi
-export VISUAL=$EDITOR
-
 export LESS="-ImRswFX"
 export LESSHISTFILE="$XDG_CACHE_HOME/less_history"
 export MANPAGER="less +Gg"

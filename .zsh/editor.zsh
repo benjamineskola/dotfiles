@@ -1,6 +1,9 @@
-alias vi=vim
-if has_command vimr; then
-	alias vim="vimr -n"
-elif has_command nvim; then
-	alias vim=nvim
+if has_command nvim; then
+	export EDITOR=nvim
+else
+	export EDITOR=vim
 fi
+
+export VISUAL=$EDITOR
+alias vi=$EDITOR
+alias vim=$EDITOR

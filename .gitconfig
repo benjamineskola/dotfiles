@@ -6,7 +6,6 @@
 	status = auto
 	branch = auto
 [core]
-	editor = vimr --wait -s
 	excludesfile = ~/.gitignore.global
 [diff]
 	renames = copy

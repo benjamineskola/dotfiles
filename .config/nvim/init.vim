@@ -85,5 +85,5 @@ if has ('gui_vimr')
   map <M-7> 7gt
   map <M-8> 8gt
   map <M-9> 9gt
-  map <M-0> :tablast<CR>
+  map <silent><M-0> :tablast<CR>
 end

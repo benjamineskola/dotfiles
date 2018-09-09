@@ -77,7 +77,7 @@ nnoremap <F5> :GundoToggle<CR>
 
 if has ('gui_vimr')
   for i in range(1, 9)
-    execute "map <M-" . i . "> " . i . "gt"
+    execute "nnoremap <M-" . i . "> " . i . "gt"
   endfor
-  map <silent><M-0> :tablast<CR>
+  nnoremap <silent><M-0> :tablast<CR>
 end

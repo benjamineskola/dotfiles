@@ -1,5 +1,3 @@
-# vim:ft=zsh
-
 setopt nonomatch
 
 FQDN=$(hostname -f || hostname)

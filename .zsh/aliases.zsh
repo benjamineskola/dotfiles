@@ -22,20 +22,6 @@ else
 	alias diff='diff -u'
 fi
 
-alias vi=vim
-if has_command vimr; then
-	alias vim="vimr -n"
-elif has_command nvim; then
-	alias vim=nvim
-fi
-
-alias g="git"
-git config -l | grep '^alias' | cut -d = -f 1 | cut -d . -f 2 | while read; do alias g$REPLY="git $REPLY"; done
-for i in add clone merge rm; do alias g$i="git $i"; done
-alias gaddp="git ap"
-
-path+=/usr/local/Cellar/git/${${(%):-"$(command git --version)"}#* * }/share/git-core/contrib/diff-highlight
-
 alias ls='ls -GhHpT'
 alias ll='ls -l'
 alias la='ls -A'

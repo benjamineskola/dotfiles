@@ -29,20 +29,28 @@
 	br = branch -a
 	ci = commit
 	co = checkout
-	d = diff -M
-	dc = diff -M --cached
-	l = log -M --graph --decorate --abbrev-commit
+	d = diff
+	dc = diff --cached
+	l = log --graph
 	merge = merge
 	new = checkout -b
 	nuke = reset --hard
 	p = push
 	reb = rebase
 	sh = show
-	st = status -sb
+	st = status
 	undo = checkout HEAD --
 	undop = checkout -p --
-	up = pull --rebase --autostash
+	up = pull --rebase
 [pager]
 	show = diff-highlight | less
 	log = diff-highlight | less
 	diff = diff-highlight | less
+[log]
+	abbrevCommit = true
+	decorate = true
+[rebase]
+	autoStash = true
+[status]
+       short = true
+       branch = true

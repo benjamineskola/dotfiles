@@ -23,4 +23,9 @@ autoload add-zsh-hook
 add-zsh-hook precmd vcs_info
 
 setopt prompt_subst
-PROMPT='[%(!.%F{red}%n%f in .)%f%F{green}${${:-${${${(@j:/:M)${(@s:/:)${(%):-%~}}##.#?}:h}%/}/}#./}${${(%):-%1~}#/}%f${_vcs_info}]%0(?.%F{green}✓.%F{red}✗)%f '
+PROMPT='
+[%(!.%F{red}%n%f in .)%f\
+%F{green}${${:-${${${(@j:/:M)${(@s:/:)${(%):-%~}}##.#?}:h}%/}/}#./}${${(%):-%1~}#/}%f\
+${_vcs_info}]\
+%(?.. C:%F{red}%?%f)
+$ '

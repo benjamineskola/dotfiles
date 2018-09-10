@@ -1,9 +1,5 @@
 # vim:ft=zsh
 
-has_command() {
-	whence "$@" > /dev/null 2>&1
-}
-
 alias be='bundle exec'
 alias curl='curl -gkLsS'
 alias dc="dc -e '2k' -f /dev/stdin"

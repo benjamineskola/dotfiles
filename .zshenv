@@ -9,6 +9,7 @@ export OS=${OSTYPE%%[0-9.]*}
 
 fpath=($fpath ~/.zsh/$OS/functions.zwc ~/.zsh/functions.zwc)
 autoload -U ${^fpath%.zwc}/*(.N:t)
+zrecompile -p ~/.zsh/functions.zwc ~/.zsh/functions/*
 
 path=(~/bin /usr/local/bin /usr/local/sbin /usr/local/games /usr/bin /usr/sbin /usr/games /bin /sbin)
 

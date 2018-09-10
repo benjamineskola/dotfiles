@@ -1,6 +1,6 @@
 /[^.]*
+*.zwc
 /*.padl
-/*.zwc
 .*hist
 /*_history
 /.account

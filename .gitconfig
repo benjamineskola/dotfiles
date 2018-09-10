@@ -22,26 +22,6 @@
 [user]
 	name = Benjamin Eskola
 	email = ben@eskola.me.uk
-[alias]
-	a = add
-	ap = add -p
-	amend = commit --amend -CHEAD
-	br = branch -a
-	ci = commit
-	co = checkout
-	d = diff
-	dc = diff --cached
-	l = log --graph
-	merge = merge
-	new = checkout -b
-	nuke = reset --hard
-	p = push
-	reb = rebase
-	sh = show
-	st = status
-	undo = checkout HEAD --
-	undop = checkout -p --
-	up = pull --rebase
 [pager]
 	show = diff-highlight | less
 	log = diff-highlight | less

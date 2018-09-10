@@ -8,8 +8,7 @@ esac
 function vcs_info {
 	_vcs_info=" git:%F{cyan}$(git-current-branch)%f"
 
-	_git_status=$(command git status --porcelain --untracked-files=no 2> /dev/null)
-	if [[ -z "${_git_status}" ]]; then
+	if git-is-clean; then
 	       _vcs_info+=" %F{green}o%f"
 	else
 	       _vcs_info+=" %F{red}x%f"

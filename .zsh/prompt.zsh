@@ -6,8 +6,17 @@ case $TERM in
 esac
 
 function vcs_info {
-       _vcs_info=''
-       git branch >/dev/null 2>&1 && _vcs_info=" git:%F{cyan}${$(git symbolic-ref HEAD)#refs/heads/}%f"
+	_git_ref=$(command git symbolic-ref HEAD 2> /dev/null) ||
+	_git_ref=$(command git rev-parse --short HEAD 2> /dev/null) ||
+	return 0
+	_vcs_info=" git:%F{cyan}${_git_ref#refs/heads/}%f"
+
+	_git_status=$(command git status --porcelain --untracked-files=no 2> /dev/null)
+	if [[ -z "${_git_status}" ]]; then
+	       _vcs_info+=" %F{green}o%f"
+	else
+	       _vcs_info+=" %F{red}x%f"
+	fi
 }
 
 autoload add-zsh-hook

@@ -10,13 +10,7 @@ alias tf="tail -F"
 alias ag='ag --pager less --hidden --ignore .git --ignore .hg -i'
 alias fetch='command curl -gkLO'
 
-
-if has_command colordiff; then
-	alias diff='colordiff -u'
-	alias colordiff='colordiff -u'
-else
-	alias diff='diff -u'
-fi
+preferred-alias diff -u colordiff diff
 
 alias ls='ls -GhHpT'
 alias ll='ls -l'

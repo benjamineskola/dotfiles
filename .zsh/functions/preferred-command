@@ -1,0 +1,8 @@
+#!/usr/bin/env zsh
+for option in "$@"; do
+	if has_command ${option}; then
+		echo "${option}"
+		return 0
+	fi
+done
+return 1

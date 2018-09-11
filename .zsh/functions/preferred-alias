@@ -1,0 +1,14 @@
+#!/usr/bin/env zsh
+target="$1"
+shift
+if [[ "$1" == -* ]]; then
+	params="$1"
+	shift
+fi
+
+cmd=$(preferred-command "$@")
+if [[ -n "${cmd}" ]]; then
+	alias "${target}=$(preferred-command "$@") ${params}"
+else
+	return 1
+fi

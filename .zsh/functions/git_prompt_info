@@ -1,0 +1,8 @@
+#!/usr/bin/env zsh
+_vcs_info=" git:%F{cyan}$(git-current-branch)%f"
+
+if git-is-clean; then
+       _vcs_info+=" %F{green}o%f"
+else
+       _vcs_info+=" %F{red}x%f"
+fi

@@ -5,18 +5,8 @@ case $TERM in
         ;;
 esac
 
-function vcs_info {
-	_vcs_info=" git:%F{cyan}$(git-current-branch)%f"
-
-	if git-is-clean; then
-	       _vcs_info+=" %F{green}o%f"
-	else
-	       _vcs_info+=" %F{red}x%f"
-	fi
-}
-
 autoload add-zsh-hook
-add-zsh-hook precmd vcs_info
+add-zsh-hook precmd git_prompt_info
 
 setopt prompt_subst
 PROMPT='

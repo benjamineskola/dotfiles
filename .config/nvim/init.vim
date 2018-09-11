@@ -56,6 +56,7 @@ let g:python_host_prog = '/usr/local/bin/python'
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+let g:airline#extensions#tabline#tab_nr_type = 2
 let g:airline_powerline_fonts = 1
 
 call neomake#configure#automake('nrwi', 500)
@@ -69,7 +70,9 @@ let mapleader= ","
 nmap <C-l> :nohl<CR>:redraw<CR>
 
 map <C-Tab> gt
+nmap <Tab> gt
 map <C-S-Tab> gT
+nmap <S-Tab> gT
 let g:nremap = {"]t": "", "[t": ""}
 map ]t gt
 map [t gT
@@ -78,7 +81,7 @@ nnoremap <F5> :GundoToggle<CR>
 
 if has ('gui_vimr')
   for i in range(1, 9)
-    execute "nnoremap <M-" . i . "> " . i . "gt"
+    execute "nnoremap <D-" . i . "> " . i . "gt"
   endfor
-  nnoremap <silent><M-0> :tablast<CR>
+  nnoremap <silent><D-0> :tablast<CR>
 end

@@ -78,6 +78,9 @@ let mapleader= ","
 
 nmap <C-l> :nohl<CR>:redraw<CR>
 
+map <M-'> cs"'
+map <M-"> cs'"
+
 map <C-Tab> gt
 nmap <Tab> gt
 map <C-S-Tab> gT

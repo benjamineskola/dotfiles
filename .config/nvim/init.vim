@@ -13,9 +13,13 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'icymind/NeoSolarized'
 Plug 'neomake/neomake'
 Plug 'pangloss/vim-javascript'
+Plug 'Raimondi/delimitMate'
 Plug 'scrooloose/nerdcommenter'
 Plug 'sjl/gundo.vim'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-ruby/vim-ruby'
@@ -47,6 +51,9 @@ filetype plugin indent on
 let g:is_posix = 1 " /bin/sh is always POSIX, because what the fuck.
 
 " plugin settings
+let g:delimitMate_expand_cr = 1
+let g:delimitMate_expand_space = 1
+
 let g:EditorConfig_exec_path = '/usr/local/bin/editorconfig'
 let g:EditorConfig_core_mode = 'external_command'
 

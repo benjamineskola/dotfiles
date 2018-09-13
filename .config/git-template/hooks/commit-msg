@@ -1,12 +1,17 @@
 #!/bin/sh
 set -e
 
-sed -i '' -E '/^# -{24} >8 -{24}$/,$d; /^#/d' "$1"
+if [ "$(uname -s)" = Linux ]; then
+	sed -i -r '/^# -{24} >8 -{24}$/,$d; /^#/d' "$1"
+else
+	sed -i '' -E '/^# -{24} >8 -{24}$/,$d; /^#/d' "$1"
+fi
+
 test 51 -gt "$(head -n 1 "$1" | wc -m)" || {
 	echo >&2 "Initial line of commit message too long."
 	exit 1
 }
-tail -n +2 "$1" | sed -E '/^#/d' | while read -r LINE; do
+tail -n +2 "$1" | sed '/^#/d' | while read -r LINE; do
 	test 73 -gt "${#LINE}" || {
 		echo >&2 "Subsequent line of commit message too long."
 		exit 1

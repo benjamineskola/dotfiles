@@ -14,8 +14,8 @@ Plug 'icymind/NeoSolarized'
 Plug 'neomake/neomake'
 Plug 'pangloss/vim-javascript'
 Plug 'Raimondi/delimitMate'
-Plug 'scrooloose/nerdcommenter'
 Plug 'sjl/gundo.vim'
+Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-surround'
@@ -59,8 +59,6 @@ let g:EditorConfig_core_mode = 'external_command'
 
 let g:ctrlp_user_command = 'ag --literal --files-with-matches --nocolor --hidden --filename-pattern "" --ignore .git --ignore .hg --ignore Library %s'
 
-let g:NERDSpaceDelims = 1
-
 let g:python_host_prog = '/usr/local/bin/python'
 
 let g:airline#extensions#tabline#enabled = 1
@@ -90,6 +88,9 @@ map ]t gt
 map [t gT
 
 nnoremap <F5> :GundoToggle<CR>
+
+map <leader>cc gcc
+map <leader>cu gcc
 
 if has ('gui_vimr')
   for i in range(1, 9)

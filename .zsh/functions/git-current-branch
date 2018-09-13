@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+git-inside-worktree || return 0
+
 _git_ref=$(command git symbolic-ref HEAD 2> /dev/null) ||
 _git_ref=$(command git rev-parse --short HEAD 2> /dev/null) ||
 	return 0

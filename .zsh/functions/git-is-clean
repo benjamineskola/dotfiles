@@ -1,2 +1,5 @@
 #!/usr/bin/env zsh
+
+git-inside-worktree || return 0
+
 [[ -z "$(command git status --porcelain --untracked-files=no)" ]]

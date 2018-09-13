@@ -1,4 +1,10 @@
 #!/usr/bin/env zsh
+
+git-inside-worktree || {
+	_vcs_info=''
+	return 0
+}
+
 _vcs_info=" git:%F{cyan}$(git-current-branch)%f"
 
 if git-is-clean; then

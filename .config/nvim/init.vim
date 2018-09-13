@@ -51,20 +51,20 @@ filetype plugin indent on
 let g:is_posix = 1 " /bin/sh is always POSIX, because what the fuck.
 
 " plugin settings
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+let g:airline#extensions#tabline#tab_nr_type = 2
+let g:airline_powerline_fonts = 1
+
+let g:ctrlp_user_command = 'ag --literal --files-with-matches --nocolor --hidden --filename-pattern "" --ignore .git --ignore .hg --ignore Library %s'
+
 let g:delimitMate_expand_cr = 1
 let g:delimitMate_expand_space = 1
 
 let g:EditorConfig_exec_path = '/usr/local/bin/editorconfig'
 let g:EditorConfig_core_mode = 'external_command'
 
-let g:ctrlp_user_command = 'ag --literal --files-with-matches --nocolor --hidden --filename-pattern "" --ignore .git --ignore .hg --ignore Library %s'
-
 let g:python_host_prog = '/usr/local/bin/python'
-
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
-let g:airline#extensions#tabline#tab_nr_type = 2
-let g:airline_powerline_fonts = 1
 
 call neomake#configure#automake('nrwi', 500)
 autocmd! BufReadPost,BufWritePost,BufWinEnter * Neomake
@@ -72,7 +72,7 @@ let g:neomake_open_list = 2
 let g:neomake_rubocop_exe = expand("/Users/ben/.gem/ruby/$RUBY_VERSION/bin/rubocop")
 
 " mappings
-let mapleader= ","
+let mapleader = ","
 
 nmap <C-l> :nohl<CR>:redraw<CR>
 

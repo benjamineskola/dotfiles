@@ -36,3 +36,9 @@
        branch = true
 [init]
 	templatedir = /Users/ben/.config/git-template
+[merge]
+tool = splice
+
+[mergetool "splice"]
+cmd = "nvim -f $BASE $LOCAL $REMOTE $MERGED -c 'SpliceInit'"
+trustExitCode = true

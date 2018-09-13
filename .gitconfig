@@ -34,3 +34,5 @@
 [status]
        short = true
        branch = true
+[init]
+	templatedir = /Users/ben/.config/git-template

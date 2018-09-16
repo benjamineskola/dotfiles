@@ -27,13 +27,13 @@ alias gcpc='git cherry-pick --continue'
 
 alias gcl='git clone --recurse-submodules'
 
-alias gc='git commit -v'
-alias gc!='git commit -v --amend'
+alias gc='git commit --edit -v'
+alias gc!='git commit --edit -v --amend'
 alias gcn!='git commit -v --no-edit --amend'
-alias gca='git commit -v -a'
-alias gca!='git commit -v -a --amend'
+alias gca='git commit --edit -v -a'
+alias gca!='git commit --edit -v -a --amend'
 alias gcan!='git commit -v -a --no-edit --amend'
-alias gcam='git commit -a -m'
+alias gcam='git commit --edit -a -m'
 
 alias gcf='git config --list'
 alias gdct='git describe --tags `git rev-list --tags --max-count=1`'

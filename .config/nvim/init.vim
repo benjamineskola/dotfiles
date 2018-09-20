@@ -68,10 +68,12 @@ let g:EditorConfig_exec_path = '/usr/local/bin/editorconfig'
 let g:EditorConfig_core_mode = 'external_command'
 
 let g:python_host_prog = '/usr/local/bin/python'
+let g:python3_host_prog = '/usr/local/bin/python3'
 
 call neomake#configure#automake('nrwi', 500)
 autocmd! BufReadPost,BufWritePost,BufWinEnter * Neomake
 let g:neomake_open_list = 2
+let g:neomake_python_exe = '/usr/local/bin/python3'
 let g:neomake_rubocop_exe = expand("/Users/ben/.gem/ruby/$RUBY_VERSION/bin/rubocop")
 
 " mappings

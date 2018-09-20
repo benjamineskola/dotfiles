@@ -103,3 +103,5 @@ if has ('gui_vimr')
   endfor
   nnoremap <silent><D-0> :tablast<CR>
 end
+
+au BufWritePre * :silent v/\_s*\S/d

@@ -11,7 +11,6 @@ Plug 'dearrrfish/vim-applescript'
 Plug 'derekwyatt/vim-scala'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ervandew/supertab'
-Plug 'icymind/NeoSolarized'
 Plug 'nelstrom/vim-textobj-rubyblock' | Plug 'kana/vim-textobj-user'
 Plug 'neomake/neomake'
 Plug 'pangloss/vim-javascript'
@@ -39,14 +38,8 @@ set grepprg=ag\ --vimgrep\ $*
 set grepformat=%f:%l:%c:%m
 
 " appearance.
-let fg_bg = split($COLORFGBG, ";")
-
 set termguicolors
-if len(fg_bg) > 0 && (fg_bg[1] == 8 || fg_bg[1] == 15)
-  colo neosolarized
-else
-  colo base16-materia
-end
+colo base16-materia
 syntax on
 
 " filetype stuff.

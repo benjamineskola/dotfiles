@@ -11,6 +11,7 @@ alias ag='ag --pager less --hidden --ignore .git --ignore .hg -i'
 alias fetch='command curl -gkLO'
 
 preferred-alias diff -u colordiff diff
+preferred-alias less bat
 
 alias ls='ls -GhHpT'
 alias ll='ls -l'

@@ -3,6 +3,7 @@
 tap 'homebrew/bundle'
 tap 'homebrew/cask'
 
+brew 'bat'
 brew 'chruby'
 brew 'colordiff'
 brew 'coreutils'

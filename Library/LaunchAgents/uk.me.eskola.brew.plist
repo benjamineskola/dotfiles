@@ -8,7 +8,7 @@
         <array>
                 <string>sh</string>
                 <string>-c</string>
-                <string>brew bundle install --global; brew bundle cleanup --global</string>
+                <string>/usr/local/bin/brew bundle install --global; /usr/local/bin/brew bundle cleanup --global</string>
         </array>
         <key>StartCalendarInterval</key>
         <dict>

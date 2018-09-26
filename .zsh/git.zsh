@@ -1,4 +1,4 @@
-path+=/usr/local/Cellar/git/${${(%):-"$(command git --version)"}#* * }/share/git-core/contrib/diff-highlight
+path+=(/usr/local/Cellar/git/${${(%):-"$(command git --version)"}#* * }*/share/git-core/contrib/diff-highlight(OnY1))
 
 # Aliases mostly from oh-my-zsh:
 # https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/git/git.plugin.zsh

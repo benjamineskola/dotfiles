@@ -90,6 +90,8 @@ nnoremap <F5> :GundoToggle<CR>
 map <leader>cc gcc
 map <leader>cu gcc
 
+imap § <ESC>
+
 if has ('gui_vimr')
   for i in range(1, 9)
     execute "nnoremap <D-" . i . "> " . i . "gt"

@@ -7,7 +7,10 @@ else
 	sed -i '' -E '/^# -{24} >8 -{24}$/,$d; 1s/\.\s*$//' "$1"
 fi
 
-test 51 -gt "$(head -n 1 "$1" | wc -m)" || {
+# 50,
+#  +1 because no -gte in bourne shell,
+#  +1 because wc includes line ending
+test 52 -gt "$(head -n 1 "$1" | wc -m)" || {
 	echo >&2 "Initial line of commit message too long."
 	exit 1
 }

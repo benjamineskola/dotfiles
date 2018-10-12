@@ -10,5 +10,9 @@ setopt correct
 
 mkdir -p "$XDG_CACHE_HOME"
 
+if [ -f ~/.zshrc.$HOSTNAME.zsh ]; then
+	source ~/.zshrc.$HOSTNAME.zsh
+fi
+
 ## syntax
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

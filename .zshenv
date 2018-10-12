@@ -17,8 +17,6 @@ export XDG_CONFIG_HOME=$HOME/.config
 export XDG_DATA_HOME=$HOME/Library
 export XDG_CACHE_HOME=$HOME/Library/Caches
 
-export AWS_PROFILE=home
-
 export LESS="-ImRswFX"
 export LESSHISTFILE="$XDG_CACHE_HOME/less_history"
 export MANPAGER="less +Gg"
@@ -26,3 +24,7 @@ export MANPAGER="less +Gg"
 export TZ=Europe/London
 
 export LSCOLORS=exfxcxdxbxegedabagacad
+
+if [ -f ~/.zshenv.$HOSTNAME.zsh ]; then
+	source ~/.zshenv.$HOSTNAME.zsh
+fi

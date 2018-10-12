@@ -74,29 +74,12 @@ let mapleader = ","
 
 nmap <C-l> :nohl<CR>:redraw<CR>
 
-map <M-'> cs"'
-map <M-"> cs'"
-
-map <C-Tab> gt
-nmap <Tab> gt
-map <C-S-Tab> gT
-nmap <S-Tab> gT
 let g:nremap = {"]t": "", "[t": ""}
 map ]t gt
 map [t gT
 
 nnoremap <F5> :GundoToggle<CR>
 
-map <leader>cc gcc
-map <leader>cu gcc
-
 imap § <ESC>
-
-if has ('gui_vimr')
-  for i in range(1, 9)
-    execute "nnoremap <D-" . i . "> " . i . "gt"
-  endfor
-  nnoremap <silent><D-0> :tablast<CR>
-end
 
 au BufWritePre * :silent v/\_s*\S/d

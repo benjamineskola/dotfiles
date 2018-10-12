@@ -18,6 +18,7 @@
 /.gem
 /.get_iplayer
 /.ghc
+/.gitconfig
 /.gnupg*/*
 !/.gnupg*/*.conf
 /.heroku

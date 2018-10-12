@@ -35,7 +35,7 @@
        short = true
        branch = true
 [init]
-	templatedir = /Users/ben/.config/git-template
+	templatedir = /Users/ben/.config/git/template
 [merge]
 tool = splice
 

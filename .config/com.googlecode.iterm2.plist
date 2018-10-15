@@ -1179,9 +1179,9 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>330 302 620 392 0 0 1280 777 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>182 300 918 485 0 0 1280 800 </string>
+	<string>182 291 796 486 0 0 1280 800 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>534 136 650 502 0 0 1280 800 </string>
+	<string>198 136 986 502 0 0 1280 800 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>594 93 650 502 0 0 1280 777 </string>
 	<key>New Bookmarks</key>
@@ -2214,7 +2214,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/ben/.config</string>
+	<string>~/.config</string>
 	<key>PromptOnQuit</key>
 	<true/>
 	<key>QuitWhenAllWindowsClosed</key>
@@ -2234,7 +2234,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-08-22T15:24:07Z</date>
+	<date>2018-10-03T07:02:43Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -2284,7 +2284,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.2.0</string>
+	<string>3.2.1</string>
 	<key>kCPFavoritesUserDefaultsKey</key>
 	<array>
 		<data>

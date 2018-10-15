@@ -1,18 +1,3 @@
-for config in ~/.zsh/*.zsh; do
-	source "$config"
-done
-
-setopt check_jobs
-setopt nobeep
-setopt auto_cd auto_pushd pushd_silent
-setopt extended_glob glob_dots
-setopt correct
-
-mkdir -p "$XDG_CACHE_HOME"
-
-if [ -f ~/.zshrc.$HOSTNAME.zsh ]; then
-	source ~/.zshrc.$HOSTNAME.zsh
-fi
-
-## syntax
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+_load_settings ~/.zsh/rc
+_load_settings ~/.zsh/rc/$(uname)
+_load_settings ~/.zsh/rc/$(hostname -s)

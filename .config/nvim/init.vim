@@ -67,7 +67,6 @@ call neomake#configure#automake('nrwi', 500)
 autocmd! BufReadPost,BufWritePost,BufWinEnter * Neomake
 let g:neomake_open_list = 2
 let g:neomake_python_exe = '/usr/local/bin/python3'
-let g:neomake_rubocop_exe = expand("/Users/ben/.gem/ruby/$RUBY_VERSION/bin/rubocop")
 
 " mappings
 let mapleader = ","

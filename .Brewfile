@@ -7,7 +7,6 @@ tap 'homebrew/services'
 
 brew 'bat'
 brew 'chruby'
-brew 'colordiff'
 brew 'coreutils'
 brew 'editorconfig'
 brew 'get_iplayer'

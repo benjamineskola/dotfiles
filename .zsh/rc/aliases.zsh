@@ -9,7 +9,6 @@ alias tf="tail -F"
 alias ag='ag --pager less --hidden --ignore .git --ignore .hg -i'
 alias fetch='command curl -gkLO'
 
-preferred-alias diff -u colordiff diff
 preferred-alias less bat
 
 alias ls='ls -GhHpT'
@@ -21,3 +20,9 @@ alias lsd='ls -d'
 ducks() {
 	du -csh "$@" | gsort -rh
 }
+
+if [[ -f =bat ]]; then
+	diff() { command diff -u "$@" | bat -l diff }
+else
+	alias diff='diff -u'
+fi

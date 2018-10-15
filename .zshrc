@@ -1,3 +1,3 @@
 _load_settings ~/.zsh/rc
-_load_settings ~/.zsh/rc/$(uname)
-_load_settings ~/.zsh/rc/$(hostname -s)
+_load_settings ~/.zsh/rc/${OS}
+_load_settings ~/.zsh/rc/${HOSTNAME}

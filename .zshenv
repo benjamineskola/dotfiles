@@ -1,4 +1,10 @@
 setopt extendedglob
+FQDN=$(hostname -f || hostname)
+HOSTNAME=${FQDN%%.*}
+DOMAIN=${FQDN#*.}
+export HOSTNAME DOMAIN FQDN
+
+export OS=${OSTYPE%%[0-9.]*}
 
 _load_settings() {
 	dir=$1; shift
@@ -10,5 +16,5 @@ _load_settings() {
 }
 
 _load_settings ~/.zsh/env
-_load_settings ~/.zsh/env/$(uname)
-_load_settings ~/.zsh/env/$(hostname -s)
+_load_settings ~/.zsh/env/${OS}
+_load_settings ~/.zsh/env/${HOSTNAME}

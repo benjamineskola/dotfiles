@@ -11,10 +11,13 @@ alias fetch='command curl -gkLO'
 
 preferred-alias less bat
 
+alias exa='exa --git -b'
 alias ls='ls -GhHpT'
+preferred-alias ls exa
+
 alias ll='ls -l'
-alias la='ls -A'
-alias lal='ls -lA'
+alias la='ls -a'
+alias lal='ls -la'
 alias lsd='ls -d'
 
 ducks() {

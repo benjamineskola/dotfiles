@@ -4,6 +4,7 @@
 .*hist
 /*_history
 /.account
+/.antigen
 /.atom/*/
 /.berkshelf
 /.bundle

@@ -5,6 +5,7 @@ tap 'homebrew/cask'
 tap 'homebrew/cask-versions'
 tap 'homebrew/services'
 
+brew 'antigen'
 brew 'bat'
 brew 'chruby'
 brew 'coreutils'

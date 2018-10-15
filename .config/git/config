@@ -23,9 +23,9 @@
 	name = Benjamin Eskola
 	email = ben@eskola.me.uk
 [pager]
-	show = diff-highlight | less
-	log = diff-highlight | less
-	diff = diff-highlight | less
+	show = diff-highlight | bat -p
+	log = diff-highlight | bat -p
+	diff = diff-highlight | bat -p
 [log]
 	abbrevCommit = true
 	decorate = true

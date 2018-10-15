@@ -2,6 +2,7 @@
 
 tap 'homebrew/bundle'
 tap 'homebrew/cask'
+tap 'homebrew/cask-fonts'
 tap 'homebrew/cask-versions'
 tap 'homebrew/services'
 
@@ -28,7 +29,7 @@ brew 'openssl'
 brew 'readline'
 
 cask 'alfred'
-cask 'font-source-code-pro-for-powerline'
+cask 'font-fira-code'
 cask 'iterm2'
 cask 'java8'
 cask 'vimr'

@@ -9,7 +9,6 @@ Plug 'chriskempson/base16-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'dearrrfish/vim-applescript'
 Plug 'derekwyatt/vim-scala'
-Plug 'editorconfig/editorconfig-vim'
 Plug 'ervandew/supertab'
 Plug 'nelstrom/vim-textobj-rubyblock' | Plug 'kana/vim-textobj-user'
 Plug 'neomake/neomake'
@@ -46,6 +45,8 @@ syntax on
 filetype plugin indent on
 let g:is_posix = 1 " /bin/sh is always POSIX, because what the fuck.
 
+au FileType applescript,javascript,vim set sts=2 sw=2 expandtab
+
 " plugin settings
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
@@ -56,9 +57,6 @@ let g:ctrlp_user_command = 'ag --literal --files-with-matches --nocolor --hidden
 
 let g:delimitMate_expand_cr = 1
 let g:delimitMate_expand_space = 1
-
-let g:EditorConfig_exec_path = '/usr/local/bin/editorconfig'
-let g:EditorConfig_core_mode = 'external_command'
 
 let g:python_host_prog = '/usr/local/bin/python'
 let g:python3_host_prog = '/usr/local/bin/python3'

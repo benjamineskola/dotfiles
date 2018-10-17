@@ -1,10 +1,3 @@
-case $TERM in
-    xterm*|screen*)
-        print -Pn "\e]0;%~\a"
-	preexec () { print -Pn "\e]0;%~ ${1[(w)1]}\a"; }
-        ;;
-esac
-
 # Git info
 local _vcs_info='$(git_prompt_info)'
 ZSH_THEME_GIT_PROMPT_PREFIX=" git:%{$fg[cyan]%}"

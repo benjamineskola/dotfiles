@@ -45,7 +45,7 @@ syntax on
 filetype plugin indent on
 let g:is_posix = 1 " /bin/sh is always POSIX, because what the fuck.
 
-au FileType applescript,javascript,vim set sts=2 sw=2 expandtab
+au FileType applescript,javascript,sh,vim,zsh set sts=2 sw=2 expandtab
 
 " plugin settings
 let g:airline#extensions#tabline#enabled = 1

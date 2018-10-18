@@ -18,11 +18,11 @@ alias lal='ls -lA'
 alias lsd='ls -d'
 
 ducks() {
-	du -csh "$@" | gsort -rh
+  du -csh "$@" | gsort -rh
 }
 
 if [[ -f =bat ]]; then
-	diff() { command diff -u "$@" | bat -l diff }
+  diff() { command diff -u "$@" | bat -l diff }
 else
-	alias diff='diff -u'
+  alias diff='diff -u'
 fi

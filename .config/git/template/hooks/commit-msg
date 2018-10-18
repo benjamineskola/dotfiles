@@ -2,21 +2,21 @@
 set -e
 
 if [ "$(uname -s)" = Linux ]; then
-	sed -i -r '/^# -{24} >8 -{24}$/,$d; 1s/\.\s*$//' "$1"
+  sed -i -r '/^# -{24} >8 -{24}$/,$d; 1s/\.\s*$//' "$1"
 else
-	sed -i '' -E '/^# -{24} >8 -{24}$/,$d; 1s/\.\s*$//' "$1"
+  sed -i '' -E '/^# -{24} >8 -{24}$/,$d; 1s/\.\s*$//' "$1"
 fi
 
 # 50,
 #  +1 because no -gte in bourne shell,
 #  +1 because wc includes line ending
 test 52 -gt "$(head -n 1 "$1" | wc -m)" || {
-	echo >&2 "Initial line of commit message too long."
-	exit 1
+  echo >&2 "Initial line of commit message too long."
+  exit 1
 }
 tail -n +2 "$1" | sed '/^#/d' | while read -r LINE; do
-	test 73 -gt "${#LINE}" || {
-		echo >&2 "Subsequent line of commit message too long."
-		exit 1
-	}
+  test 73 -gt "${#LINE}" || {
+    echo >&2 "Subsequent line of commit message too long."
+    exit 1
+  }
 done

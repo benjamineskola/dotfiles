@@ -9,6 +9,7 @@ Plug 'chriskempson/base16-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'dearrrfish/vim-applescript'
 Plug 'derekwyatt/vim-scala'
+Plug 'elixir-lang/vim-elixir'
 Plug 'ervandew/supertab'
 Plug 'nelstrom/vim-textobj-rubyblock' | Plug 'kana/vim-textobj-user'
 Plug 'neomake/neomake'
@@ -46,6 +47,7 @@ filetype plugin indent on
 let g:is_posix = 1 " /bin/sh is always POSIX, because what the fuck.
 
 au FileType applescript,javascript,sh,vim,zsh set sts=2 sw=2 expandtab
+au FileType haskell set sts=4 sw=4 expandtab
 
 " plugin settings
 let g:airline#extensions#tabline#enabled = 1

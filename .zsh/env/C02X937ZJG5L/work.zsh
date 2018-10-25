@@ -1,1 +1,1 @@
-export AWS_PROFILE=mydrive
+export AWS_PROFILE=sandbox

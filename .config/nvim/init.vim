@@ -7,7 +7,7 @@ call plug#begin()
 Plug 'airblade/vim-gitgutter'
 Plug 'chriskempson/base16-vim'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'dearrrfish/vim-applescript'
+Plug 'benjamineskola/vim-applescript'
 Plug 'derekwyatt/vim-scala'
 Plug 'elixir-lang/vim-elixir'
 Plug 'ervandew/supertab'

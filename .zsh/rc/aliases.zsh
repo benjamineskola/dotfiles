@@ -1,6 +1,5 @@
 # vim:ft=zsh
 
-alias be='bundle exec'
 alias curl='curl -gkLsS'
 alias dc="dc -e '2k' -f /dev/stdin"
 alias grep=egrep

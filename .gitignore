@@ -1,7 +1,7 @@
 /[^.]*
 *.zwc
-/*.padl
 .*hist
+/*.padl
 /*_history
 /.account
 /.antigen

@@ -6,6 +6,7 @@ endif
 call plug#begin()
 Plug 'airblade/vim-gitgutter'
 Plug 'chriskempson/base16-vim'
+Plug 'christoomey/vim-sort-motion' | Plug 'kana/vim-textobj-indent'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'benjamineskola/vim-applescript'
 Plug 'derekwyatt/vim-scala'
@@ -67,6 +68,8 @@ call neomake#configure#automake('nrwi', 500)
 autocmd! BufReadPost,BufWritePost,BufWinEnter * Neomake
 let g:neomake_open_list = 2
 let g:neomake_python_exe = '/usr/local/bin/python3'
+
+let g:sort_motion_flags = "i"
 
 " mappings
 let mapleader = ","

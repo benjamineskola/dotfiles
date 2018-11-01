@@ -1,5 +1,4 @@
 #!/bin/sh
+set -e
 
-if [ -e Gemfile ]; then
-  git ls-files -m | xargs ls -1 2>/dev/null | grep '\.rb$' | xargs rubocop
-fi
+pronto run --exit-code

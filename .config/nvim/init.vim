@@ -8,7 +8,6 @@ call plug#begin()
   Plug 'benjamineskola/vim-applescript'
   Plug 'chriskempson/base16-vim'
   Plug 'christoomey/vim-sort-motion' | Plug 'kana/vim-textobj-indent'
-  Plug 'ctrlpvim/ctrlp.vim'
   Plug 'derekwyatt/vim-scala'
   Plug 'elixir-lang/vim-elixir'
   Plug 'ervandew/supertab'
@@ -27,6 +26,7 @@ call plug#begin()
   Plug 'tpope/vim-unimpaired'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-ruby/vim-ruby'
+  Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 call plug#end()
 
 set hidden
@@ -56,10 +56,11 @@ let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline#extensions#tabline#tab_nr_type = 2
 let g:airline_powerline_fonts = 1
 
-let g:ctrlp_user_command = 'ag --literal --files-with-matches --nocolor --hidden --filename-pattern "" --ignore .git --ignore .hg --ignore Library %s'
-
 let g:delimitMate_expand_cr = 1
 let g:delimitMate_expand_space = 1
+
+let g:Lf_WorkingDirectoryMode = 'A'
+let g:Lf_CommandMap = {'<C-T>': ['<CR>']}
 
 let g:python_host_prog = '/usr/local/bin/python'
 let g:python3_host_prog = '/usr/local/bin/python3'

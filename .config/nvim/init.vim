@@ -32,7 +32,7 @@ call plug#end()
 set hidden
 set ignorecase smartcase
 set modeline
-set number
+set number relativenumber
 set pastetoggle=<F10>
 
 set grepprg=ag\ --vimgrep\ $*

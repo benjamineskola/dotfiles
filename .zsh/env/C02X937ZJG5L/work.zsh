@@ -1,1 +1,1 @@
-export AWS_PROFILE=sandbox
+export AWS_PROFILE=production

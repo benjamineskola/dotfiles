@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh
+
+(
+  cd ~/Code/mydrive-integration-testing
+  git pull --rebase
+  bundle exec rspec
+)

@@ -1,0 +1,14 @@
+#!/usr/bin/env zsh
+
+(
+  export BRANCH=$(git-current-branch)
+  environment=$1
+  shift
+
+  if [[ -z "${environment}" ]]; then
+    environment=dev
+  fi
+
+  echo Deploying ${BRANCH} to ${environment}...
+  bundle exec cap ${environment} deploy --trace
+)

@@ -17,6 +17,8 @@
 	prompt = false
 [interactive]
 	diffFilter = diff-highlight
+[pull]
+	rebase = true
 [push]
 	default = current
 [user]

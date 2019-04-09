@@ -12,7 +12,6 @@
 /.cache
 /.cargo
 /.chef*
-/.config/nvim/*/
 /.cups
 /.data
 /.dropbox*

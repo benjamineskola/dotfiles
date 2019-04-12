@@ -11,6 +11,7 @@ call plug#begin()
   Plug 'derekwyatt/vim-scala'
   Plug 'elixir-lang/vim-elixir'
   Plug 'ervandew/supertab'
+  Plug 'mileszs/ack.vim'
   Plug 'nelstrom/vim-textobj-rubyblock' | Plug 'kana/vim-textobj-user'
   Plug 'neomake/neomake'
   Plug 'pangloss/vim-javascript'
@@ -59,6 +60,8 @@ au FileType applescript,javascript,sh,vim,zsh set sts=2 sw=2 expandtab
 au FileType haskell set sts=4 sw=4 expandtab
 
 " plugin settings
+let g:ackprg = 'ag --vimgrep --hidden'
+
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline#extensions#tabline#tab_nr_type = 2
@@ -92,5 +95,8 @@ map [t gT
 nnoremap <F5> :GundoToggle<CR>
 
 imap § <ESC>
+
+cnoreabbrev Ack Ack!
+nnoremap <Leader>a :Ack!<Space>
 
 au BufWritePre * :silent v/\_s*\S/d

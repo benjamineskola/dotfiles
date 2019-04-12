@@ -17,6 +17,7 @@ call plug#begin()
   Plug 'pangloss/vim-javascript'
   Plug 'Raimondi/delimitMate'
   Plug 'rust-lang/rust.vim'
+  Plug 'scrooloose/nerdtree'
   Plug 'sjl/gundo.vim'
   Plug 'sjl/splice.vim'
   Plug 'tpope/vim-commentary'
@@ -70,8 +71,9 @@ let g:airline_powerline_fonts = 1
 let g:delimitMate_expand_cr = 1
 let g:delimitMate_expand_space = 1
 
-let g:Lf_WorkingDirectoryMode = 'A'
 let g:Lf_CommandMap = {'<C-T>': ['<CR>']}
+
+let NERDTreeChDirMode = 2
 
 let g:python_host_prog = '/usr/local/bin/python'
 let g:python3_host_prog = '/usr/local/bin/python3'
@@ -100,3 +102,4 @@ cnoreabbrev Ack Ack!
 nnoremap <Leader>a :Ack!<Space>
 
 au BufWritePre * :silent v/\_s*\S/d
+au VimEnter * NERDTree

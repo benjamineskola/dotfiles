@@ -14,6 +14,7 @@
 /.chef*
 /.cups
 /.data
+/.docker
 /.dropbox*
 /.gem
 /.get_iplayer
@@ -24,6 +25,7 @@
 /.heroku
 /.ivy2
 /.lesshst
+/.LfCache
 /.local
 /.localized
 /.locks
@@ -32,11 +34,14 @@
 /.packer.d
 /.rubocop.yml
 /.sbt
+/.solargraph
 /.ssh/*
 !/.ssh/config
+/.subversion
 /.Trash
 /.vagrant.d
 /.vim
 /.viminfo
 /.zcompdump
+/.zoomus
 /.zsh/plugins

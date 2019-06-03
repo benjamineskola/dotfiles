@@ -32,7 +32,7 @@
 /.npm
 /.oracle_jre_usage
 /.packer.d
-/.rubocop.yml
+/.rubocop-*
 /.sbt
 /.solargraph
 /.ssh/*

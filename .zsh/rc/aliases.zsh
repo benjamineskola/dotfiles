@@ -5,7 +5,8 @@ alias dc="dc -e '2k' -f /dev/stdin"
 alias grep=egrep
 alias tf="tail -F"
 
-alias ag='ag --pager less --hidden --ignore .git --ignore .hg -i'
+alias ag=rg
+alias rg='rg --hidden -g "!.git"'
 alias fetch='command curl -gkLO'
 
 preferred-alias less bat

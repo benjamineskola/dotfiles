@@ -45,7 +45,7 @@ set pastetoggle=<F10>
 set showcmd
 set wildmenu
 
-set grepprg=ag\ --vimgrep\ $*
+set grepprg=rg\ --vimgrep\ $*
 set grepformat=%f:%l:%c:%m
 
 " appearance.
@@ -61,7 +61,7 @@ au FileType applescript,javascript,sh,vim,zsh set sts=2 sw=2 expandtab
 au FileType haskell set sts=4 sw=4 expandtab
 
 " plugin settings
-let g:ackprg = 'ag --vimgrep --hidden'
+let g:ackprg = 'rg --vimgrep --hidden'
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'

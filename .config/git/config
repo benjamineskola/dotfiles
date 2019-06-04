@@ -5,8 +5,21 @@
 	diff = auto
 	status = auto
 	branch = auto
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "diff"]
+	meta = yellow
+	frag = magenta bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
 [core]
 	excludesfile = ~/.gitignore.global
+	pager = diff-so-fancy | less
 [diff]
 	renames = copy
 [hub]
@@ -24,10 +37,6 @@
 [user]
 	name = Benjamin Eskola
 	email = ben@eskola.me.uk
-[pager]
-	show = diff-highlight | bat -p
-	log = diff-highlight | bat -p
-	diff = diff-highlight | bat -p
 [log]
 	abbrevCommit = true
 	decorate = true

@@ -24,8 +24,8 @@ ducks() {
   du -csh "$@" | gsort -rh
 }
 
-if [[ -f =bat ]]; then
-  diff() { command diff -u "$@" | bat -l diff }
+if [[ -f =diff-so-fancy ]]; then
+  diff() { command diff -u "$@" | diff-so-fancy }
 else
   alias diff='diff -u'
 fi

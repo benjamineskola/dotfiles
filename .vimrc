@@ -38,7 +38,7 @@ set hidden
 set hlsearch incsearch
 set ignorecase smartcase
 set laststatus=2
-set modeline
+set nomodeline
 set number relativenumber
 set pastetoggle=<F10>
 set showcmd

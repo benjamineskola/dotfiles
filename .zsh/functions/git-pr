@@ -13,8 +13,8 @@ if [[ $branch == "master" ]]; then
   return 1
 fi
 
-if [[ $url =~ github ]]; then
-  if [[ $url =~ : ]]; then
+if [[ $url == *github* ]]; then
+  if [[ $url =~ *:* ]]; then
     url="https://github.com/${url#*:}"
   fi
   url="${url%/}"

@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 cmd=$(whence "$@" | head -n 1)
 
-if [[ -z "${cmd}" ]]; then
+if [[ -z ${cmd} ]]; then
   return 1
 fi
 

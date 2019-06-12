@@ -1,0 +1,8 @@
+#!/bin/sh
+set -e
+
+tmp=$(mktemp).rb
+cat >"$tmp"
+rubocop -f q -a "$tmp" >/dev/null
+cat "$tmp"
+rm -f "$tmp"

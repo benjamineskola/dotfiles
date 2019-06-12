@@ -28,6 +28,7 @@ call plug#begin()
   Plug 'vim-airline/vim-airline'
   Plug 'vim-ruby/vim-ruby'
   Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+  Plug 'z0mbix/vim-shfmt', { 'for': ['sh', 'bash'] }
 call plug#end()
 
 set autoindent
@@ -79,6 +80,10 @@ call neomake#configure#automake('nrwi', 500)
 autocmd! BufReadPost,BufWritePost,BufWinEnter * Neomake
 let g:neomake_open_list = 2
 let g:neomake_python_exe = '/usr/local/bin/python3'
+
+au FileType * let g:shfmt_extra_args = '-i 2 -p -s'
+au FileType zsh,bash let g:shfmt_extra_args = '-i 2 -s'
+let g:shfmt_fmt_on_save = 1
 
 let g:sort_motion_flags = "i"
 

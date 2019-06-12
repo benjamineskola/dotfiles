@@ -1,0 +1,27 @@
+#!/usr/bin/env zsh
+
+url=$(git config remote.origin.url)
+branch=$(git-current-branch)
+
+if [ $# -gt 0 ]; then
+  branch=$1
+  shift
+fi
+
+if [[ $branch == "master" ]]; then
+  echo "Branch is master, can't merge" 2>&1
+  return 1
+fi
+
+if [[ $url =~ github ]]; then
+  if [[ $url =~ : ]]; then
+    url="https://github.com/${url#*:}"
+  fi
+  url="${url%/}"
+  url="${url%.git}/pull/new/${branch}"
+else
+  echo "Not a github url" 2>&1
+  return 1
+fi
+
+open "$url"

@@ -10,3 +10,5 @@ alias gc!='git commit --edit -v --amend'
 alias gca='git commit --edit -v -a'
 alias gca!='git commit --edit -v -a --amend'
 alias gcam='git commit --edit -a -m'
+
+alias gpr=git-pr

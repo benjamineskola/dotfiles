@@ -3,6 +3,6 @@ set -e
 
 tmp=$(mktemp).rb
 cat >"$tmp"
-rubocop -f q -a "$tmp" >/dev/null
+rubocop -f q -a "$tmp" >/dev/null 2>&1 || true
 cat "$tmp"
 rm -f "$tmp"

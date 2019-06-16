@@ -1,1 +1,0 @@
-chruby $(cat ~/.ruby-version)

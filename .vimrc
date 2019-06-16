@@ -7,6 +7,7 @@ call plug#begin()
   Plug 'airblade/vim-gitgutter'
   Plug 'benjamineskola/vim-applescript'
   Plug 'christoomey/vim-sort-motion' | Plug 'kana/vim-textobj-indent'
+  Plug 'dag/vim-fish'
   Plug 'danielwe/base16-vim'
   Plug 'derekwyatt/vim-scala'
   Plug 'elixir-lang/vim-elixir'
@@ -42,6 +43,7 @@ set laststatus=2
 set nomodeline
 set number relativenumber
 set pastetoggle=<F10>
+set shell=/bin/bash
 set showcmd
 set wildmenu
 

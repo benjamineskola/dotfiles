@@ -12,6 +12,9 @@
 /.cache
 /.cargo
 /.chef*
+/.config/fish/fish_variables
+/.config/fish/functions/fundle.fish
+/.config/fish/fundle
 /.cups
 /.data
 /.docker

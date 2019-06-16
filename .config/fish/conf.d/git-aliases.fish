@@ -221,6 +221,7 @@ alias gwip 'git add -A; git rm (git ls-files --deleted) 2> /dev/null; git commit
 alias gl glgg
 alias gmv 'git mv'
 alias grm 'git rm'
+alias gpr 'git pr'
 
 alias gc 'git commit --edit -v'
 alias gc! 'git commit --edit -v --amend'

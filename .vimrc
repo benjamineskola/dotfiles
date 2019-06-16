@@ -106,5 +106,6 @@ cnoreabbrev Ack Ack!
 nnoremap <Leader>a :Ack!<Space>
 
 au BufWritePre * :silent v/\_s*\S/d
+au BufWritePre * :silent g/\s\+$/s/\s\+$//
 
 let $BASH_ENV = $HOME . "/.bash_profile"

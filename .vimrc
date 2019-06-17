@@ -73,6 +73,7 @@ let g:airline_powerline_fonts = 1
 let g:delimitMate_expand_cr = 1
 let g:delimitMate_expand_space = 1
 
+let g:Lf_CacheDirectory = $HOME . '/Library/Caches'
 let g:Lf_CommandMap = {'<C-T>': ['<CR>']}
 
 let g:python_host_prog = '/usr/local/bin/python'

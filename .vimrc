@@ -62,6 +62,9 @@ let g:is_posix = 1 " /bin/sh is always POSIX, because what the fuck.
 au FileType applescript,fish,javascript,sh,vim,zsh set sts=2 sw=2 expandtab
 au FileType haskell set sts=4 sw=4 expandtab
 
+au BufNewFile,BufRead .Brewfile set filetype=ruby
+au BufNewFile,BufRead .config/git/config set filetype=gitconfig
+
 " plugin settings
 let g:ackprg = 'rg --vimgrep --hidden'
 

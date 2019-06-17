@@ -1,4 +1,3 @@
-# vim:ft=gitconfig
 [branch]
 	autosetuprebase = always
 [color]

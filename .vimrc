@@ -59,7 +59,7 @@ syntax on
 filetype plugin indent on
 let g:is_posix = 1 " /bin/sh is always POSIX, because what the fuck.
 
-au FileType applescript,javascript,sh,vim,zsh set sts=2 sw=2 expandtab
+au FileType applescript,fish,javascript,sh,vim,zsh set sts=2 sw=2 expandtab
 au FileType haskell set sts=4 sw=4 expandtab
 
 " plugin settings

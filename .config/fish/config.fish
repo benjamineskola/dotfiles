@@ -1,4 +1,6 @@
-if not functions -q fundle; eval (curl -sfL https://git.io/fundle-install); end
+if not functions -q fundle
+    eval (curl -sfL https://git.io/fundle-install)
+end
 fundle plugin matchai/spacefish
 fundle init
 

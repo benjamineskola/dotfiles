@@ -17,9 +17,9 @@ alias lal 'ls -la'
 alias lsd 'ls -d'
 
 function ducks
-  du -csh $argv | gsort -rh
+    du -csh $argv | gsort -rh
 end
 
 function diff
-  command diff -u $argv | diff-so-fancy
+    command diff -u $argv | diff-so-fancy
 end

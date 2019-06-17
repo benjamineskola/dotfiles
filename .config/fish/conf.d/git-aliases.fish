@@ -60,7 +60,7 @@ alias gdt 'git diff-tree --no-commit-id --name-only -r'
 alias gdw 'git diff --word-diff'
 
 function gdv
-  git diff -w $argv | view -
+    git diff -w $argv | view -
 end
 
 alias gf 'git fetch'
@@ -68,7 +68,7 @@ alias gfa 'git fetch --all --prune'
 alias gfo 'git fetch origin'
 
 function gfg
-  git ls-files | grep $argv
+    git ls-files | grep $argv
 end
 
 alias gg 'git gui citool'

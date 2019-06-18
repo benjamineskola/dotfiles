@@ -28,6 +28,7 @@ call plug#begin()
   Plug 'tpope/vim-unimpaired'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-ruby/vim-ruby'
+  Plug 'Yggdroot/indentLine'
   Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
   Plug 'z0mbix/vim-shfmt', { 'for': ['sh', 'bash'] }
 call plug#end()
@@ -78,6 +79,8 @@ let g:delimitMate_expand_space = 1
 
 let g:Lf_CacheDirectory = $HOME . '/Library/Caches'
 let g:Lf_CommandMap = {'<C-T>': ['<CR>']}
+
+let g:indentLine_char = '⎸'
 
 let g:python_host_prog = '/usr/local/bin/python'
 let g:python3_host_prog = '/usr/local/bin/python3'

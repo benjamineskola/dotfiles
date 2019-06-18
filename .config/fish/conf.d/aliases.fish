@@ -1,6 +1,6 @@
 alias curl 'curl -gkLsS'
 alias grep egrep
-alias tf "tail -F"
+alias tf 'tail -F'
 
 alias ag rg
 alias fetch 'curl -gkLO'
@@ -8,7 +8,7 @@ alias fetch 'curl -gkLO'
 alias less bat
 
 alias exa 'exa --git -b'
-alias ls 'exa'
+alias ls exa
 alias ll 'ls -l'
 alias la 'ls -a'
 alias lal 'ls -la'

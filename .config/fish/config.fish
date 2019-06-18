@@ -4,6 +4,8 @@ end
 fundle plugin matchai/spacefish
 fundle init
 
+set -gx PATH ~/bin $PATH
+
 set -gx EDITOR vim
 set -gx VISUAL $EDITOR
 

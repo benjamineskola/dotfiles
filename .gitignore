@@ -12,6 +12,8 @@
 /.cache
 /.cargo
 /.chef*
+/.config/vim/autoload/plug.vim
+/.config/vim/plugged/
 /.config/fish/fish_variables
 /.config/fish/functions/fundle.fish
 /.config/fish/fundle
@@ -43,8 +45,6 @@
 /.subversion
 /.Trash
 /.vagrant.d
-/.vim
-/.viminfo
 /.zcompdump
 /.zoomus
 /.zsh/plugins

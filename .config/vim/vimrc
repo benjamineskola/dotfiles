@@ -1,5 +1,11 @@
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+set directory=$XDG_CACHE_HOME/vim,~/,/tmp
+set backupdir=$XDG_CACHE_HOME/vim,~/,/tmp
+set viminfo+=n$XDG_CACHE_HOME/vim/viminfo
+set runtimepath=$XDG_CONFIG_HOME/vim,$XDG_CONFIG_HOME/vim/after,$VIM,$VIMRUNTIME
+let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
+
+if empty(glob($XDG_CONFIG_HOME . '/vim/autoload/plug.vim'))
+  silent !curl -fLo $XDG_CONFIG_HOME/vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
@@ -77,7 +83,7 @@ let g:airline_powerline_fonts = 1
 let g:delimitMate_expand_cr = 1
 let g:delimitMate_expand_space = 1
 
-let g:Lf_CacheDirectory = $HOME . '/Library/Caches'
+let g:Lf_CacheDirectory = $XDG_CACHE_HOME
 let g:Lf_CommandMap = {'<C-T>': ['<CR>']}
 
 let g:indentLine_char = '⎸'

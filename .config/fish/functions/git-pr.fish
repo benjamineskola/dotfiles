@@ -2,7 +2,7 @@ function git-pr
     set url (git config remote.origin.url)
     set branch (git_current_branch)
 
-    if test (count $argv) -gt 0
+    if nonempty $argv
         set branch $argv[1]
     end
 

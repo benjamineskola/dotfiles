@@ -4,7 +4,6 @@ alias grep egrep
 alias tf "tail -F"
 
 alias ag rg
-alias rg 'rg --hidden -g "!.git"'
 alias fetch 'curl -gkLO'
 
 alias less bat
@@ -24,4 +23,12 @@ end
 
 function diff
     command diff -u $argv | diff-so-fancy
+end
+
+function rg --wraps rg
+    if isatty stdout
+        command rg --heading --color=always $argv | command less
+    else
+        command rg $argv
+    end
 end

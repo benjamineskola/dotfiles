@@ -16,6 +16,8 @@ alias la 'ls -a'
 alias lal 'ls -la'
 alias lsd 'ls -d'
 
+alias rspec 'caffeinate bundle exec rspec'
+
 function ducks
     du -csh $argv | gsort -rh
 end

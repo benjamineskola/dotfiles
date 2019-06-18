@@ -1,5 +1,4 @@
 alias curl 'curl -gkLsS'
-alias dc "dc -e '2k' -f /dev/stdin"
 alias grep egrep
 alias tf "tail -F"
 

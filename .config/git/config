@@ -17,7 +17,7 @@
 	new = green bold
 	whitespace = red reverse
 [core]
-	excludesfile = ~/.gitignore.global
+	excludesfile = ~/.config/git/gitignore.global
 	pager = diff-so-fancy | less
 [diff]
 	renames = copy

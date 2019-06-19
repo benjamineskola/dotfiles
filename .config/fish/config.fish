@@ -25,4 +25,4 @@ set -gx VIMINIT 'let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
 mkdir -p $XDG_CACHE_HOME
 
 source /usr/local/share/chruby/chruby.fish
-source /usr/local/share/chruby/auto.fish
+chruby ruby 2

@@ -11,13 +11,12 @@ function git-pr
         return 1
     end
 
-    if string match '*github*' $url
-        if string match '*:*' $url
+    if string match '*github*' $url >/dev/null
+        if string match '*:*' $url >/dev/null
             set url "https://github.com/"(string replace -r '.*:' '' $url)
             set url (string replace -r '(\.git)?/?$' '' $url)
             set url "$url/pull/new/$branch"
         end
-        echo $url
     else
         echo "Not a github url" >&2
         return 1

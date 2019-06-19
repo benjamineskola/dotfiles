@@ -48,3 +48,6 @@ Thumbs.db
 *~
 .*.sw?
 \#*\#
+
+# Rubocop cached remote configs
+.rubocop-http*

@@ -34,9 +34,9 @@ call plug#begin()
   Plug 'tpope/vim-unimpaired'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-ruby/vim-ruby'
+  Plug 'w0rp/ale'
   Plug 'Yggdroot/indentLine'
   Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
-  Plug 'z0mbix/vim-shfmt', { 'for': ['sh', 'bash'] }
 call plug#end()
 
 set autoindent
@@ -80,6 +80,16 @@ let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline#extensions#tabline#tab_nr_type = 2
 let g:airline_powerline_fonts = 1
 
+let g:ale_fix_on_save = 1
+let g:ale_fixers = {
+  \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+  \ 'bash': ['shfmt'],
+  \ 'fish': [{buffer -> { 'command': 'fish_indent' }}],
+  \ 'ruby': ['rubocop'],
+  \ 'sh': ['shfmt'],
+\ }
+au FileType sh let b:sh_shfmt_options = '-p'
+
 let g:delimitMate_expand_cr = 1
 let g:delimitMate_expand_space = 1
 
@@ -95,10 +105,6 @@ call neomake#configure#automake('nrwi', 500)
 autocmd! BufReadPost,BufWritePost,BufWinEnter * Neomake
 let g:neomake_open_list = 2
 let g:neomake_python_exe = '/usr/local/bin/python3'
-
-au FileType * let g:shfmt_extra_args = '-i 2 -p -s'
-au FileType zsh,bash let g:shfmt_extra_args = '-i 2 -s'
-let g:shfmt_fmt_on_save = 1
 
 let g:sort_motion_flags = "i"
 
@@ -117,8 +123,5 @@ imap § <ESC>
 
 cnoreabbrev Ack Ack!
 nnoremap <Leader>a :Ack!<Space>
-
-au BufWritePre * :silent v/\_s*\S/d
-au BufWritePre * :silent g/\s\+$/s/\s\+$//
 
 let $BASH_ENV = $HOME . "/.bash_profile"

@@ -12,9 +12,9 @@ endif
 call plug#begin()
   Plug 'airblade/vim-gitgutter'
   Plug 'benjamineskola/vim-applescript'
+  Plug 'chriskempson/base16-vim'
   Plug 'christoomey/vim-sort-motion' | Plug 'kana/vim-textobj-indent'
   Plug 'dag/vim-fish'
-  Plug 'danielwe/base16-vim'
   Plug 'derekwyatt/vim-scala'
   Plug 'elixir-lang/vim-elixir'
   Plug 'ervandew/supertab'
@@ -67,6 +67,7 @@ set grepformat=%f:%l:%c:%m
 
 " appearance.
 set termguicolors
+let base16colorspace=256
 colo base16-materia
 syntax on
 

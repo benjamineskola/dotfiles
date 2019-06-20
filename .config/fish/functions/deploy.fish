@@ -1,9 +1,7 @@
 function deploy
     argparse 'a/all' -- $argv
 
-    env | grep BRANCH
     set -x BRANCH (git_current_branch)
-    env | grep BRANCH
 
     if test -n "$_flag_all"
         echo Deploying $branch to all environments...

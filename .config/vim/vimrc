@@ -88,6 +88,8 @@ let g:ale_fixers = {
   \ 'ruby': ['rubocop'],
   \ 'sh': ['shfmt'],
 \ }
+let g:ale_linters_explicit = 1
+let g:ale_set_highlights = 0
 au FileType sh let b:sh_shfmt_options = '-p'
 
 let g:delimitMate_expand_cr = 1

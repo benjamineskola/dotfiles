@@ -149,3 +149,4 @@ augroup AutoSaveFolds
   autocmd BufWinLeave ?* mkview!
   autocmd BufWinEnter ?* silent loadview
 augroup END
+autocmd BufEnter * if &buftype == 'help' && &columns > 120 && &columns == winwidth(0) | wincmd L | endif

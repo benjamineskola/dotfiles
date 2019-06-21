@@ -4,6 +4,3 @@ gem 'pry'
 gem 'rspec'
 gem 'rubocop'
 gem 'rubocop-rspec'
-
-gem 'pronto', '>= 0.7'
-gem 'pronto-rubocop'

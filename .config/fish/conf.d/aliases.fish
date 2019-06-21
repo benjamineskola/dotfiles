@@ -17,6 +17,8 @@ alias lsd 'ls -d'
 alias be 'bundle exec'
 alias bi 'bundle install'
 
+alias fdd 'fd .'
+
 alias rspec 'caffeinate bundle exec rspec'
 
 function ducks

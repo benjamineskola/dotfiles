@@ -1,7 +1,9 @@
 set directory=$XDG_CACHE_HOME/vim,~/,/tmp
 set backupdir=$XDG_CACHE_HOME/vim,~/,/tmp
+set viewdir=$XDG_CACHE_HOME/vim/views
 set viminfo+=n$XDG_CACHE_HOME/vim/viminfo
 set runtimepath=$XDG_CONFIG_HOME/vim,$XDG_CONFIG_HOME/vim/after,$VIM,$VIMRUNTIME
+
 let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
 
 if empty(glob($XDG_CONFIG_HOME . '/vim/autoload/plug.vim'))
@@ -60,6 +62,7 @@ set scrolloff=5
 set shell=/bin/bash
 set showcmd
 set ttimeout ttimeoutlen=50
+set viewoptions=folds
 set wildmenu
 
 set grepprg=rg\ --vimgrep\ $*
@@ -137,4 +140,12 @@ nnoremap <Leader>a :Ack!<Space>
 
 map Q gq
 
+" miscellaneous
+
 let $BASH_ENV = $HOME . "/.bash_profile"
+
+augroup AutoSaveFolds
+  autocmd!
+  autocmd BufWinLeave ?* mkview!
+  autocmd BufWinEnter ?* silent loadview
+augroup END

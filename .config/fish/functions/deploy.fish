@@ -3,6 +3,8 @@ function deploy
 
     set -x BRANCH (git_current_branch)
 
+    bundle install
+
     if test -n "$_flag_all"
         echo Deploying $branch to all environments...
         aws-runas production bin/ecs_deploy_all

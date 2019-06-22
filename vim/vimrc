@@ -137,7 +137,7 @@ map Q gq
 
 " miscellaneous
 
-let $BASH_ENV = $HOME . "/.bash_profile"
+let $BASH_ENV = $XDG_CONFIG_HOME . "/bash_profile"
 
 augroup AutoSaveFolds
   autocmd!

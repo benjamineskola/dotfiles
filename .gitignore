@@ -3,3 +3,5 @@
 /fish/fish_variables
 /fish/functions/fundle.fish
 /fish/fundle
+/_ssh/id_*
+/_ssh/known_hosts

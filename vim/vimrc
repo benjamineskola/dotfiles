@@ -74,13 +74,6 @@ syntax on
 
 " filetype stuff.
 filetype plugin indent on
-let g:is_posix = 1 " /bin/sh is always POSIX, because what the fuck.
-
-au FileType applescript,javascript,sh,vim,zsh set sts=2 sw=2 expandtab
-au FileType fish,haskell set sts=4 sw=4 expandtab
-
-au BufNewFile,BufRead .Brewfile set filetype=ruby
-au BufNewFile,BufRead .config/git/config set filetype=gitconfig
 
 " plugin settings
 let g:ackprg = 'rg --vimgrep --hidden'
@@ -91,16 +84,9 @@ let g:airline#extensions#tabline#tab_nr_type = 2
 let g:airline_powerline_fonts = 1
 
 let g:ale_fix_on_save = 1
-let g:ale_fixers = {
-  \ '*': ['remove_trailing_lines', 'trim_whitespace'],
-  \ 'bash': ['shfmt'],
-  \ 'fish': [{buffer -> { 'command': 'fish_indent' }}],
-  \ 'ruby': ['rubocop'],
-  \ 'sh': ['shfmt'],
-\ }
+let g:ale_fixers = { '*': ['remove_trailing_lines', 'trim_whitespace'] }
 let g:ale_linters_explicit = 1
 let g:ale_set_highlights = 0
-au FileType sh let b:sh_shfmt_options = '-p'
 
 let g:delimitMate_expand_cr = 1
 let g:delimitMate_expand_space = 1
@@ -116,7 +102,6 @@ let g:python3_host_prog = '/usr/local/bin/python3'
 call neomake#configure#automake('nrwi', 500)
 autocmd! BufReadPost,BufWritePost,BufWinEnter * Neomake
 let g:neomake_open_list = 2
-let g:neomake_python_exe = '/usr/local/bin/python3'
 
 let g:sort_motion_flags = "i"
 

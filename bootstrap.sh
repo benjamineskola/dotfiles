@@ -10,5 +10,5 @@ done
 
 mkdir -p ~/Code
 for i in Code/*; do
-  ln -sfh .config/$i $HOME/Code
+  ln -sfh ../.config/$i $HOME/Code
 done

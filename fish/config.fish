@@ -9,6 +9,7 @@ set -gx EDITOR vim
 set -gx HOSTNAME (scutil --get ComputerName)
 set -gx LESS -ImRswFX
 set -gx LESSHISTFILE $XDG_CACHE_HOME/less_history
+set -gx NPM_CONFIG_USERCONFIG $XDG_CONFIG_HOME/npmrc
 set -gx PATH ~/bin $PATH
 set -gx PYTHONSTARTUP $XDG_CONFIG_HOME/python/startup.py
 set -gx VIMINIT 'let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'

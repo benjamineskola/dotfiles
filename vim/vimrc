@@ -11,6 +11,7 @@ if empty(glob($XDG_CONFIG_HOME . '/vim/autoload/plug.vim'))
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
+" {{{
 call plug#begin()
   Plug 'airblade/vim-gitgutter'
   Plug 'benjamineskola/vim-applescript'
@@ -35,11 +36,13 @@ call plug#begin()
   Plug 'Yggdroot/indentLine'
   Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 call plug#end()
+" }}}
 
 set autoindent
 set autoread
 set backspace=indent,eol,start
 set encoding=utf-8
+set foldmethod=marker
 set formatoptions+=j
 set guifont=Fira\ Code:h14
 set hidden
@@ -138,10 +141,4 @@ map Q gq
 " miscellaneous
 
 let $BASH_ENV = $XDG_CONFIG_HOME . "/bash_profile"
-
-augroup AutoSaveFolds
-  autocmd!
-  autocmd BufWinLeave ?* mkview!
-  autocmd BufWinEnter ?* silent loadview
-augroup END
 autocmd BufEnter * if &buftype == 'help' && &columns > 120 && &columns == winwidth(0) | wincmd L | endif

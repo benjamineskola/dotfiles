@@ -98,9 +98,6 @@ let g:Lf_CommandMap = {'<C-T>': ['<CR>']}
 
 let g:indentLine_char = '⎸'
 
-let g:python_host_prog = '/usr/local/bin/python'
-let g:python3_host_prog = '/usr/local/bin/python3'
-
 call neomake#configure#automake('nrwi', 500)
 autocmd! BufReadPost,BufWritePost,BufWinEnter * Neomake
 let g:neomake_open_list = 2

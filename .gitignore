@@ -3,5 +3,7 @@
 /fish/fish_variables
 /fish/functions/fundle.fish
 /fish/fundle
+/_gnupg/*
+!/_gnupg/*.conf
 /_ssh/id_*
 /_ssh/known_hosts

@@ -91,6 +91,8 @@ let g:ale_set_highlights = 0
 let g:delimitMate_expand_cr = 1
 let g:delimitMate_expand_space = 1
 
+let g:gundo_prefer_python3 = 1
+
 let g:Lf_CacheDirectory = $XDG_CACHE_HOME
 let g:Lf_CommandMap = {'<C-T>': ['<CR>']}
 

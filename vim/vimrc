@@ -120,24 +120,6 @@ let g:neomake_python_exe = '/usr/local/bin/python3'
 
 let g:sort_motion_flags = "i"
 
-" mappings
-let mapleader = ","
-
-nmap <C-l> :nohl<CR>:redraw<CR>
-
-let g:nremap = {"]t": "", "[t": ""}
-map ]t gt
-map [t gT
-
-nnoremap <F5> :GundoToggle<CR>
-
-imap § <ESC>
-
-cnoreabbrev Ack Ack!
-nnoremap <Leader>a :Ack!<Space>
-
-map Q gq
-
 " miscellaneous
 
 let $BASH_ENV = $XDG_CONFIG_HOME . "/bash_profile"

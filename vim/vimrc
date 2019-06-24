@@ -44,7 +44,7 @@ set backspace=indent,eol,start
 set encoding=utf-8
 set foldmethod=marker
 set formatoptions+=j
-set guifont=Fira\ Code:h14
+set guifont=Inconsolata-dz:h14
 set hidden
 set history=10000
 set hlsearch incsearch
@@ -81,7 +81,6 @@ let g:ackprg = 'rg --vimgrep --hidden'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline#extensions#tabline#tab_nr_type = 2
-let g:airline_powerline_fonts = 1
 
 let g:ale_fix_on_save = 1
 let g:ale_fixers = { '*': ['remove_trailing_lines', 'trim_whitespace'] }

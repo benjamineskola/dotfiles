@@ -1,3 +1,10 @@
+# Copyright © 2001-2019 Python Software Foundation; All Rights Reserved
+# Copyright © 2019 Benjamin Eskola
+# Released under the PSF License https://docs.python.org/3/license.html
+# Based upon code from lib/python3.7/site.py and modified to put python's
+# interactive history file inside the XDG_CACHE_HOME directory, defaulting to
+# $HOME/.cache
+
 import os
 import sys
 

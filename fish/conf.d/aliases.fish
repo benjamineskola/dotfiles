@@ -26,8 +26,8 @@ end
 
 function rg --wraps rg
     if isatty stdout
-        command rg --heading --color=always $argv | command less
+        command rg --smart-case --pretty $argv | command less
     else
-        command rg $argv
+        command rg --smart-case $argv
     end
 end

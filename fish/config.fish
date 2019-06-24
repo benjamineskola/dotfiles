@@ -21,7 +21,7 @@ source /usr/local/share/chruby/chruby.fish
 chruby ruby 2
 
 if status --is-interactive
-    set BASE16_SHELL "$HOME/.config/base16-shell/"
+    set BASE16_SHELL "$XDG_CONFIG_HOME/base16-shell/"
     source "$BASE16_SHELL/profile_helper.fish"
     sh "$BASE16_SHELL/scripts/base16-materia.sh"
 end

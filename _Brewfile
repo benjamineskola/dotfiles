@@ -39,7 +39,7 @@ brew "readline"
 
 cask "alfred"
 cask "dropbox"
-cask "font-fira-code"
+cask "font-inconsolata-lgc"
 cask "iterm2"
 cask "macvim"
 cask "textexpander"

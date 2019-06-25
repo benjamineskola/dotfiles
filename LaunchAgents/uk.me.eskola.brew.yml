@@ -1,0 +1,8 @@
+---
+ProgramArguments:
+  - sh
+  - -c
+  - "/usr/local/bin/brew bundle install --global; /usr/local/bin/brew bundle cleanup --global"
+StartCalendarInterval:
+  Hour: 7
+  Minute: 0

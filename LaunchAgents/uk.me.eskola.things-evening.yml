@@ -1,0 +1,7 @@
+---
+ProgramArguments:
+  - osascript
+  - /Users/ben/Code/things-scripts/evening.applescript
+StartCalendarInterval:
+  Hour: 7
+  Minute: 0

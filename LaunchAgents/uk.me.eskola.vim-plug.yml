@@ -1,0 +1,8 @@
+---
+ProgramArguments:
+  - sh
+  - -c
+  - "vim +PlugUpgrade +PlugClean! +PlugUpdate +PlugInstall +qall"
+StartCalendarInterval:
+  Hour: 7
+  Minute: 0

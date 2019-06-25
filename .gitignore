@@ -1,5 +1,6 @@
 /vim/autoload/plug.vim
 /vim/plugged/
+/fish/conf.d/01_iterm2_shell_integration.fish
 /fish/fish_variables
 /fish/functions/fundle.fish
 /fish/fundle

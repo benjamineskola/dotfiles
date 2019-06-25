@@ -22,6 +22,7 @@
       "Name": "Work",
       "Guid": "4E6DC606-CAEE-494C-A4B8-0BF9ADFD23D5",
       "Dynamic Profile Parent Name": "Default",
+      "Bound Hosts": ["C02X937ZJG5L.local"],
       "Normal Font": "Inconsolata-dz 16"
     }
   ]

@@ -20,7 +20,7 @@ def handle_dict(key, value, depth = 0)
       handle_bool(subkey, subvalue, depth + 1)
     else
       warn "Unknown value type for key #{subkey}: #{subvalue.class} (#{subvalue.inspect})"
-      # exit 1
+      exit 1
     end
   end
   puts ("  " * depth) + "</dict>"

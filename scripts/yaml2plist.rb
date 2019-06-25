@@ -1,6 +1,5 @@
 #!/usr/bin/env ruby
 require "yaml"
-require "pp"
 
 data = YAML.safe_load(open(ARGV[0]))
 
@@ -63,7 +62,6 @@ EOF
 data_array = data.to_a
 data_array.unshift(["Label", ARGV[0].sub(/.yml$/, "")])
 handle_dict(nil, data_array, 0)
-# pp data.to_a
 
 puts <<~EOF
   </plist>

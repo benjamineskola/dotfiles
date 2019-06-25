@@ -92,10 +92,10 @@ let g:delimitMate_expand_space = 1
 
 let g:gundo_prefer_python3 = 1
 
+let g:indentLine_char = '⎸'
+
 let g:Lf_CacheDirectory = $XDG_CACHE_HOME
 let g:Lf_CommandMap = {'<C-T>': ['<CR>']}
-
-let g:indentLine_char = '⎸'
 
 call neomake#configure#automake('nrwi', 500)
 autocmd! BufReadPost,BufWritePost,BufWinEnter * Neomake

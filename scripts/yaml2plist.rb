@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 require "yaml"
 
-data = YAML.safe_load(open(ARGV[0]))
+data = YAML.safe_load(File.open(ARGV[0]))
 
 def handle_dict(key, value, depth = 0)
   puts ("  " * depth) + "<key>#{key}</key>" if key
@@ -18,7 +18,8 @@ def handle_dict(key, value, depth = 0)
     elsif subvalue.class == TrueClass || subvalue.class == FalseClass
       handle_bool(subkey, subvalue, depth + 1)
     else
-      warn "Unknown value type for key #{subkey}: #{subvalue.class} (#{subvalue.inspect})"
+      warn "Unknown value type for key #{subkey}:"
+      warn "\t#{subvalue.class} (#{subvalue.inspect})"
       exit 1
     end
   end
@@ -53,16 +54,16 @@ def handle_bool(key, value, depth = 0)
   end
 end
 
-puts <<~EOF
-  <?xml version="1.0" encoding="UTF-8"?>
-  <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-  <plist version="1.0">
-EOF
+puts %[
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+]
 
 data_array = data.to_a
 data_array.unshift(["Label", ARGV[0].sub(/.yml$/, "")])
 handle_dict(nil, data_array, 0)
 
-puts <<~EOF
-  </plist>
-EOF
+puts %[
+</plist>
+]

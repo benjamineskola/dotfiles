@@ -16,6 +16,39 @@
       "Normal Font": "InconsolataLGC 14",
       "Option Key Sends": 2,
       "Right Option Key Sends": 0,
+      "Status Bar Layout": {
+        "components": [
+          {
+            "class": "iTermStatusBarJobComponent",
+            "configuration": {}
+          },
+          {
+            "class": "iTermStatusBarFixedSpacerComponent",
+            "configuration": {}
+          },
+          {
+            "class": "iTermStatusBarGitComponent",
+            "configuration": {}
+          },
+          {
+            "class": "iTermStatusBarSpringComponent",
+            "configuration": {}
+          },
+          {
+            "class": "iTermStatusBarClockComponent",
+            "configuration": {
+              "knobs": {
+                "format": "dd.MM/hh:mm:ss",
+                "localize": 0
+              }
+            }
+          }
+        ],
+        "advanced configuration": {
+          "font": "InconsolataLGC 14",
+          "algorithm": 1
+        }
+      },
       "Use Non-ASCII Font": false
     },
     {

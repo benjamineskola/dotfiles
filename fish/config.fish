@@ -25,3 +25,6 @@ if status --is-interactive
     source "$BASE16_SHELL/profile_helper.fish"
     sh "$BASE16_SHELL/scripts/base16-materia.sh"
 end
+
+function iterm2_prompt_mark
+end

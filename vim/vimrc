@@ -69,7 +69,7 @@ set grepformat=%f:%l:%c:%m
 " appearance.
 set termguicolors
 let base16colorspace=256
-colo base16-materia
+colo base16-tomorrow-night
 syntax on
 
 " filetype stuff.

@@ -101,6 +101,8 @@ call neomake#configure#automake('nrwi', 500)
 autocmd! BufReadPost,BufWritePost,BufWinEnter * Neomake
 let g:neomake_open_list = 2
 
+let g:netrw_home = $XDG_CACHE_HOME . '/vim'
+
 let g:sort_motion_flags = "i"
 
 " miscellaneous

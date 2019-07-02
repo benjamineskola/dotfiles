@@ -14,8 +14,8 @@ endif
 " {{{
 call plug#begin()
   Plug 'airblade/vim-gitgutter'
+  Plug 'altercation/vim-colors-solarized'
   Plug 'benjamineskola/vim-applescript'
-  Plug 'chriskempson/base16-vim'
   Plug 'christoomey/vim-sort-motion' | Plug 'kana/vim-textobj-indent'
   Plug 'ervandew/supertab'
   Plug 'mileszs/ack.vim'
@@ -67,9 +67,8 @@ set grepprg=rg\ --vimgrep\ $*
 set grepformat=%f:%l:%c:%m
 
 " appearance.
-set termguicolors
-let base16colorspace=256
-colo base16-tomorrow-night
+set bg=dark
+colo solarized
 syntax on
 
 " filetype stuff.

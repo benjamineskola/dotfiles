@@ -15,19 +15,3 @@ alias ll 'ls -l'
 alias la 'ls -a'
 alias lal 'ls -la'
 alias lsd 'ls -d'
-
-function ducks
-    du -csh $argv | gsort -rh
-end
-
-function diff
-    command diff -u $argv | diff-so-fancy
-end
-
-function rg --wraps rg
-    if isatty stdout
-        command rg --smart-case --pretty $argv | command less
-    else
-        command rg --smart-case $argv
-    end
-end

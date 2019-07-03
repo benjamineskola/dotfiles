@@ -2,7 +2,6 @@ set -gx XDG_CONFIG_HOME $HOME/.config
 set -gx XDG_DATA_HOME $HOME/Library
 set -gx XDG_CACHE_HOME $HOME/Library/Caches
 
-set -gx BAT_THEME OneHalfDark
 set -gx BUNDLER_CACHE_HOME $XDG_CACHE_HOME/bundler
 set -gx BUNDLER_USER_HOME $XDG_CONFIG_HOME/bundler
 set -gx EDITOR vim

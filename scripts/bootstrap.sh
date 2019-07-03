@@ -11,11 +11,6 @@ for i in LaunchAgents/*.plist; do
   ln -f $HOME/.config/$i $HOME/Library/LaunchAgents
 done
 
-mkdir -p ~/Code
-for i in Code/*; do
-  ln -sfh ../.config/$i $HOME/Code
-done
-
 ln -sfhF ../../../.config/iterm2 "$HOME/Library/Application Support/iTerm2/DynamicProfiles"
 
 test -n "$(find $HOME/.config/fish/conf.d -maxdepth 1 -name 01_iterm2_shell_integration.fish -mtime +1)" &&

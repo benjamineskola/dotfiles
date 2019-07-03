@@ -32,6 +32,7 @@ call plug#begin()
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-unimpaired'
   Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
   Plug 'w0rp/ale'
   Plug 'Yggdroot/indentLine'
   Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
@@ -80,6 +81,8 @@ let g:ackprg = 'rg --vimgrep --hidden'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline#extensions#tabline#tab_nr_type = 2
+let g:airline_solarized_bg = 'dark'
+let g:airline_theme = 'solarized'
 
 let g:ale_fix_on_save = 1
 let g:ale_fixers = { '*': ['remove_trailing_lines', 'trim_whitespace'] }

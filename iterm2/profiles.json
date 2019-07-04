@@ -45,11 +45,25 @@
           }
         ],
         "advanced configuration": {
+          "background color": {
+            "Red Component": 0.027450980618596077,
+            "Color Space": "sRGB",
+            "Blue Component": 0.25882354378700256,
+            "Alpha Component": 1,
+            "Green Component": 0.21176470816135406
+          },
+          "default text color": {
+            "Red Component": 0.57647061347961426,
+            "Color Space": "sRGB",
+            "Blue Component": 0.63137257099151611,
+            "Alpha Component": 1,
+            "Green Component": 0.63137257099151611
+          },
           "font": "InconsolataLGC 14",
           "algorithm": 1
         }
       },
-      "Use Bright Bold" : false,
+      "Use Bright Bold": false,
       "Use Non-ASCII Font": false
     },
     {

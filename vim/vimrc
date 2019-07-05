@@ -69,6 +69,7 @@ set grepformat=%f:%l:%c:%m
 
 " appearance.
 set bg=dark
+let g:solarized_termtrans = 1
 colo solarized
 syntax on
 

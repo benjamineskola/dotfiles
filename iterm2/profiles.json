@@ -14,7 +14,7 @@
           "Text": "{\"ConvertUnicodePunctuation\":true,\"WaitForPrompts\":false,\"Substitution\":\"\",\"EscapeForShell\":true,\"Base64\":false,\"TabStopSize\":4,\"Delay\":0.01,\"RemoveNewlines\":false,\"Regex\":\"\",\"ConvertNewlines\":true,\"TabTransform\":0,\"BracketAllowed\":true,\"UseRegexSubstitution\":false,\"ChunkSize\":1024,\"RemoveControls\":true}"
         }
       },
-      "Normal Font": "InconsolataLGC 14",
+      "Normal Font": "Iosevka 14",
       "Option Key Sends": 2,
       "Right Option Key Sends": 0,
       "Status Bar Layout": {
@@ -60,7 +60,7 @@
             "Alpha Component": 1,
             "Green Component": 0.63137257099151611
           },
-          "font": "InconsolataLGC 14",
+          "font": "Iosevka 14",
           "algorithm": 1
         }
       },
@@ -72,7 +72,7 @@
       "Guid": "4E6DC606-CAEE-494C-A4B8-0BF9ADFD23D5",
       "Dynamic Profile Parent Name": "Default",
       "Bound Hosts": ["C02X937ZJG5L.local"],
-      "Normal Font": "InconsolataLGC 16"
+      "Normal Font": "Iosevka 18"
     }
   ]
 }

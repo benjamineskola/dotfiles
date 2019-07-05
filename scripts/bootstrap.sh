@@ -1,6 +1,7 @@
 #!/bin/sh
 for i in _* private/_*; do
-  ln -sfh .config/$i $HOME/.$(basename $i | sed 's/^_//')
+  test -e "$i" &&
+    ln -sfh .config/$i $HOME/.$(basename $i | sed 's/^_//')
 done
 
 if [ "$(uname -s)" = Darwin ]; then

@@ -1,11 +1,4 @@
-export XDG_CONFIG_HOME=$HOME/.config
-if [ "$(uname -s)" = Darwin ]; then
-  export XDG_DATA_HOME="$HOME/Library"
-  export XDG_CACHE_HOME="$HOME/Library/Caches"
-else
-  export XDG_DATA_HOME="$HOME/.data"
-  export XDG_CACHE_HOME="$HOME/.cache"
-fi
+eval "$($HOME/.config/scripts/xdg.sh)"
 
 test -e .$XDG_CONFIG_HOME/fish/conf.d/environment.fish. &&
   . "$XDG_CONFIG_HOME/fish/conf.d/environment.fish"

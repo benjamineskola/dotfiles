@@ -10,7 +10,8 @@ if [ "$(uname -s)" = Darwin ]; then
     scripts/yaml2plist.rb $i >$HOME/Library/LaunchAgents/$(basename $i .yml).plist
   done
   for i in LaunchAgents/*.plist; do
-    ln -f $HOME/.config/$i $HOME/Library/LaunchAgents
+    test -e "$i" &&
+      ln -f $HOME/.config/$i $HOME/Library/LaunchAgents
   done
 
   ln -sfhF ../../../.config/iterm2 "$HOME/Library/Application Support/iTerm2/DynamicProfiles"

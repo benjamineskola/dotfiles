@@ -10,4 +10,10 @@ fi
 
 stty erase ^?
 
+alias ls='ls -hpT'
+alias ll='ls -l'
+alias la='ls -a'
+alias lal='ls -la'
+alias lsd='ls -d'
+
 export HISTFILE="$XDG_CACHE_HOME/.history"

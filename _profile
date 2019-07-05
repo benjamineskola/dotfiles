@@ -1,0 +1,4 @@
+eval "$($HOME/.config/scripts/xdg.sh)"
+
+test -e "$XDG_CONFIG_HOME/fish/conf.d/environment.fish" &&
+  . "$XDG_CONFIG_HOME/fish/conf.d/environment.fish"

@@ -22,6 +22,7 @@ call plug#begin()
   Plug 'nelstrom/vim-textobj-rubyblock' | Plug 'kana/vim-textobj-user'
   Plug 'neomake/neomake'
   Plug 'Raimondi/delimitMate'
+  Plug 'rizzatti/dash.vim'
   Plug 'sheerun/vim-polyglot'
   Plug 'sjl/gundo.vim'
   Plug 'sjl/splice.vim'

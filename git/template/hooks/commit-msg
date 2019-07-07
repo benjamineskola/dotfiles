@@ -14,7 +14,7 @@ test 50 -ge ${#FIRST_LINE} || {
   exit 1
 }
 
-tail -n +2 "$1" | sed '/^# -{24} >8 -{24}$/,$d; /^#/d' | while read -r LINE; do
+tail -n +2 "$1" | sed -E '/^# -{24} >8 -{24}$/,$d; /^#/d' | while read -r LINE; do
   test 72 -ge "${#LINE}" || {
     echo >&2 "Subsequent line of commit message too long (${#LINE}): $(echo "${LINE}" | cut -c 1-10)..."
     exit 1

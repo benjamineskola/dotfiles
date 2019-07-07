@@ -14,11 +14,11 @@ endif
 " {{{
 call plug#begin()
   Plug 'airblade/vim-gitgutter'
-  Plug 'altercation/vim-colors-solarized'
   Plug 'benjamineskola/vim-applescript'
   Plug 'christoomey/vim-sort-motion' | Plug 'kana/vim-textobj-indent'
   Plug 'ervandew/supertab'
   Plug 'mileszs/ack.vim'
+  Plug 'morhetz/gruvbox'
   Plug 'nelstrom/vim-textobj-rubyblock' | Plug 'kana/vim-textobj-user'
   Plug 'neomake/neomake'
   Plug 'Raimondi/delimitMate'
@@ -32,7 +32,6 @@ call plug#begin()
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-unimpaired'
   Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
   Plug 'w0rp/ale'
   Plug 'Yggdroot/indentLine'
   Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
@@ -69,8 +68,7 @@ set grepformat=%f:%l:%c:%m
 
 " appearance.
 set bg=dark
-let g:solarized_termtrans = 1
-colo solarized
+colo gruvbox
 syntax on
 
 " filetype stuff.
@@ -82,8 +80,7 @@ let g:ackprg = 'rg --vimgrep --hidden'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline#extensions#tabline#tab_nr_type = 2
-let g:airline_solarized_bg = 'dark'
-let g:airline_theme = 'solarized'
+let g:airline_theme = 'gruvbox'
 let g:airline_powerline_fonts = 1
 
 let g:ale_fix_on_save = 1

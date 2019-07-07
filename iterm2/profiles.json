@@ -47,18 +47,18 @@
         ],
         "advanced configuration": {
           "background color": {
-            "Red Component": 0.027450980618596077,
+            "Red Component": 0.23529411852359772,
             "Color Space": "sRGB",
-            "Blue Component": 0.25882354378700256,
+            "Blue Component": 0.21176470816135406,
             "Alpha Component": 1,
-            "Green Component": 0.21176470816135406
+            "Green Component": 0.21960784494876862
           },
           "default text color": {
-            "Red Component": 0.57647061347961426,
+            "Red Component": 0.65882354974746704,
             "Color Space": "sRGB",
-            "Blue Component": 0.63137257099151611,
+            "Blue Component": 0.51764708757400513,
             "Alpha Component": 1,
-            "Green Component": 0.63137257099151611
+            "Green Component": 0.60000002384185791
           },
           "font": "Iosevka 14",
           "algorithm": 1

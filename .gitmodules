@@ -1,6 +1,6 @@
 [submodule "private"]
 	path = private
 	url = git@github.com:benjamineskola/private
-[submodule "bat/themes/textmate-solarized"]
-	path = bat/themes/textmate-solarized
-	url = https://github.com/deplorableword/textmate-solarized.git
+[submodule "bat/themes/gruvbox-sublime"]
+	path = bat/themes/gruvbox-sublime
+	url = https://github.com/ethe/gruvbox-sublime

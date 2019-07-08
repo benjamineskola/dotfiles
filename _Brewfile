@@ -48,6 +48,8 @@ cask "hazel"
 cask "iterm2"
 cask "macvim"
 cask "qlmobi"
+cask "firefox"
+cask "google-chrome"
 
 case `hostname -s`
 when "benjamins-macbook-pro"
@@ -70,6 +72,4 @@ when "c02x937zjg5l"
   brew "s3cmd"
   brew "terraform"
   cask "chromedriver"
-  cask "firefox"
-  cask "google-chrome"
 end

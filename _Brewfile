@@ -30,8 +30,8 @@ brew "shfmt"
 brew "ssh-askpass"
 brew "trash"
 brew "vim"
-brew "yarn"
 brew "wget"
+brew "yarn"
 
 # for ruby
 brew "gdbm"
@@ -52,7 +52,6 @@ cask "qlmobi"
 case `hostname -s`
 when "benjamins-macbook-pro"
   brew "get_iplayer"
-  brew "npm"
   cask "adobe-acrobat-reader"
   cask "calibre"
   cask "foxitreader"

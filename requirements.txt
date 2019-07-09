@@ -1,4 +1,5 @@
 bpython
+pipenv
 pycodestyle
 pydocstyle
 pyflakes

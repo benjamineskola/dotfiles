@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Copyright © 2001-2019 Python Software Foundation; All Rights Reserved
 # Copyright © 2019 Benjamin Eskola
 # Released under the PSF License https://docs.python.org/3/license.html

@@ -48,6 +48,8 @@ Thumbs.db
 *~
 .*.sw?
 \#*\#
+*.pyc
+.mypy_cache
 
 # Rubocop cached remote configs
 .rubocop-http*

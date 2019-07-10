@@ -1,5 +1,5 @@
 [flake8]
-select = C,D,E,F,W,B,B9
+select = C,D,E,F,W,N,B,B9
 ignore = E501
 max-complexity = 10
 max-line-length = 80

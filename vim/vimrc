@@ -58,7 +58,7 @@ set nrformats-=octal
 set number relativenumber
 set pastetoggle=<F10>
 set scrolloff=5
-set shell=/bin/bash
+set shell=/bin/sh
 set showcmd
 set ttimeout ttimeoutlen=50
 set viewoptions=folds
@@ -114,5 +114,4 @@ let g:sort_motion_flags = "i"
 
 " miscellaneous
 
-let $BASH_ENV = $XDG_CONFIG_HOME . "/bash_profile"
 autocmd BufEnter * if &buftype == 'help' && &columns > 120 && &columns == winwidth(0) | wincmd L | endif

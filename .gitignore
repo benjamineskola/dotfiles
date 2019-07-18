@@ -8,3 +8,4 @@
 !/_gnupg/*.conf
 /_ssh/id_*
 /_ssh/known_hosts
+/Gemfile.lock

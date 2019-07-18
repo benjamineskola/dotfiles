@@ -1,11 +1,11 @@
-/vim/autoload/plug.vim
-/vim/plugged/
 /fish/conf.d/01_iterm2_shell_integration.fish
 /fish/fish_variables
 /fish/functions/fundle.fish
 /fish/fundle
+/Gemfile.lock
 /_gnupg/*
 !/_gnupg/*.conf
 /_ssh/id_*
 /_ssh/known_hosts
-/Gemfile.lock
+/vim/autoload/plug.vim
+/vim/plugged/

@@ -16,3 +16,4 @@ nnoremap <Leader>a :Ack!<Space>
 map Q gq
 
 nmap <leader>d <Plug>DashSearch
+nmap <leader>m :make<cr>

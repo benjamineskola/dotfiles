@@ -60,6 +60,7 @@ set pastetoggle=<F10>
 set scrolloff=5
 set shell=/bin/sh
 set showcmd
+set spell spelllang=en_gb
 set ttimeout ttimeoutlen=50
 set viewoptions=folds
 set wildmenu

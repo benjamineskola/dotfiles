@@ -113,3 +113,4 @@ let g:sort_motion_flags = "i"
 " miscellaneous
 
 autocmd BufEnter * if &buftype == 'help' && &columns > 120 && &columns == winwidth(0) | wincmd L | endif
+highlight SpellBad guisp=red

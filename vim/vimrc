@@ -20,7 +20,6 @@ call plug#begin()
   Plug 'mileszs/ack.vim'
   Plug 'morhetz/gruvbox'
   Plug 'nelstrom/vim-textobj-rubyblock' | Plug 'kana/vim-textobj-user'
-  Plug 'neomake/neomake'
   Plug 'Raimondi/delimitMate'
   Plug 'rizzatti/dash.vim'
   Plug 'sheerun/vim-polyglot'
@@ -87,8 +86,9 @@ let g:airline_powerline_fonts = 1
 
 let g:ale_fix_on_save = 1
 let g:ale_fixers = { '*': ['remove_trailing_lines', 'trim_whitespace'] }
-let g:ale_linters_explicit = 1
-let g:ale_set_highlights = 0
+let g:ale_open_list = 1
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 1
 
 let g:delimitMate_expand_cr = 1
 let g:delimitMate_expand_space = 1
@@ -104,10 +104,6 @@ let g:Lf_WildIgnore = {
             \ 'file': []
             \}
 let g:Lf_ShowHidden = 1
-
-call neomake#configure#automake('nrwi', 500)
-autocmd! BufReadPost,BufWritePost,BufWinEnter * Neomake
-let g:neomake_open_list = 2
 
 let g:netrw_home = $XDG_CACHE_HOME . '/vim'
 

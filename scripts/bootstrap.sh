@@ -20,8 +20,8 @@ fi
 test -n "$(find "$HOME/.config/fish/conf.d" -maxdepth 1 -name 01_iterm2_shell_integration.fish -mtime +1)" &&
   curl https://iterm2.com/shell_integration/fish >"$HOME/.config/fish/conf.d/01_iterm2_shell_integration.fish"
 
-test -x "$(command -v brew)" && brew bundle --global install
+command -v brew && brew bundle --global install
 
-test -x "$(command -v bat)" && bat cache --build
-test -x "$(command -v pip3)" && pip3 install -r requirements.txt
-test -x "$(command -v yarn)" && xargs yarn global add <npm-globals.txt
+command -v bat && bat cache --build
+command -v pip3 && test -x "$(command -v python3)" && pip3 install -r requirements.txt
+command -v yarn && xargs yarn global add <npm-globals.txt

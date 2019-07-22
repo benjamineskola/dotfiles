@@ -16,4 +16,9 @@ nnoremap <Leader>a :Ack!<Space>
 map Q gq
 
 nmap <leader>d <Plug>DashSearch
-nmap <leader>m :make<cr>
+
+nmap <silent> <leader>n :TestNearest<CR>
+nmap <silent> <leader>m :TestFile<CR>
+nmap <silent> <leader>M :TestSuite<CR>
+nmap <silent> <leader>l :TestLast<CR>
+nmap <silent> <leader>v :TestVisit<CR>

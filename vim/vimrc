@@ -1,10 +1,13 @@
-set directory=$XDG_CACHE_HOME/vim,~/,/tmp
-set backupdir=$XDG_CACHE_HOME/vim,~/,/tmp
-set viewdir=$XDG_CACHE_HOME/vim/views
-set viminfo+=n$XDG_CACHE_HOME/vim/viminfo
-set runtimepath=$XDG_CONFIG_HOME/vim,$XDG_CONFIG_HOME/vim/after,$VIM,$VIMRUNTIME
+if !has('nvim')
+  set directory=$XDG_CACHE_HOME/vim,~/,/tmp
+  set backupdir=$XDG_CACHE_HOME/vim,~/,/tmp
+  set viewdir=$XDG_CACHE_HOME/vim/views
+  set viminfo+=n$XDG_CACHE_HOME/vim/viminfo
+  set runtimepath=$XDG_CONFIG_HOME/vim,$XDG_CONFIG_HOME/vim/after,$VIM,$VIMRUNTIME
 
-let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
+  let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
+endif
+
 
 if empty(glob($XDG_CONFIG_HOME . '/vim/autoload/plug.vim'))
   silent !curl -fLo $XDG_CONFIG_HOME/vim/autoload/plug.vim --create-dirs
@@ -45,7 +48,9 @@ set backspace=indent,eol,start
 set encoding=utf-8
 set foldmethod=marker
 set formatoptions+=j
-set guifont=Iosevka:h14
+if !has('nvim')
+  set guifont=Iosevka:h14
+endif
 set hidden
 set history=10000
 set hlsearch incsearch
@@ -69,6 +74,9 @@ set grepprg=rg\ --vimgrep\ $*
 set grepformat=%f:%l:%c:%m
 
 " appearance.
+if has('gui_vimr')
+  set termguicolors
+endif
 set bg=dark
 colo gruvbox
 syntax on
@@ -105,12 +113,19 @@ let g:Lf_WildIgnore = {
             \ 'file': []
             \}
 let g:Lf_ShowHidden = 1
+if has('nvim')
+  let g:python3_host_prog = $XDG_DATA_HOME . '/asdf/shims/python'
+endif
 
 let g:netrw_home = $XDG_CACHE_HOME . '/vim'
 
 let g:sort_motion_flags = "i"
 
-let test#strategy = 'vimterminal'
+if has('nvim')
+  let test#strategy = 'neovim'
+else
+  let test#strategy = 'vimterminal'
+endif
 
 " miscellaneous
 

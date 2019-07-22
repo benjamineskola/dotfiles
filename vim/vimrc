@@ -135,3 +135,9 @@ endif
 
 autocmd BufEnter * if &buftype == 'help' && &columns > 120 && &columns == winwidth(0) | wincmd L | endif
 highlight SpellBad guisp=red
+
+if has('nvim')
+  autocmd TermOpen * setlocal nonumber norelativenumber
+else
+  autocmd TerminalOpen * setlocal nonumber norelativenumber
+endif

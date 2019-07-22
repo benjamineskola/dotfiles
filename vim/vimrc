@@ -87,6 +87,7 @@ filetype plugin indent on
 " plugin settings
 let g:ackprg = 'rg --vimgrep --hidden'
 
+let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline#extensions#tabline#tab_nr_type = 2

@@ -1,8 +1,9 @@
 source "https://rubygems.org"
 
+gem "neovim"
 gem "pry"
 gem "rspec"
 gem "rubocop"
-gem "rubocop-rspec"
 gem "rubocop-performance"
 gem "rubocop-rails"
+gem "rubocop-rspec"

@@ -9,3 +9,4 @@ pep8-naming
 pipenv
 pydocstyle<4.0
 pynvim
+vint

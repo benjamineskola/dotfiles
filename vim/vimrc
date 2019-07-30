@@ -19,6 +19,7 @@ call plug#begin()
   Plug 'benjamineskola/vim-applescript'
   Plug 'christoomey/vim-sort-motion' | Plug 'kana/vim-textobj-indent'
   Plug 'ervandew/supertab'
+  Plug 'davidhalter/jedi-vim'
   Plug 'janko/vim-test'
   Plug 'mileszs/ack.vim'
   Plug 'morhetz/gruvbox'
@@ -105,6 +106,8 @@ let g:delimitMate_expand_space = 1
 let g:gundo_prefer_python3 = 1
 
 let g:indentLine_char = '⎸'
+
+let g:jedi#use_tabs_not_buffers = 1
 
 let g:Lf_CacheDirectory = $XDG_CACHE_HOME
 let g:Lf_CommandMap = {'<C-T>': ['<CR>']}

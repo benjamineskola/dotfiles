@@ -11,7 +11,7 @@
       "Keyboard Map": {
         "0x76-0x180000": {
           "Action": 41,
-          "Text": "{\"ConvertUnicodePunctuation\":true,\"WaitForPrompts\":false,\"Substitution\":\"\",\"EscapeForShell\":true,\"Base64\":false,\"TabStopSize\":4,\"Delay\":0.01,\"RemoveNewlines\":false,\"Regex\":\"\",\"ConvertNewlines\":true,\"TabTransform\":0,\"BracketAllowed\":true,\"UseRegexSubstitution\":false,\"ChunkSize\":1024,\"RemoveControls\":true}"
+          "Text": "{\"ConvertUnicodePunctuation\":false,\"WaitForPrompts\":false,\"Substitution\":\"\",\"EscapeForShell\":true,\"Base64\":false,\"TabStopSize\":4,\"Delay\":0.01,\"RemoveNewlines\":false,\"Regex\":\"\",\"ConvertNewlines\":true,\"TabTransform\":0,\"BracketAllowed\":true,\"UseRegexSubstitution\":false,\"ChunkSize\":1024,\"RemoveControls\":true}"
         }
       },
       "Normal Font": "Iosevka 14",

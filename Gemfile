@@ -8,4 +8,4 @@ gem "rubocop-performance"
 gem "rubocop-rails"
 gem "rubocop-rspec"
 
-gem "solargraph", "~> 0.18.0"
+gem "solargraph"

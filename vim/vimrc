@@ -29,6 +29,7 @@ call plug#begin()
   Plug 'sheerun/vim-polyglot'
   Plug 'sjl/gundo.vim'
   Plug 'sjl/splice.vim'
+  Plug 'tibabit/vim-templates'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-endwise'
   Plug 'tpope/vim-eunuch'
@@ -146,6 +147,8 @@ let g:Lf_ShowHidden = 1
 let g:netrw_home = $XDG_CACHE_HOME . '/vim'
 
 let g:sort_motion_flags = 'i'
+
+let g:tmpl_search_paths = [$XDG_CONFIG_HOME . '/vim/templates']
 
 if has('nvim')
   let test#strategy = 'neovim'

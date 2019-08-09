@@ -9,4 +9,4 @@ pep8-naming
 pipenv
 pynvim
 solargraph-utils.py
-vint
+vim-vint

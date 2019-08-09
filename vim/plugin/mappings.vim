@@ -1,8 +1,8 @@
-let mapleader = ","
+let mapleader = ','
 
 nmap <C-l> :nohl<CR>:redraw<CR>
 
-let g:nremap = {"]t": "", "[t": ""}
+let g:nremap = {']t': '', '[t': ''}
 map ]t gt
 map [t gT
 

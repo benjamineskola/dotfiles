@@ -130,8 +130,6 @@ let g:deoplete#enable_at_startup = 1
 
 let g:gundo_prefer_python3 = 1
 
-let g:indentLine_char = '⎸'
-
 let g:jedi#completions_enabled = 0
 let g:jedi#use_tabs_not_buffers = 1
 
@@ -145,6 +143,7 @@ let g:Lf_WildIgnore = {
             \ 'dir': ['Library', 'Applications', '.git'],
             \ 'file': []
             \}
+let g:Lf_RecurseSubmodules = 1
 let g:Lf_ShowHidden = 1
 
 let g:netrw_home = $XDG_CACHE_HOME . '/vim'

@@ -37,6 +37,7 @@ call plug#begin()
   Plug 'tpope/vim-endwise'
   Plug 'tpope/vim-eunuch'
   Plug 'tpope/vim-repeat'
+  Plug 'tpope/vim-sensible'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-unimpaired'
   Plug 'vim-airline/vim-airline'
@@ -64,24 +65,18 @@ call plug#begin()
 call plug#end()
 " }}}
 
-set autoindent
-set autoread
-set backspace=indent,eol,start
 set encoding=utf-8
 set foldmethod=marker
-set formatoptions+=j
 if !has('nvim')
   set guifont=Iosevka:h14
 endif
 set hidden
 set history=10000
-set hlsearch incsearch
+set hlsearch
 set ignorecase smartcase
-set laststatus=2
 set mouse+=a
 set nofsync
 set nomodeline
-set nrformats-=octal
 set number relativenumber
 set pastetoggle=<F10>
 set scrolloff=5
@@ -89,9 +84,7 @@ set shell=/bin/sh\ -i
 set showcmd
 set signcolumn=yes
 set spell spelllang=en_gb
-set ttimeout ttimeoutlen=50
 set viewoptions=folds
-set wildmenu
 
 set grepprg=rg\ --vimgrep\ $*
 set grepformat=%f:%l:%c:%m
@@ -102,10 +95,6 @@ if has('gui_vimr')
 endif
 set background=dark
 colo gruvbox
-syntax on
-
-" filetype stuff.
-filetype plugin indent on
 
 " plugin settings
 let g:ackprg = 'rg --vimgrep --hidden'

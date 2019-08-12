@@ -22,3 +22,5 @@ nmap <silent> <leader>m :TestFile<CR>
 nmap <silent> <leader>M :TestSuite<CR>
 nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>v :TestVisit<CR>
+
+cnoremap        <C-A> <Home>

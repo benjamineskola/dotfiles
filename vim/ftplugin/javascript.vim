@@ -2,4 +2,4 @@ set expandtab
 set shiftwidth=2
 set softtabstop=2
 
-let b:ale_fixers = ['eslint', 'prettier']
+let b:ale_fixers = ['standard', 'prettier']

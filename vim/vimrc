@@ -116,7 +116,10 @@ let g:LanguageClient_serverCommands = {
 
 let g:Lf_CacheDirectory = $XDG_CACHE_HOME
 let g:Lf_CommandMap = {'<C-T>': ['<CR>']}
-let g:Lf_WildIgnore['dir'] = ['Library', 'Applications', '.git']
+let g:Lf_WildIgnore = {
+            \ 'dir': ['Library', 'Applications', '.git'],
+            \ 'file': []
+            \}
 let g:Lf_RecurseSubmodules = 1
 let g:Lf_ShowHidden = 1
 

@@ -7,6 +7,8 @@ if !filereadable('/usr/local/opt/asdf/asdf.sh')
   finish
 endif
 
+let &shell = &shell . ' -i'
+
 let $ASDF_CONFIG_FILE = $XDG_CONFIG_HOME . '/asdfrc'
 let $ASDF_DATA_DIR = $XDG_DATA_HOME . '/asdf'
 let $ASDF_DEFAULT_TOOL_VERSIONS_FILENAME = $XDG_CONFIG_HOME . '/tool-versions'

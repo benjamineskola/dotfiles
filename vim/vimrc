@@ -24,7 +24,7 @@ set nomodeline
 set number relativenumber
 set pastetoggle=<F10>
 set scrolloff=5
-set shell=/bin/sh\ -i
+set shell=/bin/sh
 set showcmd
 set signcolumn=yes
 set spell spelllang=en_gb

@@ -1,2 +1,3 @@
 standard
 prettier
+prettier-standard

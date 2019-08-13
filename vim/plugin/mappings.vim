@@ -24,3 +24,11 @@ nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>v :TestVisit<CR>
 
 cnoremap        <C-A> <Home>
+
+" reformat selection/paragraph
+vnoremap Q gw
+nnoremap Q gwap
+
+" close buffer/window
+nnoremap <leader>q :bd<CR>
+nnoremap <leader>Q :q<CR>

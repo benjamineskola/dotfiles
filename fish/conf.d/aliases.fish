@@ -18,3 +18,4 @@ alias lsd 'ls -d'
 
 alias vi "$EDITOR -p"
 alias vim vi
+alias mvim vimr

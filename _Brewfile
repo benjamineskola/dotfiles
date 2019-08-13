@@ -30,7 +30,6 @@ brew "shfmt"
 brew "ssh-askpass"
 brew "trash"
 brew "wget"
-brew "yarn"
 
 # for ruby
 brew "gdbm"

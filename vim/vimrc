@@ -67,9 +67,8 @@ call plug#end()
 
 set encoding=utf-8
 set foldmethod=marker
-if !has('nvim')
-  set guifont=Iosevka:h14
-endif
+set grepformat=%f:%l:%c:%m
+set grepprg=rg\ --vimgrep\ $*
 set hidden
 set history=10000
 set hlsearch
@@ -86,17 +85,6 @@ set signcolumn=yes
 set spell spelllang=en_gb
 set viewoptions=folds
 
-set grepprg=rg\ --vimgrep\ $*
-set grepformat=%f:%l:%c:%m
-
-" appearance.
-if has('gui_vimr')
-  set termguicolors
-endif
-set background=dark
-colo gruvbox
-
-" plugin settings
 let g:ackprg = 'rg --vimgrep --hidden'
 
 let g:airline#extensions#ale#enabled = 1
@@ -128,10 +116,7 @@ let g:LanguageClient_serverCommands = {
 
 let g:Lf_CacheDirectory = $XDG_CACHE_HOME
 let g:Lf_CommandMap = {'<C-T>': ['<CR>']}
-let g:Lf_WildIgnore = {
-            \ 'dir': ['Library', 'Applications', '.git'],
-            \ 'file': []
-            \}
+let g:Lf_WildIgnore['dir'] = ['Library', 'Applications', '.git']
 let g:Lf_RecurseSubmodules = 1
 let g:Lf_ShowHidden = 1
 
@@ -146,21 +131,3 @@ if has('nvim')
 else
   let test#strategy = 'vimterminal'
 endif
-
-" miscellaneous
-
-highlight SpellBad guisp=red
-
-augroup help_resize
-  autocmd!
-  autocmd BufEnter * if &buftype == 'help' && &columns > 120 && &columns == winwidth(0) | wincmd L | endif
-augroup END
-
-augroup terminal_settings
-  autocmd!
-  if has('nvim')
-    autocmd TermOpen * setlocal nonumber norelativenumber
-  else
-    autocmd TerminalOpen * setlocal nonumber norelativenumber
-  endif
-augroup END

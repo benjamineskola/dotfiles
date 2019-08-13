@@ -10,6 +10,7 @@ endif
 
 runtime plugins.vim
 
+set clipboard=unnamed
 set encoding=utf-8
 set foldmethod=marker
 set grepformat=%f:%l:%c:%m

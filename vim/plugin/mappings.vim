@@ -32,3 +32,8 @@ nnoremap Q gwap
 " close buffer/window
 nnoremap <leader>q :bd<CR>
 nnoremap <leader>Q :q<CR>
+
+" better regexes for search
+nnoremap / /\v
+vnoremap / /\v
+cnoremap s/ s/\v

@@ -31,7 +31,7 @@
 	default = current
 [user]
 	name = Benjamin Eskola
-	email = ben@eskola.me.uk
+	email = ben@eskola.uk
 [log]
 	abbrevCommit = true
 	decorate = true

@@ -6,6 +6,7 @@
 /Gemfile.lock
 /_gnupg/*
 !/_gnupg/*.conf
+/src
 /_ssh/id_*
 /_ssh/known_hosts
 /vim/autoload/plug.vim

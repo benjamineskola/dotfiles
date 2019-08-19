@@ -31,6 +31,10 @@ set signcolumn=yes
 set spell spelllang=en_gb
 set viewoptions=folds
 
+if has('nvim')
+  set inccommand=nosplit
+endif
+
 let g:ackprg = 'rg --vimgrep --hidden'
 
 let g:airline#extensions#ale#enabled = 1

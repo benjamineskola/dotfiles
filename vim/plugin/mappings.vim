@@ -39,3 +39,6 @@ vnoremap / /\v
 cnoreabbrev s sm
 cnoreabbrev %s %sm
 cnoreabbrev '<,'>s '<,'>sm
+
+" allow semicolon instead of colon for command mode
+nnoremap ; :

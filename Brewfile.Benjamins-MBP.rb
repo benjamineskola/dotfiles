@@ -1,8 +1,5 @@
 brew "get_iplayer"
-cask "adobe-acrobat-reader"
 cask "calibre"
-cask "foxitreader"
-cask "papers"
 cask "skype"
 cask "steam"
 cask "transmission"

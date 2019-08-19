@@ -36,4 +36,6 @@ nnoremap <leader>Q :q<CR>
 " better regexes for search
 nnoremap / /\v
 vnoremap / /\v
-cnoremap s/ s/\v
+cnoreabbrev s sm
+cnoreabbrev %s %sm
+cnoreabbrev '<,'>s '<,'>sm

@@ -3,6 +3,7 @@ if !has('nvim')
   set backupdir=$XDG_CACHE_HOME/vim,~/,/tmp
   set viewdir=$XDG_CACHE_HOME/vim/views
   set viminfo+=n$XDG_CACHE_HOME/vim/viminfo
+  set undodir=$XDG_CACHE_HOME/vim/undo
   set runtimepath=$XDG_CONFIG_HOME/vim,$XDG_CONFIG_HOME/vim/after,$VIM,$VIMRUNTIME
 
   let $MYVIMRC=$XDG_CONFIG_HOME . '/vim/vimrc'
@@ -30,6 +31,7 @@ set showcmd
 set signcolumn=yes
 set spell spelllang=en_gb
 set viewoptions=folds
+set undofile
 
 if has('nvim')
   set inccommand=nosplit

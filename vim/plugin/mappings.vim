@@ -6,7 +6,7 @@ let g:nremap = {']t': '', '[t': ''}
 map ]t gt
 map [t gT
 
-nnoremap <leader>u :GundoToggle<CR>
+nnoremap <leader>u <cmd>GundoToggle<CR>
 
 cnoreabbrev Ack Ack!
 nnoremap <Leader>a :Ack!<Space>
@@ -15,11 +15,11 @@ map Q gq
 
 nmap <leader>d <Plug>DashSearch
 
-nmap <silent> <leader>n :TestNearest<CR>
-nmap <silent> <leader>m :TestFile<CR>
-nmap <silent> <leader>M :TestSuite<CR>
-nmap <silent> <leader>l :TestLast<CR>
-nmap <silent> <leader>v :TestVisit<CR>
+nmap <silent> <leader>n <cmd>TestNearest<CR>
+nmap <silent> <leader>m <cmd>TestFile<CR>
+nmap <silent> <leader>M <cmd>TestSuite<CR>
+nmap <silent> <leader>l <cmd>TestLast<CR>
+nmap <silent> <leader>v <cmd>TestVisit<CR>
 
 cnoremap        <C-A> <Home>
 
@@ -28,8 +28,8 @@ vnoremap Q gw
 nnoremap Q gwap
 
 " close buffer/window
-nnoremap <leader>q :bd<CR>
-nnoremap <leader>Q :q<CR>
+nnoremap <leader>q <cmd>bd<CR>
+nnoremap <leader>Q <cmd>q<CR>
 
 " better regexes for search
 nnoremap / /\v

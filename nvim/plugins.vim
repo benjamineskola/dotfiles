@@ -1,5 +1,5 @@
-if empty(glob($XDG_CONFIG_HOME . '/vim/autoload/plug.vim'))
-  silent !curl -fLo $XDG_CONFIG_HOME/vim/autoload/plug.vim --create-dirs
+if empty(glob(stdpath('config') . '/autoload/plug.vim'))
+  silent !curl -fLo $XDG_CONFIG_HOME/nvim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   augroup vimplug_install
     autocmd!
@@ -35,15 +35,8 @@ call plug#begin()
   Plug 'Yggdroot/indentLine'
   Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 
-  if has('nvim')
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  else
-    Plug 'Shougo/deoplete.nvim'
-    Plug 'roxma/nvim-yarp'
-    Plug 'roxma/vim-hug-neovim-rpc'
-  endif
-
-  " Deoplete sources
+  " Deoplete and sources
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'deoplete-plugins/deoplete-jedi' " python
   Plug 'Shougo/neco-vim' " vim
   Plug 'Shougo/neco-syntax' " language syntax

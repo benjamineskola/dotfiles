@@ -1,18 +1,6 @@
-if !has('nvim')
-  set directory=$XDG_CACHE_HOME/vim,~/,/tmp
-  set backupdir=$XDG_CACHE_HOME/vim,~/,/tmp
-  set viewdir=$XDG_CACHE_HOME/vim/views
-  set viminfo+=n$XDG_CACHE_HOME/vim/viminfo
-  set undodir=$XDG_CACHE_HOME/vim/undo
-  set runtimepath=$XDG_CONFIG_HOME/vim,$XDG_CONFIG_HOME/vim/after,$VIM,$VIMRUNTIME
-
-  let $MYVIMRC=$XDG_CONFIG_HOME . '/vim/vimrc'
-endif
-
 runtime plugins.vim
 
 set clipboard=unnamed
-set encoding=utf-8
 set foldmethod=marker
 set grepformat=%f:%l:%c:%m
 set grepprg=rg\ --vimgrep\ $*
@@ -20,22 +8,17 @@ set hidden
 set history=10000
 set hlsearch
 set ignorecase smartcase
+set inccommand=nosplit
 set mouse+=a
-set nofsync
 set nomodeline
 set number relativenumber
 set pastetoggle=<F10>
 set scrolloff=5
 set shell=/bin/sh
-set showcmd
 set signcolumn=yes
 set spell spelllang=en_gb
-set viewoptions=folds
 set undofile
-
-if has('nvim')
-  set inccommand=nosplit
-endif
+set viewoptions=folds
 
 let g:ackprg = 'rg --vimgrep --hidden'
 
@@ -81,8 +64,4 @@ let g:sort_motion_flags = 'i'
 
 let g:tmpl_search_paths = [$XDG_CONFIG_HOME . '/vim/templates']
 
-if has('nvim')
-  let test#strategy = 'neovim'
-else
-  let test#strategy = 'vimterminal'
-endif
+let test#strategy = 'neovim'

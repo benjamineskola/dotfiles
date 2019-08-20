@@ -49,7 +49,7 @@ let g:LanguageClient_serverCommands = {
     \ 'ruby': [ $ASDF_DATA_DIR . '/shims/solargraph', 'stdio'],
     \ }
 
-let g:Lf_CacheDirectory = $XDG_CACHE_HOME
+let g:Lf_CacheDirectory = stdpath('cache')
 let g:Lf_CommandMap = {'<C-T>': ['<CR>']}
 let g:Lf_WildIgnore = {
             \ 'dir': ['Library', 'Applications', '.git'],
@@ -58,10 +58,10 @@ let g:Lf_WildIgnore = {
 let g:Lf_RecurseSubmodules = 1
 let g:Lf_ShowHidden = 1
 
-let g:netrw_home = $XDG_CACHE_HOME . '/vim'
+let g:netrw_home = stdpath('cache')
 
 let g:sort_motion_flags = 'i'
 
-let g:tmpl_search_paths = [$XDG_CONFIG_HOME . '/vim/templates']
+let g:tmpl_search_paths = [stdpath('config') . '/templates']
 
 let test#strategy = 'neovim'

@@ -2,10 +2,6 @@ let mapleader = ','
 
 nmap <C-l> :nohl<CR>:redraw<CR>
 
-let g:nremap = {']t': '', '[t': ''}
-map ]t gt
-map [t gT
-
 nnoremap <leader>u <cmd>GundoToggle<CR>
 
 cnoreabbrev Ack Ack!
@@ -45,10 +41,14 @@ nnoremap ; :
 nmap Q <nop>
 
 " edit/source vim configs
-nmap <leader>vv <cmd>tabedit $MYVIMRC<CR>
-nmap <expr> <leader>vp '<cmd>tabedit ' . stdpath('config') . '/plugins.vim<CR>'
-nmap <expr> <leader>vm '<cmd>tabedit ' . stdpath('config') . '/plugin/mappings.vim<CR>'
+nmap <leader>vv <cmd>edit $MYVIMRC<CR>
+nmap <expr> <leader>vp '<cmd>edit ' . stdpath('config') . '/plugins.vim<CR>'
+nmap <expr> <leader>vm '<cmd>edit ' . stdpath('config') . '/plugin/mappings.vim<CR>'
 
 nmap <leader>sv <cmd>source $MYVIMRC<CR>
 nmap <leader>sp <cmd>runtime plugins.vim<CR>
 nmap <leader>sm <cmd>runtime plugin/mappings.vim<CR>
+
+" prefer buffers to tabs
+cnoreabbrev tabedit edit
+cnoreabbrev tabe e

@@ -43,7 +43,6 @@ let g:deoplete#enable_at_startup = 1
 let g:gundo_prefer_python3 = 1
 
 let g:jedi#completions_enabled = 0
-let g:jedi#use_tabs_not_buffers = 1
 
 let g:LanguageClient_serverCommands = {
     \ 'ruby': [ $ASDF_DATA_DIR . '/shims/solargraph', 'stdio'],

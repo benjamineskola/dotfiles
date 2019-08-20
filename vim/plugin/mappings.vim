@@ -40,3 +40,6 @@ cnoreabbrev '<,'>s '<,'>sm
 
 " allow semicolon instead of colon for command mode
 nnoremap ; :
+
+" avoid ex mode
+nmap Q <nop>

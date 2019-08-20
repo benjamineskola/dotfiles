@@ -15,11 +15,11 @@ map Q gq
 
 nmap <leader>d <Plug>DashSearch
 
-nmap <silent> <leader>n <cmd>TestNearest<CR>
-nmap <silent> <leader>m <cmd>TestFile<CR>
-nmap <silent> <leader>M <cmd>TestSuite<CR>
-nmap <silent> <leader>l <cmd>TestLast<CR>
-nmap <silent> <leader>v <cmd>TestVisit<CR>
+nmap <silent> <leader>tn <cmd>TestNearest<CR>
+nmap <silent> <leader>tf <cmd>TestFile<CR>
+nmap <silent> <leader>ts <cmd>TestSuite<CR>
+nmap <silent> <leader>tl <cmd>TestLast<CR>
+nmap <silent> <leader>tv <cmd>TestVisit<CR>
 
 cnoremap        <C-A> <Home>
 
@@ -43,3 +43,12 @@ nnoremap ; :
 
 " avoid ex mode
 nmap Q <nop>
+
+" edit/source vim configs
+nmap <leader>vv <cmd>tabedit $MYVIMRC<CR>
+nmap <expr> <leader>vp '<cmd>tabedit ' . stdpath('config') . '/plugins.vim<CR>'
+nmap <expr> <leader>vm '<cmd>tabedit ' . stdpath('config') . '/plugin/mappings.vim<CR>'
+
+nmap <leader>sv <cmd>source $MYVIMRC<CR>
+nmap <leader>sp <cmd>runtime plugins.vim<CR>
+nmap <leader>sm <cmd>runtime plugin/mappings.vim<CR>

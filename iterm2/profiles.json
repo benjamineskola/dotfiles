@@ -5,7 +5,7 @@
       "Guid": "1CDE98C5-A670-4E7A-B13F-0924282ADA35",
       "ASCII Anti Aliased": true,
       "ASCII Ligatures": false,
-      "Command": "/usr/local/bin/fish",
+      "Command": "/usr/local/bin/fish -i",
       "Custom Command": "Yes",
       "Draw Powerline Glyphs": true,
       "Keyboard Map": {

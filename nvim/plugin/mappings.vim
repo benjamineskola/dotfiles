@@ -1,6 +1,6 @@
 let mapleader = ','
 
-nmap <C-L> :nohl<CR>:redraw<CR>
+nnoremap <Leader>l <Cmd>nohl<CR>
 
 nnoremap <Leader>u <Cmd>MundoToggle<CR>
 

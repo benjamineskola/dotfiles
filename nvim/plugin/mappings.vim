@@ -2,7 +2,7 @@ let mapleader = ','
 
 nmap <C-l> :nohl<CR>:redraw<CR>
 
-nnoremap <leader>u <cmd>GundoToggle<CR>
+nnoremap <leader>u <cmd>MundoToggle<CR>
 
 cnoreabbrev Ack Ack!
 nnoremap <Leader>a :Ack!<Space>

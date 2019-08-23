@@ -20,7 +20,7 @@ call plug#begin()
   Plug 'Raimondi/delimitMate'
   Plug 'rizzatti/dash.vim'
   Plug 'sheerun/vim-polyglot'
-  Plug 'sjl/gundo.vim'
+  Plug 'simnalamburt/vim-mundo'
   Plug 'sjl/splice.vim'
   Plug 'tibabit/vim-templates'
   Plug 'tpope/vim-commentary'

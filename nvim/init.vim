@@ -40,8 +40,6 @@ let g:delimitMate_expand_space = 1
 
 let g:deoplete#enable_at_startup = 1
 
-let g:gundo_prefer_python3 = 1
-
 let g:jedi#completions_enabled = 0
 
 let g:LanguageClient_serverCommands = {
@@ -55,6 +53,8 @@ let g:Lf_WildIgnore = {
             \}
 let g:Lf_RecurseSubmodules = 1
 let g:Lf_ShowHidden = 1
+
+let g:mundo_prefer_python3 = 1
 
 let g:netrw_home = stdpath('cache')
 

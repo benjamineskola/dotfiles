@@ -1,8 +1,9 @@
 /configstore/update-notifier-npm.json
 /fish/conf.d/01_iterm2_shell_integration.fish
 /fish/fish_variables
-/fish/functions/fundle.fish
-/fish/fundle
+/fish/functions/fisher.fish
+/fish/fisher/*
+!/fish/fisher/fishfile
 /Gemfile.lock
 /_gnupg/*
 !/_gnupg/*.conf

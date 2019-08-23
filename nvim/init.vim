@@ -49,7 +49,6 @@ let g:LanguageClient_serverCommands = {
     \ }
 
 let g:Lf_CacheDirectory = stdpath('cache')
-let g:Lf_CommandMap = {'<C-T>': ['<CR>']}
 let g:Lf_WildIgnore = {
             \ 'dir': ['Library', 'Applications', '.git'],
             \ 'file': []

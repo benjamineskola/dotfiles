@@ -1,21 +1,21 @@
 let mapleader = ','
 
-nmap <C-l> :nohl<CR>:redraw<CR>
+nmap <C-L> :nohl<CR>:redraw<CR>
 
-nnoremap <leader>u <cmd>MundoToggle<CR>
+nnoremap <Leader>u <Cmd>MundoToggle<CR>
 
 cnoreabbrev Ack Ack!
 nnoremap <Leader>a :Ack!<Space>
 
 map Q gq
 
-nmap <leader>d <Plug>DashSearch
+nmap <Leader>d <Plug>DashSearch
 
-nmap <silent> <leader>tn <cmd>TestNearest<CR>
-nmap <silent> <leader>tf <cmd>TestFile<CR>
-nmap <silent> <leader>ts <cmd>TestSuite<CR>
-nmap <silent> <leader>tl <cmd>TestLast<CR>
-nmap <silent> <leader>tv <cmd>TestVisit<CR>
+nmap <silent> <Leader>tn <Cmd>TestNearest<CR>
+nmap <silent> <Leader>tf <Cmd>TestFile<CR>
+nmap <silent> <Leader>ts <Cmd>TestSuite<CR>
+nmap <silent> <Leader>tl <Cmd>TestLast<CR>
+nmap <silent> <Leader>tv <Cmd>TestVisit<CR>
 
 cnoremap        <C-A> <Home>
 
@@ -24,8 +24,8 @@ vnoremap Q gw
 nnoremap Q gwap
 
 " close buffer/window
-nnoremap <leader>q <cmd>bd<CR>
-nnoremap <leader>Q <cmd>q<CR>
+nnoremap <Leader>q <Cmd>bd<CR>
+nnoremap <Leader>Q <Cmd>q<CR>
 
 " better regexes for search
 nnoremap / /\v
@@ -41,13 +41,13 @@ nnoremap ; :
 nmap Q <nop>
 
 " edit/source vim configs
-nmap <leader>vv <cmd>edit $MYVIMRC<CR>
-nmap <expr> <leader>vp '<cmd>edit ' . stdpath('config') . '/plugins.vim<CR>'
-nmap <expr> <leader>vm '<cmd>edit ' . stdpath('config') . '/plugin/mappings.vim<CR>'
+nmap <Leader>vv <Cmd>edit $MYVIMRC<CR>
+nmap <expr> <Leader>vp '<Cmd>edit ' . stdpath('config') . '/plugins.vim<CR>'
+nmap <expr> <Leader>vm '<Cmd>edit ' . stdpath('config') . '/plugin/mappings.vim<CR>'
 
-nmap <leader>sv <cmd>source $MYVIMRC<CR>
-nmap <leader>sp <cmd>runtime plugins.vim<CR>
-nmap <leader>sm <cmd>runtime plugin/mappings.vim<CR>
+nmap <Leader>sv <Cmd>source $MYVIMRC<CR>
+nmap <Leader>sp <Cmd>runtime plugins.vim<CR>
+nmap <Leader>sm <Cmd>runtime plugin/mappings.vim<CR>
 
 " prefer buffers to tabs
 cnoreabbrev tabedit edit

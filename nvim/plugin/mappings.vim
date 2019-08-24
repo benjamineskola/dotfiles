@@ -4,8 +4,8 @@ nnoremap <Leader>l <Cmd>nohl<CR>
 
 nnoremap <Leader>u <Cmd>MundoToggle<CR>
 
-cnoreabbrev Ack Ack!
-nnoremap <Leader>a :Ack!<Space>
+nnoremap <Leader>a :Rg<Space>
+nnoremap <Leader>f <Cmd>Files<CR>
 
 map Q gq
 

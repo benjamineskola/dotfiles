@@ -20,8 +20,6 @@ set spell spelllang=en_gb
 set undofile
 set viewoptions=folds
 
-let g:ackprg = 'rg --vimgrep --hidden'
-
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
@@ -45,14 +43,6 @@ let g:jedi#completions_enabled = 0
 let g:LanguageClient_serverCommands = {
     \ 'ruby': [ $ASDF_DATA_DIR . '/shims/solargraph', 'stdio'],
     \ }
-
-let g:Lf_CacheDirectory = stdpath('cache')
-let g:Lf_WildIgnore = {
-            \ 'dir': ['Library', 'Applications', '.git'],
-            \ 'file': []
-            \}
-let g:Lf_RecurseSubmodules = 1
-let g:Lf_ShowHidden = 1
 
 let g:mundo_prefer_python3 = 1
 

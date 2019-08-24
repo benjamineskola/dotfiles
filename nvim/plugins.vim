@@ -8,13 +8,15 @@ if empty(glob(stdpath('config') . '/autoload/plug.vim'))
 endif
 
 call plug#begin()
+  Plug '/usr/local/opt/fzf'
+
   Plug 'airblade/vim-gitgutter'
   Plug 'benjamineskola/vim-applescript'
   Plug 'christoomey/vim-sort-motion' | Plug 'kana/vim-textobj-indent'
   Plug 'davidhalter/jedi-vim'
   Plug 'ervandew/supertab'
   Plug 'janko/vim-test'
-  Plug 'mileszs/ack.vim'
+  Plug 'junegunn/fzf.vim'
   Plug 'morhetz/gruvbox'
   Plug 'nelstrom/vim-textobj-rubyblock' | Plug 'kana/vim-textobj-user'
   Plug 'Raimondi/delimitMate'
@@ -33,7 +35,6 @@ call plug#begin()
   Plug 'vim-airline/vim-airline'
   Plug 'w0rp/ale'
   Plug 'Yggdroot/indentLine'
-  Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 
   " Deoplete and sources
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }

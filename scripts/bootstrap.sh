@@ -20,8 +20,4 @@ fi
 test -z "$(find "$HOME/.config/fish/conf.d" -maxdepth 1 -name zzz_iterm2_shell_integration.fish -mtime -1)" &&
   curl https://iterm2.com/shell_integration/fish >"$HOME/.config/fish/conf.d/zzz_iterm2_shell_integration.fish"
 
-command -v brew && brew bundle --global install | grep -v '^Using'
-
 command -v bat && bat cache --build
-command -v pip3 && test -x "$(command -v python3)" && pip3 install --upgrade pip && pip3 install -r requirements.txt | grep -v '^Requirement already satisfied'
-command -v npm && xargs npm install --silent -g <npm-globals.txt

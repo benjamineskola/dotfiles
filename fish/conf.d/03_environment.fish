@@ -1,5 +1,6 @@
-export BUNDLER_CACHE_HOME="$XDG_CACHE_HOME/bundler"
-export BUNDLER_USER_HOME="$XDG_CONFIG_HOME/bundler"
+export BUNDLE_USER_CACHE="$XDG_CACHE_HOME/bundler"
+export BUNDLE_USER_HOME="$XDG_CONFIG_HOME/bundler"
+
 export EDITOR=nvim
 export LESS=-ImRswFX
 export LESSHISTFILE="$XDG_CACHE_HOME/less_history"

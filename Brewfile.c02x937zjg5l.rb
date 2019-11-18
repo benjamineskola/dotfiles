@@ -1,7 +1,0 @@
-brew "awscli"
-brew "awslogs"
-brew "cassandra@2.2"
-brew "docker-compose"
-brew "postgis"
-brew "s3cmd"
-brew "terraform"

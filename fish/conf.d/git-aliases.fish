@@ -16,4 +16,4 @@ if test $_git_version[2] -gt 12
     alias gswc 'git switch -c'
 end
 
-set -x PATH /usr/local/share/git-core/contrib/diff-highlight/ $PATH
+set fish_user_paths $fish_user_paths /usr/local/share/git-core/contrib/diff-highlight/

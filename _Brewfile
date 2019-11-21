@@ -38,8 +38,6 @@ brew "readline"
 
 cask "alfred"
 cask "dash"
-cask "dropbox"
-cask "font-inconsolata-lgc"
 cask "font-iosevka"
 cask "iterm2"
 cask "vimr"

@@ -1,5 +1,7 @@
-inherit_from:
-  - "https://raw.githubusercontent.com/thoughtbot/guides/master/style/ruby/.rubocop.yml"
+inherit_gem:
+  rubocop-govuk:
+    - config/default.yml
+    - config/rails.yml
 require:
   - rubocop-performance
   - rubocop-rails

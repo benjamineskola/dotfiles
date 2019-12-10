@@ -5,15 +5,18 @@ for i in _* private/_*; do
 done
 
 if [ "$(uname -s)" = Darwin ]; then
-  test -d LaunchAgents && mkdir -p ~/Library/LaunchAgents
-  for i in LaunchAgents/*.yml; do
-    scripts/yaml2plist.rb "$i" >"$HOME/Library/LaunchAgents/$(basename "$i" .yml).plist"
-  done
-  for i in LaunchAgents/*.plist; do
-    test -e "$i" &&
-      ln -f "$HOME/.config/$i" "$HOME/Library/LaunchAgents"
-  done
+  if [ "$(hostname -s)" = Benjamins-MBP ]; then
+    test -d LaunchAgents && mkdir -p ~/Library/LaunchAgents
+    for i in LaunchAgents/*.yml; do
+      scripts/yaml2plist.rb "$i" >"$HOME/Library/LaunchAgents/$(basename "$i" .yml).plist"
+    done
+    for i in LaunchAgents/*.plist; do
+      test -e "$i" &&
+        ln -f "$HOME/.config/$i" "$HOME/Library/LaunchAgents"
+    done
+  fi
 
+  mkdir -p "$HOME/Library/Application Support/iTerm2"
   ln -sfhF ../../../.config/iterm2 "$HOME/Library/Application Support/iTerm2/DynamicProfiles"
 fi
 

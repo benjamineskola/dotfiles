@@ -47,3 +47,6 @@
 [mergetool "splice"]
 	cmd = "$EDITOR -f $BASE $LOCAL $REMOTE $MERGED -c 'SpliceInit'"
 	trustExitCode = true
+
+[includeIf "gitdir:govuk/"]
+  path = ~/.config/git/config.work

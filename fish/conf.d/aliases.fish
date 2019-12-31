@@ -16,3 +16,5 @@ alias lsd 'ls -d'
 alias vi $EDITOR
 alias vim vi
 alias mvim vimr
+
+alias listcops 'rubocop -fo'

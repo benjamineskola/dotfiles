@@ -1,9 +1,16 @@
 function print_aliases --on-event fish_preexec
-    set subcommands (string split '|' (string replace -r '\s*\|\s*' '|' $argv))
+    set subcommands (string replace -ar '[()|]' '\0' $argv | string split0)
 
     for subcommand in $subcommands
+        set subcommand (string replace -ar "(^\s*|\s*\$)" "" $subcommand)
+
+        if test "$subcommand" = ''
+            continue
+        end
+
         set params (string split ' ' $subcommand)
-        if test $params[1] = 'g'
+
+        if test "$params[1]" = 'g'
             set params git $params[2..-1]
         end
 

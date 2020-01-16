@@ -39,6 +39,8 @@ let g:delimitMate_expand_space = 1
 let g:deoplete#enable_at_startup = 1
 
 let g:jedi#completions_enabled = 0
+let g:jedi#goto_command = "<leader>D"
+let g:jedi#goto_assignments_command = "<leader>G"
 
 let g:LanguageClient_serverCommands = {
     \ 'ruby': [ $ASDF_DATA_DIR . '/shims/solargraph', 'stdio'],

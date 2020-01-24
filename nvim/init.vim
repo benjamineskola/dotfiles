@@ -1,6 +1,5 @@
 runtime plugins.vim
 
-set clipboard=unnamed
 set foldmethod=marker
 set grepformat=%f:%l:%c:%m
 set grepprg=rg\ --vimgrep\ $*

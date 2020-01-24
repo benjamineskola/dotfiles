@@ -49,7 +49,3 @@ nmap <expr> <Leader>vm '<Cmd>edit ' . stdpath('config') . '/plugin/mappings.vim<
 nmap <Leader>sv <Cmd>source $MYVIMRC<CR>
 nmap <Leader>sp <Cmd>runtime plugins.vim<CR>
 nmap <Leader>sm <Cmd>runtime plugin/mappings.vim<CR>
-
-" prefer buffers to tabs
-cnoreabbrev tabedit edit
-cnoreabbrev tabe e

@@ -19,7 +19,8 @@ function print_aliases --on-event fish_preexec
                 continue # sometimes we get empty strings
             end
 
-            set match (alias | grep "^alias \w+ '$params[1..$i]'\$")
+            set escaped_params (string escape --style=regex "$params[1..$i]")
+            set match (alias | grep "^alias \w+ '$escaped_params'\$")
             if test -n "$match"
                 set alias (string split " " $match)
                 echo "Alias tip: $alias[2]"

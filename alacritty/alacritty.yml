@@ -11,11 +11,11 @@ window:
     x: 0
     y: 0
 
-  dynamic_padding: false
+  dynamic_padding: true
 
   decorations: full
 
-  startup_mode: Windowed
+  startup_mode: Fullscreen
 
   # Window title
   #title: Alacritty
@@ -122,7 +122,7 @@ working_directory: None
 
 enable_experimental_conpty_backend: false
 
-alt_send_esc: false
+alt_send_esc: true
 
 debug:
   render_timer: false

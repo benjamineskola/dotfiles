@@ -2,6 +2,7 @@ alias gl glgg
 alias gmv 'git mv'
 alias grm 'git rm'
 alias gpr 'git-pr'
+alias grsp 'git restore -p'
 
 set _git_version (git --version | string match -r '[0-9.]+$' | string split .)
 if test $_git_version[2] -gt 12

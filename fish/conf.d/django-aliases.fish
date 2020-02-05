@@ -1,0 +1,6 @@
+alias dj 'python manage.py'
+alias djs 'dj shell'
+alias djrs 'dj runserver'
+alias djmm 'dj makemigrations'
+alias djm 'dj migrate'
+alias djcsu 'dj createsuperuser'

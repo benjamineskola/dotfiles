@@ -154,6 +154,8 @@ key_bindings:
   - { key: B, mods: Control, chars: "\x02\x02" }
   - { key: T, mods: Command, chars: "\x02\x63" }
   - { key: W, mods: Command, chars: "\x02\x26" }
+  - { key: D, mods: Command, chars: "\x02%" }
+  - { key: D, mods: Command|Shift, chars: "\x02\"" }
   - { key: Key1, mods: Command, chars: "\x02\x31" }
   - { key: Key2, mods: Command, chars: "\x02\x32" }
   - { key: Key3, mods: Command, chars: "\x02\x33" }
@@ -167,6 +169,12 @@ key_bindings:
   - { key: Left, mods: Command, chars: "\x02\x70" }
   - { key: Right, mods: Command, chars: "\x02\x6e" }
   - { key: Slash, mods: Command, chars: "\x02\x2f" }
+
+  - { key: Left, mods: Command|Alt, chars: "\x02\x1b\x5bD" }
+  - { key: Up, mods: Command|Alt, chars: "\x02\x1b\x5bA" }
+  - { key: Down, mods: Command|Alt, chars: "\x02\x1b\x5bB" }
+  - { key: Right, mods: Command|Alt, chars: "\x02\x1b\x5bC" }
+
   - { key: PageUp,   mods: Shift,   action: ScrollPageUp   }
   - { key: PageDown, mods: Shift,   action: ScrollPageDown }
   - { key: End,      mods: Shift,   action: ScrollToBottom }

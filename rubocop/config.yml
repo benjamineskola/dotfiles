@@ -3,5 +3,4 @@ inherit_gem:
     - config/default.yml
     - config/rails.yml
 require:
-  - rubocop-performance
   - rubocop-rails

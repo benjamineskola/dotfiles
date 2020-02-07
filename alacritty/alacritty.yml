@@ -152,6 +152,7 @@ mouse_bindings:
 
 key_bindings:
   - { key: B, mods: Control, chars: "\x02\x02" }
+  - { key: B, mods: Command, chars: "\x02" }
   - { key: T, mods: Command, chars: "\x02\x63" }
   - { key: W, mods: Command, chars: "\x02\x26" }
   - { key: D, mods: Command, chars: "\x02%" }
@@ -174,6 +175,9 @@ key_bindings:
   - { key: Up, mods: Command|Alt, chars: "\x02\x1b\x5bA" }
   - { key: Down, mods: Command|Alt, chars: "\x02\x1b\x5bB" }
   - { key: Right, mods: Command|Alt, chars: "\x02\x1b\x5bC" }
+
+  - { key: Tab, mods: Control, chars: "\x02n" }
+  - { key: Tab, mods: Control|Shift, chars: "\x02p" }
 
   - { key: PageUp,   mods: Shift,   action: ScrollPageUp   }
   - { key: PageDown, mods: Shift,   action: ScrollPageDown }

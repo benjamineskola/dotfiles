@@ -14,7 +14,7 @@
           "Text": "{\"ConvertUnicodePunctuation\":false,\"WaitForPrompts\":false,\"Substitution\":\"\",\"EscapeForShell\":true,\"Base64\":false,\"TabStopSize\":4,\"Delay\":0.01,\"RemoveNewlines\":false,\"Regex\":\"\",\"ConvertNewlines\":true,\"TabTransform\":0,\"BracketAllowed\":true,\"UseRegexSubstitution\":false,\"ChunkSize\":1024,\"RemoveControls\":true}"
         }
       },
-      "Normal Font": "Iosevka 14",
+      "Normal Font": "Iosevka 13",
       "Option Key Sends": 2,
       "Right Option Key Sends": 0,
       "Status Bar Layout": {
@@ -60,19 +60,12 @@
             "Alpha Component": 1,
             "Green Component": 0.60000002384185791
           },
-          "font": "Iosevka 14",
+          "font": "Iosevka 13",
           "algorithm": 1
         }
       },
       "Use Bright Bold": false,
       "Use Non-ASCII Font": false
-    },
-    {
-      "Name": "Work",
-      "Guid": "4E6DC606-CAEE-494C-A4B8-0BF9ADFD23D5",
-      "Dynamic Profile Parent Name": "Default",
-      "Bound Hosts": ["C02X937ZJG5L.local"],
-      "Normal Font": "Iosevka 18"
     }
   ]
 }

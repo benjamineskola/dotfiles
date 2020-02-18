@@ -2,7 +2,7 @@ export BUNDLE_USER_CACHE="$XDG_CACHE_HOME/bundler"
 export BUNDLE_USER_HOME="$XDG_CONFIG_HOME/bundler"
 
 export EDITOR=vimr
-export GIT_EDITOR=nvim
+export VISUAL=nvim
 export LESS=-ImRswFX
 export LESSHISTFILE="$XDG_CACHE_HOME/less_history"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npmrc"

@@ -4,7 +4,7 @@ nnoremap <leader>r :call LanguageClient#textDocument_rename()<CR>
 
 
 let g:projectionist_heuristics = {
-  \ 'app/|lib/|spec/': {
+  \ 'bin/rails': {
     \   'app/models/*.rb': {
     \      'type': 'model',
     \      'alternate': ['spec/models/{}_spec.rb', 'spec/{}.rb'],

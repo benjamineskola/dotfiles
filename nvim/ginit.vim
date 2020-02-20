@@ -1,6 +1,6 @@
 " vimr config
 
-VimRSetFontAndSize 'Iosevka', hostname() ==? 'C02X937ZJG5L' ? 16 : 14
+VimRSetFontAndSize 'Iosevka Light', 13
 VimRHideTools
 VimRHideToolButtons
 VimRToggleFullscreen

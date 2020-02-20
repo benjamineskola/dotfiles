@@ -12,7 +12,6 @@ let g:projectionist_heuristics = {
     \   'spec/models/*_spec.rb': {
     \      'type': 'test',
     \      'alternate': 'app/models/{}.rb',
-    \      'template': ['Rspec.describe {camelcase} do', 'end'],
     \   },
     \   'app/controllers/*.rb': {
     \      'type': 'controller',
@@ -21,7 +20,6 @@ let g:projectionist_heuristics = {
     \   'spec/controllers/*_spec.rb': {
     \      'type': 'test',
     \      'alternate': 'app/controllers/{}.rb',
-    \      'template': ['Rspec.describe {camelcase} do', 'end'],
     \   },
     \   'lib/*.rb': {
     \      'type': 'lib',
@@ -30,7 +28,9 @@ let g:projectionist_heuristics = {
     \   'spec/lib/*_spec.rb': {
     \      'type': 'test',
     \      'alternate': 'lib/{}.rb',
-    \      'template': ['Rspec.describe {camelcase} do', 'end'],
     \   },
+    \   'spec/*_spec.rb': {
+    \      'template': ['require "rails_helper"', '', 'Rspec.describe {camelcase|capitalize} do', 'end'],
+    \   }
   \ }
 \ }

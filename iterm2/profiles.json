@@ -4,10 +4,11 @@
       "Name": "Default",
       "Guid": "1CDE98C5-A670-4E7A-B13F-0924282ADA35",
       "ASCII Anti Aliased": true,
-      "ASCII Ligatures": false,
+      "ASCII Ligatures": true,
       "Command": "/usr/local/bin/fish -i",
       "Custom Command": "Yes",
       "Draw Powerline Glyphs": true,
+      "Unlimited Scrollback": true,
       "Keyboard Map": {
         "0x76-0x180000": {
           "Action": 41,

@@ -13,23 +13,23 @@ let g:projectionist_heuristics = {
     \   },
     \   '**/views/*.py': {
     \      'type': 'view',
-    \      'alternate': 'tests/views/test_{basename}.py',
+    \      'alternate': '{dirname}/tests/views/test_{basename}.py',
     \   },
     \   '*/views.py': {
     \      'type': 'view',
-    \      'alternate': 'tests/test_views.py',
+    \      'alternate': '{dirname}/tests/test_views.py',
     \   },
     \   '*/models/__init__.py': {
     \      'type': 'model',
-    \      'alternate': 'tests/test_models.py',
+    \      'alternate': '{dirname}/tests/test_models.py',
     \   },
     \   '**/models/*.py': {
     \      'type': 'model',
-    \      'alternate': 'tests/models/test_{basename}.py',
+    \      'alternate': '{dirname}/tests/models/test_{basename}.py',
     \   },
     \   '*/models.py': {
     \      'type': 'model',
-    \      'alternate': 'tests/test_models.py',
+    \      'alternate': '{dirname}/tests/test_models.py',
     \   },
     \   '**/tests/views/test_*.py': {
     \      'type': 'test',

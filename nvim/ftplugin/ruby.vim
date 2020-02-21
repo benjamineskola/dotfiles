@@ -4,7 +4,10 @@ nnoremap <leader>r :call LanguageClient#textDocument_rename()<CR>
 
 
 let g:projectionist_heuristics = {
-  \ 'bin/rails': {
+  \ 'bin/rails|Gemfile': {
+    \   '*.rb': {
+    \      'template': ['class {camelcase|capitalize|basename}', 'end'],
+    \   },
     \   'app/models/*.rb': {
     \      'type': 'model',
     \      'alternate': ['spec/models/{}_spec.rb', 'spec/{}.rb'],

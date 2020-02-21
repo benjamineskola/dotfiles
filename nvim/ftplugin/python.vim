@@ -40,7 +40,8 @@ let g:projectionist_heuristics = {
     \      'alternate': '{dirname}/models/{basename}.py',
     \   },
     \   '*.py': {
-    \      'alternate': '{dirname}/tests/test_{basename}.py'
+    \      'alternate': '{dirname}/tests/test_{basename}.py',
+    \      'template': ['class {basename|camelcase|capitalize}:', '    pass'],
     \   },
     \   '**/tests/test_*.py': {
     \      'type': 'test',

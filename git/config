@@ -43,10 +43,10 @@
 [init]
 	templatedir = ~/.config/git/template
 [merge]
-	tool = splice
-[mergetool "splice"]
-	cmd = "$EDITOR -f $BASE $LOCAL $REMOTE $MERGED -c 'SpliceInit'"
-	trustExitCode = true
+	tool = vimdiff
+	conflictstyle = diff3
+[mergetool]
+	prompt = false
 
 [includeIf "gitdir:govuk/"]
   path = ~/.config/git/config.work

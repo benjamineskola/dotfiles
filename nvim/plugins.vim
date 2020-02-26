@@ -23,7 +23,6 @@ call plug#begin()
   Plug 'rizzatti/dash.vim'
   Plug 'sheerun/vim-polyglot'
   Plug 'simnalamburt/vim-mundo'
-  Plug 'sjl/splice.vim'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-endwise'
   Plug 'tpope/vim-eunuch'

@@ -54,3 +54,5 @@ let g:sort_motion_flags = 'i'
 let g:tmpl_search_paths = [stdpath('config') . '/templates']
 
 let test#strategy = 'neovim'
+
+au CursorHold * checktime | call feedkeys("lh")

@@ -1,10 +1,3 @@
-Host ip-10-* i-*
-	User ben.eskola
-	ForwardAgent yes
-	ProxyCommand ~/bin/ssh-instance-lookup %h %p
-	ServerAliveInterval 10
-	ServerAliveCountMax 600
-
 Host *.github.com github.com
 	User git
 	CheckHostIP no

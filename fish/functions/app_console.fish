@@ -1,3 +1,8 @@
 function app_console
-    govuk_backend "govuk_app_console $argv" $argv
+    if set -q argv[2]
+        set environment $argv[2]
+    else
+        set environment integration
+    end
+    gds govuk connect app-console -e $environment $argv[1]
 end

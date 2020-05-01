@@ -1,3 +1,8 @@
 function db_console
-    govuk_backend "govuk_app_dbconsole $argv" $argv
+    if set -q argv[2]
+        set environment $argv[2]
+    else
+        set environment integration
+    end
+    gds govuk connect app-dbconsole -e $environment $argv[1]
 end

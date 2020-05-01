@@ -13,7 +13,7 @@ alias la 'ls -a'
 alias lal 'ls -la'
 alias lsd 'ls -d'
 
-alias vi $EDITOR
+alias vi nvim
 alias vim vi
 alias mvim vimr
 

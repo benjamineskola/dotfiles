@@ -1,4 +1,6 @@
+/.bundle
 /configstore/update-notifier-npm.json
+/fish/completions
 /fish/conf.d/*_iterm2_shell_integration.fish
 /fish/fish_variables
 /fish/functions/fisher.fish

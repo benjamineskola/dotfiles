@@ -1,5 +1,7 @@
-alias gdr 'govuk-docker-run'
-alias do 'gdr bundle exec'
-alias dobi 'gdr bundle install'
+if test (string sub -l 3 $hostname) = GDS
+    alias gdr 'govuk-docker-run'
+    alias do 'govuk-docker-run bundle exec'
+    alias dobi 'govuk-docker-run bundle install'
 
-functions --erase gds
+    functions --erase gds
+end

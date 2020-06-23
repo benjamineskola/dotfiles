@@ -1,4 +1,5 @@
 let b:ale_fixers = ['rubocop']
+let b:ale_ruby_rubocop_options = '--except Rails'
 
 nnoremap <leader>r :call LanguageClient#textDocument_rename()<CR>
 

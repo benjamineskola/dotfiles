@@ -18,7 +18,7 @@
 	whitespace = red reverse
 [core]
 	excludesfile = ~/.config/git/gitignore.global
-	pager = diff-so-fancy | less
+	pager = delta
 [diff]
 	renames = copy
 [hub]
@@ -47,6 +47,9 @@
 	conflictstyle = diff3
 [mergetool]
 	prompt = false
+[delta]
+	line-numbers = true
+	syntax-theme = gruvbox (Dark) (Medium)
 
 [includeIf "gitdir:govuk/"]
   path = ~/.config/git/config.work

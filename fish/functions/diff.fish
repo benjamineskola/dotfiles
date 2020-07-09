@@ -1,3 +1,3 @@
 function diff
-    command diff -u $argv | diff-so-fancy
+    command diff -u $argv | delta
 end

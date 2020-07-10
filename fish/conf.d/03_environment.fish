@@ -7,5 +7,6 @@ set -x LESS -ImRswFX
 set -x LESSHISTFILE "$XDG_CACHE_HOME/less_history"
 set -x NPM_CONFIG_USERCONFIG "$XDG_CONFIG_HOME/npmrc"
 set -x PYTHONSTARTUP "$XDG_CONFIG_HOME/python/startup.py"
+set -x GOPATH "$HOME/Code/go"
 
 set fish_user_paths $fish_user_paths ~/bin

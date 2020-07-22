@@ -1,5 +1,10 @@
 [flake8]
 select = C,D,E,F,W,N,B,B9
-ignore = E501,W503,E203,E231,E701
-max-complexity = 10
+extend-ignore =
+	# incompatible with black
+	E203,
+	# superseded by flake8-bugbear B950
+	E501,
+	# incompatible with black
+	W503
 max-line-length = 80

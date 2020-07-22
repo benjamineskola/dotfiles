@@ -1,4 +1,4 @@
-let b:ale_fixers = ['black', 'isort']
+let b:ale_fixers = ['black']
 let b:ale_linters = ['python', 'flake8']
 
 if expand('%:t') !~? 'test_*'

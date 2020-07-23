@@ -10,3 +10,4 @@ set -x PYTHONSTARTUP "$XDG_CONFIG_HOME/python/startup.py"
 set -x GOPATH "$HOME/Code/go"
 
 set fish_user_paths $fish_user_paths ~/bin
+set fish_user_paths $fish_user_paths /Applications/Postgres.app/Contents/Versions/11/bin/

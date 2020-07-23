@@ -13,7 +13,7 @@ if test $_git_version[2] -gt 12
         alias $i 'echo "Did you mean gsw (git switch) or grs (git restore)?"'
     end
 
-    alias gswm 'git switch master'
+    alias gswm 'gb | string match -q "* master"; and gsw master; or gsw main'
     alias gswc 'git switch -c'
 end
 

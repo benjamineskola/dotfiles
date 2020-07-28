@@ -42,6 +42,7 @@
        branch = true
 [init]
 	templatedir = ~/.config/git/template
+	defaultBranch = main
 [merge]
 	tool = vimdiff
 	conflictstyle = diff3

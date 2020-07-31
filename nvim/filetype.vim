@@ -6,5 +6,5 @@ augroup filetypedetect_local
   autocmd BufNewFile,BufRead *.ulss set filetype=ulss
   autocmd BufNewFile,BufRead .mkshrc,_mkshrc set filetype=sh
   autocmd BufNewFile,BufRead bundler/config,.bundle/config set filetype=yaml
-  autocmd BufNewFile,BufRead */jinja2/* set filetype=jinja2
+  autocmd BufNewFile,BufRead */jinja2/*,*/templates/*.html set filetype=jinja2
 augroup END

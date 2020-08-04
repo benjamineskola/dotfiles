@@ -9,5 +9,3 @@ pipenv
 pynvim
 solargraph-utils.py
 vim-vint
-
--e git://github.com/bpython/curtsies.git#egg=curtsies

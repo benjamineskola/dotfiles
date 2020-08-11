@@ -1,1 +1,1 @@
-cache=/Users/ben/Library/Caches/npm
+cache=${XDG_CACHE_HOME}/npm

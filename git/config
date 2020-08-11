@@ -44,12 +44,10 @@
 	templatedir = ~/.config/git/template
 	defaultBranch = main
 [merge]
-	tool = fugitive
+	tool = vimdiff
 	conflictstyle = diff3
 [mergetool]
 	prompt = false
-[mergetool "fugitive"]
-	cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
 [delta]
 	line-numbers = true
 	syntax-theme = gruvbox (Dark) (Medium)

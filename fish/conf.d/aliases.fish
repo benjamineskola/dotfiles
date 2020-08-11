@@ -1,6 +1,6 @@
-alias ag rg
 alias curl 'curl -gkLsS'
 alias fdd 'fd .'
+alias fdg 'fg -g'
 alias fetch 'curl -gkLO'
 alias grep egrep
 alias less bat
@@ -14,7 +14,6 @@ alias lal 'ls -la'
 alias lsd 'ls -d'
 
 alias vi nvim
-alias vim vi
-alias mvim vimr
+alias vim nvim
 
 alias listcops 'rubocop -fo'

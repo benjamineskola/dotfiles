@@ -44,13 +44,16 @@
 	templatedir = ~/.config/git/template
 	defaultBranch = main
 [merge]
-	tool = vimdiff
+	tool = splice
 	conflictstyle = diff3
 [mergetool]
 	prompt = false
 [delta]
 	line-numbers = true
 	syntax-theme = gruvbox (Dark) (Medium)
+[mergetool "splice"]
+	cmd = "nvim -f $BASE $LOCAL $REMOTE $MERGED -c 'SpliceInit'"
+	trustExitCode = true
 
 [includeIf "gitdir:govuk/"]
   path = ~/.config/git/config.work

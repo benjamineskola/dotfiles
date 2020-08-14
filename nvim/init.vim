@@ -37,24 +37,15 @@ let g:delimitMate_expand_space = 1
 
 let g:deoplete#enable_at_startup = 1
 
-let g:jedi#completions_enabled = 0
-let g:jedi#goto_command = '<leader>D'
-let g:jedi#goto_assignments_command = '<leader>G'
-
 let g:LanguageClient_serverCommands = {
     \ 'ruby': [ $ASDF_DATA_DIR . '/shims/solargraph', 'stdio'],
     \ }
-
-let g:vim_markdown_conceal = 0
-let g:vim_markdown_frontmatter = 1
 
 let g:mundo_prefer_python3 = 1
 
 let g:netrw_home = stdpath('cache')
 
 let g:sort_motion_flags = 'i'
-
-let g:tmpl_search_paths = [stdpath('config') . '/templates']
 
 let test#strategy = 'neovim'
 

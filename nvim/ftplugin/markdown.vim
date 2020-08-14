@@ -1,4 +1,6 @@
 let b:ale_fixers = ['prettier']
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_frontmatter = 1
 
 " Remap j and k to act as expected when used on long, wrapped, lines
 nnoremap <buffer> j gj

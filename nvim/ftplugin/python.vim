@@ -1,5 +1,8 @@
 let b:ale_fixers = ['black']
 let b:ale_linters = ['python', 'flake8']
+let g:jedi#completions_enabled = 0
+let g:jedi#goto_command = '<leader>D'
+let g:jedi#goto_assignments_command = '<leader>G'
 
 if expand('%:t') !~? 'test_*'
   let b:ale_linters += ['mypy']

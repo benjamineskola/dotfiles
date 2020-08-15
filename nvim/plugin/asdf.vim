@@ -18,5 +18,6 @@ let $ENV = '/usr/local/opt/asdf/asdf.sh'
 let $PYTHONPATH = expand($ASDF_DATA_DIR . '/installs/python/3.*/lib/python3.*/site-packages')
 let $PATH = $ASDF_DATA_DIR . '/shims:' . $PATH
 
+let g:loaded_python_provider = 0
 let g:python3_host_prog = $ASDF_DATA_DIR . '/shims/python'
 let g:ruby_host_prog = $ASDF_DATA_DIR . '/shims/ruby'

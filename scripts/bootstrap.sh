@@ -24,6 +24,3 @@ test -z "$(find "$HOME/.config/fish/conf.d" -maxdepth 1 -name zzz_iterm2_shell_i
   curl https://iterm2.com/shell_integration/fish >"$HOME/.config/fish/conf.d/zzz_iterm2_shell_integration.fish"
 
 command -v bat && bat cache --build
-
-go get -u golang.org/x/tools/cmd/goimports
-go get -u golang.org/x/lint/golint

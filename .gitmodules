@@ -1,6 +1,7 @@
 [submodule "private"]
 	path = private
-	url = git@github.com:benjamineskola/private
+	url = git@gitlab.com:benjamineskola/private
+	branch = main
 [submodule "bat/themes/gruvbox-sublime"]
 	path = bat/themes/gruvbox-sublime
 	url = https://github.com/ethe/gruvbox-sublime

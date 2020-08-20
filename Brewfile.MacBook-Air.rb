@@ -1,13 +1,9 @@
-brew "elixir"
 brew "get_iplayer"
 brew "pandoc"
 brew "pandoc-citeproc"
 
-cask "backblaze"
 cask "calibre"
-cask "firefox"
 cask "gemini"
-cask "google-chrome"
 cask "hazel"
 cask "mactex"
 cask "qlmobi"

@@ -9,7 +9,7 @@ if [ "$(uname -s)" = Darwin ]; then
   if [ "$(hostname -s)" = Benjamins-MBP ]; then
     test -d LaunchAgents && mkdir -p ~/Library/LaunchAgents
     for i in LaunchAgents/*.yml; do
-      scripts/yaml2plist.rb "$i" >"$HOME/Library/LaunchAgents/$(basename "$i" .yml).plist"
+      yaml2plist "$i" >"$HOME/Library/LaunchAgents/$(basename "$i" .yml).plist"
     done
     for i in LaunchAgents/*.plist; do
       test -e "$i" &&

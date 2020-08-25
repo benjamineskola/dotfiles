@@ -1,4 +1,4 @@
-alias dj 'python manage.py'
+alias dj 'test -f Pipfile; and pipenv run python manage.py $argv; or python manage.py'
 alias djs 'dj shell'
 alias djrs 'dj runserver'
 alias djmm 'dj makemigrations'

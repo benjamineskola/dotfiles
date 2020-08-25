@@ -10,6 +10,6 @@ pynvim
 solargraph-utils.py
 vim-vint
 
--e git+https://gitlab.com/benjamineskola/datecalc.git#egg=datecalc
--e git+https://gitlab.com/benjamineskola/md2pdf.git#egg=md2pdf
--e git+https://gitlab.com/benjamineskola/yaml2plist.git#egg=yaml2plist
+git+https://gitlab.com/benjamineskola/datecalc.git#egg=datecalc
+git+https://gitlab.com/benjamineskola/md2pdf.git#egg=md2pdf
+git+https://gitlab.com/benjamineskola/yaml2plist.git#egg=yaml2plist

@@ -22,16 +22,15 @@ window:
   # Window class (Linux only):
   #class: Alacritty
 
+  dynamic_title: true
+
+
 scrolling:
   history: 100000
 
   multiplier: 3
 
   # faux_multiplier: 3
-
-  auto_scroll: true
-
-tabspaces: 8
 
 font:
   normal:
@@ -92,7 +91,7 @@ colors:
     white:   '0xebdbb2'
   indexed_colors: []
 
-visual_bell:
+bell:
   animation: EaseOutExpo
   duration: 0
   color: "0xffffff"
@@ -103,8 +102,6 @@ selection:
   semantic_escape_chars: ',│`|:"'' ()[]{}<>'
 
   save_to_clipboard: false
-
-dynamic_title: true
 
 cursor:
   style: Block

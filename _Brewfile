@@ -32,6 +32,7 @@ brew "shfmt"
 brew "ssh-askpass"
 brew "trash"
 brew "wget"
+brew "zoxide"
 
 # for ruby
 brew "gdbm"

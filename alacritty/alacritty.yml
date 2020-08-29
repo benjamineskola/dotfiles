@@ -34,16 +34,16 @@ scrolling:
 
 font:
   normal:
-    family: IBM Plex Mono
-    # style: Regular
+    family: IBMPlexMono Nerd Font Mono
+    style: ExtraLight
 
-  # bold:
-  #   family: monospace
-  #   style: Bold
+  bold:
+    family: IBMPlexMono Nerd Font Mono
+    style: Bold
 
-  # italic:
-  #   family: monospace
-  #   style: Italic
+  italic:
+    family: IBMPlexMono Nerd Font Mono
+    style: Light Italic
 
   size: 14.0
 

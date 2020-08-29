@@ -168,10 +168,17 @@ key_bindings:
   - { key: Right, mods: Command, chars: "\x02\x6e" }
   - { key: Slash, mods: Command, chars: "\x02\x2f" }
 
+  # Switch pane
   - { key: Left, mods: Command|Alt, chars: "\x02\x1b\x5bD" }
   - { key: Up, mods: Command|Alt, chars: "\x02\x1b\x5bA" }
   - { key: Down, mods: Command|Alt, chars: "\x02\x1b\x5bB" }
   - { key: Right, mods: Command|Alt, chars: "\x02\x1b\x5bC" }
+
+  # Resize pane
+  - { key: Left, mods: Command|Control, chars: "\x02\x1b[1;5D" }
+  - { key: Up, mods: Command|Control, chars: "\x02\x1b[1;5A" }
+  - { key: Down, mods: Command|Control, chars: "\x02\x1b[1;5B" }
+  - { key: Right, mods: Command|Control, chars: "\x02\x1b[1;5C" }
 
   - { key: Tab, mods: Control, chars: "\x02n" }
   - { key: Tab, mods: Control|Shift, chars: "\x02p" }

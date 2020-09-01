@@ -15,7 +15,7 @@
           "Text": "{\"ConvertUnicodePunctuation\":false,\"WaitForPrompts\":false,\"Substitution\":\"\",\"EscapeForShell\":true,\"Base64\":false,\"TabStopSize\":4,\"Delay\":0.01,\"RemoveNewlines\":false,\"Regex\":\"\",\"ConvertNewlines\":true,\"TabTransform\":0,\"BracketAllowed\":true,\"UseRegexSubstitution\":false,\"ChunkSize\":1024,\"RemoveControls\":true}"
         }
       },
-      "Normal Font": "IBMPlexMono-Light 13",
+      "Normal Font": "BlexMonoNerdFontComplete-Light 13",
       "Option Key Sends": 2,
       "Right Option Key Sends": 0,
       "Status Bar Layout": {

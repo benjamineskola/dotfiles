@@ -34,16 +34,16 @@ scrolling:
 
 font:
   normal:
-    family: IBMPlexMono Nerd Font Mono
+    family: BlexMono Nerd Font
     style: ExtraLight
 
   bold:
-    family: IBMPlexMono Nerd Font Mono
+    family: BlexMono Nerd Font
     style: Bold
 
   italic:
-    family: IBMPlexMono Nerd Font Mono
-    style: Light Italic
+    family: BlexMono Nerd Font
+    style: ExtraLight Italic
 
   size: 14.0
 

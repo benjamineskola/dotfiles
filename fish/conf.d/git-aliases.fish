@@ -9,5 +9,3 @@ alias grs 'git restore'
 
 alias gswm 'gb | string match -q "* master"; and gsw master; or gsw main'
 alias gswc 'git switch -c'
-
-set -a fish_user_paths /usr/local/share/git-core/contrib/diff-highlight

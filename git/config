@@ -24,7 +24,7 @@
 [hub]
 	protocol = https
 [interactive]
-	diffFilter = diff-highlight
+	diffFilter = delta --color-only
 [pull]
 	rebase = true
 [push]

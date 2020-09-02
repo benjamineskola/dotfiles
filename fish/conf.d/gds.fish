@@ -5,5 +5,5 @@ if test (string sub -l 3 $hostname) = GDS
 
     functions --erase gds
 
-    set fish_user_paths $fish_user_paths ~/govuk/govuk-docker/exe
+    set -a fish_user_paths ~/govuk/govuk-docker/exe
 end

@@ -24,3 +24,5 @@ command -v pip3 && test -x "$(command -v python3)" && pip3 install --upgrade pip
 command -v npm && xargs npm install --silent -g <npm-globals.txt
 
 command -v go && xargs go get -u <go-globals.txt
+
+asdf reshim

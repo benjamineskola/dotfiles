@@ -15,6 +15,8 @@ check_run() {
 
 check_run '(tool-versions|scripts/)' ./scripts/install.sh
 
+check_run '(^|/)_.*' ./scripts/install-dotfiles.sh
+
 check_run Brewfile ./scripts/install-brew.sh
 check_run Gemfile ./scripts/install-gem.sh
 check_run go-globals.txt ./scripts/install-go.sh

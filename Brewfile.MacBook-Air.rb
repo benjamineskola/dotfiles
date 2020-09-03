@@ -3,6 +3,7 @@ brew "pandoc"
 brew "pandoc-citeproc"
 
 cask "calibre"
+cask "firefox"
 cask "gemini"
 cask "hazel"
 cask "mactex"

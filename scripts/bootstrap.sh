@@ -6,17 +6,6 @@ done
 find -L "$HOME" -type l -maxdepth 1 -name '.*'
 
 if [ "$(uname -s)" = Darwin ]; then
-  if [ "$(hostname -s)" = Benjamins-MBP ]; then
-    test -d LaunchAgents && mkdir -p ~/Library/LaunchAgents
-    for i in LaunchAgents/*.yml; do
-      yaml2plist "$i" >"$HOME/Library/LaunchAgents/$(basename "$i" .yml).plist"
-    done
-    for i in LaunchAgents/*.plist; do
-      test -e "$i" &&
-        ln -f "$HOME/.config/$i" "$HOME/Library/LaunchAgents"
-    done
-  fi
-
   mkdir -p "$HOME/Library/Application Support/iTerm2"
   ln -sfhF ../../../.config/iterm2 "$HOME/Library/Application Support/iTerm2/DynamicProfiles"
 fi

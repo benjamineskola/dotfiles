@@ -20,3 +20,4 @@ check_run Gemfile ./scripts/install-gem.sh
 check_run go-globals.txt ./scripts/install-go.sh
 check_run npm-globals.txt ./scripts/install-npm.sh
 check_run requirements.txt ./scripts/install-pip.sh
+check_run LaunchAgents ./scripts/install-zzlaunchagents.sh

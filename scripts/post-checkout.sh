@@ -24,4 +24,5 @@ check_run npm-globals.txt ./scripts/install-npm.sh
 check_run '(requirements.txt|pip/pip.conf)' ./scripts/install-pip.sh
 check_run LaunchAgents ./scripts/install-zzlaunchagents.sh
 
+./scripts/install-bat.sh
 ./scripts/install-iterm.sh

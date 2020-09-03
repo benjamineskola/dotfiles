@@ -5,16 +5,19 @@ if [ "$(uname -s)" = Darwin ]; then
   if [ "$(hostname -s)" = MacBook-Air ]; then
     test -d LaunchAgents && mkdir -p ~/Library/LaunchAgents
     for i in LaunchAgents/*.yml; do
-      yaml2plist "$i" >"$HOME/Library/LaunchAgents/$(basename "$i" .yml).plist"
+      yaml2plist "$i" >"$HOME/Library/LaunchAgents/$(basename "$i" .yml).plist" &&
+        launchctl enable "$(basename "$i" .yml)"
     done
 
     for i in LaunchAgents/*.plist; do
       test -e "$i" &&
-        ln -f "$HOME/.config/$i" "$HOME/Library/LaunchAgents"
+        ln -f "$HOME/.config/$i" "$HOME/Library/LaunchAgents" &&
+        launchctl enable "$(basename "$i" .plist)"
     done
 
     for i in "$HOME"/Library/LaunchAgents/*.plist; do
       if ! [ -f "$HOME/.config/LaunchAgents/$(basename "$i")" -o -f "$HOME/.config/LaunchAgents/$(basename "$i" .plist).yml" ]; then
+        launchctl disable "$(basename "$i" .plist)"
         rm "$i"
       fi
     done

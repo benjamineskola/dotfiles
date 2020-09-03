@@ -6,18 +6,18 @@ if [ "$(uname -s)" = Darwin ]; then
     test -d LaunchAgents && mkdir -p ~/Library/LaunchAgents
     for i in LaunchAgents/*.yml; do
       yaml2plist "$i" >"$HOME/Library/LaunchAgents/$(basename "$i" .yml).plist" &&
-        launchctl enable "$(basename "$i" .yml)"
+        launchctl load "$HOME/Library/LaunchAgents/$(basename "$i" .yml).plist"
     done
 
     for i in LaunchAgents/*.plist; do
       test -e "$i" &&
         ln -f "$HOME/.config/$i" "$HOME/Library/LaunchAgents" &&
-        launchctl enable "$(basename "$i" .plist)"
+        launchctl load "$HOME/Library/LaunchAgents/$(basename "$i")"
     done
 
     for i in "$HOME"/Library/LaunchAgents/*.plist; do
       if ! [ -f "$HOME/.config/LaunchAgents/$(basename "$i")" -o -f "$HOME/.config/LaunchAgents/$(basename "$i" .plist).yml" ]; then
-        launchctl disable "$(basename "$i" .plist)"
+        launchctl unload "$i"
         rm "$i"
       fi
     done

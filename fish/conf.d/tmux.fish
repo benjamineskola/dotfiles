@@ -4,7 +4,7 @@ if test -n "$TMUX"
         if string match -vq 'cd*' $argv
             and string match -vq 'z *' $argv
             and test 'z' != $argv
-            tmux rename-window -t $TMUX_WINDOW (string replace -r ' .*$' '' $argv)
+            tmux rename-window -t $TMUX_WINDOW (string replace -r ' .*$' '' $argv):\ (basename (string replace "$HOME" '~' $PWD))
         end
     end
 

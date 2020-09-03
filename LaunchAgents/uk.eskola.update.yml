@@ -1,0 +1,8 @@
+---
+ProgramArguments:
+  - sh
+  - -c
+  - .config/scripts/install.sh
+StartCalendarInterval:
+  Hour: 7
+  Minute: 0

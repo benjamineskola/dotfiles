@@ -10,7 +10,9 @@ fi
 changed_files=$(git diff-tree -r --name-only --no-commit-id "$1" "$2")
 
 check_run() {
-  echo "$changed_files" | egrep --quiet "$1" && eval "$2" || true
+  if echo "$changed_files" | grep -E --quiet "$1"; then
+    eval "$2"
+  fi
 }
 
 check_run '(tool-versions|scripts/)' ./scripts/install.sh

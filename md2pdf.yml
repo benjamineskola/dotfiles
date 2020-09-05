@@ -1,0 +1,9 @@
+pdf-engine: xelatex
+csl: "~/Code/csl/harvard-cite-them-right.csl"
+metadata:
+  reference-section-title: References
+variable:
+  mainfont: ValkyrieT3
+  fontsize: 12pt
+  papersize: a4
+  mainfontoptions: Numbers=OldStyle

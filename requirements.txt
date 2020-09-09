@@ -10,6 +10,7 @@ pipenv
 pynvim
 solargraph-utils.py
 vim-vint
+wheel
 
 git+https://gitlab.com/benjamineskola/datecalc.git#egg=datecalc
 git+https://gitlab.com/benjamineskola/md2pdf.git#egg=md2pdf

@@ -49,3 +49,8 @@ nmap <expr> <Leader>vm '<Cmd>edit ' . stdpath('config') . '/plugin/mappings.vim<
 nmap <Leader>sv <Cmd>source $MYVIMRC<CR>
 nmap <Leader>sp <Cmd>runtime plugins.vim<CR>
 nmap <Leader>sm <Cmd>runtime plugin/mappings.vim<CR>
+
+" run current file in a terminal
+
+nnoremap <Leader>vr <Cmd>belowright split +terminal\ %<CR>
+nnoremap <expr> <Leader>vR "<Cmd>belowright split +terminal\\ %\\ " . join(split(input('Parameters: '), ' '), '\ ') . "<CR>"

@@ -33,7 +33,6 @@ brew "starship"
 brew "tmux"
 brew "trash"
 brew "wget"
-brew "zoxide"
 
 # for ruby
 brew "gdbm"

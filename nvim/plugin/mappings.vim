@@ -5,7 +5,7 @@ nnoremap <Leader>l <Cmd>nohl<CR>
 nnoremap <Leader>u <Cmd>MundoToggle<CR>
 
 nnoremap <Leader>f <Cmd>Files<CR>
-nnoremap <expr> <Leader>g "<Cmd>Rg " . input('Find word: ') . "<CR>"
+nnoremap <Leader>g <Cmd>Rg<CR>
 nnoremap <expr> <Leader>G "<Cmd>Rg " . expand('<cword>') . "<CR>"
 
 map Q gq

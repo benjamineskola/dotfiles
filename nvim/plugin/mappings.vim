@@ -7,6 +7,7 @@ nnoremap <Leader>u <Cmd>MundoToggle<CR>
 nnoremap <Leader>f <Cmd>Files<CR>
 nnoremap <Leader>g <Cmd>Rg<CR>
 nnoremap <expr> <Leader>G "<Cmd>Rg " . expand('<cword>') . "<CR>"
+nnoremap <Leader>c <Cmd>Dirs<CR>
 
 map Q gq
 

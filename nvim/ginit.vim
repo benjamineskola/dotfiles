@@ -1,6 +1,6 @@
 " vimr config
 
-VimRSetFontAndSize 'BlexMonoNerdFontComplete-Light', 13
+VimRSetFontAndSize 'BlexMono Nerd Font Mono', 14
 VimRHideTools
 VimRHideToolButtons
 VimRToggleFullscreen

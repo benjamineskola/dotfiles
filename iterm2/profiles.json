@@ -67,6 +67,13 @@
       },
       "Use Bright Bold": false,
       "Use Non-ASCII Font": false
+    },
+    {
+      "Name": "work",
+      "Guid": "579fb008-6455-4b25-8e18-863d8bad1e24",
+      "Dynamic Profile Parent Name": "Default",
+      "Bound Hosts": ["GDS*"],
+      "Normal Font": "BlexMonoNerdFontComplete-Light 13"
     }
   ]
 }

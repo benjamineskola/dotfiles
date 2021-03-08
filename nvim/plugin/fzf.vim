@@ -1,4 +1,3 @@
-let g:fzf_action = {'enter': 'tab split', 'ctrl-x': 'split', 'ctrl-v': 'vsplit'}
 let $FZF_DEFAULT_COMMAND='fd -H -E "{.git,.Trash,Library,Movies,Music,Pictures}"'
 
 function! RipgrepFzf(query, fullscreen)

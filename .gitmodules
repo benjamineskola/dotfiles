@@ -4,3 +4,6 @@
 [submodule "bat/themes/gruvbox-sublime"]
 	path = bat/themes/gruvbox-sublime
 	url = https://github.com/ethe/gruvbox-sublime
+[submodule "tmux-simple-git-status"]
+	path = tmux-simple-git-status
+	url = https://github.com/kristijanhusak/tmux-simple-git-status.git

@@ -36,6 +36,7 @@ brew "libyaml"
 brew "openssl"
 brew "readline"
 
+cask "alacritty"
 cask "alfred"
 cask "dash"
 cask "font-iosevka"

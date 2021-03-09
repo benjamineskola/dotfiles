@@ -1,6 +1,6 @@
 alias curl 'curl -gkLsS'
 alias fdd 'fd .'
-alias fdg 'fg -g'
+alias fdg 'fd -g'
 alias fetch 'curl -gkLO'
 alias grep egrep
 alias less bat

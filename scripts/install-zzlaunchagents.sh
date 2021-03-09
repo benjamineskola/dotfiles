@@ -16,7 +16,7 @@ if [ "$(uname -s)" = Darwin ]; then
     done
 
     for i in "$HOME"/Library/LaunchAgents/*.plist; do
-      if ! [ -f "$HOME/.config/LaunchAgents/$(basename "$i")" ] || [ -f "$HOME/.config/LaunchAgents/$(basename "$i" .plist).yml" ]; then
+      if ! [ -f "$HOME/.config/LaunchAgents/$(basename "$i")" ] && ! [ -f "$HOME/.config/LaunchAgents/$(basename "$i" .plist).yml" ]; then
         launchctl unload "$i"
         rm "$i"
       fi

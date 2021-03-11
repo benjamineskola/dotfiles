@@ -8,5 +8,6 @@ gem "rubocop-govuk"
 gem "rubocop-performance"
 gem "rubocop-rails"
 gem "rubocop-rspec"
+gem "standardrb"
 
 gem "solargraph"

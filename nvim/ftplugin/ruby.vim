@@ -8,7 +8,7 @@ let b:ale_linters = b:ale_fixers
 
 let g:LanguageClient_serverCommands['ruby'] = [ $ASDF_DATA_DIR . '/shims/solargraph', 'stdio']
 
-nnoremap <buffer> <silent> <leader>r :call LanguageClient#textDocument_rename()<CR>
+nnoremap <buffer> <silent> <localleader>r :call LanguageClient#textDocument_rename()<CR>
 nnoremap <buffer> <silent> K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <buffer> <silent> gd :call LanguageClient#textDocument_definition()<CR>
 

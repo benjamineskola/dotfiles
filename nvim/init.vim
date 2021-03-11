@@ -37,10 +37,6 @@ let g:delimitMate_expand_space = 1
 
 let g:deoplete#enable_at_startup = 1
 
-let g:LanguageClient_serverCommands = {
-    \ 'ruby': [ $ASDF_DATA_DIR . '/shims/solargraph', 'stdio'],
-    \ }
-
 let g:mundo_prefer_python3 = 1
 
 let g:netrw_home = stdpath('cache')

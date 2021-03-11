@@ -6,6 +6,8 @@ else
 endif
 let b:ale_linters = b:ale_fixers
 
+let g:LanguageClient_serverCommands['ruby'] = [ $ASDF_DATA_DIR . '/shims/solargraph', 'stdio']
+
 nnoremap <leader>r :call LanguageClient#textDocument_rename()<CR>
 
 

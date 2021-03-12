@@ -8,7 +8,7 @@ if expand('%:t') !~? 'test_*'
   let b:ale_linters += ['mypy']
 endif
 
-call SuperTabSetDefaultCompletionType("<c-n>")
+call SuperTabSetDefaultCompletionType('<c-n>')
 
 let g:projectionist_heuristics = {
   \ 'Pipfile|requirements.txt': {

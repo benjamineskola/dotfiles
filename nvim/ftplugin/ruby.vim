@@ -1,4 +1,4 @@
-if exists("b:govuk_project")
+if exists('b:govuk_project')
   let b:ale_fixers = ['rubocop']
   let b:ale_ruby_rubocop_options = '--except Rails'
 else

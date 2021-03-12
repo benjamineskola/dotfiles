@@ -11,7 +11,7 @@ if hostname()[0:2] ==? 'GDS'
   augroup END
 
   function! GovukDockerTransform(cmd) abort
-    if exists("b:govuk_project")
+    if exists('b:govuk_project')
       if filereadable($HOME . '/govuk/govuk-docker/projects/' . b:govuk_project . '/docker-compose.yml')
         return 'govuk-docker-run bundle exec ' . a:cmd
       endif

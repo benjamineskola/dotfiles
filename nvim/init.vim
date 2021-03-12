@@ -45,4 +45,6 @@ let g:sort_motion_flags = 'i'
 
 let test#strategy = 'neovim'
 
-au CursorHold * checktime | call feedkeys("lh")
+augroup autoload
+  au CursorHold * checktime | call feedkeys("lh")
+augroup END

@@ -1,11 +1,11 @@
 " vimr config
 
-let fontname = 'BlexMono Nerd Font Mono'
+let fontname = 'IosevkaNerdFontCompleteM-Extralight'
 
 if hostname()[0:2] ==? 'GDS'
-  VimRSetFontAndSize fontname, 13
-else
   VimRSetFontAndSize fontname, 14
+else
+  VimRSetFontAndSize fontname, 15
 endif
 
 VimRHideTools

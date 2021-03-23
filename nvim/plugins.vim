@@ -25,6 +25,7 @@ call plug#begin()
   Plug 'simnalamburt/vim-mundo'
   Plug 'sjl/splice.vim'
   Plug 'tpope/vim-commentary'
+  Plug 'tpope/vim-dispatch'
   Plug 'tpope/vim-endwise'
   Plug 'tpope/vim-eunuch'
   Plug 'tpope/vim-fugitive'

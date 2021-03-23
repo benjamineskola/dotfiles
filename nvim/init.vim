@@ -1,6 +1,6 @@
 runtime plugins.vim
 
-set foldmethod=marker
+set foldmethod=indent
 set grepformat=%f:%l:%c:%m
 set grepprg=rg\ --vimgrep\ $*
 set hidden

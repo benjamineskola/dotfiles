@@ -17,3 +17,5 @@ alias vi nvim
 alias vim nvim
 
 alias listcops 'rubocop -fo'
+alias openports 'lsof -nP -iTCP -sTCP:LISTEN'
+alias fontname 'fc-scan --format "%{postscriptname}\n"'

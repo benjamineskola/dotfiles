@@ -24,7 +24,6 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline#extensions#tabline#tab_nr_type = 2
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'solarized'
 
 let g:ale_fix_on_save = 1
 let g:ale_fixers = { '*': ['remove_trailing_lines', 'trim_whitespace'] }
@@ -47,17 +46,4 @@ let test#strategy = 'dispatch'
 
 augroup autoload
   au CursorHold * checktime | call feedkeys("lh")
-augroup END
-
-function! DarkMode()
-  let dark_mode = trim(system('osascript -l JavaScript -e "Application(\"System Events\").appearancePreferences.darkMode.get()"'))
-  if dark_mode ==# 'true'
-    set background=dark
-  else
-    set background=light
-  endif
-  AirlineTheme solarized
-endfunction
-augroup darkmode
-  au CursorHold * call DarkMode()
 augroup END

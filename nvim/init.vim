@@ -48,3 +48,15 @@ let test#strategy = 'dispatch'
 augroup autoload
   au CursorHold * checktime | call feedkeys("lh")
 augroup END
+
+function! DarkMode()
+  let dark_mode = trim(system('osascript -l JavaScript -e "Application(\"System Events\").appearancePreferences.darkMode.get()"'))
+  if dark_mode ==# 'true'
+    set background=dark
+  else
+    set background=light
+  endif
+endfunction
+augroup darkmode
+  au CursorHold * call DarkMode()
+augroup END

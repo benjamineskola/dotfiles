@@ -2,6 +2,6 @@ if has('gui_vimr')
   set termguicolors
 endif
 
-colo gruvbox
+colo solarized
 
 highlight SpellBad guisp=red

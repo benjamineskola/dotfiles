@@ -14,7 +14,7 @@ function! DarkMode()
   else
     set background=light
   endif
-  AirlineTheme solarized
+  AirlineRefresh
 endfunction
 augroup darkmode
   au CursorHold * call DarkMode()

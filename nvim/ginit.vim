@@ -1,11 +1,11 @@
 " vimr config
 
-let fontname = 'IosevkaNerdFontCompleteM-Extralight'
+let fontname = 'InputMono-Thin'
 
 if hostname()[0:2] ==? 'GDS'
   VimRSetFontAndSize fontname, 14
 else
-  VimRSetFontAndSize fontname, 15
+  VimRSetFontAndSize fontname, 14
 endif
 
 VimRHideTools

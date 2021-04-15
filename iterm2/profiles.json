@@ -15,7 +15,7 @@
           "Text": "{\"ConvertUnicodePunctuation\":false,\"WaitForPrompts\":false,\"Substitution\":\"\",\"EscapeForShell\":true,\"Base64\":false,\"TabStopSize\":4,\"Delay\":0.01,\"RemoveNewlines\":false,\"Regex\":\"\",\"ConvertNewlines\":true,\"TabTransform\":0,\"BracketAllowed\":true,\"UseRegexSubstitution\":false,\"ChunkSize\":1024,\"RemoveControls\":true}"
         }
       },
-      "Normal Font": "IosevkaNerdFontCompleteM-Extralight 15",
+      "Normal Font": "InputMono-Thin 14",
       "Option Key Sends": 2,
       "Right Option Key Sends": 0,
       "Status Bar Layout": {
@@ -61,7 +61,7 @@
             "Alpha Component": 1,
             "Green Component": 0.60000002384185791
           },
-          "font": "IosevkaNerdFontCompleteM-Extralight 13",
+          "font": "InputMono-Thin 14",
           "algorithm": 1
         }
       },
@@ -73,7 +73,7 @@
       "Guid": "579fb008-6455-4b25-8e18-863d8bad1e24",
       "Dynamic Profile Parent Name": "Default",
       "Bound Hosts": ["GDS*"],
-      "Normal Font": "IosevkaNerdFontCompleteM-Extralight 14"
+      "Normal Font": "InputMono-Thin 14"
     }
   ]
 }

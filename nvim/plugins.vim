@@ -10,7 +10,6 @@ endif
 call plug#begin()
   Plug '/usr/local/opt/fzf'
 
-  Plug 'altercation/vim-colors-solarized'
   Plug 'airblade/vim-gitgutter'
   Plug 'benjamineskola/vim-applescript'
   Plug 'christoomey/vim-sort-motion' | Plug 'kana/vim-textobj-indent'
@@ -19,6 +18,7 @@ call plug#begin()
   Plug 'janko/vim-test'
   Plug 'junegunn/fzf.vim'
   Plug 'Konfekt/FastFold'
+  Plug 'morhetz/gruvbox'
   Plug 'nelstrom/vim-textobj-rubyblock' | Plug 'kana/vim-textobj-user'
   Plug 'Raimondi/delimitMate'
   Plug 'rizzatti/dash.vim'
@@ -37,7 +37,6 @@ call plug#begin()
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-unimpaired'
   Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
   Plug 'w0rp/ale'
   Plug 'Yggdroot/indentLine'
 

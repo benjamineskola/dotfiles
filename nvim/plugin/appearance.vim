@@ -2,8 +2,8 @@ if has('gui_vimr')
   set termguicolors
 endif
 
-colo solarized
-let g:airline_theme = 'solarized'
+colo gruvbox
+let g:airline_theme = 'gruvbox'
 
 highlight SpellBad guisp=red
 

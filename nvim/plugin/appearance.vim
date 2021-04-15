@@ -17,6 +17,5 @@ function! DarkMode()
   AirlineRefresh
 endfunction
 augroup darkmode
-  au CursorHold * call DarkMode()
   au FocusGained * call DarkMode()
 augroup END

@@ -4,18 +4,6 @@
 	diff = auto
 	status = auto
 	branch = auto
-[color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
-[color "diff"]
-	meta = yellow
-	frag = magenta bold
-	commit = yellow bold
-	old = red bold
-	new = green bold
-	whitespace = red reverse
 [commit]
 	template = ~/.config/git/git_commit_template
 [core]
@@ -52,7 +40,7 @@
 	prompt = false
 [delta]
 	line-numbers = true
-	syntax-theme = gruvbox (Dark) (Medium)
+	syntax-theme = gruvbox-dark
 [mergetool "splice"]
 	cmd = "nvim -f $BASE $LOCAL $REMOTE $MERGED -c 'SpliceInit'"
 	trustExitCode = true

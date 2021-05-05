@@ -9,7 +9,7 @@ function __fzf_cd --description 'Search the home directory using fzf and fd. Cha
 
     if test $status -eq 0
         commandline -r "cd "
-        commandline -a $dir
+        commandline -a (string escape "$dir")
 
         commandline -f execute
         set open_status $status

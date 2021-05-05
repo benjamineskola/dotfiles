@@ -15,7 +15,7 @@ window:
 
   decorations: full
 
-  startup_mode: Fullscreen
+  # startup_mode: Fullscreen
 
   # Window title
   #title: Alacritty
@@ -33,16 +33,16 @@ scrolling:
 
 font:
   normal:
-    family: BlexMono Nerd Font
-    style: ExtraLight
+    family: Input Mono
+    style: Thin
 
   bold:
-    family: BlexMono Nerd Font
+    family: Input Mono
     style: Bold
 
   italic:
-    family: BlexMono Nerd Font
-    style: ExtraLight Italic
+    family: Input Mono
+    style: Thin Italic
 
   size: 14.0
 
@@ -121,7 +121,7 @@ working_directory: None
 
 enable_experimental_conpty_backend: false
 
-alt_send_esc: true
+alt_send_esc: false
 
 debug:
   render_timer: false

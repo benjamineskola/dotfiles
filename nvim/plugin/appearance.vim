@@ -1,6 +1,4 @@
-if has('gui_vimr')
-  set termguicolors
-endif
+set termguicolors
 
 colo gruvbox
 let g:airline_theme = 'gruvbox'

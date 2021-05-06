@@ -11,7 +11,6 @@ brew "pv"
 brew "terraform-docs"
 brew "tfenv"
 
-cask "1password"
 cask "aws-vault"
 cask "docker"
 cask "gpg-suite"

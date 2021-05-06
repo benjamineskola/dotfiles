@@ -15,10 +15,13 @@ function! DarkMode()
   let dark_mode = trim(system('osascript -l JavaScript -e "Application(\"System Events\").appearancePreferences.darkMode.get()"'))
   if dark_mode ==# 'true'
     set background=dark
+    let fontname = 'InputMono-Thin'
   else
     set background=light
+    let fontname = 'InputMono-Light'
   endif
   AirlineRefresh
+  VimRSetFontAndSize fontname, 14
 endfunction
 augroup darkmode
   au WinNew,FocusGained * call DarkMode()

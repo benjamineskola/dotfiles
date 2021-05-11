@@ -1,5 +1,5 @@
 if test -n "$TMUX"
-    set -x TMUX_WINDOW (tmux display-message -p '#{window_id}')
+    set -x TMUX_WINDOW (tmux list-panes -F '#{window_id}')
     function tmux_pane_rename_cmd -e fish_preexec
         if string match -vq 'cd*' $argv
             and string match -vq 'z *' $argv

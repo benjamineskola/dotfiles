@@ -57,7 +57,6 @@ cask "qlmarkdown"
 cask "qlstephen"
 cask "rectangle"
 cask "textexpander"
-cask "toggl"
 cask "vimr"
 
 instance_eval File.open("#{ENV["HOME"]}/.config/Brewfile.#{`hostname -s`.chomp}.rb").read

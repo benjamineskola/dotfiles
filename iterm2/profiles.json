@@ -5,7 +5,7 @@
       "Guid": "1CDE98C5-A670-4E7A-B13F-0924282ADA35",
       "ASCII Anti Aliased": true,
       "ASCII Ligatures": true,
-      "Command": "/usr/local/bin/fish -l",
+      "Command": "/opt/homebrew/bin/fish -l",
       "Custom Command": "Yes",
       "Draw Powerline Glyphs": true,
       "Unlimited Scrollback": true,
@@ -73,6 +73,7 @@
       "Guid": "579fb008-6455-4b25-8e18-863d8bad1e24",
       "Dynamic Profile Parent Name": "Default",
       "Bound Hosts": ["GDS*"],
+      "Command": "/usr/local/bin/fish -l",
       "Normal Font": "InputMono-Thin 14"
     }
   ]

@@ -3,10 +3,10 @@ if exists('g:loaded_asdf')
 endif
 let g:loaded_asdf = 1
 
-if system("uname -p") == "arm"
-  let homebrew_prefix = "/opt/homebrew"
+if system('uname -p') ==# 'arm'
+  let homebrew_prefix = '/opt/homebrew'
 else
-  let homebrew_prefix = "/usr/local"
+  let homebrew_prefix = '/usr/local'
 endif
 
 if !filereadable(homebrew_prefix . '/opt/asdf/asdf.sh')

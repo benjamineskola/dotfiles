@@ -1,2 +1,2 @@
 --theme=gruvbox-dark
---style=plain
+--style=header,grid

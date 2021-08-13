@@ -1,8 +1,3 @@
 function db_console
-    if set -q argv[2]
-        set environment $argv[2]
-    else
-        set environment integration
-    end
-    gds govuk connect app-dbconsole -e $environment $argv[1]
+    _gds_connect_wrap app-dbconsole "$argv[1]" "$argv[2]"
 end

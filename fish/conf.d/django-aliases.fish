@@ -1,6 +1,0 @@
-alias dj 'test -f Pipfile; and pipenv run python manage.py $argv; or python manage.py'
-alias djs 'dj shell_plus'
-alias djrs 'dj runserver'
-alias djmm 'dj makemigrations'
-alias djm 'dj migrate'
-alias djcsu 'dj createsuperuser'

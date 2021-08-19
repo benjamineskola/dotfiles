@@ -5,5 +5,7 @@ if test (string sub -l 3 $hostname) = GDS
 
     set -a fish_user_paths ~/govuk/govuk-docker/exe
 
+    set -gx AWS_REGION eu-west-1
+
     alias gds _gds_wrap
 end

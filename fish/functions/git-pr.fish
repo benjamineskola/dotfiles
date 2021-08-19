@@ -6,7 +6,7 @@ function git-pr
         set branch $argv[1]
     end
 
-    if test $branch = 'master'
+    if test $branch = master
         echo "Branch is master, can't merge" >&2
         return 1
     end

@@ -46,5 +46,6 @@ let g:sort_motion_flags = 'i'
 let test#strategy = 'dispatch'
 
 augroup autoload
-  au CursorHold * checktime | call feedkeys("lh")
+  au CursorHold,CursorHoldI *
+        \ if mode() !~ '\v(c|r.?|!|t)' && getcmdwintype() == '' | checktime | endif
 augroup END

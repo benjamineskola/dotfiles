@@ -1,9 +1,11 @@
-Host *.github.com github.com
+Host *.govuk.digital,*.publishing.service.gov.uk,*.compute.internal
+  User benjamineskola
+
+Host *.github.com github.com *.gitlab.com gitlab.com
 	User git
 	CheckHostIP no
 
 Host *
 	Compression yes
 	ForwardAgent yes
-	HashKnownHosts no
 	UseRoaming no

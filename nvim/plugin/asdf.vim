@@ -15,14 +15,16 @@ endif
 
 let &shell = &shell . ' -i'
 
-let $ASDF_CONFIG_FILE = $XDG_CONFIG_HOME . '/asdfrc'
-let $ASDF_DATA_DIR = $XDG_DATA_HOME . '/asdf'
-let $ASDF_DEFAULT_TOOL_VERSIONS_FILENAME = $XDG_CONFIG_HOME . '/tool-versions'
-let $ASDF_DIR = homebrew_prefix . '/opt/asdf'
-let $ENV = homebrew_prefix . '/opt/asdf/asdf.sh'
+if empty($ASDF_DIR)
+  let $ASDF_CONFIG_FILE = $XDG_CONFIG_HOME . '/asdfrc'
+  let $ASDF_DATA_DIR = $XDG_DATA_HOME . '/asdf'
+  let $ASDF_DEFAULT_TOOL_VERSIONS_FILENAME = $XDG_CONFIG_HOME . '/tool-versions'
+  let $ASDF_DIR = homebrew_prefix . '/opt/asdf'
+  let $ENV = homebrew_prefix . '/opt/asdf/asdf.sh'
 
-let $PYTHONPATH = expand($ASDF_DATA_DIR . '/installs/python/3.*/lib/python3.*/site-packages')
-let $PATH = $ASDF_DATA_DIR . '/shims:' . $PATH
+  let $PYTHONPATH = expand($ASDF_DATA_DIR . '/installs/python/3.*/lib/python3.*/site-packages')
+  let $PATH = $ASDF_DATA_DIR . '/shims:' . $PATH
+endif
 
 let g:loaded_python_provider = 0
 let g:python3_host_prog = $ASDF_DATA_DIR . '/shims/python'

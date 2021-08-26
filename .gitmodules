@@ -1,4 +1,4 @@
 [submodule "private"]
 	path = private
-	url = git@gitlab.com:benjamineskola/private
+	url = git@github.com:benjamineskola/private
 	branch = main

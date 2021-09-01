@@ -88,7 +88,6 @@ if status is-interactive
 
     set -x FZF_DEFAULT_OPTS "--cycle --layout=reverse --border --height 90% --preview-window=wrap:bottom:50%"
 
-    set -g pipenv_fish_fancy yes
     set hydro_color_duration yellow
     set hydro_color_git magenta
     set hydro_color_prompt green

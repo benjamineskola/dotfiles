@@ -63,7 +63,7 @@ if status is-interactive
         alias $cmd "run_with_bundler $cmd"
     end
 
-    alias dj 'test -f Pipfile; and pipenv run python manage.py $argv; or python manage.py'
+    alias dj 'test -f poetry.lock; and poetry run python manage.py $argv; or python manage.py'
     alias djs 'dj shell_plus'
     alias djrs 'dj runserver'
     alias djmm 'dj makemigrations'

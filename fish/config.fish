@@ -63,7 +63,7 @@ if status is-interactive
         alias $cmd "run_with_bundler $cmd"
     end
 
-    alias dj 'test -f poetry.lock; and poetry run python manage.py $argv; or python manage.py'
+    alias dj 'run_with_poetry python manage.py'
     alias djs 'dj shell_plus'
     alias djrs 'dj runserver'
     alias djmm 'dj makemigrations'
@@ -75,6 +75,8 @@ if status is-interactive
     alias gpr git-pr
     alias grsp 'grs -p'
     alias gswm gcm
+
+    alias pytest 'run_with_poetry pytest'
 
     # alt-shift-. to insert entire previous commandline
     bind \e\> 'commandline -i "$history[1]"'

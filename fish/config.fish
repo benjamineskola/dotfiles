@@ -10,7 +10,6 @@ if status is-interactive
     set -x HEROKU_APP eskola-booklogger
 
     set -a fish_user_paths ~/bin
-    set -a fish_user_paths /Applications/Postgres.app/Contents/Versions/12/bin
 
     if test (uname -p) = arm
         set -gx HOMEBREW_PREFIX /opt/homebrew

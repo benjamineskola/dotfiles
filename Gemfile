@@ -1,5 +1,6 @@
 source "https://rubygems.org"
 
+gem "mdless"
 gem "neovim"
 gem "pry"
 gem "rspec"

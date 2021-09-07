@@ -6,6 +6,17 @@ else
 endif
 let b:ale_linters = b:ale_fixers
 
+let b:ale_command_wrapper = 'asdf env ruby'
+let pattern = '%:h'
+while expand(pattern) !=? '/'
+  if filereadable(expand(pattern) . '/Gemfile.lock')
+    let b:ale_command_wrapper .= ' bundle exec'
+    break
+  endif
+  let pattern = pattern . ':h'
+endwhile
+unlet pattern
+
 let g:LanguageClient_serverCommands['ruby'] = [ $ASDF_DATA_DIR . '/shims/solargraph', 'stdio']
 
 nnoremap <buffer> <silent> <localleader>r :call LanguageClient#textDocument_rename()<CR>

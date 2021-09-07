@@ -80,6 +80,7 @@ if status is-interactive
     alias grsp 'grs -p'
     alias gswm gcm
 
+    alias mypy 'run_with_poetry mypy'
     alias pytest 'run_with_poetry pytest'
 
     # alt-shift-. to insert entire previous commandline

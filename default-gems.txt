@@ -1,0 +1,12 @@
+bundler
+mdless
+neovim
+pry
+rspec
+rubocop
+rubocop-govuk
+rubocop-performance
+rubocop-rails
+rubocop-rspec
+standardrb
+solargraph

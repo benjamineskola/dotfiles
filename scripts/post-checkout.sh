@@ -25,10 +25,6 @@ else
   check_run '(^|/)_.*' ./scripts/install-dotfiles.sh
 
   check_run Brewfile ./scripts/install-brew.sh
-  check_run Gemfile ./scripts/install-gem.sh
-  check_run go-globals.txt ./scripts/install-go.sh
-  check_run npm-globals.txt ./scripts/install-npm.sh
-  check_run '(requirements.txt|pip/pip.conf)' ./scripts/install-pip.sh
   check_run nvim/plugins.vim ./scripts/install-vim.sh
   check_run LaunchAgents ./scripts/install-zzlaunchagents.sh
 

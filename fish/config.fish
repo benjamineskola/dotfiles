@@ -23,6 +23,10 @@ if status is-interactive
     set -gx ASDF_DEFAULT_TOOL_VERSIONS_FILENAME "$XDG_CONFIG_HOME/tool-versions"
     set -gx ASDF_DATA_DIR "$XDG_DATA_HOME/asdf"
 
+    set -gx ASDF_GEM_DEFAULT_PACKAGES_FILE "$XDG_CONFIG_HOME/default-gems.txt"
+    set -gx ASDF_PYTHON_DEFAULT_PACKAGES_FILE "$XDG_CONFIG_HOME/requirements.txt"
+    set -gx ASDF_NPM_DEFAULT_PACKAGES_FILE "$XDG_CONFIG_HOME/default-npm-packages.txt"
+
     . $HOMEBREW_PREFIX/opt/asdf/asdf.fish
 
     alias curl 'curl -gkLsS'

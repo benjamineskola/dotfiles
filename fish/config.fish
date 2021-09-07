@@ -80,10 +80,6 @@ if status is-interactive
 
     # alt-shift-. to insert entire previous commandline
     bind \e\> 'commandline -i "$history[1]"'
-
-    # approximate bash/zsh history expansions
-    bind '!$' history-token-search-backward
-    bind '!!' 'commandline -i "$history[1]"'
     bind \eo __fzf_open_file
     bind \e\co __fzf_insert_file
     bind \ec __fzf_cd

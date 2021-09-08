@@ -7,15 +7,9 @@ endif
 let b:ale_linters = b:ale_fixers
 
 let b:ale_command_wrapper = 'asdf env ruby'
-let pattern = '%:h'
-while expand(pattern) !=? '/'
-  if filereadable(expand(pattern) . '/Gemfile.lock')
-    let b:ale_command_wrapper .= ' bundle exec'
-    break
-  endif
-  let pattern = pattern . ':h'
-endwhile
-unlet pattern
+if FindInParent('Gemfile.lock')
+  let b:ale_command_wrapper .= ' bundle exec'
+endif
 
 let g:LanguageClient_serverCommands['ruby'] = [ $ASDF_DATA_DIR . '/shims/solargraph', 'stdio']
 

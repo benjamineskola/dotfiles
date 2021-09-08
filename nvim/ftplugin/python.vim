@@ -9,15 +9,11 @@ if expand('%:t') !~? 'test_*'
 endif
 
 let b:ale_command_wrapper = 'asdf env python'
-let pattern = '%:h'
-while expand(pattern) !=? '/'
-  if filereadable(expand(pattern) . '/poetry.lock')
-    let b:ale_command_wrapper .= ' poetry run'
-    break
-  endif
-  let pattern = pattern . ':h'
-endwhile
-unlet pattern
+if FindInParent('poetry.lock')
+  let b:ale_command_wrapper .= ' poetry run'
+elseif FindInParent('Pipfile.lock')
+  let b:ale_command_wrapper .= ' pipenv run'
+endif
 
 call SuperTabSetDefaultCompletionType('<c-n>')
 

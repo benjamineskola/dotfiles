@@ -13,6 +13,7 @@ if !filereadable(homebrew_prefix . '/opt/asdf/asdf.sh')
   finish
 endif
 
+let s:orig_shell = &shell
 let &shell = &shell . ' -i'
 
 if empty($ASDF_DIR)
@@ -29,3 +30,5 @@ endif
 let g:loaded_python_provider = 0
 let g:python3_host_prog = $ASDF_DATA_DIR . '/shims/python'
 let g:ruby_host_prog = $ASDF_DATA_DIR . '/shims/ruby'
+
+let &shell = s:orig_shell

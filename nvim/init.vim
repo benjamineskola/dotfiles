@@ -53,3 +53,7 @@ augroup END
 augroup notabs
   au TabNew * :tabclose
 augroup END
+
+augroup telescope
+  autocmd FileType TelescopePrompt call deoplete#custom#buffer_option('auto_complete', v:false)
+augroup END

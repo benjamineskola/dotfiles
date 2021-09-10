@@ -49,3 +49,7 @@ augroup autoload
   au CursorHold,CursorHoldI *
         \ if mode() !~ '\v(c|r.?|!|t)' && getcmdwintype() == '' | checktime | endif
 augroup END
+
+augroup notabs
+  au TabNew * :tabclose
+augroup END

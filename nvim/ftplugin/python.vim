@@ -8,12 +8,8 @@ if expand('%:t') !~? 'test_*'
   let b:ale_linters += ['mypy']
 endif
 
-let b:ale_command_wrapper = 'asdf env python'
-if FindInParent('poetry.lock')
-  let b:ale_command_wrapper .= ' poetry run'
-elseif FindInParent('Pipfile.lock')
-  let b:ale_command_wrapper .= ' pipenv run'
-endif
+let g:ale_python_auto_pipenv = 1
+let g:ale_python_auto_poetry = 1
 
 call SuperTabSetDefaultCompletionType('<c-n>')
 

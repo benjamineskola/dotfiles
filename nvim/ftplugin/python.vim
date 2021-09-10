@@ -11,6 +11,8 @@ endif
 let g:ale_python_auto_pipenv = 1
 let g:ale_python_auto_poetry = 1
 
+let b:ale_python_isort_options = '--profile black'
+
 call SuperTabSetDefaultCompletionType('<c-n>')
 
 let g:projectionist_heuristics = {

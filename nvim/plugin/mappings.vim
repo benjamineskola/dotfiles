@@ -4,10 +4,9 @@ nnoremap <Leader>l <Cmd>nohl<CR>
 
 nnoremap <Leader>u <Cmd>MundoToggle<CR>
 
-nnoremap <Leader>f <Cmd>Files<CR>
-nnoremap <Leader>g <Cmd>Rg<CR>
-nnoremap <expr> <Leader>G "<Cmd>Rg " . expand('<cword>') . "<CR>"
-nnoremap <Leader>c <Cmd>Dirs<CR>
+nnoremap <leader>b <cmd>Telescope buffers<cr>
+nnoremap <leader>f <cmd>Telescope find_files<cr>
+nnoremap <leader>g <cmd>Telescope live_grep<cr>
 
 map Q gq
 

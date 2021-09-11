@@ -16,14 +16,14 @@ let b:ale_python_isort_options = '--profile black'
 call SuperTabSetDefaultCompletionType('<c-n>')
 
 let g:projectionist_heuristics = {
-  \ 'Pipfile|requirements.txt': {
+  \ 'Pipfile|requirements.txt|pyproject.toml': {
     \   '*/views/__init__.py': {
     \      'type': 'view',
     \      'alternate': 'tests/test_views.py',
     \   },
     \   '**/views/*.py': {
     \      'type': 'view',
-    \      'alternate': '{dirname}/tests/views/test_{basename}.py',
+    \      'alternate': '{dirname}/tests/views/test_{basename}_view.py',
     \   },
     \   '*/views.py': {
     \      'type': 'view',
@@ -41,6 +41,10 @@ let g:projectionist_heuristics = {
     \      'type': 'model',
     \      'alternate': '{dirname}/tests/test_models.py',
     \   },
+    \   '**/tests/views/test_*_view.py': {
+    \      'type': 'test',
+    \      'alternate': '{dirname}/views/{basename}.py',
+    \   },
     \   '**/tests/views/test_*.py': {
     \      'type': 'test',
     \      'alternate': '{dirname}/views/{basename}.py',
@@ -50,7 +54,7 @@ let g:projectionist_heuristics = {
     \      'alternate': '{dirname}/models/{basename}.py',
     \   },
     \   '*.py': {
-    \      'alternate': '{dirname}/tests/test_{basename}.py',
+    \      'alternate': '{project}/tests/test_{basename}.py',
     \      'template': ['class {basename|camelcase|capitalize}:', '    pass'],
     \   },
     \   '**/tests/test_*.py': {

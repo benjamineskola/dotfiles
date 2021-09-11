@@ -7,6 +7,7 @@ nnoremap <Leader>u <Cmd>MundoToggle<CR>
 nnoremap <leader>b <cmd>Telescope buffers<cr>
 nnoremap <leader>f <cmd>Telescope find_files<cr>
 nnoremap <leader>g <cmd>Telescope live_grep<cr>
+nnoremap <leader>c <cmd>lua require'telescope'.project()<cr>
 
 map Q gq
 

@@ -1,7 +1,8 @@
 runtime plugins.vim
 
 set foldlevelstart=99
-set foldmethod=indent
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
 set grepformat=%f:%l:%c:%m
 set grepprg=rg\ --vimgrep\ $*
 set hidden

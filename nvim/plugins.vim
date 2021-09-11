@@ -18,6 +18,7 @@ call plug#begin()
   Plug 'Konfekt/FastFold'
   Plug 'morhetz/gruvbox'
   Plug 'nelstrom/vim-textobj-rubyblock' | Plug 'kana/vim-textobj-user'
+  Plug 'nvim-telescope/telescope-project.nvim'
   Plug 'nvim-telescope/telescope.nvim' | Plug 'nvim-lua/plenary.nvim'
   Plug 'Raimondi/delimitMate'
   Plug 'rizzatti/dash.vim'

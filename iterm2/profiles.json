@@ -65,6 +65,8 @@
           "algorithm": 1
         }
       },
+      "Sync Title": false,
+      "Title Components": 1,
       "Use Bright Bold": false,
       "Use Non-ASCII Font": false
     },

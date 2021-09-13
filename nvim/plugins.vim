@@ -8,7 +8,6 @@ if empty(glob(stdpath('config') . '/autoload/plug.vim'))
 endif
 
 call plug#begin()
-  Plug 'airblade/vim-gitgutter'
   Plug 'benjamineskola/vim-applescript'
   Plug 'christoomey/vim-sort-motion' | Plug 'kana/vim-textobj-indent'
   Plug 'davidhalter/jedi-vim'
@@ -16,6 +15,7 @@ call plug#begin()
   Plug 'janko/vim-test'
   Plug 'junegunn/fzf.vim'
   Plug 'Konfekt/FastFold'
+  Plug 'lewis6991/gitsigns.nvim' | Plug 'nvim-lua/plenary.nvim'
   Plug 'morhetz/gruvbox'
   Plug 'nelstrom/vim-textobj-rubyblock' | Plug 'kana/vim-textobj-user'
   Plug 'nvim-telescope/telescope-project.nvim'

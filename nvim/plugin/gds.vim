@@ -7,6 +7,7 @@ if hostname()[0:2] ==? 'GDS'
     unlet govuk_project
   endfunction
   augroup govuk
+    autocmd!
     autocmd BufEnter,BufNewFile */govuk/* execute(SetGovukProject())
   augroup END
 

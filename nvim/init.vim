@@ -46,6 +46,7 @@ let g:sort_motion_flags = 'i'
 
 let test#strategy = 'dispatch'
 
-augroup notabs
+augroup vimrc
+  autocmd!
   au TabNew * :tabclose
 augroup END

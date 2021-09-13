@@ -40,7 +40,7 @@
             "class": "iTermStatusBarClockComponent",
             "configuration": {
               "knobs": {
-                "format": "dd.MM/HH:mm:ss",
+                "format": "EEE d.M/H.mm",
                 "localize": 0
               }
             }

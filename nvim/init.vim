@@ -19,6 +19,7 @@ set shell=/bin/sh
 set signcolumn=yes
 set spell spelllang=en_gb
 set undofile
+set updatetime=1000
 set viewoptions=folds
 
 let g:airline#extensions#ale#enabled = 1
@@ -45,11 +46,6 @@ let g:netrw_home = stdpath('cache')
 let g:sort_motion_flags = 'i'
 
 let test#strategy = 'dispatch'
-
-augroup autoload
-  au CursorHold,CursorHoldI *
-        \ if mode() !~ '\v(c|r.?|!|t)' && getcmdwintype() == '' | checktime | endif
-augroup END
 
 augroup notabs
   au TabNew * :tabclose

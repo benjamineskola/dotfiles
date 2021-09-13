@@ -47,11 +47,9 @@ let g:sort_motion_flags = 'i'
 
 let test#strategy = 'dispatch'
 
-augroup notabs
+augroup vimrc
+  autocmd!
   au TabNew * :tabclose
-augroup END
-
-augroup telescope
   autocmd FileType TelescopePrompt call deoplete#custom#buffer_option('auto_complete', v:false)
 augroup END
 

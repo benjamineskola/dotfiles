@@ -12,7 +12,6 @@ runtime autoload/plug.vim
 call plug#begin()
   Plug $HOMEBREW_PREFIX . '/opt/fzf'
 
-  Plug 'airblade/vim-gitgutter'
   Plug 'benjamineskola/vim-applescript'
   Plug 'christoomey/vim-sort-motion' | Plug 'kana/vim-textobj-indent'
   Plug 'davidhalter/jedi-vim'
@@ -20,6 +19,7 @@ call plug#begin()
   Plug 'janko/vim-test'
   Plug 'junegunn/fzf.vim'
   Plug 'Konfekt/FastFold'
+  Plug 'mhinz/vim-signify'
   Plug 'morhetz/gruvbox'
   Plug 'nelstrom/vim-textobj-rubyblock' | Plug 'kana/vim-textobj-user'
   Plug 'Raimondi/delimitMate'

@@ -44,8 +44,8 @@ nmap Q <nop>
 
 " edit/source vim configs
 nmap <Leader>vv <Cmd>edit $MYVIMRC<CR>
-nmap <expr> <Leader>vp '<Cmd>edit ' . stdpath('config') . '/plugins.vim<CR>'
-nmap <expr> <Leader>vm '<Cmd>edit ' . stdpath('config') . '/plugin/mappings.vim<CR>'
+nmap <expr> <Leader>vp '<Cmd>edit ' . $XDG_CONFIG_HOME . '/vim/plugins.vim<CR>'
+nmap <expr> <Leader>vm '<Cmd>edit ' . $XDG_CONFIG_HOME . '/vim/plugin/mappings.vim<CR>'
 
 nmap <Leader>sv <Cmd>source $MYVIMRC<CR>
 nmap <Leader>sp <Cmd>runtime plugins.vim<CR>

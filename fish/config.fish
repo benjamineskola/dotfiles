@@ -2,12 +2,13 @@ if status is-interactive
     set -x BUNDLE_USER_CACHE "$XDG_CACHE_HOME/bundler"
     set -x BUNDLE_USER_HOME "$XDG_CONFIG_HOME/bundler"
 
-    set -x EDITOR vimr
-    set -x VISUAL nvim
+    set -x EDITOR mvim
+    set -x VISUAL vim
     set -x LESS -ImRswFX
     set -x LESSHISTFILE "$XDG_CACHE_HOME/less_history"
     set -x NPM_CONFIG_USERCONFIG "$XDG_CONFIG_HOME/npmrc"
     set -x HEROKU_APP eskola-booklogger
+    set -x VIMINIT 'let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
 
     set -a fish_user_paths ~/bin
 
@@ -43,8 +44,8 @@ if status is-interactive
     alias lal 'ls -la'
     alias lsd 'ls -d'
 
-    alias vi nvim
-    alias vim nvim
+    alias vi vim
+    alias vim vim
 
     alias listcops 'rubocop -fo'
     alias openports 'lsof -nP -iTCP -sTCP:LISTEN'

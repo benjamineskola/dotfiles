@@ -3,7 +3,7 @@ if exists('g:loaded_asdf')
 endif
 let g:loaded_asdf = 1
 
-if system('uname -p') ==# 'arm'
+if systemlist('uname -p')[0] ==# 'arm'
   let homebrew_prefix = '/opt/homebrew'
 else
   let homebrew_prefix = '/usr/local'
@@ -26,6 +26,4 @@ if empty($ASDF_DIR)
   let $PATH = $ASDF_DATA_DIR . '/shims:' . $PATH
 endif
 
-let g:loaded_python_provider = 0
-let g:python3_host_prog = $ASDF_DATA_DIR . '/shims/python'
-let g:ruby_host_prog = $ASDF_DATA_DIR . '/shims/ruby'
+set pythonthreehome=$ASDF_DATA_DIR/installs/python/3.9.7

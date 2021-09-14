@@ -6,6 +6,7 @@ let $MYVIMRC='$XDG_CONFIG_HOME/vim/vimrc'
 
 runtime plugins.vim
 
+set belloff=all
 set foldlevelstart=99
 set foldmethod=indent
 set grepformat=%f:%l:%c:%m

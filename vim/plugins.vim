@@ -51,8 +51,8 @@ call plug#begin()
   Plug 'Shougo/neco-syntax' " language syntax
   Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 
-  " Plug 'autozimu/LanguageClient-neovim', {
-  "   \ 'branch': 'next',
-  "   \ 'do': 'bash install.sh',
-  "   \ }
+  Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 call plug#end()

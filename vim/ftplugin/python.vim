@@ -4,7 +4,7 @@ let g:jedi#completions_enabled = 0
 let g:jedi#goto_command = 'gd'
 let g:jedi#goto_assignments_command = ''
 
-if expand('%:t') !~? 'test_*'
+if expand('%:t') !~? 'test_.*'
   let b:ale_linters += ['mypy']
 endif
 

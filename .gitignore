@@ -9,8 +9,8 @@
 /gh
 /_gnupg/*
 !/_gnupg/*.conf
-/nvim/autoload/plug.vim
-/nvim/plugged/
+/vim/autoload/plug.vim
+/vim/plugged/
 /src
 /_ssh/id_*
 /_ssh/known_hosts

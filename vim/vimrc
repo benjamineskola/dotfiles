@@ -1,3 +1,9 @@
+set directory=$XDG_CACHE_HOME/vim,~/,/tmp
+set backupdir=$XDG_CACHE_HOME/vim,~/,/tmp
+set viminfo+=n$XDG_CACHE_HOME/vim/viminfo
+set runtimepath=$XDG_CONFIG_HOME/vim,$XDG_CONFIG_HOME/vim/after,$VIM,$VIMRUNTIME
+let $MYVIMRC='$XDG_CONFIG_HOME/vim/vimrc'
+
 runtime plugins.vim
 
 set foldlevelstart=99
@@ -8,7 +14,7 @@ set hidden
 set history=10000
 set hlsearch
 set ignorecase smartcase
-set inccommand=nosplit
+" set inccommand=nosplit
 set mouse+=a
 set nomodeline
 set number relativenumber
@@ -40,7 +46,7 @@ let g:deoplete#enable_at_startup = 1
 
 let g:mundo_prefer_python3 = 1
 
-let g:netrw_home = stdpath('cache')
+let g:netrw_home = $XDG_CACHE_HOME . '/vim'
 
 let g:sort_motion_flags = 'i'
 
@@ -50,3 +56,7 @@ augroup vimrc
   autocmd!
   au TabNew * :tabclose
 augroup END
+
+if has('gui_macvim')
+  runtime gvimrc
+endif

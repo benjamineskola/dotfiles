@@ -1,5 +1,5 @@
-if empty(glob(stdpath('config') . '/autoload/plug.vim'))
-  silent !curl -fLo $XDG_CONFIG_HOME/nvim/autoload/plug.vim --create-dirs
+if empty(glob($XDG_CONFIG_HOME . '/vim/autoload/plug.vim'))
+  silent !curl -fLo $XDG_CONFIG_HOME/vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   augroup vimplug_install
     autocmd!
@@ -7,8 +7,10 @@ if empty(glob(stdpath('config') . '/autoload/plug.vim'))
   augroup END
 endif
 
+runtime autoload/plug.vim
+
 call plug#begin()
-  Plug '/usr/local/opt/fzf'
+  Plug $HOMEBREW_PREFIX . '/opt/fzf'
 
   Plug 'airblade/vim-gitgutter'
   Plug 'benjamineskola/vim-applescript'
@@ -41,14 +43,16 @@ call plug#begin()
   Plug 'Yggdroot/indentLine'
 
   " Deoplete and sources
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
   Plug 'deoplete-plugins/deoplete-jedi' " python
   Plug 'Shougo/neco-vim' " vim
   Plug 'Shougo/neco-syntax' " language syntax
   Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 
-  Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
+  " Plug 'autozimu/LanguageClient-neovim', {
+  "   \ 'branch': 'next',
+  "   \ 'do': 'bash install.sh',
+  "   \ }
 call plug#end()

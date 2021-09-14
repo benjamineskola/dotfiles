@@ -11,6 +11,6 @@ endfunction
 command! -nargs=* -bang Rg call RipgrepFzf(<q-args>, <bang>0)
 
 command! -bang -nargs=? -complete=dir Dirs
-    \ call fzf#vim#grep('fd -E .git -d 1 --type d . $HOME/.config $HOME/Code $HOME/govuk',
+    \ call fzf#vim#grep('echo $HOME/.config; fd -E .git -d 1 --type d . $HOME/Code $HOME/govuk',
       \ 0,
-      \ fzf#vim#with_preview({'options': ['--layout=reverse', '--info=inline'], 'sink': 'cd'}), <bang>0)
+      \{'options': ['--prompt=Project> ', '--info=inline', '--preview', '$XDG_CONFIG_HOME/vim/plugged/fzf.vim/bin/preview.sh {}/README.md'], 'sink': 'cd'}, <bang>0)

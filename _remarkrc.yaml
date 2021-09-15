@@ -1,0 +1,8 @@
+plugins:
+  - lint
+  - frontmatter
+settings:
+  bullet: '-'
+  strong: '*'
+  emphasis: '_'
+  listItemIndent: "1"

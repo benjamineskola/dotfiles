@@ -1,1 +1,4 @@
 prettier
+remark-cli
+remark-frontmatter
+remark-lint

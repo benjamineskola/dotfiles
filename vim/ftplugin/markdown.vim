@@ -1,4 +1,4 @@
-let b:ale_fixers = ['prettier']
+let b:ale_fixers = ['remark-lint']
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_frontmatter = 1
 

@@ -3,13 +3,9 @@ if exists('g:loaded_asdf')
 endif
 let g:loaded_asdf = 1
 
-if systemlist('uname -p')[0] ==# 'arm'
-  let homebrew_prefix = '/opt/homebrew'
-else
-  let homebrew_prefix = '/usr/local'
-endif
+runtime plugin/homebrew.vim
 
-if !filereadable(homebrew_prefix . '/opt/asdf/asdf.sh')
+if !filereadable(g:homebrew_prefix . '/opt/asdf/asdf.sh')
   finish
 endif
 

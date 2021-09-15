@@ -9,8 +9,9 @@ endif
 
 runtime autoload/plug.vim
 
+runtime plugin/asdf.vim
 call plug#begin()
-  Plug $HOMEBREW_PREFIX . '/opt/fzf'
+  Plug g:homebrew_prefix . '/opt/fzf'
 
   Plug 'benjamineskola/vim-applescript'
   Plug 'christoomey/vim-sort-motion' | Plug 'kana/vim-textobj-indent'

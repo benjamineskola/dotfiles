@@ -1,1 +1,17 @@
 set guifont=InputMono-Thin:h14
+
+cnoreabbrev q bd
+cnoreabbrev qa only\|bufdo bd
+cnoreabbrev qall only\|bufdo bd
+cnoreabbrev qa! only!\|bufdo bd!
+cnoreabbrev qall! only!\|bufdo bd!
+cnoreabbrev wq w\|bd
+cnoreabbrev wqa wa\|only\|bufdo bd
+cnoreabbrev wqall wa\|only\|bufdo bd
+cnoreabbrev wqa! wa!\|only!\|bufdo bd!
+cnoreabbrev wqall! wa!\|only!\|bufdo bd!
+cnoreabbrev x up
+cnoreabbrev xit update
+
+nnoremap ZZ <Cmd>update<CR>
+nnoremap ZQ <Cmd>only!\|bufdo bd!<CR>

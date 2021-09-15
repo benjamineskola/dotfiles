@@ -1,5 +1,5 @@
-" augroup terminal_settings
-"   autocmd!
-"   autocmd TermOpen * setlocal nonumber norelativenumber
-" augroup END
-" :tnoremap <Esc> <C-\><C-n>
+augroup terminal
+  autocmd!
+  autocmd TerminalOpen * if &filetype !=# 'fzf' | tnoremap <buffer> <Esc> <C-\><C-n><Cmd>bd!<CR> | endif
+  autocmd TerminalOpen * setlocal nonumber norelativenumber
+augroup END

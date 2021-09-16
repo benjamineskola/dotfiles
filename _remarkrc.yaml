@@ -3,7 +3,8 @@ plugins:
   - frontmatter
   - footnotes
 settings:
-  bullet: '-'
-  strong: '*'
-  emphasis: '_'
+  bullet: "-"
+  strong: "*"
+  emphasis: "_"
   listItemIndent: "1"
+  rule: "-"

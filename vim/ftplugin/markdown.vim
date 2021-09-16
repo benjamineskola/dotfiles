@@ -11,10 +11,3 @@ augroup markdown
   autocmd!
   au BufNewFile,BufRead */govuk/*,README.md setlocal formatoptions+=a
 augroup END
-
-" Don't require a --- delimiter for yaml frontmatter: support pelican
-if get(g:, 'vim_markdown_frontmatter', 0)
-  syn include @yamlTop syntax/yaml.vim
-  syn region Comment matchgroup=mkdDelimiter start="\%^" end="^$" contains=@yamlTop keepend
-  unlet! b:current_syntax
-endif

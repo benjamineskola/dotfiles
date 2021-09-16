@@ -87,3 +87,19 @@ let g:projectionist_heuristics['bin/rails|Gemfile'] = {
   \   'template': ['require "rails_helper"', '', 'Rspec.describe {camelcase|capitalize} do', 'end'],
   \ },
 \ }
+
+" Defaults: shebangs
+let g:projectionist_heuristics['*'] = {
+  \ '*.py': {
+  \   'template': ['#!/usr/bin/env python', '', 'class {basename|camelcase|capitalize}:', '    pass', '', '', 'if __name__ == "__main__":', '    pass'],
+  \ },
+  \ '*.rb': {
+  \   'template': ['#!/usr/bin/env ruby', 'class {camelcase|capitalize|basename}', 'end']
+  \ },
+  \ '*.sh': {
+  \   'template': ['#!/bin/sh','set -e']
+  \ },
+  \ '*.vim': {
+  \   'template': [ "if exists('g:loaded_{}')", '  finish', 'endif', 'let g:loaded_{} = 1' ]
+  \ },
+\ }

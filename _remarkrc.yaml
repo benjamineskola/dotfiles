@@ -1,6 +1,7 @@
 plugins:
   - lint
   - frontmatter
+  - footnotes
 settings:
   bullet: '-'
   strong: '*'

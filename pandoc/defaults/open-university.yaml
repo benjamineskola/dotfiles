@@ -1,3 +1,4 @@
+csl: "${HOME}/Code/csl/harvard-cite-them-right.csl"
 variables:
   header-includes:
     - |

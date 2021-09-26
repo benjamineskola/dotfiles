@@ -1,7 +1,7 @@
 from: markdown+raw_attribute
 pdf-engine: xelatex
 citeproc: true
-csl: "${HOME}/Code/csl/harvard-cite-them-right.csl"
+csl: "${HOME}/Code/csl/modern-humanities-research-association.csl"
 metadata:
   author: Benjamin Eskola
   reference-section-title: References

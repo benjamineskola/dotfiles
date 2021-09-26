@@ -1,8 +1,11 @@
+from: markdown+raw_attribute
 pdf-engine: xelatex
-csl: "~/Code/csl/harvard-cite-them-right.csl"
+citeproc: true
+csl: "${HOME}/Code/csl/harvard-cite-them-right.csl"
 metadata:
+  author: Benjamin Eskola
   reference-section-title: References
-variable:
+variables:
   mainfont: ValkyrieT3
   fontsize: 12pt
   papersize: a4

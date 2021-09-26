@@ -14,6 +14,5 @@ vim-vint
 wheel
 
 git+https://gitlab.com/benjamineskola/datecalc.git#egg=datecalc
-git+https://gitlab.com/benjamineskola/md2pdf.git#egg=md2pdf
 git+https://gitlab.com/benjamineskola/passwordage.git#egg=passwordage
 git+https://gitlab.com/benjamineskola/yaml2plist.git#egg=yaml2plist

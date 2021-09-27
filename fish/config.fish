@@ -52,7 +52,6 @@ if status is-interactive
     alias listcops 'rubocop -fo'
     alias openports 'lsof -nP -iTCP -sTCP:LISTEN'
     alias fontname 'fc-scan --format "%{postscriptname}\n"'
-    alias mdlint 'command pandoc -dmarkdown-lint'
 
     alias be "bundle exec"
     alias bl "bundle list"

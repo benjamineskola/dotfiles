@@ -1,5 +1,1 @@
 prettier
-remark-cli
-remark-footnotes
-remark-frontmatter
-remark-lint

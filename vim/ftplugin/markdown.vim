@@ -1,6 +1,7 @@
-let b:ale_fixers = ['remark-lint']
+let b:ale_fixers = ['pandoc']
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_frontmatter = 1
+let b:ale_markdown_pandoc_options = '-s --wrap none -t markdown -t markdown-smart'
 
 " Remap j and k to act as expected when used on long, wrapped, lines
 nnoremap <buffer> j gj

@@ -1,3 +1,7 @@
+setlocal linebreak
+setlocal list
+setlocal listchars=tab:»·,trail:·
+
 let b:ale_fixers = ['pandoc']
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_frontmatter = 1
@@ -12,3 +16,5 @@ augroup markdown
   autocmd!
   au BufNewFile,BufRead */govuk/*,README.md setlocal formatoptions+=a
 augroup END
+
+highlight link SpecialKey GruvboxOrange

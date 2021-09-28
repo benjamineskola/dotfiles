@@ -8,13 +8,13 @@
 	template = ~/.config/git/git_commit_template
 [core]
 	excludesfile = ~/.config/git/gitignore.global
-	pager = delta
+	pager = delta --max-line-length=0
 [diff]
 	renames = copy
 [hub]
 	protocol = https
 [interactive]
-	diffFilter = delta --color-only
+	diffFilter = delta --color-only --max-line-length=0
 [pull]
 	rebase = true
 [push]

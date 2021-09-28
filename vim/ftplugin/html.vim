@@ -1,4 +1,4 @@
-if !exists("b:ale_fixers")
+if !exists('b:ale_fixers')
   let b:ale_fixers = ['prettier']
 endif
 

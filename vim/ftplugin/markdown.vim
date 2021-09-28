@@ -1,3 +1,4 @@
+setlocal formatoptions+=a
 setlocal linebreak
 setlocal list
 setlocal listchars=tab:»·,trail:·
@@ -11,10 +12,6 @@ let b:ale_markdown_pandoc_options = '-dmarkdown-lint -'
 nnoremap <buffer> j gj
 nnoremap <buffer> k gk
 
-" Some but not all markdown files should be hard wrapped
-augroup markdown
-  autocmd!
-  au BufNewFile,BufRead */govuk/*,README.md setlocal formatoptions+=a
-augroup END
-
 highlight link SpecialKey GruvboxOrange
+
+call vim_wrapping_softhard#SetModeAutomatically()

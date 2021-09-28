@@ -1,4 +1,3 @@
-setlocal formatoptions+=a
 setlocal linebreak
 setlocal list
 setlocal listchars=tab:»·,trail:·

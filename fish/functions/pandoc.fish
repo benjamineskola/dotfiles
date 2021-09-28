@@ -23,12 +23,21 @@ function pandoc --wraps pandoc
             while test $searchdir != /
                 for filename in {(basename $inputdir),essay,bibliography,references}.y{,a}ml
                     if test -f $searchdir/$filename
-                        set -a pandoc_args --bibliography
-                        set -a pandoc_args $searchdir/$filename
+                        set -p pandoc_args --bibliography $searchdir/$filename
                     end
                 end
                 set searchdir (dirname $searchdir)
             end
+        end
+    end
+
+    for inputdir in $inputdirs
+        set searchdir $inputdir
+        while test $searchdir != /
+            if test -f $searchdir/metadata.yaml
+                set -p pandoc_args --metadata-file $searchdir/metadata.yaml
+            end
+            set searchdir (dirname $searchdir)
         end
     end
 

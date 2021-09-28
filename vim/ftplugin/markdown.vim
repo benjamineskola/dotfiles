@@ -1,3 +1,4 @@
+scriptencoding utf-8
 setlocal linebreak
 setlocal list
 setlocal listchars=tab:»·,trail:·

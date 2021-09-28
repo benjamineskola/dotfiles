@@ -1,12 +1,13 @@
 augroup autoload
   autocmd!
-  au CursorHold,CursorHoldI *
+  au CursorHold *
         \ if mode() !~ '\v(c|r.?|!|t)' && getcmdwintype() == '' |
           \ checktime |
-          \ if mode() == 'i' |
-            \ call feedkeys("\<C-g>\<C-g>") |
-          \ else |
-            \ call feedkeys("f\e") |
-          \ endif |
+          \ call feedkeys("f\e") |
+        \ endif
+  au CursorHoldI *
+        \ if mode() !~ '\v(c|r.?|!|t)' && getcmdwintype() == '' |
+          \ checktime |
+          \ call feedkeys("\<C-g>\<C-g>") |
         \ endif
 augroup END

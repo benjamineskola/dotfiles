@@ -69,7 +69,7 @@ if status is-interactive
         alias $cmd "run_with_bundler $cmd"
     end
 
-    alias dj 'run_with_poetry python manage.py'
+    alias dj 'run_with_virtualenv python manage.py'
     alias djs 'dj shell_plus'
     alias djrs 'dj runserver'
     alias djmm 'dj makemigrations'
@@ -82,8 +82,9 @@ if status is-interactive
     alias grsp 'grs -p'
     alias gswm gcm
 
-    alias mypy 'run_with_poetry mypy'
-    alias pytest 'run_with_poetry pytest'
+    for cmd in mypy pytest invoke
+        alias $cmd "run_with_virtualenv $cmd"
+    end
 
     # alt-shift-. to insert entire previous commandline
     bind \e\> 'commandline -i "$history[1]"'

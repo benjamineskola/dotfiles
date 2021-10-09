@@ -6,7 +6,14 @@ metadata:
   author: Benjamin Eskola
   reference-section-title: References
 variables:
-  mainfont: ValkyrieT3
+  mainfont: Valkyrie A
   fontsize: 12pt
   papersize: a4
-  mainfontoptions: Numbers=OldStyle
+  mainfontoptions:
+    - Numbers=OldStyle
+    - SmallCapsFont=Valkyrie A Caps
+  header-includes: |
+    \usepackage[Latin,Diacritics]{ucharclasses}
+    \newfontfamily\myfallbackfont{Gentium Plus}
+    \setTransitionsFor{LatinExtendedAdditional}{\myfallbackfont}{\normalfont}
+    \setTransitionsFor{SpacingModifierLetters}{\myfallbackfont}{\normalfont}

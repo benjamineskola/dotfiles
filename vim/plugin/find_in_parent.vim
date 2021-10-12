@@ -18,3 +18,11 @@ function! FindInParent(file)
   endwhile
   return 0
 endfunction
+
+function! GetGitRoot()
+  return systemlist('cd ' . shellescape(expand('%:p:h')) . '; git rev-parse --show-toplevel')[0]
+endfunction
+
+function! FindInGitRoot(pattern)
+  return len(glob(GetGitRoot() . '/' . a:pattern, 0, 1)) > 0
+endfunction

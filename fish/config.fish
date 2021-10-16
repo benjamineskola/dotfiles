@@ -108,8 +108,4 @@ if status is-interactive
         end
         rm $HOME/.ssh/askpass-lock
     end
-
-    function merge_history --on-event fish_prompt
-        history merge
-    end
 end

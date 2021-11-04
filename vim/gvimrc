@@ -1,4 +1,4 @@
-set guifont=InputMono-Thin:h14
+set guifont=FiraCode-Light:h14
 
 cnoreabbrev q bd
 cnoreabbrev qa only!\|bufdo bd

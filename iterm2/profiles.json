@@ -15,7 +15,7 @@
           "Text": "{\"ConvertUnicodePunctuation\":false,\"WaitForPrompts\":false,\"Substitution\":\"\",\"EscapeForShell\":true,\"Base64\":false,\"TabStopSize\":4,\"Delay\":0.01,\"RemoveNewlines\":false,\"Regex\":\"\",\"ConvertNewlines\":true,\"TabTransform\":0,\"BracketAllowed\":true,\"UseRegexSubstitution\":false,\"ChunkSize\":1024,\"RemoveControls\":true}"
         }
       },
-      "Normal Font": "InputMono-Thin 14",
+      "Normal Font": "FiraCode-Light 14",
       "Option Key Sends": 2,
       "Right Option Key Sends": 0,
       "Status Bar Layout": {
@@ -76,7 +76,7 @@
       "Dynamic Profile Parent Name": "Default",
       "Bound Hosts": ["GDS*"],
       "Command": "/usr/local/bin/fish -l",
-      "Normal Font": "InputMono-Thin 14"
+      "Normal Font": "FiraCode-Light 16"
     }
   ]
 }

@@ -44,18 +44,4 @@ call plug#begin()
   Plug 'vim-airline/vim-airline'
   Plug 'w0rp/ale'
   Plug 'Yggdroot/indentLine'
-
-  " Deoplete and sources
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-  Plug 'deoplete-plugins/deoplete-jedi' " python
-  Plug 'Shougo/neco-vim' " vim
-  Plug 'Shougo/neco-syntax' " language syntax
-  Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
-
-  Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
 call plug#end()

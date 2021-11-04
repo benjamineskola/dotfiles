@@ -1,6 +1,6 @@
 let b:ale_fixers = ['isort', 'black']
 let b:ale_linters = ['python', 'flake8']
-let g:jedi#completions_enabled = 0
+let g:jedi#completions_enabled = 1
 let g:jedi#goto_command = 'gd'
 let g:jedi#goto_assignments_command = ''
 

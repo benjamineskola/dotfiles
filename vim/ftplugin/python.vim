@@ -1,11 +1,12 @@
 let b:ale_fixers = ['isort', 'black']
-let b:ale_linters = ['python', 'flake8']
+let b:ale_linters = ['flakehell', 'mypy', 'pylint', 'pyright']
+
 let g:jedi#completions_enabled = 1
 let g:jedi#goto_command = 'gd'
 let g:jedi#goto_assignments_command = ''
 
-if expand('%:t') !~? 'test_.*'
-  let b:ale_linters += ['mypy']
+if expand('%:t') =~? 'test_.*'
+  let b:ale_linters_ignore = ['mypy']
 endif
 
 let g:ale_python_auto_pipenv = 1

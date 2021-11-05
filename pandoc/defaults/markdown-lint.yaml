@@ -1,5 +1,4 @@
 from: markdown
 to: markdown-smart
 wrap: none
-tab-stop: 2
 standalone: true

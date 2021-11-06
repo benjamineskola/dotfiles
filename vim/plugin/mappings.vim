@@ -56,5 +56,5 @@ nnoremap <Leader>vr <Cmd>belowright split +terminal\ %<CR>
 nnoremap <expr> <Leader>vR "<Cmd>belowright split +terminal\\ %\\ " . join(split(input('Parameters: '), ' '), '\ ') . "<CR>"
 
 " kill buffer with cmd-w
-nnoremap <D-w> <Cmd>ccl<CR><Cmd>bdelete<CR>
-nnoremap <D-M-w> <Cmd>ccl<CR><Cmd>bdelete!<CR>
+nnoremap <D-w> <Cmd>bdelete<CR>
+nnoremap <D-M-w> <Cmd>bdelete!<CR>

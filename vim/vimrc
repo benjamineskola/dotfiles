@@ -66,6 +66,11 @@ augroup vimrc
   au BufRead,BufNewFile * exe DeleteEmptyBuffers()
 augroup END
 
+augroup CloseLoclistWindowGroup
+  autocmd!
+  autocmd QuitPre * if empty(&buftype) | cclose | endif
+augroup END
+
 if has('gui_running')
   runtime gvimrc
 endif

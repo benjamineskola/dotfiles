@@ -1,4 +1,5 @@
 set guifont=FiraCode-Light:h14
+set macligatures
 
 cnoreabbrev q bd
 cnoreabbrev qa only!\|bufdo bd

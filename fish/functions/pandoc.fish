@@ -41,11 +41,10 @@ function pandoc --wraps pandoc
         end
     end
 
-
     for inputdir in $inputdirs
         if string match -q "$HOME/Documents/Study/Open University/*" $inputdir
             if not contains -- -dopen-university $pandoc_args
-                set -a pandoc_args -dopen-university --variable header-includes='\fancyhead[C]{'(basename $PWD)'}'
+                set -a pandoc_args -dopen-university --variable header-includes='\fancyhead[C]{'(basename $inputfiles[1] .md)'}'
             end
         end
     end

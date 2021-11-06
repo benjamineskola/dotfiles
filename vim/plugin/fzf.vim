@@ -1,4 +1,4 @@
-let $FZF_DEFAULT_COMMAND='fd -t f -H -E "{.git,.Trash,Library,Movies,Music,Pictures}"'
+let $FZF_DEFAULT_COMMAND=g:homebrew_prefix . '/bin/fd -t f -H -E "{.git,.Trash,Library,Movies,Music,Pictures}"'
 
 function! RipgrepFzf(query, fullscreen)
   let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'

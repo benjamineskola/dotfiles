@@ -14,6 +14,7 @@ call plug#begin()
   Plug g:homebrew_prefix . '/opt/fzf'
 
   Plug 'andrewferrier/vim-wrapping-softhard'
+  Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh', }
   Plug 'benjamineskola/vim-applescript'
   Plug 'christoomey/vim-sort-motion' | Plug 'kana/vim-textobj-indent'
   Plug 'davidhalter/jedi-vim'

@@ -24,6 +24,7 @@ call plug#begin()
   Plug 'Konfekt/FastFold'
   Plug 'markonm/traces.vim'
   Plug 'mhinz/vim-signify'
+  Plug 'moll/vim-bbye'
   Plug 'morhetz/gruvbox'
   Plug 'nelstrom/vim-textobj-rubyblock' | Plug 'kana/vim-textobj-user'
   Plug 'Raimondi/delimitMate'

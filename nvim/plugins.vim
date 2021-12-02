@@ -18,6 +18,7 @@ call plug#begin()
   Plug 'janko/vim-test'
   Plug 'Konfekt/FastFold'
   Plug 'lewis6991/gitsigns.nvim' | Plug 'nvim-lua/plenary.nvim'
+  Plug 'lukas-reineke/indent-blankline.nvim'
   Plug 'moll/vim-bbye'
   Plug 'morhetz/gruvbox'
   Plug 'nelstrom/vim-textobj-rubyblock' | Plug 'kana/vim-textobj-user'
@@ -41,5 +42,4 @@ call plug#begin()
   Plug 'tpope/vim-unimpaired'
   Plug 'vim-airline/vim-airline'
   Plug 'w0rp/ale'
-  Plug 'Yggdroot/indentLine'
 call plug#end()

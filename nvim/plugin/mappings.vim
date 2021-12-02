@@ -7,6 +7,8 @@ nnoremap <Leader>u <Cmd>MundoToggle<CR>
 nnoremap <leader>b <cmd>Telescope buffers<cr>
 nnoremap <Leader>f <cmd>Telescope find_files<cr>
 nnoremap <Leader>g <cmd>Telescope live_grep<cr>
+nnoremap <leader>c <cmd>lua require('telescope.builtin').find_files({find_command={"sh", "-c", "fd --type d --max-depth 1 . $HOME/Code $HOME/govuk; echo $XDG_CONFIG_HOME"}})<cr>
+
 
 " avoid ex mode
 nnoremap Q <nop>

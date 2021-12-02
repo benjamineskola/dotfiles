@@ -20,7 +20,7 @@ call plug#begin()
   Plug 'janko/vim-test'
   Plug 'junegunn/fzf.vim'
   Plug 'Konfekt/FastFold'
-  Plug 'mhinz/vim-signify'
+  Plug 'lewis6991/gitsigns.nvim' | Plug 'nvim-lua/plenary.nvim'
   Plug 'moll/vim-bbye'
   Plug 'morhetz/gruvbox'
   Plug 'nelstrom/vim-textobj-rubyblock' | Plug 'kana/vim-textobj-user'

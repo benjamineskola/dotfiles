@@ -64,3 +64,5 @@ augroup CloseLoclistWindowGroup
   autocmd!
   autocmd QuitPre * if empty(&buftype) | cclose | endif
 augroup END
+
+lua require('gitsigns').setup()

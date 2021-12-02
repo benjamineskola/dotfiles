@@ -41,10 +41,10 @@ cnoreabbrev '<,'>s '<,'>sm
 nnoremap ; :
 
 " edit/source vim configs
-nnoremap <Leader>vv <Cmd>edit $MYVIMRC<CR>
-nnoremap <expr> <Leader>vp '<Cmd>edit ' . $XDG_CONFIG_HOME . '/vim/plugins.vim<CR>'
-nnoremap <expr> <Leader>vm '<Cmd>edit ' . $XDG_CONFIG_HOME . '/vim/plugin/mappings.vim<CR>'
-nnoremap <expr> <Leader>vf '<Cmd>edit ' . $XDG_CONFIG_HOME . '/vim/ftplugin/' . &filetype . '.vim<CR>'
+nmap <Leader>vv <Cmd>edit $MYVIMRC<CR>
+nmap <expr> <Leader>vp '<Cmd>edit ' . stdpath('config') . '/plugins.vim<CR>'
+nmap <expr> <Leader>vm '<Cmd>edit ' . stdpath('config') . '/plugin/mappings.vim<CR>'
+nnoremap <expr> <Leader>vf '<Cmd>edit ' . stdpath('config') . '/ftplugin/' . &filetype . '.vim<CR>'
 
 nnoremap <Leader>sv <Cmd>source $MYVIMRC<CR>
 nnoremap <Leader>sp <Cmd>runtime plugins.vim<CR>

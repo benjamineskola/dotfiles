@@ -1,5 +1,8 @@
-set guifont=FiraCode-Light:h14
-set macligatures
+" vimr config
+
+VimRSetFontAndSize 'FiraCode-Light', 14
+VimRHideTools
+VimRHideToolButtons
 
 cnoreabbrev bd Bdelete
 cnoreabbrev q Bdelete

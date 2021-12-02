@@ -1,10 +1,3 @@
-set directory=$XDG_DATA_HOME/vim/swap,~/,/tmp
-set backupdir=$XDG_DATA_HOME/vim/backup,~/,/tmp
-set undodir=$XDG_DATA_HOME/vim/undo,~/,/tmp
-set viminfo+=n$XDG_DATA_HOME/vim/viminfo
-set runtimepath=$XDG_CONFIG_HOME/vim,$XDG_CONFIG_HOME/vim/after,$VIM,$VIMRUNTIME
-let $MYVIMRC='$XDG_CONFIG_HOME/vim/vimrc'
-
 runtime plugins.vim
 
 set belloff=all
@@ -17,6 +10,7 @@ set hidden
 set history=10000
 set hlsearch
 set ignorecase smartcase
+set inccommand=nosplit
 set mouse+=a
 set nomodeline
 set number relativenumber
@@ -46,7 +40,7 @@ let g:delimitMate_expand_space = 1
 
 let g:mundo_prefer_python3 = 1
 
-let g:netrw_home = $XDG_CACHE_HOME . '/vim'
+let g:netrw_home = stdpath('cache')
 
 let g:sort_motion_flags = 'i'
 
@@ -70,7 +64,3 @@ augroup CloseLoclistWindowGroup
   autocmd!
   autocmd QuitPre * if empty(&buftype) | cclose | endif
 augroup END
-
-if has('gui_running')
-  runtime gvimrc
-endif

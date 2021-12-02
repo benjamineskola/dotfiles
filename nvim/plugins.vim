@@ -1,13 +1,11 @@
-if empty(glob($XDG_CONFIG_HOME . '/vim/autoload/plug.vim'))
-  silent !curl -fLo $XDG_CONFIG_HOME/vim/autoload/plug.vim --create-dirs
+if empty(glob(stdpath('config') . '/autoload/plug.vim'))
+  silent !curl -fLo $XDG_CONFIG_HOME/nvim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   augroup vimplug_install
     autocmd!
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
   augroup END
 endif
-
-runtime autoload/plug.vim
 
 runtime plugin/asdf.vim
 call plug#begin()
@@ -22,7 +20,6 @@ call plug#begin()
   Plug 'janko/vim-test'
   Plug 'junegunn/fzf.vim'
   Plug 'Konfekt/FastFold'
-  Plug 'markonm/traces.vim'
   Plug 'mhinz/vim-signify'
   Plug 'moll/vim-bbye'
   Plug 'morhetz/gruvbox'

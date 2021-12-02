@@ -24,6 +24,7 @@ call plug#begin()
   Plug 'nelstrom/vim-textobj-rubyblock' | Plug 'kana/vim-textobj-user'
   Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
   Plug 'nvim-telescope/telescope.nvim' | Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'Raimondi/delimitMate'
   Plug 'rizzatti/dash.vim'
   Plug 'sheerun/vim-polyglot'

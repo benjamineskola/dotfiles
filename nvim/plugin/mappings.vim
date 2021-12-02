@@ -4,10 +4,9 @@ nnoremap <Leader>l <Cmd>nohl<CR>
 
 nnoremap <Leader>u <Cmd>MundoToggle<CR>
 
-nnoremap <Leader>f <Cmd>Files<CR>
-nnoremap <Leader>g <Cmd>Rg<CR>
-nnoremap <expr> <Leader>G "<Cmd>Rg " . expand('<cword>') . "<CR>"
-nnoremap <Leader>c <Cmd>Dirs<CR>
+nnoremap <leader>b <cmd>Telescope buffers<cr>
+nnoremap <Leader>f <cmd>Telescope find_files<cr>
+nnoremap <Leader>g <cmd>Telescope live_grep<cr>
 
 " avoid ex mode
 nnoremap Q <nop>

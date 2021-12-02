@@ -9,8 +9,6 @@ endif
 
 runtime plugin/asdf.vim
 call plug#begin()
-  Plug g:homebrew_prefix . '/opt/fzf'
-
   Plug 'andrewferrier/vim-wrapping-softhard'
   Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh', }
   Plug 'benjamineskola/vim-applescript'
@@ -18,12 +16,12 @@ call plug#begin()
   Plug 'davidhalter/jedi-vim'
   Plug 'ervandew/supertab'
   Plug 'janko/vim-test'
-  Plug 'junegunn/fzf.vim'
   Plug 'Konfekt/FastFold'
   Plug 'lewis6991/gitsigns.nvim' | Plug 'nvim-lua/plenary.nvim'
   Plug 'moll/vim-bbye'
   Plug 'morhetz/gruvbox'
   Plug 'nelstrom/vim-textobj-rubyblock' | Plug 'kana/vim-textobj-user'
+  Plug 'nvim-telescope/telescope.nvim' | Plug 'nvim-lua/plenary.nvim'
   Plug 'Raimondi/delimitMate'
   Plug 'rizzatti/dash.vim'
   Plug 'sheerun/vim-polyglot'

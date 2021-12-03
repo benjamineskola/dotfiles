@@ -21,7 +21,6 @@ set shell=/bin/sh
 set signcolumn=yes
 set spell spelllang=en_gb
 set undofile
-set updatetime=1000
 set viewoptions=folds
 
 let g:airline#extensions#ale#enabled = 1

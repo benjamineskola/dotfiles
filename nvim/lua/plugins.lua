@@ -11,7 +11,7 @@ return require('packer').startup(function(use)
   use {'andrewferrier/vim-wrapping-softhard'}
   use {'autozimu/LanguageClient-neovim', branch = 'next', run = 'bash install.sh' }
   use {'benjamineskola/vim-applescript'}
-  use {'christoomey/vim-sort-motion', requires = {'kana/vim-textobj-indent'}}
+  use {'christoomey/vim-sort-motion', requires = {'kana/vim-textobj-user', 'kana/vim-textobj-indent'}}
   use {'davidhalter/jedi-vim'}
   use {'ervandew/supertab'}
   use {'janko/vim-test'}
@@ -20,13 +20,13 @@ return require('packer').startup(function(use)
   use {'lukas-reineke/indent-blankline.nvim'}
   use {'moll/vim-bbye'}
   use {'morhetz/gruvbox'}
-  use {'nelstrom/vim-textobj-rubyblock', requires = {'kana/vim-textobj-user'}}
   use {'nvim-telescope/telescope.nvim', requires = {
     'nvim-lua/plenary.nvim',
     {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
   }}
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
   use {'nvim-treesitter/nvim-treesitter-refactor'}
+  use {'nvim-treesitter/nvim-treesitter-textobjects'}
   use {'Raimondi/delimitMate'}
   use {'rizzatti/dash.vim'}
   use {'sheerun/vim-polyglot'}

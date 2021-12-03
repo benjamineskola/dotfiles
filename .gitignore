@@ -9,8 +9,7 @@
 /gh
 /_gnupg/*
 !/_gnupg/*.conf
-/nvim/autoload/plug.vim
-/nvim/plugged/
+/nvim/plugin/packer_compiled.lua
 /src
 /_ssh/id_*
 /_ssh/known_hosts

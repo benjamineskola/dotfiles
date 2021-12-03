@@ -2,5 +2,5 @@
 set -e
 
 if command -v nvim; then
-  nvim +PlugUpgrade +PlugClean! +PlugUpdate +PlugInstall +qall
+  nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 fi

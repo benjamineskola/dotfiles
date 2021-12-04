@@ -46,20 +46,6 @@ let g:sort_motion_flags = 'i'
 
 let test#strategy = 'dispatch'
 
-function! DeleteEmptyBuffers()
-  let buffers = filter(range(1, bufnr('$')), 'buflisted(v:val) && empty(bufname(v:val)) && bufwinnr(v:val)<0 && !getbufvar(v:val, "&mod")')
-
-  if !empty(buffers)
-      exe 'bw' . join(buffers, ' ')
-  endif
-endfunction
-
-augroup vimrc
-  autocmd!
-  au TabNew * :tabclose
-  au BufRead,BufNewFile * exe DeleteEmptyBuffers()
-augroup END
-
 augroup CloseLoclistWindowGroup
   autocmd!
   autocmd QuitPre * if empty(&buftype) | cclose | endif

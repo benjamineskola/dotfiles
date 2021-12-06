@@ -10,7 +10,6 @@ return require('packer').startup(function(use)
 
   use {'andrewferrier/vim-wrapping-softhard'}
   use {'antoinemadec/FixCursorHold.nvim'}
-  use {'autozimu/LanguageClient-neovim', branch = 'next', run = 'bash install.sh' }
   use {'benjamineskola/vim-applescript'}
   use {'christoomey/vim-sort-motion',
     requires = { 'kana/vim-textobj-user', 'kana/vim-textobj-indent' },
@@ -26,6 +25,7 @@ return require('packer').startup(function(use)
   use {'lukas-reineke/indent-blankline.nvim'}
   use {'moll/vim-bbye'}
   use {'morhetz/gruvbox'}
+  use {'neovim/nvim-lspconfig', 'williamboman/nvim-lsp-installer'}
   use {'nvim-telescope/telescope.nvim',
     requires = {
       'nvim-lua/plenary.nvim',

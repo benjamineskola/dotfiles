@@ -9,4 +9,3 @@ rubocop-performance
 rubocop-rails
 rubocop-rspec
 standardrb
-solargraph

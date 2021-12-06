@@ -10,3 +10,7 @@ elseif systemlist('uname -p')[0] ==# 'arm'
 else
   let g:homebrew_prefix = '/usr/local'
 endif
+
+if $PATH !~ g:homebrew_prefix
+  let $PATH = g:homebrew_prefix . '/bin:' . g:homebrew_prefix . '/sbin:' . $PATH
+end

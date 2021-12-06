@@ -29,12 +29,6 @@ let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline#extensions#tabline#tab_nr_type = 2
 let g:airline_powerline_fonts = 1
 
-let g:ale_fix_on_save = 1
-let g:ale_fixers = { '*': ['remove_trailing_lines', 'trim_whitespace'] }
-let g:ale_open_list = 1
-let g:ale_set_loclist = 0
-let g:ale_set_quickfix = 1
-
 let g:cursorhold_updatetime = 100
 
 let g:delimitMate_expand_cr = 1

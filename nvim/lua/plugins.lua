@@ -30,6 +30,10 @@ return require("packer").startup(function(use)
         "hrsh7th/vim-vsnip",
     })
     use({ "janko/vim-test" })
+    use({
+        "jose-elias-alvarez/null-ls.nvim",
+        requires = { "nvim-lua/plenary.nvim" },
+    })
     use({ "Konfekt/FastFold" })
     use({
         "lewis6991/gitsigns.nvim",
@@ -66,7 +70,6 @@ return require("packer").startup(function(use)
     use({ "tpope/vim-surround" })
     use({ "tpope/vim-unimpaired" })
     use({ "vim-airline/vim-airline" })
-    use({ "w0rp/ale" })
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

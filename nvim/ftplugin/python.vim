@@ -14,5 +14,3 @@ let g:ale_python_auto_poetry = 1
 
 let b:ale_python_isort_options = '--profile black'
 let b:ale_python_mypy_options = '--no-pretty'
-
-call SuperTabSetDefaultCompletionType('<c-n>')

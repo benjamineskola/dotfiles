@@ -15,7 +15,7 @@ return require('packer').startup(function(use)
     requires = { 'kana/vim-textobj-user', 'kana/vim-textobj-indent' },
   }
   use {'davidhalter/jedi-vim'}
-  use {'ervandew/supertab'}
+  use {'hrsh7th/nvim-cmp', 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path', 'hrsh7th/cmp-cmdline',  'hrsh7th/cmp-vsnip', 'hrsh7th/vim-vsnip'}
   use {'janko/vim-test'}
   use {'Konfekt/FastFold'}
   use {'lewis6991/gitsigns.nvim',

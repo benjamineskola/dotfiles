@@ -9,22 +9,29 @@ return require('packer').startup(function(use)
   use "wbthomason/packer.nvim" -- include so that clean does not remove it
 
   use {'andrewferrier/vim-wrapping-softhard'}
-  use {'antoinemadec/FixCursorHold.nvim', config = function() vim.g.cursorhold_updatetime = 100 end }
+  use {'antoinemadec/FixCursorHold.nvim'}
   use {'autozimu/LanguageClient-neovim', branch = 'next', run = 'bash install.sh' }
   use {'benjamineskola/vim-applescript'}
-  use {'christoomey/vim-sort-motion', requires = {'kana/vim-textobj-user', 'kana/vim-textobj-indent'}}
+  use {'christoomey/vim-sort-motion',
+    requires = { 'kana/vim-textobj-user', 'kana/vim-textobj-indent' },
+  }
   use {'davidhalter/jedi-vim'}
   use {'ervandew/supertab'}
   use {'janko/vim-test'}
   use {'Konfekt/FastFold'}
-  use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}, config = function() require('gitsigns').setup() end}
+  use {'lewis6991/gitsigns.nvim',
+    requires = {'nvim-lua/plenary.nvim'},
+    config = function() require('gitsigns').setup() end
+  }
   use {'lukas-reineke/indent-blankline.nvim'}
   use {'moll/vim-bbye'}
   use {'morhetz/gruvbox'}
-  use {'nvim-telescope/telescope.nvim', requires = {
-    'nvim-lua/plenary.nvim',
-    {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
-  }}
+  use {'nvim-telescope/telescope.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim',
+      {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'},
+    },
+  }
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
   use {'nvim-treesitter/nvim-treesitter-refactor'}
   use {'nvim-treesitter/nvim-treesitter-textobjects'}

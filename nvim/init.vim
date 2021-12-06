@@ -35,6 +35,8 @@ let g:ale_open_list = 1
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
 
+let g:cursorhold_updatetime = 100
+
 let g:delimitMate_expand_cr = 1
 let g:delimitMate_expand_space = 1
 
@@ -45,8 +47,3 @@ let g:netrw_home = stdpath('cache')
 let g:sort_motion_flags = 'i'
 
 let test#strategy = 'dispatch'
-
-augroup CloseLoclistWindowGroup
-  autocmd!
-  autocmd QuitPre * if empty(&buftype) | cclose | endif
-augroup END

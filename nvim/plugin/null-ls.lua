@@ -24,7 +24,6 @@ nls.config({
 
         -- linting
         nls.builtins.diagnostics.golangci_lint, -- go
-        nls.builtins.diagnostics.flake8.with({ extra_args = { "--config", "$XDG_CONFIG_HOME/flake8" } }), -- python
         nls.builtins.diagnostics.shellcheck, -- shell
         nls.builtins.diagnostics.vint, -- vim
 
@@ -43,6 +42,18 @@ nls.config({
                         args = vim.list_extend({ "exec", "rubocop" }, nls.builtins.diagnostics.rubocop._opts.args),
                     })
                 or nls.builtins.diagnostics.rubocop
+        end),
+
+        require("null-ls.helpers").conditional(function(utils)
+            return utils.root_has_file("pyproject.toml")
+                    and nls.builtins.diagnostics.flake8.with({
+                        command = "poetry",
+                        args = vim.list_extend(
+                            { "run", "flakehell", "lint" },
+                            nls.builtins.diagnostics.flake8._opts.args
+                        ),
+                    })
+                or nls.builtins.diagnostics.flake8.with({ extra_args = { "--config", "$XDG_CONFIG_HOME/flake8" } })
         end),
     },
 })

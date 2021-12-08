@@ -1,9 +1,3 @@
-local function on_attach(client)
-    if client.resolved_capabilities.document_formatting then
-        vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
-    end
-end
-
 local nls = require("null-ls")
 
 nls.config({
@@ -59,5 +53,13 @@ nls.config({
 })
 
 require("lspconfig")["null-ls"].setup({
-    on_attach = on_attach,
+    on_attach = function(client)
+        if client.resolved_capabilities.document_formatting then
+            vim.cmd([[augroup FormatSync
+                  autocmd!
+                  autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
+                  augroup END
+        ]])
+        end
+    end,
 })

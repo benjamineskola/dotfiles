@@ -15,9 +15,16 @@ local servers = {
     "yamlls",
 }
 
-local function on_attach(client, bufnr) end
 local default_opts = {
-    on_attach = on_attach,
+    on_attach = function(client)
+        if client.resolved_capabilities.document_formatting then
+            vim.cmd([[augroup FormatSync
+                  autocmd!
+                  autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
+                  augroup END
+        ]])
+        end
+    end,
 }
 local server_opts = {
     ["sumneko_lua"] = function()

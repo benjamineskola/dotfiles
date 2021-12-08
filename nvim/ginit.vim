@@ -3,6 +3,7 @@
 VimRSetFontAndSize 'FiraCode-Light', 14
 VimRHideTools
 VimRHideToolButtons
+VimRToggleFullscreen
 
 cnoreabbrev bd Bdelete
 cnoreabbrev q Bdelete

@@ -12,12 +12,10 @@ nls.config({
         b.formatting.golines, -- go
         b.formatting.prettier.with({ filetypes = { "html", "json", "yaml", "javascript" } }), -- javascript etc
         b.formatting.stylua, -- lua
-        b.formatting.black, -- python
-        b.formatting.isort, -- python
         b.formatting.shfmt, -- shell
         b.formatting.shellharden, -- shell
-        b.formatting.trim_newlines,
-        b.formatting.trim_whitespace.with({ disabled_filetypes = { "markdown" } }),
+        b.formatting.trim_newlines.with({ disabled_filetypes = { "python" } }),
+        b.formatting.trim_whitespace.with({ disabled_filetypes = { "markdown", "python" } }),
 
         -- linting
         b.diagnostics.golangci_lint, -- go
@@ -39,15 +37,6 @@ nls.config({
                         args = vim.list_extend({ "exec", "rubocop" }, b.diagnostics.rubocop._opts.args),
                     })
                 or b.diagnostics.rubocop
-        end),
-
-        h.conditional(function(utils)
-            return utils.root_has_file("pyproject.toml")
-                    and b.diagnostics.flake8.with({
-                        command = "poetry",
-                        args = vim.list_extend({ "run", "flakehell", "lint" }, b.diagnostics.flake8._opts.args),
-                    })
-                or b.diagnostics.flake8.with({ extra_args = { "--config", "$XDG_CONFIG_HOME/flake8" } })
         end),
     },
 })

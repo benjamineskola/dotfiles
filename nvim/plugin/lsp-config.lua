@@ -7,8 +7,8 @@ local servers = {
     "eslint",
     "gopls",
     "hls",
-    "jedi_language_server",
     "jsonls",
+    "pylsp",
     "solargraph",
     "sumneko_lua",
     "vimls",
@@ -49,6 +49,10 @@ for _, name in pairs(servers) do
         if not requested_server:is_installed() then
             print("Installing " .. name)
             requested_server:install()
+
+            -- if name == "pylsp" then
+            --     vim.cmd([[PylspInstall pyls-flake8 pylsp-mypy pyls-isort python-lsp-black]])
+            -- end
         end
     end
 end

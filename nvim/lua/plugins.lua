@@ -53,7 +53,6 @@ return require("packer").startup(function(use)
     use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
     use({ "nvim-treesitter/nvim-treesitter-refactor" })
     use({ "nvim-treesitter/nvim-treesitter-textobjects" })
-    use({ "Raimondi/delimitMate" })
     use({ "rizzatti/dash.vim" })
     use({ "sheerun/vim-polyglot" })
     use({ "simnalamburt/vim-mundo" })
@@ -61,7 +60,6 @@ return require("packer").startup(function(use)
     use({ "tmhedberg/SimpylFold" })
     use({ "tpope/vim-commentary" })
     use({ "tpope/vim-dispatch" })
-    use({ "tpope/vim-endwise" })
     use({ "tpope/vim-eunuch" })
     use({ "tpope/vim-fugitive" })
     use({ "tpope/vim-projectionist" })
@@ -70,6 +68,16 @@ return require("packer").startup(function(use)
     use({ "tpope/vim-surround" })
     use({ "tpope/vim-unimpaired" })
     use({ "vim-airline/vim-airline" })
+    use({
+        "windwp/nvim-autopairs",
+        config = function()
+            local npairs = require("nvim-autopairs")
+            npairs.setup({ check_ts = true, enable_afterquote = false })
+            npairs.add_rules(require("nvim-autopairs.rules.endwise-elixir"))
+            npairs.add_rules(require("nvim-autopairs.rules.endwise-lua"))
+            npairs.add_rules(require("nvim-autopairs.rules.endwise-ruby"))
+        end,
+    })
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

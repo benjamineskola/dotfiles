@@ -1,53 +1,53 @@
 local nls = require("null-ls")
 
+local b = nls.builtins
+local h = require("null-ls.helpers")
+
 nls.config({
     sources = {
         -- formatting
-        nls.builtins.formatting.fish_indent, -- fish
-        nls.builtins.formatting.gofumpt, -- go
-        nls.builtins.formatting.goimports, -- go
-        nls.builtins.formatting.golines, -- go
-        nls.builtins.formatting.prettier.with({ filetypes = { "html", "json", "yaml", "javascript" } }), -- javascript etc
-        nls.builtins.formatting.stylua, -- lua
-        nls.builtins.formatting.black, -- python
-        nls.builtins.formatting.isort, -- python
-        nls.builtins.formatting.shfmt, -- shell
-        nls.builtins.formatting.shellharden, -- shell
-        nls.builtins.formatting.trim_newlines,
-        nls.builtins.formatting.trim_whitespace.with({ disabled_filetypes = { "markdown" } }),
+        b.formatting.fish_indent, -- fish
+        b.formatting.gofumpt, -- go
+        b.formatting.goimports, -- go
+        b.formatting.golines, -- go
+        b.formatting.prettier.with({ filetypes = { "html", "json", "yaml", "javascript" } }), -- javascript etc
+        b.formatting.stylua, -- lua
+        b.formatting.black, -- python
+        b.formatting.isort, -- python
+        b.formatting.shfmt, -- shell
+        b.formatting.shellharden, -- shell
+        b.formatting.trim_newlines,
+        b.formatting.trim_whitespace.with({ disabled_filetypes = { "markdown" } }),
 
         -- linting
-        nls.builtins.diagnostics.golangci_lint, -- go
-        nls.builtins.diagnostics.shellcheck, -- shell
-        nls.builtins.diagnostics.vint, -- vim
+        b.diagnostics.golangci_lint, -- go
+        b.diagnostics.shellcheck, -- shell
+        b.diagnostics.vint, -- vim
 
-        require("null-ls.helpers").conditional(function(utils)
+        h.conditional(function(utils)
             return utils.root_has_file("Gemfile")
-                    and nls.builtins.formatting.rubocop.with({
+                    and b.formatting.rubocop.with({
                         command = "bundle",
-                        args = vim.list_extend({ "exec", "rubocop" }, nls.builtins.formatting.rubocop._opts.args),
+                        args = vim.list_extend({ "exec", "rubocop" }, b.formatting.rubocop._opts.args),
                     })
-                or nls.builtins.formatting.rubocop
+                or b.formatting.rubocop
         end),
-        require("null-ls.helpers").conditional(function(utils)
+        h.conditional(function(utils)
             return utils.root_has_file("Gemfile")
-                    and nls.builtins.diagnostics.rubocop.with({
+                    and b.diagnostics.rubocop.with({
                         command = "bundle",
-                        args = vim.list_extend({ "exec", "rubocop" }, nls.builtins.diagnostics.rubocop._opts.args),
+                        args = vim.list_extend({ "exec", "rubocop" }, b.diagnostics.rubocop._opts.args),
                     })
-                or nls.builtins.diagnostics.rubocop
+                or b.diagnostics.rubocop
         end),
 
-        require("null-ls.helpers").conditional(function(utils)
+        h.conditional(function(utils)
             return utils.root_has_file("pyproject.toml")
-                    and nls.builtins.diagnostics.flake8.with({
+                    and b.diagnostics.flake8.with({
                         command = "poetry",
-                        args = vim.list_extend(
-                            { "run", "flakehell", "lint" },
-                            nls.builtins.diagnostics.flake8._opts.args
-                        ),
+                        args = vim.list_extend({ "run", "flakehell", "lint" }, b.diagnostics.flake8._opts.args),
                     })
-                or nls.builtins.diagnostics.flake8.with({ extra_args = { "--config", "$XDG_CONFIG_HOME/flake8" } })
+                or b.diagnostics.flake8.with({ extra_args = { "--config", "$XDG_CONFIG_HOME/flake8" } })
         end),
     },
 })

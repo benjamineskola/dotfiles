@@ -37,6 +37,13 @@ local server_opts = {
             },
         }
     end,
+    ["hls"] = function()
+        default_opts.settings = {
+            haskell = {
+                formattingProvider = "brittany",
+            },
+        }
+    end,
 }
 
 for _, name in pairs(servers) do
@@ -56,3 +63,5 @@ for _, name in pairs(servers) do
         end
     end
 end
+
+vim.env.PATH = vim.env.PATH .. ":" .. vim.fn.stdpath("data") .. "/lsp_servers/haskell"

@@ -14,8 +14,8 @@ nls.config({
         b.formatting.stylua, -- lua
         b.formatting.shfmt, -- shell
         b.formatting.shellharden, -- shell
-        b.formatting.trim_newlines.with({ disabled_filetypes = { "python" } }),
-        b.formatting.trim_whitespace.with({ disabled_filetypes = { "markdown", "python" } }),
+        b.formatting.trim_newlines.with({ disabled_filetypes = { "haskell", "python" } }),
+        b.formatting.trim_whitespace.with({ disabled_filetypes = { "haskell", "markdown", "python" } }),
 
         -- linting
         b.diagnostics.golangci_lint, -- go

@@ -1,7 +1,32 @@
 local nls = require("null-ls")
 
 local b = nls.builtins
-local h = require("null-ls.helpers")
+
+local ruby_linter = function(filename, root)
+    local lsputil = require("lspconfig.util")
+    if
+        filename:match("^" .. vim.fn.expand("~/govuk/")) or lsputil.path.exists(lsputil.path.join(root, ".rubocop.yml"))
+    then
+        return "rubocop"
+    else
+        return "standardrb"
+    end
+end
+
+local dynamic_ruby_command = function(params)
+    if not vim.b[params.bufnr].ruby_linter then
+        vim.b[params.bufnr].ruby_linter = ruby_linter(params.bufname, params.root)
+    end
+    return vim.b[params.bufnr].ruby_linter
+end
+
+local dynamic_ruby_args = function(params, module)
+    if dynamic_ruby_command(params) == "rubocop" then
+        return vim.list_extend({ "exec", "rubocop" }, module.rubocop._opts.args)
+    else
+        return module.standardrb._opts.args
+    end
+end
 
 nls.config({
     sources = {
@@ -12,6 +37,12 @@ nls.config({
         b.formatting.golines, -- go
         b.formatting.prettier.with({ filetypes = { "html", "json", "yaml", "javascript" } }), -- javascript etc
         b.formatting.stylua, -- lua
+        b.formatting.rubocop.with({
+            dynamic_command = dynamic_ruby_command,
+            args = function(params)
+                return dynamic_ruby_args(params, b.formatting)
+            end,
+        }),
         b.formatting.shfmt, -- shell
         b.formatting.shellharden, -- shell
         b.formatting.trim_newlines.with({ disabled_filetypes = { "haskell", "python" } }),
@@ -19,25 +50,14 @@ nls.config({
 
         -- linting
         b.diagnostics.golangci_lint, -- go
+        b.diagnostics.rubocop.with({
+            dynamic_command = dynamic_ruby_command,
+            args = function(params)
+                return dynamic_ruby_args(params, b.diagnostics)
+            end,
+        }),
         b.diagnostics.shellcheck, -- shell
         b.diagnostics.vint, -- vim
-
-        h.conditional(function(utils)
-            return utils.root_has_file("Gemfile")
-                    and b.formatting.rubocop.with({
-                        command = "bundle",
-                        args = vim.list_extend({ "exec", "rubocop" }, b.formatting.rubocop._opts.args),
-                    })
-                or b.formatting.rubocop
-        end),
-        h.conditional(function(utils)
-            return utils.root_has_file("Gemfile")
-                    and b.diagnostics.rubocop.with({
-                        command = "bundle",
-                        args = vim.list_extend({ "exec", "rubocop" }, b.diagnostics.rubocop._opts.args),
-                    })
-                or b.diagnostics.rubocop
-        end),
     },
 })
 

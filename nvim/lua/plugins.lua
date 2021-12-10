@@ -1,8 +1,8 @@
-local fn = vim.fn
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({ "mkdir", "-p", install_path .. "/.." })
-    packer_bootstrap = fn.system({
+local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+local packer_bootstrap = nil
+if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+    vim.fn.system({ "mkdir", "-p", install_path .. "/.." })
+    packer_bootstrap = vim.fn.system({
         "git",
         "clone",
         "--depth",

@@ -12,5 +12,3 @@ nnoremap <buffer> j gj
 nnoremap <buffer> k gk
 
 highlight link SpecialKey GruvboxOrange
-
-call vim_wrapping_softhard#SetModeAutomatically()

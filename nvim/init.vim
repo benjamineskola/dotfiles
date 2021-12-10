@@ -22,7 +22,6 @@ set signcolumn=yes
 set spell spelllang=en_gb
 set undofile
 set viewoptions=folds
-set wrap
 
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled = 1

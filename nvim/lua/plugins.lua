@@ -15,7 +15,6 @@ end
 return require("packer").startup(function(use)
     use("wbthomason/packer.nvim") -- include so that clean does not remove it
 
-    use({ "andrewferrier/vim-wrapping-softhard" })
     use({ "antoinemadec/FixCursorHold.nvim" })
     use({ "benjamineskola/vim-applescript" })
     use({ "christoomey/vim-sort-motion", requires = { "kana/vim-textobj-user", "kana/vim-textobj-indent" } })

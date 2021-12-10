@@ -50,6 +50,13 @@ nls.config({
 
         -- linting
         b.diagnostics.golangci_lint, -- go
+        b.diagnostics.luacheck.with({
+            command = vim.fn.stdpath("cache")
+                .. "/packer_hererocks/"
+                .. string.gsub(jit.version, "LuaJIT ", "")
+                .. "/bin/luacheck",
+            args = vim.list_extend({ "--globals=jit", "--globals=vim" }, b.diagnostics.luacheck._opts.args),
+        }), -- lua
         b.diagnostics.rubocop.with({
             dynamic_command = dynamic_ruby_command,
             args = function(params)

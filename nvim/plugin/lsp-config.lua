@@ -31,7 +31,7 @@ local server_opts = {
         default_opts.settings = {
             Lua = {
                 diagnostics = {
-                    globals = { "vim" },
+                    globals = { "jit", "vim" },
                     disable = { "lowercase-global" },
                 },
             },

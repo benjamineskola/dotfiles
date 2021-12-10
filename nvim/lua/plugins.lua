@@ -33,6 +33,7 @@ return require("packer").startup(function(use)
     use({
         "jose-elias-alvarez/null-ls.nvim",
         requires = { "nvim-lua/plenary.nvim" },
+        rocks = { "luacheck" },
     })
     use({ "Konfekt/FastFold" })
     use({

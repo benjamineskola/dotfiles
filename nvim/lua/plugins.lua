@@ -20,6 +20,14 @@ return require("packer").startup(function(use)
     use({ "christoomey/vim-sort-motion", requires = { "kana/vim-textobj-user", "kana/vim-textobj-indent" } })
     use({ "davidhalter/jedi-vim" })
     use({
+        "folke/trouble.nvim",
+        requires = "kyazdani42/nvim-web-devicons",
+        config = function()
+            require("trouble").setup({ auto_open = true, auto_close = true })
+            require("trouble-autoopen")
+        end,
+    })
+    use({
         "hrsh7th/nvim-cmp",
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-buffer",

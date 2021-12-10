@@ -1,6 +1,6 @@
 " vimr config
 
-VimRSetFontAndSize 'FiraCode-Light', 14
+VimRSetFontAndSize 'FiraCodeNerdFontCompleteM-Light', 14
 VimRHideTools
 VimRHideToolButtons
 VimRToggleFullscreen

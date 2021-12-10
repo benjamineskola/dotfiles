@@ -1,2 +1,0 @@
-set nobuflisted
-setlocal nonumber norelativenumber

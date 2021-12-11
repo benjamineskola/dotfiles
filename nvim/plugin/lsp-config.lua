@@ -44,6 +44,13 @@ local server_opts = {
             },
         }
     end,
+    ["gopls"] = function()
+        default_opts.settings = {
+            gopls = {
+                gofumpt = true,
+            },
+        }
+    end,
 }
 
 for _, name in pairs(servers) do

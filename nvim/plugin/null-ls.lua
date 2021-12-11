@@ -32,9 +32,6 @@ nls.config({
     sources = {
         -- formatting
         b.formatting.fish_indent, -- fish
-        b.formatting.gofumpt, -- go
-        b.formatting.goimports, -- go
-        b.formatting.golines, -- go
         b.formatting.prettier.with({ filetypes = { "html", "json", "yaml", "javascript" } }), -- javascript etc
         b.formatting.stylua, -- lua
         b.formatting.rubocop.with({
@@ -45,8 +42,8 @@ nls.config({
         }),
         b.formatting.shfmt, -- shell
         b.formatting.shellharden, -- shell
-        b.formatting.trim_newlines.with({ disabled_filetypes = { "haskell", "python" } }),
-        b.formatting.trim_whitespace.with({ disabled_filetypes = { "haskell", "markdown", "python" } }),
+        b.formatting.trim_newlines.with({ disabled_filetypes = { "go", "haskell", "python" } }),
+        b.formatting.trim_whitespace.with({ disabled_filetypes = { "go", "haskell", "markdown", "python" } }),
 
         -- linting
         b.diagnostics.golangci_lint, -- go

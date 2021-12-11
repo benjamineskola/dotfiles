@@ -42,6 +42,12 @@ return require("packer").startup(function(use)
     })
     use({ "Konfekt/FastFold" })
     use({
+        "kosayoda/nvim-lightbulb",
+        config = function()
+            vim.cmd([[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]])
+        end,
+    })
+    use({
         "lewis6991/gitsigns.nvim",
         requires = { "nvim-lua/plenary.nvim" },
         config = function()

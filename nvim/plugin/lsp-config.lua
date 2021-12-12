@@ -16,7 +16,16 @@ local servers = {
         },
     },
     jsonls = {},
-    pylsp = {},
+    pylsp = {
+        pylsp = {
+            plugins = {
+                flake8 = { enabled = true, executable = "flake518", },
+                pycodestyle = { enabled = false },
+                pydocstyle = { enabled = false },
+                mccabe = { enabled = false },
+            },
+        },
+    },
     solargraph = {},
     sumneko_lua = {
         Lua = {

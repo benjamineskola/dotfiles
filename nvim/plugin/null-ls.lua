@@ -28,7 +28,7 @@ local dynamic_ruby_args = function(params, module)
     end
 end
 
-nls.config({
+nls.setup({
     sources = {
         -- formatting
         b.formatting.fish_indent, -- fish
@@ -63,9 +63,6 @@ nls.config({
         b.diagnostics.shellcheck, -- shell
         b.diagnostics.vint, -- vim
     },
-})
-
-require("lspconfig")["null-ls"].setup({
     on_attach = function(client)
         if client.resolved_capabilities.document_formatting then
             vim.cmd([[augroup FormatSync

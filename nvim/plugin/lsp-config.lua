@@ -19,7 +19,10 @@ local servers = {
     pylsp = {
         pylsp = {
             plugins = {
-                flake8 = { enabled = true, executable = "flake518", },
+                flake8 = {
+                    enabled = true,
+                    executable = vim.fn.stdpath("config") .. "/helpers/flake518",
+                },
                 pycodestyle = { enabled = false },
                 pydocstyle = { enabled = false },
                 mccabe = { enabled = false },

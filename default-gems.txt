@@ -8,4 +8,3 @@ rubocop-govuk
 rubocop-performance
 rubocop-rails
 rubocop-rspec
-standardrb

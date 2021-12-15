@@ -42,7 +42,7 @@
 	line-numbers = true
 	syntax-theme = gruvbox-dark
 [mergetool "splice"]
-	cmd = "mvim -f -c 'SpliceInit' --remote-wait-silent $BASE $LOCAL $REMOTE $MERGED"
+	cmd = "nvim -f $BASE $LOCAL $REMOTE $MERGED -c 'SpliceInit'"
 	trustExitCode = true
 
 [includeIf "gitdir:govuk/"]

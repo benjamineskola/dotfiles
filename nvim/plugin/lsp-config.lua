@@ -1,5 +1,7 @@
 local lsp_installer = require("nvim-lsp-installer")
 
+vim.env.PATH = vim.fn.stdpath("config") .. "/helpers:" .. vim.env.PATH
+
 -- Include the servers you want to have installed by default below
 local servers = {
     bashls = {},
@@ -21,16 +23,13 @@ local servers = {
             plugins = {
                 flake8 = {
                     enabled = true,
-                    executable = vim.fn.stdpath("config") .. "/helpers/flake518",
+                    executable = "flake518",
                 },
                 pycodestyle = { enabled = false },
                 pydocstyle = { enabled = false },
                 mccabe = { enabled = false },
                 pyflakes = { enabled = false },
-                pylint = {
-                    enabled = true,
-                    executable = vim.fn.stdpath("config") .. "/helpers/pylint",
-                },
+                pylint = { enabled = true },
             },
         },
     },

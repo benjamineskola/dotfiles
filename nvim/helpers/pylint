@@ -1,17 +1,1 @@
-#!/usr/bin/env python
-import os
-import subprocess
-import sys
-
-dir = os.getcwd()
-for n, i in enumerate(sys.argv[1:], start=1):
-    if os.path.exists(i):
-        sys.argv[n] = os.path.abspath(i)
-        dir = os.path.dirname(sys.argv[n])
-
-os.chdir(dir)
-
-if subprocess.call(["poetry", "check", "-q"]) == 0:
-    os.execvp("poetry", ["poetry", "run", "pylint"] + sys.argv[1:])
-else:
-    os.execvp("pylint", ["pylint"] + sys.argv[1:])
+run_in_poetry

@@ -26,6 +26,11 @@ local servers = {
                 pycodestyle = { enabled = false },
                 pydocstyle = { enabled = false },
                 mccabe = { enabled = false },
+                pyflakes = { enabled = false },
+                pylint = {
+                    enabled = true,
+                    executable = vim.fn.stdpath("config") .. "/helpers/pylint",
+                },
             },
         },
     },

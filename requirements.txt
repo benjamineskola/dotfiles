@@ -8,6 +8,7 @@ jedi
 mypy
 pep8-naming
 poetry
+pylint
 pynvim
 solargraph-utils.py
 vim-vint

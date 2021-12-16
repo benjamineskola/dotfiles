@@ -1,0 +1,17 @@
+[MASTER]
+max-line-length = 88
+
+[MESSAGES CONTROL]
+disable =
+        # handled by isort
+        wrong-import-order,
+        # handled by mccabe
+        too-many-branches,
+        # handled by pycodestyle
+        unneeded-not, line-too-long, unnecessary-semicolon, trailing-whitespace, missing-final-newline, bad-indentation, multiple-statements, bare-except,
+        # handled by pydocstyle
+        missing-class-docstring, missing-function-docstring, missing-module-docstring,
+        # handled by pyflakes
+        undefined-variable, unused-import, unused-variable,
+        # handled by pep8-naming
+        invalid-name, bad-classmethod-argument, bad-mcs-classmethod-argument, no-self-argument,

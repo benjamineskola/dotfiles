@@ -7,4 +7,4 @@ extend-ignore =
 	E501,
 	# incompatible with black
 	W503
-max-line-length = 80
+max-line-length = 88

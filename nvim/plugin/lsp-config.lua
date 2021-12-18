@@ -70,6 +70,16 @@ for name, settings in pairs(servers) do
         end)
 
         if not requested_server:is_installed() then
+            if name == "pylsp" then
+                local pip3 = require("nvim-lsp-installer.installers.pip3")
+                requested_server._installer = pip3.packages({
+                    "python-lsp-server",
+                    "pylsp-mypy",
+                    "pyls-isort",
+                    "python-lsp-black",
+                })
+            end
+
             print("Installing " .. name)
             requested_server:install()
         end

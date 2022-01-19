@@ -6,3 +6,11 @@ for i in _* private/_*; do
     ln -sfh ".config/$i" "$HOME/.$(basename "$i" | sed 's/^_//')"
 done
 find -L "$HOME" -type l -maxdepth 1 -name '.*' -exec rm {} +
+
+if [ -d "$HOME/Library/Preferences/espanso" ]; then
+  if ! [ -L "$HOME/Library/Preferences/espanso" ]; then
+    rm -rf "$HOME/Library/Preferences/espanso"
+  fi
+
+  ln -s "$XDG_CONFIG_HOME/espanso" "$HOME/Library/Preferences/espanso"
+fi

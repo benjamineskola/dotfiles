@@ -1,0 +1,80 @@
+# espanso configuration file
+
+# This is the default configuration file, change it as you like it
+# You can refer to the official documentation:
+# https://espanso.org/docs/
+
+# Matches are the substitution rules, when you type the "trigger" string
+# it gets replaced by the "replace" string.
+matches:
+  # Dates
+  - trigger: ",date"
+    replace: "{{date}}"
+    vars:
+      - name: date
+        type: date
+        params:
+          format: "%B %d, %Y"
+  - trigger: ",isodate"
+    replace: "{{date}}"
+    vars:
+      - name: date
+        type: date
+        params:
+          format: "%Y-%m-%d"
+  - trigger: ",zkdate"
+    replace: "{{date}}"
+    vars:
+      - name: date
+        type: date
+        params:
+          format: "%Y%m%d.%H:%M"
+
+  # Political corrections
+  - triggers: ["falkland islands", "falklands"]
+    replace: "malvinas"
+    word: true
+    propagate_case: true
+  - trigger: "new zealand"
+    replace: "aotearoa"
+    word: true
+    propagate_case: true
+  - trigger: "northern ireland"
+    replace: "the north of ireland"
+    word: true
+  - trigger: "Northern Ireland"
+    replace: "the North of Ireland"
+    word: true
+  - trigger: "northern irish"
+    replace: "north of ireland"
+    word: true
+  - trigger: "Northern Irish"
+    replace: "North of Ireland"
+    word: true
+
+  - triggers: ["prince charles", "the prince of wales"]
+    replace: "charles windsor"
+    word: true
+    propagate_case: true
+  - triggers: ["queen elizabeth", "the queen"]
+    replace: "elizabeth windsor"
+    word: true
+    propagate_case: true
+  - triggers: ["prince philip", "the duke of edinburgh"]
+    replace: "philip mountbatten"
+    word: true
+    propagate_case: true
+  - triggers: ["prince william", "the duke of cambridge"]
+    replace: "william windsor"
+    word: true
+    propagate_case: true
+  - triggers: ["prince harry"]
+    replace: "harry windsor"
+    word: true
+    propagate_case: true
+  - trigger: "lord"
+    replace: "“lord”"
+    word: true
+  - trigger: "Lord"
+    replace: "“Lord”"
+    word: true

@@ -1,7 +1,17 @@
 #!/usr/bin/env python
 import os
-import subprocess
 import sys
+
+
+def has_gemfile(workdir: str) -> bool:
+    if os.path.exists(os.path.join(workdir, "Gemfile")):
+        return True
+
+    if workdir not in ["/", os.environ["HOME"]]:
+        return has_gemfile(os.path.dirname(workdir))
+
+    return False
+
 
 dir = os.getcwd()
 for n, i in enumerate(sys.argv[1:], start=1):
@@ -11,7 +21,11 @@ for n, i in enumerate(sys.argv[1:], start=1):
 
 os.chdir(dir)
 
-if subprocess.call("bundle env 2>/dev/null | grep -q Gemfile", shell=True) == 0:
+if has_gemfile(dir):
     os.execvp("bundle", ["bundle", "exec", "rubocop"] + sys.argv[1:])
 else:
-    os.execvp("rubocop", ["rubocop"] + sys.argv[1:])
+    os.execvp(
+        "rubocop",
+        [os.path.join(os.environ["XDG_DATA_HOME"], "asdf", "shims", "rubocop")]
+        + sys.argv[1:],
+    )

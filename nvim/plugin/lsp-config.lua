@@ -35,7 +35,12 @@ local servers = {
             },
         },
     },
-    solargraph = {},
+    solargraph = {
+        on_attach = function(client)
+            client.resolved_capabilities.document_formatting = false
+            client.resolved_capabilities.document_range_formatting = false
+        end,
+    },
     sumneko_lua = {
         Lua = {
             diagnostics = {
@@ -66,6 +71,9 @@ for name, settings in pairs(servers) do
         requested_server:on_ready(function()
             local opts = default_opts
             opts.settings = settings
+            if settings.on_attach then
+                opts.on_attach = settings.on_attach
+            end
             requested_server:setup(opts)
         end)
 

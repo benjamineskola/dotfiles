@@ -6,7 +6,9 @@
     <string>uk.eskola.crondaily</string>
     <key>ProgramArguments</key>
     <array>
-      <string>sh</string>
+      <string>/usr/local/bin/fdautil</string>
+      <string>exec</string>
+      <string>/bin/sh</string>
       <string>-c</string>
       <string>for i in $HOME/.config/cron.d/daily/*; do $i; done</string>
     </array>

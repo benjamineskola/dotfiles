@@ -6,7 +6,9 @@
     <string>uk.eskola.logind</string>
     <key>ProgramArguments</key>
     <array>
-      <string>sh</string>
+      <string>/usr/local/bin/fdautil</string>
+      <string>exec</string>
+      <string>/bin/sh</string>
       <string>-c</string>
       <string>for i in $HOME/.config/login.d/*; do $i; done</string>
     </array>

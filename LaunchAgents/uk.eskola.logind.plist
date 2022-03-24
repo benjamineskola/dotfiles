@@ -8,9 +8,9 @@
     <array>
       <string>/usr/local/bin/fdautil</string>
       <string>exec</string>
-      <string>/bin/sh</string>
+      <string>/opt/homebrew/bin/fish</string>
       <string>-c</string>
-      <string>for i in $HOME/.config/login.d/*; do $i; done</string>
+      <string>for i in $HOME/.config/login.d/*; $i; end</string>
     </array>
     <key>RunAtLoad</key>
     <true/>

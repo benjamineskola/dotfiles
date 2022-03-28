@@ -62,10 +62,10 @@ cask "iterm2"
 cask "launchbar"
 cask "mactex"
 cask "meld"
+cask "nova"
 cask "qlmarkdown"
 cask "qlstephen"
 cask "rectangle"
 cask "rocket"
-cask "vimr"
 
 instance_eval File.open("#{ENV["HOME"]}/.config/Brewfile.#{`hostname -s`.chomp}.rb").read

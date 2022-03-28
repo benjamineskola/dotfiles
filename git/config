@@ -34,16 +34,17 @@
 	templatedir = ~/.config/git/template
 	defaultBranch = main
 [merge]
-	tool = splice
+	tool = meld
 	conflictstyle = diff3
 [mergetool]
 	prompt = false
+	keepBackup = false
+[mergetool "meld"]
+  trustExitCode = true
+  cmd = open -W -a Meld --args --auto-merge \"$PWD/$LOCAL\" \"$PWD/$BASE\" \"$PWD/$REMOTE\" --output=\"$PWD/$MERGED\"
 [delta]
 	line-numbers = true
 	syntax-theme = gruvbox-dark
-[mergetool "splice"]
-	cmd = "nvim -f $BASE $LOCAL $REMOTE $MERGED -c 'SpliceInit'"
-	trustExitCode = true
 
 [includeIf "gitdir:govuk/"]
   path = ~/.config/git/config.work

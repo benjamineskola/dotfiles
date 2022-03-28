@@ -68,4 +68,38 @@ cask "qlstephen"
 cask "rectangle"
 cask "rocket"
 
-instance_eval File.open("#{ENV["HOME"]}/.config/Brewfile.#{`hostname -s`.chomp}.rb").read
+case `hostname -s`.chomp
+when "MacBook-Pro"
+  brew "get_iplayer"
+
+  cask "arq"
+  cask "calibre"
+  cask "firefox"
+  cask "gog-galaxy"
+  cask "jettison"
+  cask "launchcontrol"
+  cask "qlmobi"
+  cask "qlvideo"
+  cask "signal"
+  cask "steam"
+  cask "vlc"
+  cask "zoom"
+  cask "zotero"
+when /^GDS/
+  tap "alphagov/gds"
+
+  brew "alphagov/gds/gds-cli"
+  brew "alphagov/gds/govuk-connect"
+  brew "dnsmasq"
+  brew "gnupg"
+  brew "mysql"
+  brew "pass"
+  brew "pinentry"
+  brew "pv"
+  brew "terraform-docs"
+  brew "tfenv"
+
+  cask "aws-vault"
+  cask "docker"
+  cask "gpg-suite"
+end

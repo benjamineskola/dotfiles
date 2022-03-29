@@ -45,6 +45,8 @@
 [delta]
 	line-numbers = true
 	syntax-theme = gruvbox-dark
+[rerere]
+	enabled = true
 
 [includeIf "gitdir:govuk/"]
   path = ~/.config/git/config.work

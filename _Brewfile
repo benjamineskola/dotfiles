@@ -91,6 +91,7 @@ when /^GDS/
   brew "alphagov/gds/gds-cli"
   brew "alphagov/gds/govuk-connect"
   brew "dnsmasq"
+  brew "finicky"
   brew "gnupg"
   brew "mysql"
   brew "pass"

@@ -1,1 +1,6 @@
 prettier
+remark-cli
+remark-footnotes
+remark-frontmatter
+remark-gfm
+remark-wiki-link

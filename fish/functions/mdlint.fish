@@ -1,14 +1,24 @@
-function mdlint --wraps='command pandoc -s -dmarkdown-lint' --description 'alias mdlint command pandoc -s -dmarkdown-lint'
+function mdlint --wraps='remark' --description 'alias mdlint remark'
+    # 1&2 fix overzealous escapes of pandoc citations;
+    # 3 fixes overzealous escapes of ~, ., and _
+    # gfm only used for tables; easier to fix subscript.
+    # TODO find a standalone table plugin or pandoc-compatible syntax
+    set after_pattern 's/\\\\\[([^]]*@[^]]*)\]/[\1]/g; s/-\\\\\@/-@/; s/\\\([~._])/\1/g'
     argparse w/write -- $argv
-    if test (count $argv) -ge 2
-        echo "Too many input files specified" >&2
-        return 1
-    else if not count $argv
-        echo "No input file specified" >&2
-        return 1
-    end
+
     if test $_flag_write
-        set -p argv -o $argv[1]
+        set files
+        for file in $argv
+            if test -d $file
+                set -a files $file/**.md
+            else if test -e $file
+                set -a files $file
+            end
+        end
+
+        remark -q $files -o
+        sed -E -i '' $after_pattern $files
+    else
+        remark -q $argv | sed -E $after_pattern
     end
-    command pandoc -dmarkdown-lint $argv
 end

@@ -1,0 +1,11 @@
+plugins:
+  - footnotes
+  - frontmatter
+  - [gfm, { singleTilde: false }]
+  - wiki-link
+settings:
+  bullet: "-"
+  strong: "*"
+  emphasis: "_"
+  listItemIndent: "one"
+  rule: "-"

@@ -1,4 +1,0 @@
-from: markdown
-to: markdown-smart
-wrap: none
-standalone: true

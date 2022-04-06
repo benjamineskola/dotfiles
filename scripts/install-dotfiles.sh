@@ -7,10 +7,9 @@ for i in _* private/_*; do
 done
 find -L "$HOME" -type l -maxdepth 1 -name '.*' -exec rm {} +
 
-if [ -d "$HOME/Library/Preferences/espanso" ]; then
+if [ -d "$HOME/Library/Preferences/espanso" ] || ! [ -e "$HOME/Library/Preferences/espanso" ]; then
   if ! [ -L "$HOME/Library/Preferences/espanso" ]; then
     rm -rf "$HOME/Library/Preferences/espanso"
+    ln -s "$XDG_CONFIG_HOME/espanso" "$HOME/Library/Preferences/espanso"
   fi
-
-  ln -s "$XDG_CONFIG_HOME/espanso" "$HOME/Library/Preferences/espanso"
 fi

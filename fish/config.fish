@@ -109,8 +109,19 @@ end
 
 function set_dark_mode --on-event fish_prompt
     if dark_mode
-        set -gx BAT_THEME gruvbox-dark
+        if test "$BAT_THEME" != gruvbox-dark
+            osascript -e 'tell application "iTerm2"
+                launch API script named "iterm_set_font_light.py"
+                end tell' &
+
+            set -gx BAT_THEME gruvbox-dark
+        end
     else
-        set -gx BAT_THEME gruvbox-light
+        if test "$BAT_THEME" != gruvbox-light
+            osascript -e 'tell application "iTerm2"
+                launch API script named "iterm_set_font_regular.py"
+                end tell' &
+            set -gx BAT_THEME gruvbox-light
+        end
     end
 end

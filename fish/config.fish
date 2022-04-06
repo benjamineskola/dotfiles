@@ -106,3 +106,11 @@ if status is-interactive
         rm $HOME/.ssh/askpass-lock
     end
 end
+
+function set_dark_mode --on-event fish_prompt
+    if dark_mode
+        set -gx BAT_THEME gruvbox-dark
+    else
+        set -gx BAT_THEME gruvbox-light
+    end
+end

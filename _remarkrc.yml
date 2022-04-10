@@ -3,6 +3,7 @@ plugins:
   - footnotes
   - frontmatter
   - [gfm, { singleTilde: false }]
+  - smartypants
   - wiki-link
 settings:
   bullet: "-"

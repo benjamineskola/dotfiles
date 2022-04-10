@@ -3,5 +3,6 @@ remark-cli
 remark-footnotes
 remark-frontmatter
 remark-gfm
+remark-smartypants
 remark-wiki-link
 @benrbray/remark-cite

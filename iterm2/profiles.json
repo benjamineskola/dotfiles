@@ -5,8 +5,6 @@
       "Guid": "1CDE98C5-A670-4E7A-B13F-0924282ADA35",
       "ASCII Anti Aliased": true,
       "ASCII Ligatures": false,
-      "Command": "/opt/homebrew/bin/fish -l",
-      "Custom Command": "Yes",
       "Draw Powerline Glyphs": true,
       "Unlimited Scrollback": true,
       "Keyboard Map": {

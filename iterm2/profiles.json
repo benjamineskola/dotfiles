@@ -13,7 +13,7 @@
           "Text": "{\"ConvertUnicodePunctuation\":false,\"WaitForPrompts\":false,\"Substitution\":\"\",\"EscapeForShell\":true,\"Base64\":false,\"TabStopSize\":4,\"Delay\":0.01,\"RemoveNewlines\":false,\"Regex\":\"\",\"ConvertNewlines\":true,\"TabTransform\":0,\"BracketAllowed\":true,\"UseRegexSubstitution\":false,\"ChunkSize\":1024,\"RemoveControls\":true}"
         }
       },
-      "Normal Font": "FiraCode-Light 16",
+      "Normal Font": "JetBrainsMono-Light 16",
       "Option Key Sends": 2,
       "Right Option Key Sends": 0,
       "Status Bar Layout": {
@@ -59,7 +59,7 @@
             "Alpha Component": 1,
             "Green Component": 0.60000002384185791
           },
-          "font": "InputMono-Thin 14",
+          "font": "JetBrainsMono-Light 14",
           "algorithm": 1
         }
       },

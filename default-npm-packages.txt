@@ -4,3 +4,4 @@ remark-footnotes
 remark-frontmatter
 remark-gfm
 remark-wiki-link
+@benrbray/remark-cite

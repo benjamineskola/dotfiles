@@ -1,9 +1,8 @@
 function mdlint --wraps='remark' --description 'alias mdlint remark'
-    # 1&2 fix overzealous escapes of pandoc citations;
-    # 3 fixes overzealous escapes of ~, ., and _
+    # fix overzealous escapes of ~, ., and _
     # gfm only used for tables; easier to fix subscript.
     # TODO find a standalone table plugin or pandoc-compatible syntax
-    set after_pattern 's/\\\\\[([^]]*@[^]]*)\]/[\1]/g; s/-\\\\\@/-@/; s/\\\([~._])/\1/g'
+    set after_pattern 's/\\\([~._])/\1/g'
     argparse w/write -- $argv
 
     if test $_flag_write

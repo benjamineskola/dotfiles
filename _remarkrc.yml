@@ -1,4 +1,5 @@
 plugins:
+  - "@benrbray/remark-cite"
   - footnotes
   - frontmatter
   - [gfm, { singleTilde: false }]

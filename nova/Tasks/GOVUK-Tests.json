@@ -2,8 +2,9 @@
   "actions": {
     "build": {
       "enabled": true,
-      "path": "/Users/benjamineskola/.config/nova/Tasks/govuk-test-docker.sh"
+      "path": "/Users/benjamineskola/.config/nova/Tasks/govuk-test.sh"
     }
   },
+  "arguments": ["docker"],
   "openLogOnRun": "start"
 }

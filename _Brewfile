@@ -42,13 +42,6 @@ brew "trash"
 brew "tree"
 brew "wget"
 
-# for ruby
-brew "gdbm"
-brew "libffi"
-brew "libyaml"
-brew "openssl"
-brew "readline"
-
 cask "airbuddy"
 cask "bartender"
 cask "bettertouchtool"

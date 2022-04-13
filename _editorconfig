@@ -1,0 +1,30 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+indent_size = 8   # tabs are 8 columns wide
+indent_style = tab  # mostly overridden
+
+[*.go]
+indent_style = tab
+
+[{*.js,*.json}]
+indent_size = 2
+indent_style = space
+
+[*.py]
+indent_size = 4
+indent_style = space
+
+[{*.rb,Gemfile,*.gemspec}]
+indent_size = 2
+indent_style = space
+
+[*.rs]
+indent_size = 4
+indent_style = space
+
+[*.yml]
+indent_size = 2
+indent_style = space

@@ -8,7 +8,7 @@
     <array>
       <string>/opt/homebrew/bin/fish</string>
       <string>-c</string>
-      <string>$HOME/bin/autodarkmode.sh</string>
+      <string>$HOME/bin/autodarkmode.py</string>
     </array>
     <key>StartInterval</key>
     <integer>60</integer>

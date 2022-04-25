@@ -24,7 +24,6 @@ if has_changed '(tool-versions|scripts/)'; then
 else
   check_run '(^|/)_.*' ./scripts/install-dotfiles.sh
 
-  check_run Brewfile ./scripts/install-brew.sh
   check_run nvim/plugins.vim ./scripts/install-vim.sh
   check_run LaunchAgents ./scripts/install-zzlaunchagents.sh
 

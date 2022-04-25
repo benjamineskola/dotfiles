@@ -6,8 +6,6 @@
     <string>uk.eskola.cronhourly</string>
     <key>ProgramArguments</key>
     <array>
-      <string>/usr/local/bin/fdautil</string>
-      <string>exec</string>
       <string>/opt/homebrew/bin/fish</string>
       <string>-c</string>
       <string>for i in $HOME/.config/cron.d/hourly/*; $i; end</string>

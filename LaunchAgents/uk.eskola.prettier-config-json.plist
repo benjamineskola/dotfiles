@@ -6,12 +6,9 @@
     <string>uk.eskola.prettier-config-json</string>
     <key>ProgramArguments</key>
     <array>
-      <!-- <string>/usr/local/bin/fdautil</string> -->
-      <!-- <string>exec</string> -->
       <string>/opt/homebrew/bin/fish</string>
       <string>-lc</string>
       <string>fd -g '*.json' ~/.config | entr -n fd -g '*.json' ~/.config -X prettier -w</string>
-      <!-- <string>echo hello world</string> -->
     </array>
     <key>RunAtLoad</key>
     <true/>

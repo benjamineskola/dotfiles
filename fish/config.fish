@@ -18,7 +18,7 @@ set -gx ASDF_GEM_DEFAULT_PACKAGES_FILE "$XDG_CONFIG_HOME/default-gems.txt"
 set -gx ASDF_PYTHON_DEFAULT_PACKAGES_FILE "$XDG_CONFIG_HOME/requirements.txt"
 set -gx ASDF_NPM_DEFAULT_PACKAGES_FILE "$XDG_CONFIG_HOME/default-npm-packages.txt"
 
-. (brew --prefix asdf)/asdf.fish
+. (brew --prefix asdf)/libexec/asdf.fish
 
 set -a fish_user_paths ~/bin
 

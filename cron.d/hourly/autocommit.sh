@@ -17,4 +17,5 @@ fd -0 -HI '^\.git$' ~/Documents | xargs -0 dirname | while read -r dir; do
     /usr/local/bin/fdautil exec ~/bin/autocommit.sh "$dir"
 done
 
+~/Code/bear-backlinks/bear-to-hook.py >/dev/null 2>&1 &
 /usr/local/bin/fdautil exec ~/bin/bearsync

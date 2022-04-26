@@ -11,3 +11,4 @@ settings:
   emphasis: "_"
   listItemIndent: "one"
   rule: "-"
+  fences: true

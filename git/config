@@ -27,6 +27,7 @@
 	decorate = true
 [rebase]
 	autoStash = true
+	autosquash = true
 [status]
        short = true
        branch = true

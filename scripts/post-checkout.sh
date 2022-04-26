@@ -6,6 +6,10 @@ if [ "$3" = 0 ]; then
     exit
 fi
 
+if [ -e .git/rebase-merge ] || [ -e .git/rebase-apply ]; then
+    exit
+fi
+
 changed_files=$(git diff-tree -r --name-only --no-commit-id "$1" "$2")
 
 has_changed() {

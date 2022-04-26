@@ -103,7 +103,7 @@ if status is-interactive
     end
 end
 
-function set_dark_mode --on-event fish_prompt
+function set_dark_mode --on-event fish_preexec
     if dark_mode
         if test "$BAT_THEME" != gruvbox-dark
             osascript -e 'tell application "iTerm2"

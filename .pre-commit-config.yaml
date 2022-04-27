@@ -23,3 +23,12 @@ repos:
         entry: shfmt -i 4 -p -s -d
         types: [shell]
         exclude: 'git/template/hooks/pre-commit$'
+      - id: flake518
+        name: flake518
+        language: system
+        entry: flake518
+        types: [python]
+- repo: https://github.com/psf/black
+  rev: 22.3.0
+  hooks:
+    - id: black

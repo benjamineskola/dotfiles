@@ -8,9 +8,13 @@
     <array>
       <string>/opt/homebrew/bin/fish</string>
       <string>-c</string>
-      <string>$HOME/bin/autodarkmode.py</string>
+      <string>$HOME/bin/autodarkmode.py | ts</string>
     </array>
     <key>StartInterval</key>
     <integer>60</integer>
+    <key>StandardErrorPath</key>
+    <string>$HOME/Library/Logs/uk.eskola.autodarkmode.err</string>
+    <key>StandardOutPath</key>
+    <string>$HOME/Library/Logs/uk.eskola.autodarkmode.out</string>
   </dict>
 </plist>

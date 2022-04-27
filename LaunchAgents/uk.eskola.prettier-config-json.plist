@@ -8,11 +8,15 @@
     <array>
       <string>/opt/homebrew/bin/fish</string>
       <string>-lc</string>
-      <string>fd -g '*.json' ~/.config | entr -n fd -g '*.json' ~/.config -X prettier -w</string>
+      <string>fd -g '*.json' ~/.config | entr -n fd -g '*.json' ~/.config -X prettier -w | ts</string>
     </array>
     <key>RunAtLoad</key>
     <true/>
     <key>KeepAlive</key>
     <true/>
+    <key>StandardErrorPath</key>
+    <string>$HOME/Library/Logs/uk.eskola.prettier-config-json.err</string>
+    <key>StandardOutPath</key>
+    <string>$HOME/Library/Logs/uk.eskola.prettier-config-json.out</string>
   </dict>
 </plist>

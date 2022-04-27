@@ -8,8 +8,12 @@
     <array>
       <string>/opt/homebrew/bin/fish</string>
       <string>-c</string>
-      <string>for i in $HOME/.config/cron.d/hourly/*; $i; end</string>
+      <string>for i in $HOME/.config/cron.d/hourly/*; echo $i; $i; end | ts</string>
     </array>
+    <key>StandardErrorPath</key>
+    <string>$HOME/Library/Logs/uk.eskola.cronhourly.err</string>
+    <key>StandardOutPath</key>
+    <string>$HOME/Library/Logs/uk.eskola.cronhourly.out</string>
     <key>StartCalendarInterval</key>
     <dict>
       <key>Minute</key>

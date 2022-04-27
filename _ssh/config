@@ -9,3 +9,6 @@ Host *
 	Compression yes
 	ForwardAgent yes
 	UseRoaming no
+
+	# Secretive Config
+	IdentityAgent ~/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh

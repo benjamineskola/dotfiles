@@ -91,16 +91,6 @@ if status is-interactive
     set hydro_color_git magenta
     set hydro_color_prompt green
     set hydro_color_pwd cyan
-
-    if ! ssh-add -lq >/dev/null && ! test -f $HOME/.ssh/askpass-lock
-        touch $HOME/.ssh/askpass-lock
-        if type -q ssh-askpass
-            ssh-add </dev/null
-        else
-            ssh-add
-        end
-        rm $HOME/.ssh/askpass-lock
-    end
 end
 
 function set_dark_mode --on-event fish_preexec

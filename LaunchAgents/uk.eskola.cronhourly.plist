@@ -6,9 +6,17 @@
     <string>uk.eskola.cronhourly</string>
     <key>ProgramArguments</key>
     <array>
-      <string>/opt/homebrew/bin/fish</string>
+      <string>/bin/sh</string>
       <string>-c</string>
-      <string>for i in $HOME/.config/cron.d/hourly/*; echo $i; $i; end | ts</string>
+      <string>#!/bin/sh -e
+        eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
+        export ASDF_CONFIG_FILE="$XDG_CONFIG_HOME/asdfrc"
+        export ASDF_DEFAULT_TOOL_VERSIONS_FILENAME="$XDG_CONFIG_HOME/tool-versions"
+        export ASDF_DATA_DIR="$XDG_DATA_HOME/asdf"
+        . $(brew --prefix asdf)/libexec/asdf.sh
+
+        for i in $HOME/.config/cron.d/hourly/*; do echo $i; $i; done | ts
+      </string>
     </array>
     <key>StandardErrorPath</key>
     <string>$HOME/Library/Logs/uk.eskola.cronhourly.err</string>

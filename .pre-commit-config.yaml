@@ -28,7 +28,14 @@ repos:
         language: system
         entry: flake518
         types: [python]
+      - id: vint
+        name: vint
+        language: system
+        entry: vint -s
+        types: [vim]
 - repo: https://github.com/psf/black
   rev: 22.3.0
   hooks:
     - id: black
+
+exclude: '^vim/plugged'

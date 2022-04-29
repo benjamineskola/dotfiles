@@ -23,3 +23,20 @@
   language: system
   entry: prettier -c
   types_or: [json, yaml]
+- id: pylint
+  name: pylint
+  language: system
+  entry: pylint
+  types: [python]
+- id: pytest
+  name: pytest
+  language: system
+  entry: pytest
+  types: [python]
+  pass_filenames: false
+- id: mypy
+  name: mypy
+  language: system
+  entry: mypy
+  types: [python]
+  pass_filenames: false

@@ -1,0 +1,25 @@
+- id: shellcheck
+  name: shellcheck
+  language: system
+  entry: shellcheck
+  types: [shell]
+- id: shfmt
+  name: shfmt
+  language: system
+  entry: shfmt -i 4 -p -s -d
+  types: [shell]
+- id: flake518
+  name: flake518
+  language: system
+  entry: flake518
+  types: [python]
+- id: vint
+  name: vint
+  language: system
+  entry: vint -s
+  types: [vim]
+- id: prettier
+  name: prettier
+  language: system
+  entry: prettier -c
+  types_or: [json, yaml]

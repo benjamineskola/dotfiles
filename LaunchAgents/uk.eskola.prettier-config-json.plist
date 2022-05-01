@@ -6,9 +6,9 @@
     <string>uk.eskola.prettier-config-json</string>
     <key>ProgramArguments</key>
     <array>
-      <string>/opt/homebrew/bin/fish</string>
-      <string>-lc</string>
-      <string>fd -g '*.json' ~/.config | entr -n fd -g '*.json' ~/.config -X prettier -w | ts</string>
+      <string>/bin/sh</string>
+      <string>-c</string>
+      <string>. "$(brew --prefix asdf)/libexec/asdf.sh"; fd -g '*.json' ~/.config | entr -n fd -g '*.json' ~/.config -X prettier -w | ts</string>
     </array>
     <key>RunAtLoad</key>
     <true/>
@@ -18,5 +18,22 @@
     <string>$HOME/Library/Logs/uk.eskola.prettier-config-json.err</string>
     <key>StandardOutPath</key>
     <string>$HOME/Library/Logs/uk.eskola.prettier-config-json.out</string>
+    <key>EnvironmentVariables</key>
+    <dict>
+      <key>PATH</key>
+      <string>$PATH</string>
+      <key>XDG_CONFIG_HOME</key>
+      <string>$XDG_CONFIG_HOME</string>
+      <key>XDG_DATA_HOME</key>
+      <string>$XDG_DATA_HOME</string>
+      <key>XDG_CACHE_HOME</key>
+      <string>$XDG_CACHE_HOME</string>
+      <key>ASDF_DIR</key>
+      <string>$HOMEBREW_PREFIX/opt/asdf/libexec</string>
+      <key>ASDF_DATA_DIR</key>
+      <string>$XDG_DATA_HOME/asdf</string>
+      <key>ASDF_DEFAULT_TOOL_VERSIONS_FILENAME</key>
+      <string>$XDG_CONFIG_HOME/tool-versions</string>
+    </dict>
   </dict>
 </plist>

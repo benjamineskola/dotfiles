@@ -13,7 +13,7 @@ repos:
         files: "^bundler/config$"
       - id: check-toml
   - repo: https://github.com/benjamineskola/dotfiles.git
-    rev: f18f974c45484f232724765911588f22d8e78e3b
+    rev: e1bb4d9817df350bfcf1d9ea6f2ad3b93f25209c
     hooks:
       - id: shellcheck
         exclude: "git/template/hooks/pre-commit$"

@@ -10,7 +10,7 @@
       <string>exec</string>
       <string>/opt/homebrew/bin/fish</string>
       <string>-c</string>
-      <string>for i in $HOME/.config/login.d/*; echo $i; $i; end | ts</string>
+      <string>$XDG_CONFIG_HOME/scripts/run-dir.sh $XDG_CONFIG_HOME/login.d</string>
     </array>
     <key>RunAtLoad</key>
     <true/>

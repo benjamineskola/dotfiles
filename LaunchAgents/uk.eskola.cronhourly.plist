@@ -10,7 +10,7 @@
       <string>exec</string>
       <string>/opt/homebrew/bin/fish</string>
       <string>-c</string>
-      <string>$XDG_CONFIG_HOME/scripts/run-dir.sh $HOME/.config/cron.d/hourly</string>
+      <string>$XDG_CONFIG_HOME/scripts/run-dir.sh $XDG_CONFIG_HOME/cron.d/hourly</string>
     </array>
     <key>StandardErrorPath</key>
     <string>$HOME/Library/Logs/uk.eskola.cronhourly.err</string>

@@ -15,3 +15,17 @@ for lang in python ruby; do
     version=$(asdf latest "$lang")
     asdf install "$lang" "$version" && asdf global "$lang" "$version" && asdf reshim "$lang"
 done
+
+for lang in $(asdf plugin list); do
+    if [ "$(asdf list "$lang" | wc -l)" -eq 1 ]; then
+        # Ignore those with only one version even if it's not the latest
+        continue
+    fi
+
+    latest=$(asdf latest "$lang")
+    for version in $(asdf list "$lang"); do
+        if [ "$version" != "$latest" ]; then
+            asdf uninstall "$lang" "$version"
+        fi
+    done
+done

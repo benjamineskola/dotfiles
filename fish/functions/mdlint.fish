@@ -5,23 +5,22 @@ function mdlint --wraps='remark' --description 'alias mdlint remark'
     set after_pattern 's/\\\([~._&([])/\1/g'
     argparse w/write -- $argv
 
+    set files
+    for file in $argv
+        if test -d $file
+            set -a files $file/**.md
+        else if test -e $file
+            set -a files $file
+        end
+    end
+
+    if empty $files
+        return
+    end
     if test $_flag_write
-        set files
-        for file in $argv
-            if test -d $file
-                set -a files $file/**.md
-            else if test -e $file
-                set -a files $file
-            end
-        end
-
-        if empty $files
-            return
-        end
-
         remark -q $files -o
         sed -E -i '' $after_pattern $files
     else
-        remark -q $argv | sed -E $after_pattern
+        remark -q $files | sed -E $after_pattern
     end
 end

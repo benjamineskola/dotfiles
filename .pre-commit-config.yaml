@@ -12,8 +12,8 @@ repos:
       - id: sort-simple-yaml
         files: "^bundler/config$"
       - id: check-toml
-  - repo: https://github.com/benjamineskola/dotfiles.git
-    rev: e1bb4d9817df350bfcf1d9ea6f2ad3b93f25209c
+  - repo: https://github.com/benjamineskola/pre-commit-hooks.git
+    rev: e6f507658a32156b4de20749ab6343c6ad8bb1f1
     hooks:
       - id: shellcheck
         exclude: "git/template/hooks/pre-commit$"

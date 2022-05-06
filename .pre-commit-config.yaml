@@ -22,6 +22,13 @@ repos:
       - id: flake518
       - id: vint
       - id: prettier
+  - repo: local
+    hooks:
+      - id: fish_indent
+        name: fish_indent
+        entry: fish_indent -w
+        language: system
+        types: [fish]
   - repo: https://github.com/psf/black
     rev: 22.3.0
     hooks:

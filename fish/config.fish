@@ -91,6 +91,7 @@ if status is-interactive
     set hydro_color_git magenta
     set hydro_color_prompt green
     set hydro_color_pwd cyan
+    set hydro_fetch true
 end
 
 function set_dark_mode --on-event fish_preexec

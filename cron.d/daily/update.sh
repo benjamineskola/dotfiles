@@ -17,6 +17,10 @@ for lang in python ruby; do
 done
 
 for lang in $(asdf plugin list); do
+    if [ "$lang" = ruby ] && hostname | grep -qi '^gds'; then
+        continue # cf. govuk-update.sh
+    fi
+
     if [ "$(asdf list "$lang" | wc -l)" -eq 1 ]; then
         # Ignore those with only one version even if it's not the latest
         continue

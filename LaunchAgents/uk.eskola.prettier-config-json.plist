@@ -8,7 +8,7 @@
     <array>
       <string>/bin/sh</string>
       <string>-c</string>
-      <string>. "$(brew --prefix asdf)/libexec/asdf.sh"; fd -g '*.json' ~/.config | entr -n fd -g '*.json' ~/.config -X prettier -w | ts</string>
+      <string>. "$(brew --prefix asdf)/libexec/asdf.sh"; fd -g '*.json' ~/.config | entr -n fd -g '*.json' ~/.config -X prettier -lw | ts</string>
     </array>
     <key>RunAtLoad</key>
     <true/>

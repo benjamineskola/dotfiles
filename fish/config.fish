@@ -92,6 +92,7 @@ if status is-interactive
     set hydro_color_prompt green
     set hydro_color_pwd cyan
     set hydro_fetch true
+    set hydro_symbol_prompt '$'
 end
 
 function set_dark_mode --on-event fish_preexec

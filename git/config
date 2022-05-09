@@ -9,6 +9,7 @@
 [core]
 	excludesfile = ~/.config/git/gitignore.global
 	pager = delta --max-line-length=0
+	quotepath = off
 [diff]
 	renames = copy
 [hub]

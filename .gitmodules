@@ -2,3 +2,6 @@
 	path = private
 	url = git@github.com:benjamineskola/private
 	branch = main
+[submodule "pre-commit-hooks"]
+	path = pre-commit-hooks
+	url = git@github.com:benjamineskola/pre-commit-hooks

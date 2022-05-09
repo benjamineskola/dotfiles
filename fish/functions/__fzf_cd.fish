@@ -5,7 +5,7 @@ function __fzf_cd --description 'Search the home directory using fzf and fd. Cha
 
     set open_status 0
 
-    set dir (fd --hidden --follow --color=always --exclude "{.git,.Trash,Library,Movies,Music,Pictures}" --type directory . $HOME 2>/dev/null | fzf --ansi --preview='__fzf_preview_file {}')
+    set dir (fd --hidden --follow --color=always --exclude "{.git,.Trash,Library,Movies,Music,Pictures}" --type directory . $HOME 2>/dev/null | fzf --ansi --preview='exa -G {}')
 
     if test $status -eq 0
         commandline -r "cd "

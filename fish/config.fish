@@ -81,11 +81,11 @@ if status is-interactive
 
     # alt-shift-. to insert entire previous commandline
     bind \e\> 'commandline -i "$history[1]"'
-    bind \eo __fzf_open_file
-    bind \e\co __fzf_insert_file
+    bind \eo _fzf_search_directory
+    set fzf_dir_opts "--bind=alt-o:execute-silent($EDITOR {}),alt-O:execute(vim {} &>/dev/tty)"
+    set fzf_fd_opts --hidden --follow --exclude "{.git,.Trash,Library,Movies,Music,Pictures}"
     bind \ec __fzf_cd
 
-    set -x FZF_DEFAULT_OPTS "--cycle --layout=reverse --border --height 90% --preview-window=wrap:bottom:50%"
 
     set hydro_color_duration yellow
     set hydro_color_git magenta

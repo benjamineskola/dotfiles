@@ -88,14 +88,6 @@ if status is-interactive
     set fzf_dir_opts "--bind=enter:execute-silent($EDITOR {})+abort,alt-enter:accept,alt-v:execute(vim {} &>/dev/tty)+abort"
     set fzf_fd_opts --hidden --follow --exclude "{.git,.Trash,Library,Movies,Music,Pictures}"
     bind \ec __fzf_cd
-
-
-    set hydro_color_duration yellow
-    set hydro_color_git magenta
-    set hydro_color_prompt green
-    set hydro_color_pwd cyan
-    set hydro_fetch true
-    set hydro_symbol_prompt '$'
 end
 
 function set_dark_mode --on-event fish_preexec

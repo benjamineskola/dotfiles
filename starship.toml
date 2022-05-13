@@ -1,0 +1,11 @@
+right_format = """$time"""
+
+[gcloud]
+disabled = true
+
+[status]
+disabled = false
+pipestatus = true
+
+[time]
+disabled = false

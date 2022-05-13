@@ -108,3 +108,5 @@ function set_dark_mode --on-event fish_preexec
         end
     end
 end
+
+starship init fish | source

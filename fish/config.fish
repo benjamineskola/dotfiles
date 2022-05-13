@@ -3,7 +3,7 @@ set -x BUNDLE_USER_HOME "$XDG_CONFIG_HOME/bundler"
 
 set -x EDITOR nova
 set -x VISUAL "nova -w"
-set -x GIT_EDITOR vim
+set -x GIT_EDITOR nvim
 set -x LESS -ImRswFX
 set -x LESSHISTFILE "$XDG_CACHE_HOME/less_history"
 set -x NPM_CONFIG_USERCONFIG "$XDG_CONFIG_HOME/npmrc"
@@ -85,7 +85,7 @@ if status is-interactive
     # alt-shift-. to insert entire previous commandline
     bind \e\> 'commandline -i "$history[1]"'
     bind \eo _fzf_search_directory
-    set fzf_dir_opts "--bind=enter:execute-silent($EDITOR {})+abort,alt-enter:accept,alt-v:execute(vim {} &>/dev/tty)+abort"
+    set fzf_dir_opts "--bind=enter:execute-silent($EDITOR {})+abort,alt-enter:accept,alt-v:execute(nvim {} &>/dev/tty)+abort"
     set fzf_fd_opts --hidden --follow --exclude "{.git,.Trash,Library,Movies,Music,Pictures}"
     bind \ec __fzf_cd
 end

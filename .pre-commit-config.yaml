@@ -29,6 +29,11 @@ repos:
         entry: fish_indent -w
         language: system
         types: [fish]
+      - id: rubocop
+        name: rubocop
+        entry: rubocop -A
+        language: system
+        files: "(Brewfile.*|\\.rb)$"
   - repo: https://github.com/psf/black
     rev: 22.3.0
     hooks:

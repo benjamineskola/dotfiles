@@ -10,13 +10,11 @@ done
 
 brew bundle --global install | grep -v '^Using'
 
-for lang in python ruby; do
+for lang in $(asdf plugin list); do
     asdf plugin-update "$lang"
     version=$(asdf latest "$lang")
     asdf install "$lang" "$version" && asdf global "$lang" "$version" && asdf reshim "$lang"
-done
 
-for lang in $(asdf plugin list); do
     if [ "$lang" = ruby ] && hostname | grep -qi '^gds'; then
         continue # cf. govuk-update.sh
     fi

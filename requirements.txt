@@ -15,5 +15,6 @@ pylint
 pynvim
 solargraph-utils.py
 vim-vint
+virtualfish
 wheel
 git+https://gitlab.com/benjamineskola/yaml2plist.git#egg=yaml2plist

@@ -7,7 +7,6 @@ set -x GIT_EDITOR nvim
 set -x LESS -ImRswFX
 set -x LESSHISTFILE "$XDG_CACHE_HOME/less_history"
 set -x NPM_CONFIG_USERCONFIG "$XDG_CONFIG_HOME/npmrc"
-set -x HEROKU_APP eskola-booklogger
 
 eval ({/usr/local,/opt/homebrew}/bin*/brew shellenv)
 

@@ -1,7 +1,14 @@
+require: standard
+
 inherit_gem:
-  rubocop-govuk:
-    - config/default.yml
+  standard:
+    - config/base.yml
 
 Naming/FileName:
   Exclude:
     - "**/*Brewfile*"
+
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: consistent_comma
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: consistent_comma

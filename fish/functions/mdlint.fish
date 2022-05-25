@@ -18,7 +18,7 @@ function mdlint --wraps='remark' --description 'alias mdlint remark'
         return
     end
     if test $_flag_write
-        remark -q $files -o
+        remark -r $HOME/.remarkrc.yml -q $files -o
         sed -E -i '' $after_pattern $files
 
         if test $_flag_compact
@@ -28,6 +28,6 @@ function mdlint --wraps='remark' --description 'alias mdlint remark'
             perl -0777 -i -pe 's/(\n#+ .*)\n\n+/\1\n/g' $files
         end
     else
-        remark -q $files | sed -E $after_pattern
+        remark -r $HOME/.remarkrc.yml -q $files | sed -E $after_pattern
     end
 end

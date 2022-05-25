@@ -1,4 +1,5 @@
 set termguicolors
+let g:gruvbox_italic=1
 
 let dark_mode = trim(system('osascript -l JavaScript -e "Application(\"System Events\").appearancePreferences.darkMode.get()"'))
 

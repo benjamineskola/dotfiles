@@ -21,7 +21,7 @@ indent_style = space
 indent_size = 4
 indent_style = space
 
-[{*.rb,Gemfile,*.gemspec}]
+[{*.rb,Gemfile,*.gemspec,*.rake}]
 indent_size = 2
 indent_style = space
 

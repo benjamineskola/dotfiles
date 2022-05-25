@@ -13,3 +13,10 @@ if [ -d "$HOME/Library/Preferences/espanso" ] || ! [ -e "$HOME/Library/Preferenc
     ln -s "$XDG_CONFIG_HOME/espanso" "$HOME/Library/Preferences/espanso"
   fi
 fi
+
+if [ -d "$HOME/Library/Preferences/rustfmt" ] || ! [ -e "$HOME/Library/Preferences/rustfmt" ]; then
+  if ! [ -L "$HOME/Library/Preferences/rustfmt" ]; then
+    rm -rf "$HOME/Library/Preferences/rustfmt"
+    ln -s "$XDG_CONFIG_HOME/rustfmt" "$HOME/Library/Preferences/rustfmt"
+  fi
+fi

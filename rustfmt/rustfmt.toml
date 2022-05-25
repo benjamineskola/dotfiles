@@ -1,0 +1,6 @@
+edition = "2021"
+unstable_features = true
+
+group_imports = "StdExternalCrate"
+normalize_comments = true
+wrap_comments = true

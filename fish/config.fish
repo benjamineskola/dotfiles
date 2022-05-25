@@ -21,6 +21,8 @@ set -gx ASDF_NPM_DEFAULT_PACKAGES_FILE "$XDG_CONFIG_HOME/default-npm-packages.tx
 set -gx CABAL_CONFIG $XDG_CONFIG_HOME/cabal.conf
 set -gx CABAL_DIR (asdf where haskell)/cabal
 
+set -gx RUSTUP_HOME (asdf where rust)
+
 . (brew --prefix asdf)/libexec/asdf.fish
 
 set -a fish_user_paths ~/bin $CABAL_DIR/bin

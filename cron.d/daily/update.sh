@@ -26,8 +26,12 @@ for lang in $(asdf plugin list); do
 
     latest=$(asdf latest "$lang")
     for version in $(asdf list "$lang"); do
-        if [ "$version" != "$latest" ]; then
+        if [ "$version" != "$latest" ] && [ "$version" != nightly ]; then
             asdf uninstall "$lang" "$version"
         fi
     done
+done
+
+for version in $(asdf list rust | grep -v nightly); do
+    ln -sf "$(asdf where rust nightly)"/toolchains/nightly-* "$(asdf where rust "$version")"/toolchains/
 done

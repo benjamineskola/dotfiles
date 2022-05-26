@@ -10,7 +10,6 @@ nls.setup({
         b.formatting.stylua, -- lua
         b.formatting.rubocop.with({ command = vim.fn.stdpath("config") .. "/helpers/rubocop" }),
         b.formatting.shfmt, -- shell
-        b.formatting.shellharden, -- shell
         b.formatting.trim_newlines.with({ disabled_filetypes = { "go", "haskell", "python" } }),
         b.formatting.trim_whitespace.with({ disabled_filetypes = { "go", "haskell", "markdown", "python" } }),
 

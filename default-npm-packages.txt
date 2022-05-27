@@ -1,4 +1,11 @@
 @benrbray/remark-cite
+@typescript-eslint/eslint-plugin
+@typescript-eslint/parser
+eslint-config-standard-with-typescript
+eslint-plugin-import
+eslint-plugin-node
+eslint-plugin-promise
+eslint@^8.0.1
 prettier
 remark-cli
 remark-footnotes
@@ -6,3 +13,4 @@ remark-frontmatter
 remark-gfm
 remark-smartypants
 remark-wiki-link
+typescript

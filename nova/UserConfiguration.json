@@ -1,4 +1,7 @@
 {
+  "apexskier.eslint.config.eslintConfigPath": "/Users/ben/.config/eslintrc.yml",
+  "apexskier.eslint.config.eslintPath": "/Users/ben/Library/asdf/shims/eslint",
+  "apexskier.eslint.config.fixOnSave": true,
   "apexskier.typescript.config.userPreferences.displayPartsForJSDoc": true,
   "cc.aeron.nova-black.executablePath": "/Users/ben/Library/asdf/shims/black",
   "cc.aeron.nova-flake8.executablePath": "/Users/ben/Library/asdf/shims/flake518",

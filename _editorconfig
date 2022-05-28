@@ -13,6 +13,10 @@ indent_style = space
 [*.go]
 indent_style = tab
 
+[*.html]
+indent_size = 2
+indent_style = space
+
 [{*.js,*.json}]
 indent_size = 2
 indent_style = space
@@ -21,7 +25,7 @@ indent_style = space
 indent_size = 4
 indent_style = space
 
-[{*.rb,Gemfile,*.gemspec,*.rake}]
+[{*.rb,Gemfile,*.gemspec,*.rake,*.erb}]
 indent_size = 2
 indent_style = space
 

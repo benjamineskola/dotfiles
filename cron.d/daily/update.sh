@@ -30,6 +30,8 @@ for lang in $(asdf plugin list); do
             asdf uninstall "$lang" "$version"
         fi
     done
+
+    ln -sf "$(asdf where "$lang")" "$ASDF_DATA_DIR/installs/$lang/default"
 done
 
 for version in $(asdf list rust | grep -v nightly); do

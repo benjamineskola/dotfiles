@@ -23,6 +23,7 @@ repos:
       - id: vint
       - id: prettier
       - id: rubocop
+      - id: standard
         files: "(Brewfile.*|\\.rb)$"
         types: []
   - repo: local

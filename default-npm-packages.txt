@@ -13,4 +13,5 @@ remark-frontmatter
 remark-gfm
 remark-smartypants
 remark-wiki-link
+standard
 typescript

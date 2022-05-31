@@ -98,14 +98,15 @@ function set_dark_mode --on-event fish_preexec
                 launch API script named "iterm_set_font_light.py"
                 end tell' &
 
-            set -gx BAT_THEME gruvbox-dark
+            set -gx BAT_THEME "Monokai Extended"
         end
     else
         if test "$BAT_THEME" != gruvbox-light
             osascript -e 'tell application "iTerm2"
                 launch API script named "iterm_set_font_regular.py"
                 end tell' &
-            set -gx BAT_THEME gruvbox-light
+
+            set -gx BAT_THEME "Monokai Extended Light"
         end
     end
 end

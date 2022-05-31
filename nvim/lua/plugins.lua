@@ -55,7 +55,6 @@ return require("packer").startup(function(use)
         end,
     })
     use({ "lukas-reineke/indent-blankline.nvim" })
-    use({ "morhetz/gruvbox" })
     use({ "neovim/nvim-lspconfig", "williamboman/nvim-lsp-installer" })
     use({
         "nvim-telescope/telescope.nvim",
@@ -64,6 +63,7 @@ return require("packer").startup(function(use)
     use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
     use({ "nvim-treesitter/nvim-treesitter-refactor" })
     use({ "nvim-treesitter/nvim-treesitter-textobjects" })
+    use({ "preservim/vim-colors-pencil" })
     use({ "rizzatti/dash.vim" })
     use({ "sheerun/vim-polyglot" })
     use({ "simnalamburt/vim-mundo" })

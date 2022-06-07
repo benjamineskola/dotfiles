@@ -111,6 +111,12 @@ function set_dark_mode --on-event fish_preexec
     end
 end
 
+function set_font_size --on-event fish_preexec
+    osascript -e 'tell application "iTerm2"
+        launch API script named "iterm_set_font_size.py"
+        end tell' &
+end
+
 starship init fish | source
 function iterm_integration --on-event fish_prompt
     iterm2_prompt_mark

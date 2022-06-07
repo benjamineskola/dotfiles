@@ -112,3 +112,6 @@ function set_dark_mode --on-event fish_preexec
 end
 
 starship init fish | source
+function iterm_integration --on-event fish_prompt
+    iterm2_prompt_mark
+end

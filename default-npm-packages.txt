@@ -4,6 +4,7 @@
 eslint-config-standard-with-typescript
 eslint-plugin-import
 eslint-plugin-node
+eslint-plugin-prettierx
 eslint-plugin-promise
 eslint@^8.0.1
 prettier

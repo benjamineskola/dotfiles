@@ -25,7 +25,7 @@ for lang in $(asdf plugin list); do
     fi
 
     latest=$(asdf latest "$lang")
-    for version in $(asdf list "$lang"); do
+    for version in $(asdf list "$lang" | grep -v default); do
         if [ "$version" != "$latest" ] && [ "$version" != nightly ]; then
             asdf uninstall "$lang" "$version"
         fi
@@ -33,7 +33,10 @@ for lang in $(asdf plugin list); do
 
     ln -sf "$(asdf where "$lang")" "$ASDF_DATA_DIR/installs/$lang/default"
 done
-git commit -m "Update versions in asdf" tool-versions
+(
+    cd ~/.config
+    git commit -m "Update versions in asdf" tool-versions
+)
 
 for version in $(asdf list rust | grep -v nightly); do
     ln -sf "$(asdf where rust nightly)"/toolchains/nightly-* "$(asdf where rust "$version")"/toolchains/

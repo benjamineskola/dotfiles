@@ -22,8 +22,8 @@ repos:
       - id: flake518
       - id: vint
       - id: prettier
-      - id: rubocop
       - id: standard
+      - id: rubocop
         files: "(Brewfile.*|\\.rb)$"
         types: []
   - repo: local

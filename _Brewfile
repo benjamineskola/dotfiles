@@ -95,6 +95,5 @@ when /^GDS/
 
   cask "aws-vault"
   cask "docker"
-  cask "finicky"
   cask "gpg-suite"
 end

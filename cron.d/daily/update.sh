@@ -12,7 +12,13 @@ brew bundle --global install | grep -v '^Using'
 
 for lang in $(asdf plugin list); do
     asdf plugin-update "$lang"
-    version=$(asdf latest "$lang")
+
+    if [ "$lang" = haskell ]; then
+        version=$(curl https://www.stackage.org | htmlq -t li a | grep "LTS [0-9.]+" | sort -Vr | head -n 1 | grep -o "ghc-[0-9.]+" | cut -d - -f 2)
+    else
+        version=$(asdf latest "$lang")
+    fi
+
     asdf install "$lang" "$version" && asdf global "$lang" "$version" && asdf reshim "$lang"
 
     if [ "$lang" = ruby ] && hostname | grep -qi '^gds'; then

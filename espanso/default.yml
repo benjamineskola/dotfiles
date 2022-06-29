@@ -78,3 +78,11 @@ matches:
   - trigger: "Lord"
     replace: "“Lord”"
     word: true
+
+  # Miscellaneous
+  - trigger: "an elizabeth line"
+    replace: "a crossrail"
+    propagate_case: true
+  - trigger: "elizabeth line"
+    replace: "crossrail"
+    propagate_case: true

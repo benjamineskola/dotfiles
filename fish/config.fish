@@ -34,6 +34,9 @@ if status is-interactive
     alias fetch 'curl -gkLO'
     alias grep egrep
     alias less bat
+    alias psed 'perl -0777 -p -e'
+    alias rg 'rg -S'
+    alias sed 'sed -E'
     alias tf 'tail -F'
 
     alias exa 'exa --git -b'
@@ -75,9 +78,9 @@ if status is-interactive
 
     alias gl glgga
     alias gmv 'git mv'
-    alias gpr git-pr
     alias grsp 'grs -p'
     alias gswm gcm
+    alias gs 'echo fish: Unknown command: gs' # i never want ghostscript
 
     for cmd in mypy pytest invoke
         alias $cmd "run_with_virtualenv $cmd"

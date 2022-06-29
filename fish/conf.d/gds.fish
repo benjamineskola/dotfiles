@@ -7,5 +7,9 @@ if test (string sub -l 3 $hostname) = GDS
 
     set -gx AWS_REGION eu-west-1
 
-    alias gds _gds_wrap
+    functions -e gds
+
+    abbr gssh gds govuk connect ssh --environment integration
+    abbr app_console gds govuk connect app-console --environment integration
+    abbr db_console gds govuk connect app-dbconsole --environment integration
 end

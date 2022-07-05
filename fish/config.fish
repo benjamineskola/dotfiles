@@ -94,33 +94,36 @@ if status is-interactive
     bind \ec __fzf_cd
 end
 
-function set_dark_mode --on-event fish_preexec
-    if dark_mode
-        if test "$BAT_THEME" != gruvbox-dark
-            osascript -e 'tell application "iTerm2"
-                launch API script named "iterm_set_font_light.py"
-                end tell' &
+if [ "$TERM_PROGRAM" = iTerm.app ]
+    function set_dark_mode --on-event fish_preexec
+        if dark_mode
+            if test "$BAT_THEME" != gruvbox-dark
+                osascript -e 'tell application "iTerm2"
+                    launch API script named "iterm_set_font_light.py"
+                    end tell' &
 
-            set -gx BAT_THEME "Monokai Extended"
-        end
-    else
-        if test "$BAT_THEME" != gruvbox-light
-            osascript -e 'tell application "iTerm2"
-                launch API script named "iterm_set_font_regular.py"
-                end tell' &
+                set -gx BAT_THEME "Monokai Extended"
+            end
+        else
+            if test "$BAT_THEME" != gruvbox-light
+                osascript -e 'tell application "iTerm2"
+                    launch API script named "iterm_set_font_regular.py"
+                    end tell' &
 
-            set -gx BAT_THEME "Monokai Extended Light"
+                set -gx BAT_THEME "Monokai Extended Light"
+            end
         end
+    end
+
+    function set_font_size --on-event fish_preexec
+        osascript -e 'tell application "iTerm2"
+            launch API script named "iterm_set_font_size.py"
+            end tell' &
+    end
+
+    function iterm_integration --on-event fish_prompt
+        iterm2_prompt_mark
     end
 end
 
-function set_font_size --on-event fish_preexec
-    osascript -e 'tell application "iTerm2"
-        launch API script named "iterm_set_font_size.py"
-        end tell' &
-end
-
 starship init fish | source
-function iterm_integration --on-event fish_prompt
-    iterm2_prompt_mark
-end

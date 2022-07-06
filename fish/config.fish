@@ -33,7 +33,6 @@ if status is-interactive
     alias fdg 'fd -g'
     alias fetch 'curl -gkLO'
     alias grep egrep
-    alias less bat
     alias psed 'perl -0777 -p -e'
     alias rg 'rg -S'
     alias sed 'sed -E'

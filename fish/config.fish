@@ -128,3 +128,6 @@ else
 end
 
 starship init fish | source
+
+# Secretive Config
+set -x SSH_AUTH_SOCK /Users/ben/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh

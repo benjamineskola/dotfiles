@@ -124,6 +124,8 @@ if [ "$TERM_PROGRAM" = iTerm.app ]
     function iterm_integration --on-event fish_prompt
         iterm2_prompt_mark
     end
+else
+    set -gx BAT_THEME "Monokai Extended"
 end
 
 starship init fish | source

@@ -12,3 +12,4 @@ settings:
   listItemIndent: "one"
   rule: "-"
   fences: true
+  incrementListMarker: false

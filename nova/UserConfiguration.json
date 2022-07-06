@@ -7,7 +7,7 @@
   "apexskier.typescript.config.organizeImportsOnSave": true,
   "apexskier.typescript.config.userPreferences.displayPartsForJSDoc": true,
   "cc.aeron.nova-black.executablePath": "/Users/ben/Library/asdf/shims/black",
-  "cc.aeron.nova-flake8.executablePath": "/Users/ben/Library/asdf/shims/flake518",
+  "cc.aeron.nova-flake8.executablePath": "/Users/ben/Library/asdf/shims/flake8",
   "cc.aeron.nova-isort.executablePath": "/Users/ben/Library/asdf/shims/isort",
   "com.kilb.rust.lint-command": "clippy",
   "com.kilb.rust.rustfmt-nightly": true,

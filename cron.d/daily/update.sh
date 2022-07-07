@@ -14,12 +14,13 @@ for lang in $(asdf plugin list); do
     asdf plugin-update "$lang"
 
     if [ "$lang" = haskell ]; then
-        version=$(curl https://www.stackage.org | htmlq -t li a | grep "LTS [0-9.]+" | sort -Vr | head -n 1 | grep -o "ghc-[0-9.]+" | cut -d - -f 2)
+        version=$(curl https://www.stackage.org | htmlq -t li a | grep -E "LTS [0-9.]+" | sort -Vr | head -n 1 | grep -E -o "ghc-[0-9.]+" | cut -d - -f 2)
     else
         version=$(asdf latest "$lang")
     fi
 
     asdf install "$lang" "$version" && asdf global "$lang" "$version" && asdf reshim "$lang"
+    ln -sf "$(asdf where "$lang")" "$ASDF_DATA_DIR/installs/$lang/default"
 
     if [ "$lang" = ruby ] && hostname | grep -qi '^gds'; then
         continue # cf. govuk-update.sh
@@ -30,14 +31,11 @@ for lang in $(asdf plugin list); do
         continue
     fi
 
-    latest=$(asdf latest "$lang")
-    for version in $(asdf list "$lang" | grep -v default); do
-        if [ "$version" != "$latest" ] && [ "$version" != nightly ]; then
-            asdf uninstall "$lang" "$version"
+    for installed_version in $(asdf list "$lang" | grep -v default); do
+        if [ "$installed_version" != "$version" ] && [ "$installed_version" != nightly ]; then
+            asdf uninstall "$lang" "$installed_version"
         fi
     done
-
-    ln -sf "$(asdf where "$lang")" "$ASDF_DATA_DIR/installs/$lang/default"
 done
 (
     cd ~/.config

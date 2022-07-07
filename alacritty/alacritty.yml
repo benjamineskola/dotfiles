@@ -770,6 +770,7 @@ key_bindings:
   - { key: Left, mods: Command, chars: "\x02\x70" }
   - { key: Right, mods: Command, chars: "\x02\x6e" }
   - { key: Slash, mods: Command, chars: "\x02\x2f" }
+  - { key: C, mods: Command, chars: "\x17" }
 
   # Switch pane
   - { key: Left, mods: Command|Alt, chars: "\x02\x1b\x5bD" }

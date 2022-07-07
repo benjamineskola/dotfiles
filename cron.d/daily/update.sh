@@ -47,3 +47,8 @@ done
 for version in $(asdf list rust | grep -v nightly); do
     ln -sf "$(asdf where rust nightly)"/toolchains/nightly-* "$(asdf where rust "$version")"/toolchains/
 done
+
+for req in ~/Code/*/requirements*.txt; do
+    proj="$(dirname "$req")"
+    test -f "$proj/.venv" || pip install -r "$req"
+done

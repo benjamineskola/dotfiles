@@ -8,6 +8,8 @@ Naming/FileName:
   Exclude:
     - "**/*Brewfile*"
 
+Layout/LineLength:
+  Enabled: true
 Style/TrailingCommaInArrayLiteral:
   EnforcedStyleForMultiline: consistent_comma
 Style/TrailingCommaInHashLiteral:

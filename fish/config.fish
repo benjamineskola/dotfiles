@@ -27,6 +27,11 @@ set -gx RUSTUP_HOME (asdf where rust)
 
 set -a fish_user_paths ~/bin $CABAL_DIR/bin
 
+if [ (uname -s) = Darwin ]
+    # Secretive Config
+    set -x SSH_AUTH_SOCK /Users/ben/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
+end
+
 if status is-interactive
     alias curl 'curl -gkLsS'
     alias fdd 'fd .'
@@ -91,9 +96,6 @@ if status is-interactive
     set fzf_dir_opts "--bind=enter:execute-silent($EDITOR {})+abort,alt-enter:accept,alt-v:execute(nvim {} &>/dev/tty)+abort"
     set fzf_fd_opts --hidden --follow --exclude "{.git,.Trash,Library,Movies,Music,Pictures}"
     bind \ec __fzf_cd
+
+    starship init fish | source
 end
-
-starship init fish | source
-
-# Secretive Config
-set -x SSH_AUTH_SOCK /Users/ben/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh

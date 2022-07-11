@@ -13,8 +13,8 @@
           "Text": "{\"ConvertUnicodePunctuation\":false,\"WaitForPrompts\":false,\"Substitution\":\"\",\"EscapeForShell\":true,\"Base64\":false,\"TabStopSize\":4,\"Delay\":0.01,\"RemoveNewlines\":false,\"Regex\":\"\",\"ConvertNewlines\":true,\"TabTransform\":0,\"BracketAllowed\":true,\"UseRegexSubstitution\":false,\"ChunkSize\":1024,\"RemoveControls\":true}"
         }
       },
-      "Normal Font": "JetBrainsMonoNL-Regular 16",
-      "Non Ascii Font": "JetBrainsMonoNerdFontComplete-Regular 16",
+      "Normal Font": "JetBrainsMonoNL-Thin 14",
+      "Non Ascii Font": "JetBrainsMonoNerdFontComplete-Regular 14",
       "Use Non-ASCII Font": true,
       "Option Key Sends": 2,
       "Right Option Key Sends": 0,
@@ -47,14 +47,14 @@
           }
         ],
         "advanced configuration": {
-          "font": "JetBrainsMono-Regular 14",
+          "font": "JetBrainsMono-Thin 14",
           "algorithm": 1
         }
       },
       "Sync Title": false,
       "Title Components": 1,
       "Use Bright Bold": false,
-      "Use Separate Colors for Light and Dark Mode": true
+      "Use Separate Colors for Light and Dark Mode": false
     }
   ]
 }

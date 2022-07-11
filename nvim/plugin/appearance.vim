@@ -1,6 +1,6 @@
 set termguicolors
 set background=dark
 
-colo pencil
+colo monokai_pro
 
 highlight SpellBad guisp=red

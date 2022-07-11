@@ -2,131 +2,83 @@ command_timeout = 1000
 right_format = """$time"""
 
 [aws]
-symbol = "aws "
+symbol = "  "
+
+[buf]
+symbol = " "
 
 [c]
-symbol = "C "
-
-[cobol]
-symbol = "cobol "
+symbol = " "
 
 [conda]
-symbol = "conda "
-
-[crystal]
-symbol = "cr "
-
-[cmake]
-symbol = "cmake "
-
-[daml]
-symbol = "daml "
+symbol = " "
 
 [dart]
-symbol = "dart "
-
-[deno]
-symbol = "deno "
-
-[dotnet]
-symbol = ".NET "
+symbol = " "
 
 [directory]
-read_only = " ro"
+read_only = " "
 
 [docker_context]
-symbol = "docker "
+symbol = " "
 
 [elixir]
-symbol = "exs "
+symbol = " "
 
 [elm]
-symbol = "elm "
+symbol = " "
 
 [gcloud]
 disabled = true
 
 [git_branch]
-symbol = "git "
-
-[git_commit]
-tag_symbol = " tag "
+symbol = " "
 
 [golang]
-symbol = "go "
+symbol = " "
+
+[haskell]
+symbol = " "
 
 [hg_branch]
-symbol = "hg "
+symbol = " "
 
 [java]
-symbol = "java "
+symbol = " "
 
 [julia]
-symbol = "jl "
-
-[kotlin]
-symbol = "kt "
-
-[lua]
-symbol = "lua "
-
-[nodejs]
-symbol = "nodejs "
+symbol = " "
 
 [memory_usage]
-symbol = "memory "
+symbol = " "
 
 [nim]
-symbol = "nim "
+symbol = " "
 
 [nix_shell]
-symbol = "nix "
+symbol = " "
 
-[ocaml]
-symbol = "ml "
+[nodejs]
+symbol = " "
 
 [package]
-symbol = "pkg "
-
-[perl]
-symbol = "pl "
-
-[php]
-symbol = "php "
-
-[pulumi]
-symbol = "pulumi "
-
-[purescript]
-symbol = "purs "
+symbol = " "
 
 [python]
-symbol = "py "
-
-[raku]
-symbol = "raku "
+symbol = " "
 
 [ruby]
-symbol = "rb "
+symbol = " "
 
 [rust]
-symbol = "rs "
-
-[scala]
-symbol = "scala "
+symbol = " "
 
 [spack]
-symbol = "spack "
+symbol = "🅢 "
 
 [status]
 disabled = false
 pipestatus = true
-
-[sudo]
-symbol = "sudo "
-
-[swift]
-symbol = "swift "
 
 [time]
 disabled = false

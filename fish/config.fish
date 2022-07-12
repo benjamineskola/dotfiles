@@ -1,12 +1,12 @@
-set -x BUNDLE_USER_CACHE "$XDG_CACHE_HOME/bundler"
-set -x BUNDLE_USER_HOME "$XDG_CONFIG_HOME/bundler"
+set -gx BUNDLE_USER_CACHE "$XDG_CACHE_HOME/bundler"
+set -gx BUNDLE_USER_HOME "$XDG_CONFIG_HOME/bundler"
 
-set -x EDITOR nova
-set -x VISUAL "nova -w"
-set -x GIT_EDITOR nvim
-set -x LESS "-ImRswFX --mouse"
-set -x LESSHISTFILE "$XDG_CACHE_HOME/less_history"
-set -x NPM_CONFIG_USERCONFIG "$XDG_CONFIG_HOME/npmrc"
+set -gx EDITOR nova
+set -gx VISUAL "nova -w"
+set -gx GIT_EDITOR nvim
+set -gx LESS "-ImRswFX --mouse"
+set -gx LESSHISTFILE "$XDG_CACHE_HOME/less_history"
+set -gx NPM_CONFIG_USERCONFIG "$XDG_CONFIG_HOME/npmrc"
 
 eval ({/usr/local,/opt/homebrew}/bin*/brew shellenv)
 

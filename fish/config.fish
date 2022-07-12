@@ -100,7 +100,7 @@ if status is-interactive
     alias gmv 'git mv'
     alias grsp 'grs -p'
     alias gswm gcm
-    alias gs 'echo fish: Unknown command: gs' # i never want ghostscript
+    alias gs 'fish_command_not_found gs' # i never want ghostscript
 
     for cmd in mypy pytest invoke
         alias $cmd "run_with_virtualenv $cmd"

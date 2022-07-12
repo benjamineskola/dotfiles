@@ -8,7 +8,14 @@ set -gx LESS "-ImRswFX --mouse"
 set -gx LESSHISTFILE "$XDG_CACHE_HOME/less_history"
 set -gx NPM_CONFIG_USERCONFIG "$XDG_CONFIG_HOME/npmrc"
 
-eval ({/usr/local,/opt/homebrew}/bin*/brew shellenv)
+if [ (uname -s) = Darwin ]
+    if [ (uname -p) = arm64 ]
+        set HOMEBREW_PREFIX /opt/homebrew
+    else
+        set HOMEBREW_PREFIX /usr/local
+    end
+    eval ($HOMEBREW_PREFIX/bin/brew shellenv)
+end
 
 set -gx ASDF_CONFIG_FILE "$XDG_CONFIG_HOME/asdfrc"
 set -gx ASDF_DEFAULT_TOOL_VERSIONS_FILENAME "$XDG_CONFIG_HOME/tool-versions"
@@ -18,19 +25,23 @@ set -gx ASDF_GEM_DEFAULT_PACKAGES_FILE "$XDG_CONFIG_HOME/default-gems.txt"
 set -gx ASDF_PYTHON_DEFAULT_PACKAGES_FILE "$XDG_CONFIG_HOME/requirements.txt"
 set -gx ASDF_NPM_DEFAULT_PACKAGES_FILE "$XDG_CONFIG_HOME/default-npm-packages.txt"
 
-if asdf where haskell >/dev/null
+if asdf where haskell >/dev/null 2>&1
     set -gx CABAL_CONFIG $XDG_CONFIG_HOME/cabal.conf
     set -gx CABAL_DIR (asdf where haskell)/cabal
     set -a fish_user_paths $CABAL_DIR/bin
 end
 
-if asdf where rust >/dev/null
+if asdf where rust >/dev/null 2>&1
     set -gx RUSTUP_HOME (asdf where rust)
 end
 
-. (brew --prefix asdf)/libexec/asdf.fish
+if [ (uname -s) = Darwin ]
+    . (brew --prefix asdf)/libexec/asdf.fish
+else if [ -d $HOME/.asdf ]
+    . ~/.asdf/asdf.fish
+end
 
-set -a fish_user_paths ~/bin
+set -p fish_user_paths ~/bin
 
 if [ (uname -s) = Darwin ]
     # Secretive Config

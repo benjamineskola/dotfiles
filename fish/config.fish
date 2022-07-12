@@ -18,14 +18,19 @@ set -gx ASDF_GEM_DEFAULT_PACKAGES_FILE "$XDG_CONFIG_HOME/default-gems.txt"
 set -gx ASDF_PYTHON_DEFAULT_PACKAGES_FILE "$XDG_CONFIG_HOME/requirements.txt"
 set -gx ASDF_NPM_DEFAULT_PACKAGES_FILE "$XDG_CONFIG_HOME/default-npm-packages.txt"
 
-set -gx CABAL_CONFIG $XDG_CONFIG_HOME/cabal.conf
-set -gx CABAL_DIR (asdf where haskell)/cabal
+if asdf where haskell >/dev/null
+    set -gx CABAL_CONFIG $XDG_CONFIG_HOME/cabal.conf
+    set -gx CABAL_DIR (asdf where haskell)/cabal
+    set -a fish_user_paths $CABAL_DIR/bin
+end
 
-set -gx RUSTUP_HOME (asdf where rust)
+if asdf where rust >/dev/null
+    set -gx RUSTUP_HOME (asdf where rust)
+end
 
 . (brew --prefix asdf)/libexec/asdf.fish
 
-set -a fish_user_paths ~/bin $CABAL_DIR/bin
+set -a fish_user_paths ~/bin
 
 if [ (uname -s) = Darwin ]
     # Secretive Config

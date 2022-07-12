@@ -1,5 +1,7 @@
 set -g VIRTUALFISH_HOME $XDG_DATA_HOME/virtualenvs
-grep -q '^pip$' $VIRTUALFISH_HOME/global_requirements.txt || echo pip >>$VIRTUALFISH_HOME/global_requirements.txt
+mkdir -p $VIRTUALFISH_HOME
+
+ln -sf $XDG_CONFIG_HOME/vf-requirements $VIRTUALFISH_HOME/global_requirements.txt
 
 set -g VIRTUALFISH_VERSION 2.5.4
 set -g VIRTUALFISH_PYTHON_EXEC $HOME/Library/asdf/shims/python

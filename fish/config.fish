@@ -1,3 +1,21 @@
+if [ (uname -s) = Darwin ]
+    if [ (uname -p) = arm ]
+        set HOMEBREW_PREFIX /opt/homebrew
+    else
+        set HOMEBREW_PREFIX /usr/local
+    end
+    eval ($HOMEBREW_PREFIX/bin/brew shellenv)
+
+    . (brew --prefix asdf)/libexec/asdf.fish
+
+    # Secretive Config
+    set -x SSH_AUTH_SOCK /Users/ben/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
+else
+    if [ -d $HOME/.asdf ]
+        . ~/.asdf/asdf.fish
+    end
+end
+
 set -gx BUNDLE_USER_CACHE "$XDG_CACHE_HOME/bundler"
 set -gx BUNDLE_USER_HOME "$XDG_CONFIG_HOME/bundler"
 
@@ -7,15 +25,6 @@ set -gx GIT_EDITOR nvim
 set -gx LESS "-ImRswFX --mouse"
 set -gx LESSHISTFILE "$XDG_CACHE_HOME/less_history"
 set -gx NPM_CONFIG_USERCONFIG "$XDG_CONFIG_HOME/npmrc"
-
-if [ (uname -s) = Darwin ]
-    if [ (uname -p) = arm64 ]
-        set HOMEBREW_PREFIX /opt/homebrew
-    else
-        set HOMEBREW_PREFIX /usr/local
-    end
-    eval ($HOMEBREW_PREFIX/bin/brew shellenv)
-end
 
 set -gx ASDF_CONFIG_FILE "$XDG_CONFIG_HOME/asdfrc"
 set -gx ASDF_DEFAULT_TOOL_VERSIONS_FILENAME "$XDG_CONFIG_HOME/tool-versions"
@@ -35,18 +44,7 @@ if asdf where rust >/dev/null 2>&1
     set -gx RUSTUP_HOME (asdf where rust)
 end
 
-if [ (uname -s) = Darwin ]
-    . (brew --prefix asdf)/libexec/asdf.fish
-else if [ -d $HOME/.asdf ]
-    . ~/.asdf/asdf.fish
-end
-
 set -p fish_user_paths ~/bin
-
-if [ (uname -s) = Darwin ]
-    # Secretive Config
-    set -x SSH_AUTH_SOCK /Users/ben/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
-end
 
 if status is-interactive
     alias curl 'curl -gkLsS'

@@ -1,0 +1,9 @@
+{
+  "actions": {
+    "build": {
+      "enabled": true,
+      "script": ". $XDG_DATA_HOME/virtualenvs/$(basename $PWD)/bin/activate\npre-commit run --all-files --verbose"
+    }
+  },
+  "openLogOnRun": "fail"
+}

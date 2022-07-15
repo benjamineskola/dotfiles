@@ -6,6 +6,7 @@ if [ (uname -s) = Darwin ]
     end
     eval ($HOMEBREW_PREFIX/bin/brew shellenv)
 
+    set -gx ASDF_DATA_DIR "$XDG_DATA_HOME/asdf"
     . (brew --prefix asdf)/libexec/asdf.fish
 
     # Secretive Config
@@ -28,7 +29,6 @@ set -gx NPM_CONFIG_USERCONFIG "$XDG_CONFIG_HOME/npmrc"
 
 set -gx ASDF_CONFIG_FILE "$XDG_CONFIG_HOME/asdfrc"
 set -gx ASDF_DEFAULT_TOOL_VERSIONS_FILENAME "$XDG_CONFIG_HOME/tool-versions"
-set -gx ASDF_DATA_DIR "$XDG_DATA_HOME/asdf"
 
 set -gx ASDF_GEM_DEFAULT_PACKAGES_FILE "$XDG_CONFIG_HOME/default-gems.txt"
 set -gx ASDF_PYTHON_DEFAULT_PACKAGES_FILE "$XDG_CONFIG_HOME/requirements.txt"

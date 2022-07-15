@@ -9,6 +9,3 @@ Host *.github.com github.com *.gitlab.com gitlab.com
 Host *
 	Compression yes
 	UseRoaming no
-
-	# Secretive Config
-	IdentityAgent ~/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh

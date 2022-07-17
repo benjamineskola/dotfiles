@@ -6,3 +6,5 @@ if [ $OS = Darwin ]
     end
     eval ($HOMEBREW_PREFIX/bin/brew shellenv)
 end
+
+set -gx HOMEBREW_BUNDLE_FILE $XDG_CONFIG_HOME/Brewfile

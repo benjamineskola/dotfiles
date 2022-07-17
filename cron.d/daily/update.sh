@@ -26,6 +26,14 @@ for lang in $(asdf plugin list); do
         continue # cf. govuk-update.sh
     fi
 
+    if [ "$lang" = nodejs ] || [ "$lang" = golang ]; then
+        major_version=$(echo "$version" | sed 's/\.*//')
+        if asdf list "$lang" | grep -Eq "^ *(1\.)?$major_version"; then
+            # ignore if major version is the same
+            continue
+        fi
+    fi
+
     if [ "$(asdf list "$lang" | wc -l)" -eq 1 ]; then
         # Ignore those with only one version even if it's not the latest
         continue

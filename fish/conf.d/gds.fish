@@ -12,4 +12,6 @@ if test (string sub -l 3 $hostname) = GDS
     abbr gssh gds govuk connect ssh --environment integration
     abbr app_console gds govuk connect app-console --environment integration
     abbr db_console gds govuk connect app-dbconsole --environment integration
+
+    source $XDG_CONFIG_HOME/private/fish/work-private.fish
 end

@@ -3,7 +3,7 @@ if test (string sub -l 3 $hostname) = GDS
     alias do 'govuk-docker-run bundle exec'
     alias dobi 'govuk-docker-run bundle install'
 
-    set -a fish_user_paths ~/govuk/govuk-docker/exe
+    fish_add_path -g ~/govuk/govuk-docker/exe
 
     set -gx AWS_REGION eu-west-1
 

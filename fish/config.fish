@@ -13,7 +13,7 @@ if [ $OS = Darwin ]
     set -x SSH_AUTH_SOCK /Users/ben/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
 end
 
-set -p fish_user_paths ~/bin
+fish_add_path -g -p ~/bin
 
 if status is-interactive
     alias curl 'curl -gkLsS'

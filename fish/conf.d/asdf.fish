@@ -19,7 +19,7 @@ if type -q asdf
     if asdf where haskell >/dev/null 2>&1
         set -gx CABAL_CONFIG $XDG_CONFIG_HOME/cabal.conf
         set -gx CABAL_DIR (asdf where haskell)/cabal
-        set -a fish_user_paths $CABAL_DIR/bin
+        fish_add_path -g $CABAL_DIR/bin
     end
 
     if asdf where rust >/dev/null 2>&1

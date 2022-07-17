@@ -1,5 +1,5 @@
-if [ (uname -s) = Darwin ]
-    if [ (uname -p) = arm ]
+if [ $OS = Darwin ]
+    if [ $ARCH = arm ]
         set HOMEBREW_PREFIX /opt/homebrew
     else
         set HOMEBREW_PREFIX /usr/local

@@ -1,6 +1,6 @@
 set -gx ASDF_DATA_DIR "$XDG_DATA_HOME/asdf"
 
-if [ (uname -s) = Darwin ]
+if [ $OS = Darwin ]
     . (brew --prefix asdf)/libexec/asdf.fish
 else
     if [ -d $HOME/.asdf ]

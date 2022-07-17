@@ -31,6 +31,8 @@ else
     check_run nvim/plugins.vim ./scripts/install-vim.sh
     check_run LaunchAgents ./scripts/install-zzlaunchagents.sh
 
+    check_run nova/setup.sh ./nova/setup.sh
+
     echo "running ./scripts/install-bat.sh" | ts
     ./scripts/install-bat.sh
     echo "running ./scripts/install-iterm.sh" | ts

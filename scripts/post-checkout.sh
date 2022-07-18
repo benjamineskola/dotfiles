@@ -31,8 +31,6 @@ if command -v nvim; then
 fi
 
 if [ "$(uname -s)" = Darwin ]; then
-    defaults write com.googlecode.iterm2 DynamicProfilesPath "$HOME/.config/iterm2"
-
     if [ -z "$(find "$HOME/.config/fish/conf.d" -maxdepth 1 -name zzz_iterm2_shell_integration.fish -mtime -1)" ]; then
         curl https://iterm2.com/shell_integration/fish >"$HOME/.config/fish/conf.d/zzz_iterm2_shell_integration.fish"
     fi
@@ -61,4 +59,5 @@ if [ "$(uname -s)" = Darwin ]; then
     done
 
     nova/setup.sh
+    login.d/macos.sh
 fi

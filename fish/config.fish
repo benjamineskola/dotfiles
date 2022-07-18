@@ -10,7 +10,7 @@ set -gx NPM_CONFIG_USERCONFIG "$XDG_CONFIG_HOME/npmrc"
 
 if [ $OS = Darwin ]
     # Secretive Config
-    set -x SSH_AUTH_SOCK /Users/ben/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
+    set -gx SSH_AUTH_SOCK /Users/ben/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
 end
 
 fish_add_path -g -p ~/bin

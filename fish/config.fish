@@ -22,19 +22,19 @@ if status is-interactive
     alias fetch 'curl -gkLO'
     alias grep egrep
     alias psed 'perl -0777 -p -e'
-    alias rg 'rg -S'
+    type -fq rg && alias rg 'rg -S' || alias rg 'grep -ri'
     alias sed 'sed -E'
     alias tf 'tail -F'
 
     alias exa 'exa --git -b'
-    alias ls exa
+    type -fq exa && alias ls exa
     alias ll 'ls -l'
     alias la 'ls -a'
     alias lal 'ls -la'
     alias lsd 'ls -d'
 
-    alias vi nvim
-    alias vim nvim
+    type -fq nvim && alias vi nvim
+    alias vim vi
 
     alias listcops 'rubocop -fo'
     alias openports 'lsof -nP -iTCP -sTCP:LISTEN'

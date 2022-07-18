@@ -10,6 +10,14 @@ if [ -e .git/rebase-merge ] || [ -e .git/rebase-apply ]; then
     exit
 fi
 
+install_darwin_preferences() {
+    if [ -d "$HOME/Library/preferences/$1" ]; then
+        rm -rf "$HOME/Library/preferences/$1"
+    fi
+
+    ln -sfh "$XDG_CONFIG_HOME/$1" "$HOME/Library/Preferences/$1"
+}
+
 command -v bat && bat cache --build
 
 for i in _* private/_*; do
@@ -35,19 +43,8 @@ if [ "$(uname -s)" = Darwin ]; then
     tic -x tmux-256color
     rm -f tmux-256color
 
-    if [ -d "$HOME/Library/Preferences/espanso" ] || ! [ -e "$HOME/Library/Preferences/espanso" ]; then
-        if ! [ -L "$HOME/Library/Preferences/espanso" ]; then
-            rm -rf "$HOME/Library/Preferences/espanso"
-            ln -s "$XDG_CONFIG_HOME/espanso" "$HOME/Library/Preferences/espanso"
-        fi
-    fi
-
-    if [ -d "$HOME/Library/Preferences/rustfmt" ] || ! [ -e "$HOME/Library/Preferences/rustfmt" ]; then
-        if ! [ -L "$HOME/Library/Preferences/rustfmt" ]; then
-            rm -rf "$HOME/Library/Preferences/rustfmt"
-            ln -s "$XDG_CONFIG_HOME/rustfmt" "$HOME/Library/Preferences/rustfmt"
-        fi
-    fi
+    install_darwin_preferences espanso
+    install_darwin_preferences rustfmt
 
     test -d LaunchAgents && mkdir -p ~/Library/LaunchAgents
     for i in LaunchAgents/*.plist; do

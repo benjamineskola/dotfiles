@@ -10,31 +10,58 @@ if [ -e .git/rebase-merge ] || [ -e .git/rebase-apply ]; then
     exit
 fi
 
-changed_files=$(git diff-tree -r --name-only --no-commit-id "$1" "$2")
+command -v bat && bat cache --build
 
-has_changed() {
-    echo "$changed_files" | grep -E --quiet "$1"
-}
+for i in _* private/_*; do
+    test -e "$i" &&
+        ln -sfh ".config/$i" "$HOME/.$(basename "$i" | sed 's/^_//')"
+done
+find -L "$HOME" -type l -maxdepth 1 -name '.*' -exec rm {} +
 
-check_run() {
-    if has_changed "$1"; then
-        echo "running $2" | ts
-        eval "$2"
+if command -v nvim; then
+    nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+fi
+
+if [ "$(uname -s)" = Darwin ]; then
+    defaults write com.googlecode.iterm2 DynamicProfilesPath "$HOME/.config/iterm2"
+
+    if [ -z "$(find "$HOME/.config/fish/conf.d" -maxdepth 1 -name zzz_iterm2_shell_integration.fish -mtime -1)" ]; then
+        curl https://iterm2.com/shell_integration/fish >"$HOME/.config/fish/conf.d/zzz_iterm2_shell_integration.fish"
     fi
-}
 
-if has_changed '(tool-versions|scripts/)'; then
-    ./scripts/install.sh
-else
-    check_run '(^|/)_.*' ./scripts/install-dotfiles.sh
+    ln -sf ~/.config/scripts/iterm* ~/Library/Application\ Support/iTerm2/Scripts/
 
-    check_run nvim/plugins.vim ./scripts/install-vim.sh
-    check_run LaunchAgents ./scripts/install-zzlaunchagents.sh
+    curl -O https://gist.githubusercontent.com/nicm/ea9cf3c93f22e0246ec858122d9abea1/raw/37ae29fc86e88b48dbc8a674478ad3e7a009f357/tmux-256color
+    tic -x tmux-256color
+    rm -f tmux-256color
 
-    check_run nova/setup.sh ./nova/setup.sh
+    if [ -d "$HOME/Library/Preferences/espanso" ] || ! [ -e "$HOME/Library/Preferences/espanso" ]; then
+        if ! [ -L "$HOME/Library/Preferences/espanso" ]; then
+            rm -rf "$HOME/Library/Preferences/espanso"
+            ln -s "$XDG_CONFIG_HOME/espanso" "$HOME/Library/Preferences/espanso"
+        fi
+    fi
 
-    echo "running ./scripts/install-bat.sh" | ts
-    ./scripts/install-bat.sh
-    echo "running ./scripts/install-iterm.sh" | ts
-    ./scripts/install-iterm.sh
+    if [ -d "$HOME/Library/Preferences/rustfmt" ] || ! [ -e "$HOME/Library/Preferences/rustfmt" ]; then
+        if ! [ -L "$HOME/Library/Preferences/rustfmt" ]; then
+            rm -rf "$HOME/Library/Preferences/rustfmt"
+            ln -s "$XDG_CONFIG_HOME/rustfmt" "$HOME/Library/Preferences/rustfmt"
+        fi
+    fi
+
+    test -d LaunchAgents && mkdir -p ~/Library/LaunchAgents
+    for i in LaunchAgents/*.plist; do
+        launchctl unload "$HOME/Library/LaunchAgents/$(basename "$i")"
+        sed -E "s,\\\$PATH,$PATH,g;  s,\\\$HOMEBREW_PREFIX,$HOMEBREW_PREFIX,g; s,\\\$HOME,$HOME,g; s,\\\$XDG_CONFIG_HOME,$XDG_CONFIG_HOME,g; s,\\\$XDG_DATA_HOME,$XDG_DATA_HOME,g; s,\\\$XDG_CACHE_HOME,$XDG_CACHE_HOME,g" "$HOME/.config/$i" >"$HOME/Library/LaunchAgents/$(basename "$i")"
+        launchctl load "$HOME/Library/LaunchAgents/$(basename "$i")"
+    done
+
+    for i in "$HOME"/Library/LaunchAgents/uk.eskola.*.plist; do
+        if ! [ -f "$HOME/.config/LaunchAgents/$(basename "$i")" ]; then
+            launchctl unload "$i"
+            rm "$i"
+        fi
+    done
+
+    nova/setup.sh
 fi

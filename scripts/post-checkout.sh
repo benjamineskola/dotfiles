@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-if [ "$3" = 0 ]; then
+if [ "$3" = 0 ] || [ "$PRE_COMMIT_CHECKOUT_TYPE" = 0 ]; then
     # file checkout
     exit
 fi

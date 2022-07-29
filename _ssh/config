@@ -10,6 +10,5 @@ Host *.github.com github.com *.gitlab.com gitlab.com
 
 Host *
 	Compression yes
-	UseRoaming no
 	PubkeyAcceptedAlgorithms -ssh-rsa,ssh-dss
 	HostKeyAlgorithms -ssh-rsa,ssh-dss

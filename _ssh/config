@@ -1,4 +1,4 @@
-Host *.govuk.digital,*.publishing.service.gov.uk,*.compute.internal
+Host *.govuk.digital *.publishing.service.gov.uk *.compute.internal
   User benjamineskola
 	ForwardAgent yes
 

@@ -86,3 +86,10 @@ matches:
   - trigger: "elizabeth line"
     replace: "crossrail"
     propagate_case: true
+
+  - trigger: "whitelist"
+    replace: "allow list"
+    propagate_case: true
+  - trigger: "blacklist"
+    replace: "deny list"
+    propagate_case: true

@@ -51,6 +51,16 @@ matches:
   - trigger: "Northern Irish"
     replace: "North of Ireland"
     word: true
+  - triggers: ["united kingdom", "the united kingdom"]
+    replace: "britain"
+    word: true
+    propagate_case: true
+  - triggers: ["UK", "The UK", "the UK"]
+    replace: "Britain"
+    word: true
+  - triggers: ["uk", "the uk"]
+    replace: "britain"
+    word: true
 
   - triggers: ["prince charles", "the prince of wales"]
     replace: "charles windsor"

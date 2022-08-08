@@ -1,0 +1,33 @@
+# Matches are the substitution rules, when you type the "trigger" string
+# it gets replaced by the "replace" string.
+matches:
+  # Dates
+  - trigger: ",date"
+    replace: "{{date}}"
+    vars:
+      - name: date
+        type: date
+        params:
+          format: "%B %d, %Y"
+  - trigger: ",isodate"
+    replace: "{{date}}"
+    vars:
+      - name: date
+        type: date
+        params:
+          format: "%Y-%m-%d"
+  - trigger: ",zkdate"
+    replace: "{{date}}"
+    vars:
+      - name: date
+        type: date
+        params:
+          format: "%Y%m%d.%H:%M"
+
+  # preferred terminology
+  - trigger: "an elizabeth line"
+    replace: "a crossrail"
+    propagate_case: true
+  - trigger: "elizabeth line"
+    replace: "crossrail"
+    propagate_case: true

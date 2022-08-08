@@ -52,12 +52,8 @@ matches:
     replace: "harry windsor"
     word: true
     propagate_case: true
-  - trigger: "lord"
-    replace: "“lord”"
-    word: true
-  - trigger: "Lord"
-    replace: "“Lord”"
-    word: true
+  - regex: "\\b(?i:(?P<title>(lord|lady|sir)))\\b"
+    replace: "“{{title}}”"
 
   # social justice
   - trigger: "whitelist"

@@ -103,3 +103,10 @@ matches:
   - trigger: "blacklist"
     replace: "deny list"
     propagate_case: true
+
+  - triggers: ["pro-choice", "pro choice", "prochoice"]
+    replace: "pro-abortion"
+    propagate_case: true
+  - triggers: ["pro-life", "pro life", "prolife"]
+    replace: "anti-abortion"
+    propagate_case: true

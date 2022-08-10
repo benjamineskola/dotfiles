@@ -24,6 +24,9 @@ matches:
     replace: "britain"
     word: true
     propagate_case: true
+  - trigger: ".uk"
+    replace: ".uk"
+    propagate_case: true
   - triggers: ["UK", "The UK", "the UK"]
     replace: "Britain"
     word: true

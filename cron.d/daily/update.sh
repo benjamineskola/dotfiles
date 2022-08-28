@@ -22,10 +22,6 @@ for lang in $(asdf plugin list); do
     asdf install "$lang" "$version" && asdf global "$lang" "$version" && asdf reshim "$lang"
     ln -sf "$(asdf where "$lang")" "$ASDF_DATA_DIR/installs/$lang/default"
 
-    if [ "$lang" = ruby ] && hostname | grep -qi '^gds'; then
-        continue # cf. govuk-update.sh
-    fi
-
     if [ "$lang" = nodejs ] || [ "$lang" = golang ]; then
         major_version=$(echo "$version" | sed 's/\.*//')
         if asdf list "$lang" | grep -Eq "^ *(1\.)?$major_version"; then

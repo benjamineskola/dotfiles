@@ -8,7 +8,7 @@ for dir in ~/bin ~/.config; do
     cd
 done
 
-brew bundle --global install | grep -v '^Using'
+brew bundle install | grep -v '^Using'
 
 for lang in $(asdf plugin list); do
     asdf plugin-update "$lang"

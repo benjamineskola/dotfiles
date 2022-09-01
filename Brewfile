@@ -81,24 +81,7 @@ when "MacBook-Pro"
   cask "vlc"
   cask "zoom"
   cask "zotero"
-when /^GDS/
-  tap "alphagov/gds"
-  tap "coin-or-tools/coinor"
-
-  brew "alphagov/gds/gds-cli"
-  brew "alphagov/gds/govuk-connect"
-  brew "coin-or-tools/coinor/cbc"
-  brew "dnsmasq"
-  brew "mysql"
-  brew "pass"
-  brew "pinentry"
-  brew "pv"
-  brew "terraform-docs"
-  brew "tfenv"
-
-  cask "aws-vault"
+when /^Unboxed/
   cask "breaktimer"
   cask "docker"
-  cask "google-cloud-sdk"
-  cask "gpg-suite"
 end

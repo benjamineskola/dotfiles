@@ -52,5 +52,5 @@
 [format]
 	pretty = %C(auto)%h%Creset %C(auto)%d%Creset %s %C(auto,cyan)(%ad) %C(auto,magenta)<%an>%Creset
 
-[includeIf "gitdir:govuk/"]
+[includeIf "gitdir/i:~/Code/Work/"]
 	path = ~/.config/git/config.work

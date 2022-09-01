@@ -82,6 +82,10 @@ when "MacBook-Pro"
   cask "zoom"
   cask "zotero"
 when /^Unboxed/
+  brew "colima"
+  brew "docker"
+  brew "docker-compose"
+
   cask "breaktimer"
   cask "docker"
 end

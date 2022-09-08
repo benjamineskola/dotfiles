@@ -10,12 +10,16 @@ if [ -e .git/rebase-merge ] || [ -e .git/rebase-apply ]; then
     exit
 fi
 
-install_darwin_preferences() {
-    if [ -d "$HOME/Library/preferences/$1" ]; then
-        rm -rf "$HOME/Library/preferences/$1"
+link_dir() {
+    if [ -d "$2" ]; then
+        rm -rf "$2"
     fi
 
-    ln -sfh "$XDG_CONFIG_HOME/$1" "$HOME/Library/Preferences/$1"
+    ln -sfh "$1" "$2"
+}
+
+install_darwin_preferences() {
+    link_dir "$XDG_CONFIG_HOME/$1" "$HOME/Library/Preferences/$1"
 }
 
 command -v bat && bat cache --build
@@ -43,6 +47,8 @@ if [ "$(uname -s)" = Darwin ]; then
 
     install_darwin_preferences espanso
     install_darwin_preferences rustfmt
+    link_dir "$HOME/Library/Mobile Documents/com~apple~CloudDocs/Nova/Extensions" "$HOME/Library/Application Support/Nova/Extensions"
+    ln -sfh "$XDG_CONFIG_HOME/Nova/UserConfiguration.json" "$HOME/Library/Application Support/Nova/UserConfiguration.json"
 
     test -d LaunchAgents && mkdir -p ~/Library/LaunchAgents
     for i in LaunchAgents/*.plist; do

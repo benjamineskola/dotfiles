@@ -35,7 +35,8 @@ matches:
     word: true
 
   # republican
-  - triggers: ["prince charles", "the prince of wales"]
+  - triggers:
+      ["prince charles", "the prince of wales", "king charles", "the king"]
     replace: "charles windsor"
     word: true
     propagate_case: true

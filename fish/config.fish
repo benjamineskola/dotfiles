@@ -80,10 +80,8 @@ if status is-interactive
     set fzf_fd_opts --hidden --follow --exclude "{.git,.Trash,Library,Movies,Music,Pictures}"
     bind \ec __fzf_cd
 
-    set hydro_color_duration yellow
-    set hydro_color_git magenta
-    set hydro_color_prompt green
-    set hydro_color_pwd cyan
-    set hydro_fetch true
-    set hydro_symbol_prompt '$'
+    set pure_color_primary cyan
+    set pure_color_info magenta
+    set pure_color_success green
+    set pure_symbol_prompt '$'
 end

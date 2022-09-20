@@ -41,6 +41,10 @@ indent_style = space
 indent_size = 4
 indent_style = space
 
-[*.yml]
+[*.tf]
+indent_size = 2
+indent_style = space
+
+[*.yaml,*.yml]
 indent_size = 2
 indent_style = space

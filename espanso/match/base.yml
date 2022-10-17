@@ -8,7 +8,7 @@ matches:
       - name: date
         type: date
         params:
-          format: "%B %d, %Y"
+          format: "%d %B %Y"
   - trigger: ",isodate"
     replace: "{{date}}"
     vars:

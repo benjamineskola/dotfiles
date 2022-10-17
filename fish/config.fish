@@ -85,3 +85,7 @@ if status is-interactive
     set pure_color_success green
     set pure_symbol_prompt '$'
 end
+
+function dotenv_hook --on-event fish_prompt
+    dotenv_load
+end

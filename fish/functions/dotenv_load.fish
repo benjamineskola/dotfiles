@@ -2,7 +2,8 @@ function dotenv_load
     # if dotenv root is set and we're no longer inside it, unsource dotenv vars
     if [ "$PWD" != "$_DOTENV_ROOT" ] && ! string match -q "$_DOTENV_ROOT/*" "$PWD"
         echo "unexporting $_DOTENV_VARS"
-        set -e $_DOTENV_VARS _DOTENV_VARS _DOTENV_ROOT
+        set -e $_DOTENV_VARS _DOTENV_VARS _DOTENV_ROOT _DOTENV_WARNED
+
     end
 
     # if dotenv exists, source it and set dotenv root and dotenv vars
@@ -14,10 +15,10 @@ function dotenv_load
             touch "$XDG_DATA_HOME/dotenv.allow"
         end
 
-        begin
-            dotenv_allowed "$_DOTENV_ROOT/.env" &&
-                dotenv_allowed "$_DOTENV_ROOT/.env.local"
-        end || return
+        if ! dotenv_allowed "$_DOTENV_ROOT/.env" || ! dotenv_allowed "$_DOTENV_ROOT/.env.local"
+            set -g _DOTENV_WARNED 1
+            return
+        end
 
         if [ -n "$_DOTENV_VARS" ]
             return

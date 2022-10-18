@@ -7,7 +7,10 @@ function dotenv_allowed
         return 0
     end
 
-    echo "$argv[1] not permitted" >&2
-    echo "dotenv_allow to allow" >&2
+    if [ -z "$_DOTENV_WARNED" ]
+        echo "$argv[1] not permitted" >&2
+        bat "$argv[1]"
+        echo "dotenv_allow to allow" >&2
+    end
     return 1
 end

@@ -3,7 +3,7 @@
 # ID: 138fd403232d2ddd5efb44317e38bf03
 
 # start templated
-INSTALL_PYTHON=/Users/benjamineskola/Library/asdf/installs/python/3.10.3/bin/python3.10
+INSTALL_PYTHON=/Users/benjamineskola/Library/python/shims/python"
 ARGS=(hook-impl --config=.pre-commit-config.yaml --hook-type=pre-commit --skip-on-missing-config)
 # end templated
 

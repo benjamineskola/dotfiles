@@ -1,8 +1,0 @@
-github.com/arl/gitmux@latest
-github.com/esimonov/ifshort
-github.com/go-critic/go-critic/cmd/gocritic
-github.com/mgechev/revive@latest
-github.com/segmentio/golines
-golang.org/x/tools/cmd/goimports
-honnef.co/go/tools/cmd/staticcheck@latest
-mvdan.cc/gofumpt@latest

@@ -7,6 +7,8 @@ set -gx GIT_EDITOR nvim
 set -gx LESS "-ImRswFX --mouse"
 set -gx LESSHISTFILE "$XDG_CACHE_HOME/less_history"
 set -gx NPM_CONFIG_USERCONFIG "$XDG_CONFIG_HOME/npmrc"
+set -gx PYENV_ROOT $XDG_DATA_HOME/pythons
+set -gx RUBIES_DIR $XDG_DATA_HOME/rubies
 
 if [ $OS = Darwin ]
     # Secretive Config
@@ -56,6 +58,8 @@ if status is-interactive
         alias $cmd "run_with_bundler $cmd"
     end
 
+    alias ruby-install "ruby-install -r $XDG_DATA_HOME/rubies"
+
     alias dj 'run_with_virtualenv python manage.py'
     alias djs 'dj shell_plus'
     alias djrs 'dj runserver'
@@ -89,3 +93,7 @@ end
 function dotenv_hook --on-event fish_prompt
     dotenv_load
 end
+
+nvm use system >/dev/null
+chruby (fd -g -d 1 'ruby-*' "$RUBIES_DIR" -X basename | sort | tail -n 1)
+pyenv init - | source

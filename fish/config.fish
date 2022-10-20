@@ -58,7 +58,7 @@ if status is-interactive
         alias $cmd "run_with_bundler $cmd"
     end
 
-    alias ruby-install "ruby-install -r $XDG_DATA_HOME/rubies"
+    alias ruby-install "ruby-install -r $RUBIES_DIR"
 
     alias dj 'run_with_virtualenv python manage.py'
     alias djs 'dj shell_plus'

@@ -1,9 +1,14 @@
 #!/bin/bash
 set -eo pipefail
 
-for i in "$1"/*; do
-    echo "$i"
-    "$i" || true
-done \
-    1> >(ts >&1) \
-    2> >(ts >&2)
+for dir in "$@"; do
+    test -d "$dir" || continue
+
+    for i in "$dir"/*; do
+        test -e "$i" || continue
+        echo "$i"
+        "$i" || true
+    done \
+        1> >(ts >&1) \
+        2> >(ts >&2)
+done

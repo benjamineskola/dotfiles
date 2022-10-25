@@ -27,7 +27,7 @@ nls.setup({
         b.diagnostics.vint, -- vim
     },
     on_attach = function(client)
-        if client.resolved_capabilities.document_formatting then
+        if client.server_capabilities.documentFormattingProvider then
             vim.cmd([[augroup FormatSync
                   autocmd!
                   autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()

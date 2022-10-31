@@ -43,7 +43,7 @@ let g:sort_motion_flags = 'i'
 let test#strategy = 'dispatch'
 
 if exists('g:neovide')
-	set guifont=JetbrainsMono_Nerd_Font:h14
+	set guifont=Fira_Code:h14
 
 	let g:neovide_hide_mouse_when_typing = v:true
 	let g:neovide_cursor_animation_length = 0

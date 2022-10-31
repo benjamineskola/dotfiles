@@ -55,6 +55,7 @@ return require("packer").startup(function(use)
         end,
     })
     use({ "lukas-reineke/indent-blankline.nvim" })
+    use({ "moll/vim-bbye" })
     use({ "neovim/nvim-lspconfig", "williamboman/nvim-lsp-installer" })
     use({
         "nvim-telescope/telescope.nvim",

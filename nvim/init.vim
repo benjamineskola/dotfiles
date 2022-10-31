@@ -41,3 +41,36 @@ let g:netrw_home = stdpath('cache')
 let g:sort_motion_flags = 'i'
 
 let test#strategy = 'dispatch'
+
+if exists('g:neovide')
+	set guifont=JetbrainsMono_Nerd_Font:h14
+
+	let g:neovide_hide_mouse_when_typing = v:true
+	let g:neovide_cursor_animation_length = 0
+	let g:neovide_remember_window_size = v:true
+
+	augroup NeovideTransparency
+		autocmd!
+		autocmd VimEnter,WinEnter * set winblend=100 pumblend=100
+	augroup END
+
+	cnoreabbrev bd Bdelete
+	cnoreabbrev q Bdelete
+	cnoreabbrev qa only!\|bufdo Bdelete
+	cnoreabbrev qall only!\|bufdo Bdelete
+	cnoreabbrev qa! only!\|bufdo Bdelete!
+	cnoreabbrev qall! only!\|bufdo Bdelete!
+	cnoreabbrev wq w\|Bdelete
+	cnoreabbrev wqa wa\|only!\|bufdo Bdelete
+	cnoreabbrev wqall wa\|only!\|bufdo Bdelete
+	cnoreabbrev wqa! wa!\|only!\|bufdo Bdelete!
+	cnoreabbrev wqall! wa!\|only!\|bufdo Bdelete!
+	cnoreabbrev x up
+	cnoreabbrev xit update
+
+	nnoremap ZZ <Cmd>update<CR>
+	nnoremap ZQ <Cmd>only!\|bufdo Bdelete!<CR>
+
+	inoremap <D-v> <Esc>"*pi
+	vnoremap <D-c> "*y
+endif

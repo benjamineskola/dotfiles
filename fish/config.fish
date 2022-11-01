@@ -65,7 +65,7 @@ if status is-interactive
     alias djm 'dj migrate'
     alias djcsu 'dj createsuperuser'
 
-    alias gl glgga
+    alias gl glgg
     alias gmv 'git mv'
     alias grsp 'grs -p'
     alias gswm gcm

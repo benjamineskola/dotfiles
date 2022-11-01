@@ -12,8 +12,9 @@ end
 nls.setup({
     sources = {
         -- formatting
+        b.formatting.eslint, -- javascript and friends
         b.formatting.fish_indent, -- fish
-        b.formatting.prettier.with({ filetypes = { "html", "json", "yaml", "javascript" } }), -- javascript etc
+        b.formatting.prettier.with({ filetypes = { "json", "yaml" } }),
         b.formatting.stylua, -- lua
         b.formatting.rubocop.with({
             condition = has_rubocop,
@@ -26,6 +27,7 @@ nls.setup({
         b.formatting.trim_whitespace.with({ disabled_filetypes = { "go", "haskell", "markdown", "python" } }),
 
         -- linting
+        b.diagnostics.eslint, -- javascript and friends
         b.diagnostics.golangci_lint, -- go
         b.diagnostics.luacheck.with({
             command = vim.fn.stdpath("cache")
@@ -41,6 +43,7 @@ nls.setup({
         }),
         b.diagnostics.standardrb.with({ condition = hasnt_rubocop }),
         b.diagnostics.shellcheck, -- shell
+        b.diagnostics.tsc, -- typescript
         b.diagnostics.vint, -- vim
     },
     on_attach = function(client)

@@ -47,7 +47,7 @@ nls.setup({
         if client.server_capabilities.documentFormattingProvider then
             vim.cmd([[augroup FormatSync
                   autocmd!
-                  autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
+                  autocmd BufWritePre <buffer> lua vim.lsp.buf.format()
                   augroup END
         ]])
         end

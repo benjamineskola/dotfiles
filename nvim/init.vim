@@ -73,4 +73,5 @@ if exists('g:neovide')
 
 	inoremap <D-v> <Esc>"*pi
 	vnoremap <D-c> "*y
+	vnoremap <D-v> "*p
 endif

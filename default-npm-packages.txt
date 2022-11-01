@@ -8,11 +8,12 @@ eslint-plugin-prettierx
 eslint-plugin-promise
 eslint@^8.0.1
 prettier
+prettier-plugin-x-babel
 remark-cli
 remark-footnotes
 remark-frontmatter
 remark-gfm
 remark-smartypants
 remark-wiki-link
-standard
+semistandard
 typescript

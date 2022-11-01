@@ -36,9 +36,8 @@ end
 nls.setup({
     sources = {
         -- formatting
-        b.formatting.eslint, -- javascript and friends
         b.formatting.fish_indent, -- fish
-        b.formatting.prettier.with({ filetypes = { "json", "yaml" } }),
+        b.formatting.prettierd.with({ disabled_filetypes = { "html" } }),
         b.formatting.stylua, -- lua
         b.formatting.rubocop.with(rubocop_args(b.formatting)),
         b.formatting.standardrb.with({ condition = hasnt_rubocop }),

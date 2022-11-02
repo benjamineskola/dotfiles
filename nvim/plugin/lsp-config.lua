@@ -1,97 +1,90 @@
-local lsp_installer = require("nvim-lsp-installer")
+local lspconfig = require("lspconfig")
 
-vim.env.PATH = vim.fn.stdpath("config") .. "/helpers:" .. vim.env.PATH
-
--- Include the servers you want to have installed by default below
-local servers = {
-    bashls = {},
-    cssls = {},
-    eslint = {},
-    gopls = {
-        gopls = {
-            gofumpt = true,
-        },
-    },
-    hls = {
-        haskell = {
-            formattingProvider = "brittany",
-        },
-    },
-    jsonls = {},
-    pylsp = {
-        pylsp = {
-            plugins = {
-                autopep8 = { enabled = false },
-                flake8 = {
-                    enabled = true,
-                    executable = "flake518",
-                },
-                mccabe = { enabled = false },
-                pycodestyle = { enabled = false },
-                pydocstyle = { enabled = false },
-                pyflakes = { enabled = false },
-                pylint = { enabled = true },
-                yapf = { enabled = false },
-            },
-        },
-    },
-    solargraph = {
-        on_attach = function(client)
-            client.server_capabilities.documentFormattingProvider = false
-            client.server_capabilities.documentRangeFormattingProvider = false
-        end,
-    },
-    sumneko_lua = {
-        Lua = {
-            diagnostics = {
-                globals = { "jit", "vim" },
-                disable = { "lowercase-global" },
-            },
-        },
-    },
-    vimls = {},
-    yamlls = {},
-}
-
-local default_opts = {
-    on_attach = function(client)
-        if client.server_capabilities.documentFormattingProvider then
-            vim.cmd([[augroup FormatSync
+local default_on_attach = function(client)
+    if client.server_capabilities.documentFormattingProvider then
+        vim.cmd([[augroup FormatSync
                   autocmd!
                   autocmd BufWritePre <buffer> lua vim.lsp.buf.format()
                   augroup END
         ]])
-        end
-    end,
-}
-
-for name, settings in pairs(servers) do
-    local server_available, requested_server = lsp_installer.get_server(name)
-    if server_available then
-        requested_server:on_ready(function()
-            local opts = default_opts
-            opts.settings = settings
-            if settings.on_attach then
-                opts.on_attach = settings.on_attach
-            end
-            requested_server:setup(opts)
-        end)
-
-        if not requested_server:is_installed() then
-            if name == "pylsp" then
-                local pip3 = require("nvim-lsp-installer.installers.pip3")
-                requested_server._installer = pip3.packages({
-                    "python-lsp-server",
-                    "pylsp-mypy",
-                    "pyls-isort",
-                    "python-lsp-black",
-                })
-            end
-
-            print("Installing " .. name)
-            requested_server:install()
-        end
     end
 end
 
-vim.env.PATH = vim.env.PATH .. ":" .. vim.fn.stdpath("data") .. "/lsp_servers/haskell"
+require("mason").setup()
+require("mason-lspconfig").setup({
+    ensure_installed = {
+        "bashls",
+        "cssls",
+        "eslint",
+        "gopls",
+        "hls",
+        "jsonls",
+        "sumneko_lua",
+        "pylsp",
+        "solargraph",
+        "vimls",
+        "yamlls",
+    },
+    automatic_installation = true,
+})
+
+require("mason-lspconfig").setup_handlers({
+    function(server_name) -- default handler (optional)
+        lspconfig[server_name].setup({ on_attach = default_on_attach })
+    end,
+    ["gopls"] = function()
+        lspconfig.gopls.setup({
+            on_attach = default_on_attach,
+            settings = {
+                gopls = {
+                    gofumpt = true,
+                },
+            },
+        })
+    end,
+    ["hls"] = function()
+        lspconfig.hls.setup({
+            on_attach = default_on_attach,
+            settings = {
+                haskell = {
+                    formattingProvider = "brittany",
+                },
+            },
+        })
+    end,
+    ["pylsp"] = function()
+        lspconfig.pylsp.setup({
+            on_attach = default_on_attach,
+            settings = {
+                pylsp = {
+                    plugins = {
+                        autopep8 = { enabled = false },
+                        flake8 = {
+                            enabled = true,
+                            executable = "flake518",
+                        },
+                        mccabe = { enabled = false },
+                        pycodestyle = { enabled = false },
+                        pydocstyle = { enabled = false },
+                        pyflakes = { enabled = false },
+                        pylint = { enabled = true },
+                        yapf = { enabled = false },
+                    },
+                },
+            },
+        })
+    end,
+    ["sumneko_lua"] = function()
+        lspconfig.sumneko_lua.setup({
+            on_attach = default_on_attach,
+            settings = {
+                Lua = {
+                    diagnostics = {
+                        globals = { "jit", "vim" },
+                        disable = { "lowercase-global" },
+                    },
+                },
+            },
+        })
+    end,
+})

@@ -53,7 +53,7 @@ return require("packer").startup(function(use)
     use({ "mfussenegger/nvim-lint", rocks = { "luacheck" } })
     use({ "mhartington/formatter.nvim" })
     use({ "moll/vim-bbye" })
-    use({ "neovim/nvim-lspconfig", "williamboman/nvim-lsp-installer" })
+    use({ "neovim/nvim-lspconfig" })
     use({
         "nvim-telescope/telescope.nvim",
         requires = { "nvim-lua/plenary.nvim", { "nvim-telescope/telescope-fzf-native.nvim", run = "make" } },
@@ -75,6 +75,7 @@ return require("packer").startup(function(use)
     use({ "tpope/vim-surround" })
     use({ "tpope/vim-unimpaired" })
     use({ "vim-airline/vim-airline" })
+    use({ "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim" })
     use({
         "windwp/nvim-autopairs",
         config = function()

@@ -59,6 +59,7 @@ require("mason-lspconfig").setup_handlers({
                 pylsp = {
                     plugins = {
                         autopep8 = { enabled = false },
+                        black = { enabled = true },
                         flake8 = {
                             enabled = true,
                             executable = "flake518",
@@ -67,12 +68,18 @@ require("mason-lspconfig").setup_handlers({
                         pycodestyle = { enabled = false },
                         pydocstyle = { enabled = false },
                         pyflakes = { enabled = false },
-                        pylint = { enabled = true },
                         yapf = { enabled = false },
                     },
                 },
             },
         })
+        local pylsp_dir = require("mason-registry").get_package("python-lsp-server"):get_install_path()
+        os.execute(
+            "cd "
+                .. vim.fn.shellescape(pylsp_dir, true)
+                .. "&& . venv/bin/activate && "
+                .. "pip install -U -qqq --disable-pip-version-check python-lsp-black pyls-isort pylsp-mypy"
+        )
     end,
     ["sumneko_lua"] = function()
         lspconfig.sumneko_lua.setup({

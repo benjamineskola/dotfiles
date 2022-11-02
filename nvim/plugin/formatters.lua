@@ -16,7 +16,10 @@ require("formatter").setup({
         lua = { require("formatter.filetypes.lua").stylua },
         ruby = {
             function()
-                if os.execute("sh -c 'test -f Gemfile'") == 0 and os.execute("grep -q rubocop Gemfile") == 0 then
+                if
+                    os.execute("sh -c 'test -f .rubocop.yml'") == 0
+                    or (os.execute("sh -c 'test -f Gemfile'") == 0 and os.execute("grep -q rubocop Gemfile") == 0)
+                then
                     return require("formatter.filetypes.ruby").rubocop
                 end
 

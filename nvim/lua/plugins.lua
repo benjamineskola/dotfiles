@@ -38,7 +38,6 @@ return require("packer").startup(function(use)
     use({
         "jose-elias-alvarez/null-ls.nvim",
         requires = { "nvim-lua/plenary.nvim" },
-        rocks = { "luacheck" },
     })
     use({ "Konfekt/FastFold" })
     use({
@@ -55,6 +54,7 @@ return require("packer").startup(function(use)
         end,
     })
     use({ "lukas-reineke/indent-blankline.nvim" })
+    use({ "mfussenegger/nvim-lint", rocks = { "luacheck" } })
     use({ "moll/vim-bbye" })
     use({ "neovim/nvim-lspconfig", "williamboman/nvim-lsp-installer" })
     use({

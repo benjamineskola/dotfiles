@@ -45,21 +45,6 @@ nls.setup({
         b.formatting.trim_newlines.with({ disabled_filetypes = { "go", "haskell", "python" } }),
         b.formatting.trim_whitespace.with({ disabled_filetypes = { "go", "haskell", "markdown", "python" } }),
 
-        -- linting
-        b.diagnostics.eslint, -- javascript and friends
-        b.diagnostics.golangci_lint, -- go
-        b.diagnostics.luacheck.with({
-            command = vim.fn.stdpath("cache")
-                .. "/packer_hererocks/"
-                .. string.gsub(jit.version, "LuaJIT ", "")
-                .. "/bin/luacheck",
-            args = vim.list_extend({ "--globals=jit", "--globals=vim" }, b.diagnostics.luacheck._opts.args),
-        }), -- lua
-        b.diagnostics.rubocop.with(rubocop_args(b.diagnostics)),
-        b.diagnostics.standardrb.with({ condition = hasnt_rubocop }),
-        b.diagnostics.shellcheck, -- shell
-        b.diagnostics.tsc, -- typescript
-        b.diagnostics.vint, -- vim
     },
     on_attach = function(client)
         if client.server_capabilities.documentFormattingProvider then

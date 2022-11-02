@@ -35,10 +35,6 @@ return require("packer").startup(function(use)
         "hrsh7th/vim-vsnip",
     })
     use({ "janko/vim-test" })
-    use({
-        "jose-elias-alvarez/null-ls.nvim",
-        requires = { "nvim-lua/plenary.nvim" },
-    })
     use({ "Konfekt/FastFold" })
     use({
         "kosayoda/nvim-lightbulb",
@@ -55,6 +51,7 @@ return require("packer").startup(function(use)
     })
     use({ "lukas-reineke/indent-blankline.nvim" })
     use({ "mfussenegger/nvim-lint", rocks = { "luacheck" } })
+    use({ "mhartington/formatter.nvim" })
     use({ "moll/vim-bbye" })
     use({ "neovim/nvim-lspconfig", "williamboman/nvim-lsp-installer" })
     use({

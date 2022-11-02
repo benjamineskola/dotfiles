@@ -19,7 +19,6 @@ require("lint").linters.tsc = function()
         args = { "--noEmit", "--project", vim.fn.getcwd() },
         stdin = false,
         ignore_exitcode = true,
-        -- parser = require("lint.parser").from_errorformat("%+A %#%f %#(%l\\,%c): %m,%C%m"),
         parser = require("lint.parser").from_pattern(
             "(%g+)%((%d+),(%d+)%): (%a+) (%g+): (.+)",
             { "file", "lnum", "col", "severity", "code", "message" }

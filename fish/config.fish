@@ -1,8 +1,8 @@
 set -gx BUNDLE_USER_CACHE "$XDG_CACHE_HOME/bundler"
 set -gx BUNDLE_USER_HOME "$XDG_CONFIG_HOME/bundler"
 
-set -gx EDITOR nova
-set -gx VISUAL "nova -w"
+set -gx EDITOR neovide
+set -gx VISUAL "neovide --nofork"
 set -gx GIT_EDITOR nvim
 set -gx LESS "-ImRswFX --mouse"
 set -gx LESSHISTFILE "$XDG_CACHE_HOME/less_history"
@@ -37,6 +37,7 @@ if status is-interactive
 
     type -fq nvim && alias vi nvim
     alias vim vi
+    alias neovide 'neovide --multigrid --notabs'
 
     alias listcops 'rubocop -fo'
     alias openports 'lsof -nP -iTCP -sTCP:LISTEN'

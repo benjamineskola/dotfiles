@@ -31,11 +31,10 @@ end
 
 require("lint").linters_by_ft = {
     go = { "golangcilint" },
-    javascript = { "eslint" },
     lua = { "luacheck_vim" },
     ruby = { ruby_linter },
     sh = { "shellcheck" },
-    typescript = { "eslint", "tsc" },
+    typescript = { "tsc" },
     vim = { "vint" },
 }
 

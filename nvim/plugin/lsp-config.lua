@@ -90,6 +90,9 @@ require("mason-lspconfig").setup_handlers({
                         globals = { "jit", "vim" },
                         disable = { "lowercase-global" },
                     },
+                    format = {
+                        enable = false,
+                    },
                 },
             },
         })

@@ -90,6 +90,9 @@ require("mason-lspconfig").setup_handlers({
                         globals = { "jit", "vim" },
                         disable = { "lowercase-global" },
                     },
+                    workspace = {
+                        ignoreDir = { "packer_compiled.lua" },
+                    },
                     format = {
                         enable = false,
                     },

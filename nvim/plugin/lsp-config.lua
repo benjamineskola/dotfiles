@@ -86,6 +86,9 @@ require("mason-lspconfig").setup_handlers({
             on_attach = default_on_attach,
             settings = {
                 Lua = {
+                    runtime = {
+                        version = "LuaJIT",
+                    },
                     diagnostics = {
                         globals = { "jit", "vim" },
                         disable = { "lowercase-global" },

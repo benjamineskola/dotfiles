@@ -98,6 +98,6 @@ function dotenv_hook --on-event fish_prompt
     dotenv_load
 end
 
-nvm use system >/dev/null
+nvm use lts >/dev/null
 chruby (fd -g -d 1 'ruby-*' "$RUBIES_DIR" -X basename | sort | tail -n 1)
 pyenv init - | source

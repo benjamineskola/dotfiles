@@ -50,6 +50,12 @@ return require("packer").startup(function(use)
         end,
     })
     use({ "lukas-reineke/indent-blankline.nvim" })
+    use({
+        "lukas-reineke/virt-column.nvim",
+        config = function()
+            require("virt-column").setup()
+        end,
+    })
     use({ "mfussenegger/nvim-lint", rocks = { "luacheck" } })
     use({ "mhartington/formatter.nvim" })
     use({ "moll/vim-bbye" })

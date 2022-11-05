@@ -4,11 +4,15 @@ set -gx BUNDLE_USER_HOME "$XDG_CONFIG_HOME/bundler"
 set -gx EDITOR neovide
 set -gx VISUAL "neovide --nofork"
 set -gx GIT_EDITOR nvim
+
 set -gx LESS "-ImRswFX --mouse"
 set -gx LESSHISTFILE "$XDG_CACHE_HOME/less_history"
+
+set -gx CARGO_DIR $XDG_DATA_HOME/cargo
 set -gx NPM_CONFIG_USERCONFIG "$XDG_CONFIG_HOME/npmrc"
 set -gx PYENV_ROOT $XDG_DATA_HOME/pythons
 set -gx RUBIES_DIR $XDG_DATA_HOME/rubies
+set -gx RUSTUP_DIR $XDG_DATA_HOME/rustup
 
 if [ $OS = Darwin ]
     # Secretive Config
@@ -16,6 +20,7 @@ if [ $OS = Darwin ]
 end
 
 fish_add_path -g -p ~/bin
+fish_add_path -g -p $CARGO_DIR/bin
 
 if status is-interactive
     alias curl 'curl -gkLsS'

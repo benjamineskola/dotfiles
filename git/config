@@ -37,14 +37,12 @@
 	templatedir = ~/.config/git/template
 	defaultBranch = main
 [merge]
-	tool = meld
-	conflictstyle = diff3
+  tool = nvim
 [mergetool]
 	prompt = false
 	keepBackup = false
-[mergetool "meld"]
-  trustExitCode = true
-  cmd = open -W -a Meld --args --auto-merge \"$PWD/$LOCAL\" \"$PWD/$BASE\" \"$PWD/$REMOTE\" --output=\"$PWD/$MERGED\"
+[mergetool "nvim"]
+  cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
 [delta]
 	line-numbers = true
 [rerere]

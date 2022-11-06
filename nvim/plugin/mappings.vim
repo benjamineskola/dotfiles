@@ -8,10 +8,10 @@ nnoremap <leader>b <cmd>Telescope buffers<cr>
 nnoremap <Leader>f <cmd>Telescope find_files<cr>
 nnoremap <Leader>g <cmd>Telescope live_grep<cr>
 nnoremap <Leader>o <cmd>Telescope oldfiles<cr>
-nnoremap <Leader>x <cmd>Telescope lsp_code_actions<cr>
+nnoremap <Leader>x <cmd>lua vim.lsp.buf.code_action()<cr>
 nnoremap <leader>c <cmd>lua require('telescope.builtin').find_files({find_command={"sh", "-c", "fd --type d --max-depth 1 . $HOME/Code $HOME/govuk; echo $XDG_CONFIG_HOME"}})<cr>
 
-vnoremap <Leader>x <cmd>Telescope lsp_range_code_actions<cr>
+vnoremap <Leader>x <cmd>lua vim.lsp.buf.code_action()<cr>
 
 
 " avoid ex mode

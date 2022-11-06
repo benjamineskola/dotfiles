@@ -23,34 +23,6 @@ set spell spelllang=en_gb
 set undofile
 set viewoptions=folds
 
-
 if exists('g:neovide')
-	set guifont=Fira_Code:h14
-
-	let g:neovide_hide_mouse_when_typing = v:true
-	let g:neovide_cursor_animation_length = 0
-	let g:neovide_remember_window_size = v:true
-
-	cnoreabbrev bd Bdelete
-	cnoreabbrev q Bdelete
-	cnoreabbrev qa only!\|bufdo Bdelete
-	cnoreabbrev qall only!\|bufdo Bdelete
-	cnoreabbrev qa! only!\|bufdo Bdelete!
-	cnoreabbrev qall! only!\|bufdo Bdelete!
-	cnoreabbrev wq w\|Bdelete
-	cnoreabbrev wqa wa\|only!\|bufdo Bdelete
-	cnoreabbrev wqall wa\|only!\|bufdo Bdelete
-	cnoreabbrev wqa! wa!\|only!\|bufdo Bdelete!
-	cnoreabbrev wqall! wa!\|only!\|bufdo Bdelete!
-	cnoreabbrev x up
-	cnoreabbrev xit update
-
-	nnoremap ZZ <Cmd>update<CR>
-	nnoremap ZQ <Cmd>only!\|bufdo Bdelete!<CR>
-
-	cnoremap <D-v> <C-R>+
-	inoremap <D-v> <C-R>+
-	nnoremap <D-v> "*p
-	vnoremap <D-c> "*y
-	vnoremap <D-v> "*p
+	lua require("ginit")
 endif

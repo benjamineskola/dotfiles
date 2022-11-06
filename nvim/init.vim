@@ -48,7 +48,9 @@ if exists('g:neovide')
 	nnoremap ZZ <Cmd>update<CR>
 	nnoremap ZQ <Cmd>only!\|bufdo Bdelete!<CR>
 
-	inoremap <D-v> <Esc>"*pi
+	cnoremap <D-v> <C-R>+
+	inoremap <D-v> <C-R>+
+	nnoremap <D-v> "*p
 	vnoremap <D-c> "*y
 	vnoremap <D-v> "*p
 endif

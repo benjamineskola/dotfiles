@@ -18,6 +18,12 @@ return require("packer").startup(function(use)
     use({ "antoinemadec/FixCursorHold.nvim" })
     use({ "christoomey/vim-sort-motion", requires = { "kana/vim-textobj-user", "kana/vim-textobj-indent" } })
     use({
+        "folke/tokyonight.nvim",
+        config = function()
+            require("tokyonight").setup()
+        end,
+    })
+    use({
         "folke/trouble.nvim",
         requires = "kyazdani42/nvim-web-devicons",
         config = function()
@@ -67,7 +73,6 @@ return require("packer").startup(function(use)
     use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
     use({ "nvim-treesitter/nvim-treesitter-refactor" })
     use({ "nvim-treesitter/nvim-treesitter-textobjects" })
-    use({ "phanviet/vim-monokai-pro" })
     use({ "rizzatti/dash.vim" })
     use({ "sheerun/vim-polyglot" })
     use({ "simnalamburt/vim-mundo" })

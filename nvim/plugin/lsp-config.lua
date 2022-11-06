@@ -62,7 +62,6 @@ require("mason-lspconfig").setup_handlers({
                         black = { enabled = true },
                         flake8 = {
                             enabled = true,
-                            executable = "flake518",
                         },
                         mccabe = { enabled = false },
                         pycodestyle = { enabled = false },

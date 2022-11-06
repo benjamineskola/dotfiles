@@ -1,6 +1,7 @@
 lua require('plugins')
 
 set belloff=all
+set colorcolumn=80
 set concealcursor=nc
 set foldexpr=nvim_treesitter#foldexpr()
 set foldlevelstart=99

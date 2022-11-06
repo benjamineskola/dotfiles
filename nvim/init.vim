@@ -38,8 +38,6 @@ let g:netrw_home = stdpath('cache')
 
 let g:sort_motion_flags = 'i'
 
-let test#strategy = 'dispatch'
-
 if exists('g:neovide')
 	set guifont=Fira_Code:h14
 

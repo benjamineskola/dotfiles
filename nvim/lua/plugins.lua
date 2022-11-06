@@ -39,7 +39,12 @@ return require("packer").startup(function(use)
         "hrsh7th/cmp-vsnip",
         "hrsh7th/vim-vsnip",
     })
-    use({ "janko/vim-test" })
+    use({
+        "janko/vim-test",
+        config = function()
+            vim.g["test#strategy"] = "neovim"
+        end,
+    })
     use({ "Konfekt/FastFold" })
     use({
         "kosayoda/nvim-lightbulb",

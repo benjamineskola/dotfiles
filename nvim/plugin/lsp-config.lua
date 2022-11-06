@@ -20,6 +20,7 @@ require("mason-lspconfig").setup({
         "jsonls",
         "sumneko_lua",
         "pylsp",
+        "rust_analyzer",
         "solargraph",
         "vimls",
         "yamlls",

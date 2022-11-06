@@ -33,6 +33,13 @@ require("lualine").setup({
     },
     tabline = {
         lualine_a = { "buffers" },
-        lualine_z = { "tabs" },
+        lualine_z = {
+            {
+                "tabs",
+                cond = function()
+                    return #vim.api.nvim_list_tabpages() > 1
+                end,
+            },
+        },
     },
 })

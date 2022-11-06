@@ -63,3 +63,5 @@ nnoremap <expr> <Leader>vR "<Cmd>belowright split +terminal\\ %\\ " . join(split
 " kill buffer with cmd-w
 nnoremap <D-w> <Cmd>Bdelete<CR>
 nnoremap <D-M-w> <Cmd>Bdelete!<CR>
+
+nnoremap <leader>l <cmd>NvimTreeToggle<cr>

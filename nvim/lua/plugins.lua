@@ -84,6 +84,13 @@ return require("packer").startup(function(use)
         "nvim-telescope/telescope.nvim",
         requires = { "nvim-lua/plenary.nvim", { "nvim-telescope/telescope-fzf-native.nvim", run = "make" } },
     })
+    use({
+        "nvim-tree/nvim-tree.lua",
+        config = function()
+            require("nvim-tree").setup()
+        end,
+        requires = { "nvim-tree/nvim-web-devicons" },
+    })
     use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
     use({ "nvim-treesitter/nvim-treesitter-refactor" })
     use({ "nvim-treesitter/nvim-treesitter-textobjects" })

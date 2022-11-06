@@ -14,6 +14,7 @@ require("formatter").setup({
         fish = { require("formatter.filetypes.fish").fishindent },
         javascript = { require("formatter.filetypes.javascript").prettierd },
         lua = { require("formatter.filetypes.lua").stylua },
+        markdown = { require("formatter.filetypes.markdown").prettierd },
         ruby = {
             function()
                 if require("utils").has_rubocop() then

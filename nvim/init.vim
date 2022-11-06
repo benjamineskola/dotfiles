@@ -23,20 +23,6 @@ set spell spelllang=en_gb
 set undofile
 set viewoptions=folds
 
-let g:airline#extensions#ale#enabled = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
-let g:airline#extensions#tabline#tab_nr_type = 2
-let g:airline_powerline_fonts = 1
-
-let g:delimitMate_expand_cr = 1
-let g:delimitMate_expand_space = 1
-
-let g:mundo_prefer_python3 = 1
-
-let g:netrw_home = stdpath('cache')
-
-let g:sort_motion_flags = 'i'
 
 if exists('g:neovide')
 	set guifont=Fira_Code:h14

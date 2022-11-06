@@ -15,7 +15,13 @@ end
 return require("packer").startup(function(use)
     use("wbthomason/packer.nvim") -- include so that clean does not remove it
 
-    use({ "christoomey/vim-sort-motion", requires = { "kana/vim-textobj-user", "kana/vim-textobj-indent" } })
+    use({
+        "christoomey/vim-sort-motion",
+        requires = { "kana/vim-textobj-user", "kana/vim-textobj-indent" },
+        config = function()
+            vim.g.sort_motion_flags = "i"
+        end,
+    })
     use({
         "folke/tokyonight.nvim",
         config = function()
@@ -91,7 +97,15 @@ return require("packer").startup(function(use)
     use({ "tpope/vim-sensible" })
     use({ "tpope/vim-surround" })
     use({ "tpope/vim-unimpaired" })
-    use({ "vim-airline/vim-airline" })
+    use({
+        "vim-airline/vim-airline",
+        config = function()
+            vim.g["airline#extensions#tabline#enabled"] = 1
+            vim.g["airline#extensions#tabline#formatter"] = "unique_tail_improved"
+            vim.g["airline#extensions#tabline#tab_nr_type"] = 2
+            vim.g["airline_powerline_fonts"] = 1
+        end,
+    })
     use({ "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim" })
     use({
         "windwp/nvim-autopairs",

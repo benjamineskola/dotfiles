@@ -16,7 +16,12 @@ require("lualine").setup({
             { "diff", source = diff_source },
         },
         lualine_x = {
-            "encoding",
+            function()
+                if vim.bo.fileencoding ~= "utf-8" then
+                    return vim.opt.fileencoding
+                end
+                return ""
+            end,
             {
                 "fileformat",
                 symbols = {

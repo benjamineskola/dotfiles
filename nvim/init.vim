@@ -49,11 +49,6 @@ if exists('g:neovide')
 	let g:neovide_cursor_animation_length = 0
 	let g:neovide_remember_window_size = v:true
 
-	augroup NeovideTransparency
-		autocmd!
-		autocmd VimEnter,WinEnter * set winblend=100 pumblend=100
-	augroup END
-
 	cnoreabbrev bd Bdelete
 	cnoreabbrev q Bdelete
 	cnoreabbrev qa only!\|bufdo Bdelete

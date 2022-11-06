@@ -42,7 +42,7 @@ if status is-interactive
 
     type -fq nvim && alias vi nvim
     alias vim vi
-    alias neovide 'neovide --multigrid --notabs'
+    alias neovide 'neovide --notabs'
 
     alias listcops 'rubocop -fo'
     alias openports 'lsof -nP -iTCP -sTCP:LISTEN'

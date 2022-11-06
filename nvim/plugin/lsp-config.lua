@@ -17,7 +17,6 @@ require("mason-lspconfig").setup({
         "cssls",
         "eslint",
         "gopls",
-        "hls",
         "jsonls",
         "sumneko_lua",
         "pylsp",

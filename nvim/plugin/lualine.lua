@@ -17,8 +17,8 @@ require("lualine").setup({
         },
         lualine_x = {
             function()
-                if vim.bo.fileencoding ~= "utf-8" then
-                    return vim.opt.fileencoding
+                if vim.bo.fileencoding and vim.bo.fileencoding ~= "utf-8" then
+                    return vim.bo.fileencoding
                 end
                 return ""
             end,

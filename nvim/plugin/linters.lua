@@ -3,6 +3,12 @@ if require("utils").has_rubocop() then
     ruby_linter = "rubocop"
 end
 
+local standardrb = require("lint").linters.standardrb
+require("lint").linters.standardrb = function()
+    standardrb.ignore_exitcode = true
+    return standardrb
+end
+
 require("lint").linters.luacheck_vim = function()
     local luacheck = require("lint").linters.luacheck
     luacheck.cmd = vim.fn.stdpath("cache")

@@ -102,7 +102,7 @@ return require("packer").startup(function(use)
         end,
     })
     use({ "mfussenegger/nvim-lint", rocks = { "luacheck" } })
-    use({ "mhartington/formatter.nvim" })
+    use({ "benjamineskola/formatter.nvim" })
     use({ "moll/vim-bbye" })
     use({ "neovim/nvim-lspconfig" })
     use({

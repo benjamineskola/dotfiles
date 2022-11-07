@@ -120,6 +120,7 @@ return require("packer").startup(function(use)
     use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
     use({ "nvim-treesitter/nvim-treesitter-refactor" })
     use({ "nvim-treesitter/nvim-treesitter-textobjects" })
+    use({ "RRethy/nvim-treesitter-endwise" })
     use({ "rizzatti/dash.vim" })
     use({ "sheerun/vim-polyglot" })
     use({ "simnalamburt/vim-mundo" })
@@ -138,11 +139,7 @@ return require("packer").startup(function(use)
     use({
         "windwp/nvim-autopairs",
         config = function()
-            local npairs = require("nvim-autopairs")
-            npairs.setup({ check_ts = true, enable_afterquote = false })
-            npairs.add_rules(require("nvim-autopairs.rules.endwise-elixir"))
-            npairs.add_rules(require("nvim-autopairs.rules.endwise-lua"))
-            npairs.add_rules(require("nvim-autopairs.rules.endwise-ruby"))
+            require("nvim-autopairs").setup({ check_ts = true, enable_afterquote = false })
         end,
     })
 

@@ -46,3 +46,16 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufWritePost" }, {
         require("lint").try_lint()
     end,
 })
+
+vim.api.nvim_create_autocmd({ "FileType" }, {
+    pattern = { "ruby" },
+    callback = function()
+        vim.api.nvim_create_autocmd({ "TextChanged" }, {
+            callback = function()
+                require("lint").try_lint()
+            end,
+            group = vim.api.nvim_create_augroup("lint_ft_textchanged", { clear = true }),
+        })
+    end,
+    group = vim.api.nvim_create_augroup("lint_ft_textchanged_setup", { clear = true }),
+})

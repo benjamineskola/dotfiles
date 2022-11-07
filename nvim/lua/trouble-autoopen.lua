@@ -22,12 +22,14 @@ function M.restoreAutoOpenClose()
     require("trouble").refresh({ auto = true, provider = "diagnostics" })
 end
 
-vim.cmd([[
-  augroup user_trouble
-    autocmd!
-    autocmd InsertEnter * lua require('trouble-autoopen').disableAutoOpenClose()
-    autocmd InsertLeave * lua require('trouble-autoopen').restoreAutoOpenClose()
-  augroup END
-]])
+local augroup = vim.api.nvim_create_augroup("user_trouble", { clear = true })
+vim.api.nvim_create_autocmd({ "InsertEnter" }, {
+    callback = M.disableAutoOpenClose,
+    group = augroup,
+})
+vim.api.nvim_create_autocmd({ "InsertLeave" }, {
+    callback = M.restoreAutoOpenClose,
+    group = augroup,
+})
 
 return M

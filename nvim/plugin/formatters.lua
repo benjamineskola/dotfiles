@@ -48,4 +48,5 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
     callback = function()
         vim.cmd([[FormatWrite]])
     end,
+    group = vim.api.nvim_create_augroup("autoformat", { clear = true }),
 })

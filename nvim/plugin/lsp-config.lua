@@ -2,11 +2,12 @@ local lspconfig = require("lspconfig")
 
 local default_on_attach = function(client)
     if client.server_capabilities.documentFormattingProvider then
-        vim.cmd([[augroup FormatSync
-                  autocmd!
-                  autocmd BufWritePre <buffer> lua vim.lsp.buf.format()
-                  augroup END
-        ]])
+        vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+            callback = function(opts)
+                vim.lsp.buf.format({ bufnr = opts.buf })
+            end,
+            group = vim.api.nvim_create_augroup("FormatSync", { clear = true }),
+        })
     end
 end
 

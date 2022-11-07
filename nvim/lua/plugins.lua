@@ -81,7 +81,10 @@ return require("packer").startup(function(use)
     use({
         "kosayoda/nvim-lightbulb",
         config = function()
-            vim.cmd([[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]])
+            vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+                callback = require("nvim-lightbulb").update_lightbulb,
+                group = vim.api.nvim_create_augroup("LightbulbUpdate", { clear = true }),
+            })
         end,
     })
     use({
@@ -149,10 +152,11 @@ return require("packer").startup(function(use)
         require("packer").sync()
     end
 
-    vim.cmd([[
-    augroup packer_user_config
-      autocmd!
-      autocmd BufWritePost plugins.lua source <afile> | PackerCompile
-    augroup end
-  ]])
+    vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+        pattern = { "plugins.lua" },
+        callback = function()
+            vim.cmd([[source <afile> | PackerCompile]])
+        end,
+        group = vim.api.nvim_create_augroup("packer_user_config", { clear = true }),
+    })
 end)

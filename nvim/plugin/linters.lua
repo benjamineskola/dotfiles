@@ -1,5 +1,5 @@
 local ruby_linter = "standardrb"
-if require("utils").has_rubocop then
+if require("utils").has_rubocop() then
     ruby_linter = "rubocop"
 end
 

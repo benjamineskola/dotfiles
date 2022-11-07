@@ -18,7 +18,17 @@ require("formatter").setup({
         ruby = {
             function()
                 if require("utils").has_rubocop() then
-                    return require("formatter.filetypes.ruby").rubocop()
+                    local rubocop = require("formatter.filetypes.ruby").rubocop()
+                    rubocop.args = {
+                        "--auto-correct-all",
+                        "--stdin",
+                        util.escape_path(util.get_current_buffer_file_name()),
+                        "--format",
+                        "files",
+                        "--stderr",
+                    }
+                    rubocop.transform = nil
+                    return rubocop
                 end
 
                 return {

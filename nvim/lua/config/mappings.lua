@@ -88,3 +88,5 @@ vim.keymap.set("n", "<D-w>", "<Cmd>Bdelete<CR>", { noremap = true })
 vim.keymap.set("n", "<D-M-w>", "<Cmd>Bdelete!<CR>", { noremap = true })
 
 vim.keymap.set("n", "<leader>l", "<cmd>NvimTreeToggle<cr>", { noremap = true })
+
+vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { noremap = true })

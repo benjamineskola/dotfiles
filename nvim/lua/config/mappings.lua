@@ -1,6 +1,7 @@
 ---@diagnostic disable-next-line: unused-local
 vim.g.mapleader = ","
 
+local abbrev = require("utils").abbrev
 local map = vim.keymap.set
 
 map("n", "<Leader>l", "<Cmd>nohl<CR>", { noremap = true })
@@ -48,9 +49,9 @@ map("n", "<Leader>Q", "<Cmd>q<CR>", { noremap = true })
 -- better regexes for search
 map("n", "/", [[/\v]], { noremap = true })
 map("v", "/", [[/\v]], { noremap = true })
-vim.cmd([[cnoreabbrev s sm]])
-vim.cmd([[cnoreabbrev %s %sm]])
-vim.cmd([[cnoreabbrev '<,'>s '<,'>sm]])
+abbrev("c", "s", "sm", { noreabbrev = true })
+abbrev("c", "%s", "%sm", { noreabbrev = true })
+abbrev("c", "'<,'>s", "'<,'>sm", { noreabbrev = true })
 
 -- allow semicolon instead of colon for command mode
 map("n", ";", ":", { noremap = true })

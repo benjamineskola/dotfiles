@@ -4,19 +4,20 @@ vim.g.neovide_hide_mouse_when_typing = true
 vim.g.neovide_cursor_animation_length = 0
 vim.g.neovide_remember_window_size = true
 
-vim.cmd([[cnoreabbrev bd Bdelete]])
-vim.cmd([[cnoreabbrev q Bdelete]])
-vim.cmd([[cnoreabbrev qa only!\|bufdo Bdelete]])
-vim.cmd([[cnoreabbrev qall only!\|bufdo Bdelete]])
-vim.cmd([[cnoreabbrev qa! only!\|bufdo Bdelete!]])
-vim.cmd([[cnoreabbrev qall! only!\|bufdo Bdelete!]])
-vim.cmd([[cnoreabbrev wq w\|Bdelete]])
-vim.cmd([[cnoreabbrev wqa wa\|only!\|bufdo Bdelete]])
-vim.cmd([[cnoreabbrev wqall wa\|only!\|bufdo Bdelete]])
-vim.cmd([[cnoreabbrev wqa! wa!\|only!\|bufdo Bdelete!]])
-vim.cmd([[cnoreabbrev wqall! wa!\|only!\|bufdo Bdelete!]])
-vim.cmd([[cnoreabbrev x up]])
-vim.cmd([[cnoreabbrev xit update]])
+local abbrev = require("utils").abbrev
+abbrev("c", "bd", "Bdelete", { noreabbrev = true })
+abbrev("c", "q", "Bdelete", { noreabbrev = true })
+abbrev("c", "qa", "only!|bufdo", { noreabbrev = true })
+abbrev("c", "qall", "only!|bufdo", { noreabbrev = true })
+abbrev("c", "qa!", "only!|bufdo", { noreabbrev = true })
+abbrev("c", "qall!", "only!|bufdo", { noreabbrev = true })
+abbrev("c", "wq", "w|Bdelete", { noreabbrev = true })
+abbrev("c", "wqa", "wa|only!|bufdo", { noreabbrev = true })
+abbrev("c", "wqall", "wa|only!|bufdo", { noreabbrev = true })
+abbrev("c", "wqa!", "wa!|only!|bufdo", { noreabbrev = true })
+abbrev("c", "wqall!", "wa!|only!|bufdo", { noreabbrev = true })
+abbrev("c", "x", "up", { noreabbrev = true })
+abbrev("c", "xit", "update", { noreabbrev = true })
 
 vim.keymap.set("n", "ZZ", "<Cmd>update<CR>", { noremap = true })
 vim.keymap.set("n", "ZQ", "<Cmd>only!|bufdo Bdelete!<CR>", { noremap = true })

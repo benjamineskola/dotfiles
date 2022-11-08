@@ -47,7 +47,7 @@ nnoremap ; :
 
 " edit/source vim configs
 nmap <Leader>vv <Cmd>edit $MYVIMRC<CR>
-nmap <expr> <Leader>vp '<Cmd>edit ' . stdpath('config') . '/lua/plugins.lua<CR>'
+nmap <expr> <Leader>vp '<Cmd>edit ' . stdpath('config') . '/lua/config/plugins.lua<CR>'
 nmap <expr> <Leader>vm '<Cmd>edit ' . stdpath('config') . '/plugin/mappings.vim<CR>'
 nnoremap <expr> <Leader>vf '<Cmd>edit ' . stdpath('config') . '/ftplugin/' . &filetype . '.vim<CR>'
 

@@ -6,6 +6,7 @@ local remove_trailing_newlines = {
 
 require("formatter").setup({
     filetype = {
+        css = { require("formatter.filetypes.javascript").prettierd },
         fish = { require("formatter.filetypes.fish").fishindent },
         javascript = { require("formatter.filetypes.javascript").prettierd },
         lua = { require("formatter.filetypes.lua").stylua },
@@ -19,6 +20,7 @@ require("formatter").setup({
                 return require("formatter.filetypes.ruby").standardrb()
             end,
         },
+        scss = { require("formatter.filetypes.javascript").prettierd },
         sh = { require("formatter.filetypes.sh").shfmt },
         typescript = { require("formatter.filetypes.typescript").prettierd },
         ["*"] = {

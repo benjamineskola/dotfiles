@@ -22,5 +22,6 @@ vim.opt.shell = "/bin/sh"
 vim.opt.signcolumn = "yes"
 vim.opt.spell = true
 vim.opt.spelllang = "en_gb"
+vim.opt.title = true
 vim.opt.undofile = true
 vim.opt.viewoptions = "folds"

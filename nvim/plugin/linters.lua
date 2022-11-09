@@ -9,16 +9,6 @@ require("lint").linters.standardrb = function()
     return standardrb
 end
 
-require("lint").linters.luacheck_vim = function()
-    local luacheck = require("lint").linters.luacheck
-    luacheck.cmd = vim.fn.stdpath("cache")
-        .. "/packer_hererocks/"
-        .. string.gsub(jit.version, "LuaJIT ", "")
-        .. "/bin/luacheck"
-    luacheck.args = vim.list_extend({ "--globals=jit", "--globals=vim" }, luacheck.args)
-    return luacheck
-end
-
 require("lint").linters.tsc = function()
     return {
         cmd = "tsc",
@@ -34,7 +24,6 @@ end
 
 require("lint").linters_by_ft = {
     go = { "golangcilint" },
-    lua = { "luacheck_vim" },
     ruby = { ruby_linter },
     sh = { "shellcheck" },
     typescript = { "tsc" },

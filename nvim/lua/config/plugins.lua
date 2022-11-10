@@ -13,7 +13,7 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
 end
 
 return require("packer").startup(function(use)
-    use("wbthomason/packer.nvim") -- include so that clean does not remove it
+    use({ "wbthomason/packer.nvim" }) -- include so that clean does not remove it
 
     use({
         "christoomey/vim-sort-motion",
@@ -30,15 +30,23 @@ return require("packer").startup(function(use)
     })
     use({
         "folke/trouble.nvim",
-        requires = "kyazdani42/nvim-web-devicons",
+        requires = { "nvim-tree/nvim-web-devicons" },
         config = function()
             require("trouble").setup({ auto_open = true, auto_close = true })
             require("trouble-autoopen")
         end,
+        cmd = { "TroubleToggle", "Trouble" },
+        module = "trouble",
     })
     use({
         "gelguy/wilder.nvim",
-        requires = { "nvim-tree/nvim-web-devicons", "romgrk/fzy-lua-native" },
+        requires = {
+            "nvim-tree/nvim-web-devicons",
+            { "romgrk/fzy-lua-native" },
+        },
+        config = function()
+            require("config.wilder")
+        end,
     })
     use({
         "hrsh7th/nvim-cmp",
@@ -52,6 +60,7 @@ return require("packer").startup(function(use)
         config = function()
             vim.g["test#strategy"] = "neovim"
         end,
+        cmd = { "TestNearest", "TestFile", "TestSuit", "TestLast", "TestVisit" },
     })
     use({ "Konfekt/FastFold" })
     use({
@@ -77,20 +86,44 @@ return require("packer").startup(function(use)
             require("virt-column").setup()
         end,
     })
-    use({ "mfussenegger/nvim-lint", rocks = { "luacheck" } })
-    use({ "benjamineskola/formatter.nvim" })
-    use({ "moll/vim-bbye" })
-    use({ "neovim/nvim-lspconfig" })
     use({
-        "nvim-lualine/lualine.nvim",
-        requires = { { "kyazdani42/nvim-web-devicons", opt = true } },
+        "mfussenegger/nvim-lint",
+        rocks = { "luacheck" },
+        config = function()
+            require("config.linters")
+        end,
     })
+    use({
+        "benjamineskola/formatter.nvim",
+        event = { "BufWritePre" },
+        config = function()
+            require("config.formatters")
+        end,
+    })
+    use({ "moll/vim-bbye" })
+    use({
+        "neovim/nvim-lspconfig",
+        config = function()
+            require("config.lsp")
+        end,
+    })
+    use({ "nvim-lualine/lualine.nvim", requires = { "nvim-tree/nvim-web-devicons" } })
     use({
         "nvim-telescope/telescope.nvim",
         requires = {
             "nvim-lua/plenary.nvim",
-            { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
+            {
+                "nvim-telescope/telescope-fzf-native.nvim",
+                run = "make",
+                cmd = "Telescope",
+                module = { "config.telescope" },
+            },
         },
+        cmd = "Telescope",
+        module = { "telescope.actions", "telescope.builtin" },
+        config = function()
+            require("config.telescope")
+        end,
     })
     use({
         "nvim-tree/nvim-tree.lua",
@@ -98,14 +131,21 @@ return require("packer").startup(function(use)
             require("nvim-tree").setup()
         end,
         requires = { "nvim-tree/nvim-web-devicons" },
+        cmd = { "NvimTreeToggle" },
     })
-    use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
-    use({ "nvim-treesitter/nvim-treesitter-refactor" })
+    use({
+        "nvim-treesitter/nvim-treesitter",
+        run = ":TSUpdate",
+        config = function()
+            require("config.treesitter")
+        end,
+    })
+    use({ "nvim-treesitter/nvim-treesitter-refactor", event = { "BufReadPost" } })
     use({ "nvim-treesitter/nvim-treesitter-textobjects" })
     use({ "RRethy/nvim-treesitter-endwise" })
     use({ "rizzatti/dash.vim" })
     use({ "sheerun/vim-polyglot" })
-    use({ "simnalamburt/vim-mundo" })
+    use({ "simnalamburt/vim-mundo", cmd = "MundoToggle" })
     use({ "tpope/vim-commentary" })
     use({ "tpope/vim-dispatch" })
     use({ "tpope/vim-eunuch" })
@@ -117,7 +157,14 @@ return require("packer").startup(function(use)
     use({ "tpope/vim-sensible" })
     use({ "tpope/vim-surround" })
     use({ "tpope/vim-unimpaired" })
-    use({ "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim" })
+    use({ "williamboman/mason.nvim" })
+    use({
+        "williamboman/mason-lspconfig.nvim",
+        event = { "BufReadPre" },
+        config = function()
+            require("config.lsp")
+        end,
+    })
     use({
         "windwp/nvim-autopairs",
         config = function()

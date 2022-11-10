@@ -157,14 +157,6 @@ return require("packer").startup(function(use)
     use({ "tpope/vim-sensible" })
     use({ "tpope/vim-surround" })
     use({ "tpope/vim-unimpaired" })
-    use({ "williamboman/mason.nvim" })
-    use({
-        "williamboman/mason-lspconfig.nvim",
-        event = { "BufReadPre" },
-        config = function()
-            require("config.lsp")
-        end,
-    })
     use({
         "windwp/nvim-autopairs",
         config = function()

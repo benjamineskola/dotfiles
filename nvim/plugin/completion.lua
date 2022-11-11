@@ -1,5 +1,6 @@
 vim.opt.completeopt = "menu,menuone,noselect"
 local cmp = require("cmp")
+local luasnip = require("luasnip")
 
 local has_words_before = function()
     local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -28,6 +29,8 @@ cmp.setup({
         ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
+            elseif luasnip.expand_or_jumpable() then
+                luasnip.expand_or_jump()
             elseif has_words_before() then
                 cmp.complete()
             else
@@ -37,8 +40,21 @@ cmp.setup({
         ["<S-Tab>"] = cmp.mapping(function()
             if cmp.visible() then
                 cmp.select_prev_item()
+            elseif luasnip.jumpable(-1) then
+                luasnip.jump(-1)
             end
         end, { "i", "s" }),
     },
-    sources = cmp.config.sources({ { name = "nvim_lsp" } }, { { name = "buffer" } }),
+    snippet = {
+        expand = function(args)
+            luasnip.lsp_expand(args.body)
+        end,
+    },
+    sources = cmp.config.sources({
+        { name = "luasnip" },
+        { name = "nvim_lsp" },
+    }, { { name = "buffer" } }),
 })
+
+require("luasnip.loaders.from_vscode").lazy_load()
+luasnip.filetype_extend("ruby", { "rails" })

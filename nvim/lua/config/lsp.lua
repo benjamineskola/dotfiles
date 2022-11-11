@@ -12,17 +12,19 @@ local default_on_attach = function(client)
 end
 
 lsp_servers = {
-    bashls = {},
-    cssls = {},
-    eslint = {},
+    bashls = { package_name = "bash-language-server" },
+    cssls = { package_name = "css-lsp" },
+    eslint = { package_name = "eslint-lsp" },
     gopls = {
         settings = { gopls = { gofumpt = true } },
     },
-    hls = {
-        settings = { haskell = { formattingProvider = "brittany" } },
-    },
-    jsonls = {},
+    -- hls = {
+    --     package_name = "haskell-language-server",
+    --     settings = { haskell = { formattingProvider = "brittany" } },
+    -- },
+    jsonls = { package_name = "json-lsp" },
     pylsp = {
+        package_name = "python-lsp-server",
         settings = {
             pylsp = {
                 plugins = {
@@ -41,6 +43,7 @@ lsp_servers = {
     rust_analyzer = {},
     solargraph = {},
     sumneko_lua = {
+        package_name = "lua-language-server",
         settings = {
             Lua = {
                 runtime = { version = "LuaJIT" },
@@ -50,8 +53,8 @@ lsp_servers = {
             },
         },
     },
-    vimls = {},
-    yamlls = {},
+    vimls = { package_name = "vim-language-server" },
+    yamlls = { package_name = "yaml-language-server" },
 }
 
 for server, config in pairs(lsp_servers) do
@@ -59,5 +62,31 @@ for server, config in pairs(lsp_servers) do
         config.on_attach = default_on_attach
     end
 
+    if config.package_name == nil then
+        config.package_name = server:gsub("_", "-")
+    end
+
     lspconfig[server].setup(config)
 end
+
+local function install_commands()
+    local registry = require("mason-registry")
+
+    for server, config in pairs(lsp_servers) do
+        if config.package_name == nil then
+            config.package_name = server
+        end
+
+        local package = registry.get_package(config.package_name)
+        if not package:is_installed() then
+            package:install()
+        end
+    end
+end
+
+vim.api.nvim_create_autocmd({ "BufReadPost" }, {
+    callback = install_commands,
+    group = vim.api.nvim_create_augroup("MasonInstall", { clear = true }),
+})
+
+vim.env.PATH = vim.fn.stdpath("data") .. "/mason/bin" .. ":" .. vim.env.PATH

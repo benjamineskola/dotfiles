@@ -32,7 +32,19 @@ require("lualine").setup({
         },
     },
     tabline = {
-        lualine_a = { "buffers" },
+        lualine_a = {
+            {
+                "buffers",
+                buffers_color = {
+                    active = function()
+                        return { gui = vim.bo.modified and "italic" or "" }
+                    end,
+                },
+                inactive = function()
+                    return { gui = vim.bo.modified and "italic" or "" }
+                end,
+            },
+        },
         lualine_z = {
             {
                 "tabs",

@@ -10,7 +10,7 @@
       <string>exec</string>
       <string>/bin/sh</string>
       <string>-c</string>
-      <string>$XDG_CONFIG_HOME/scripts/run-dir.sh $XDG_CONFIG_HOME/login.d</string>
+      <string>$XDG_CONFIG_HOME/scripts/run-dir.sh $XDG_CONFIG_HOME/login.d $XDG_CONFIG_HOME/private/login.d</string>
     </array>
     <key>RunAtLoad</key>
     <true/>

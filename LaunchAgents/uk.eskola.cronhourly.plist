@@ -10,7 +10,7 @@
       <string>exec</string>
       <string>/bin/sh</string>
       <string>-c</string>
-      <string>$XDG_CONFIG_HOME/scripts/run-dir.sh $XDG_CONFIG_HOME/cron.d/hourly</string>
+      <string>$XDG_CONFIG_HOME/scripts/run-dir.sh $XDG_CONFIG_HOME/cron.d/hourly $XDG_CONFIG_HOME/private/cron.d/hourly</string>
     </array>
     <key>StandardErrorPath</key>
     <string>$HOME/Library/Logs/uk.eskola.cronhourly.err</string>

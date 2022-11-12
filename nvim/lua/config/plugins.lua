@@ -18,15 +18,11 @@ return require("packer").startup(function(use)
     use({
         "christoomey/vim-sort-motion",
         requires = { "kana/vim-textobj-user", "kana/vim-textobj-indent" },
-        config = function()
-            vim.g.sort_motion_flags = "i"
-        end,
+        config = function() vim.g.sort_motion_flags = "i" end,
     })
     use({
         "folke/tokyonight.nvim",
-        config = function()
-            require("tokyonight").setup()
-        end,
+        config = function() require("tokyonight").setup() end,
     })
     use({
         "folke/trouble.nvim",
@@ -44,9 +40,7 @@ return require("packer").startup(function(use)
             "nvim-tree/nvim-web-devicons",
             { "romgrk/fzy-lua-native" },
         },
-        config = function()
-            require("config.wilder")
-        end,
+        config = function() require("config.wilder") end,
     })
     use({
         "hrsh7th/nvim-cmp",
@@ -61,9 +55,7 @@ return require("packer").startup(function(use)
     })
     use({
         "janko/vim-test",
-        config = function()
-            vim.g["test#strategy"] = "neovim"
-        end,
+        config = function() vim.g["test#strategy"] = "neovim" end,
         cmd = { "TestNearest", "TestFile", "TestSuit", "TestLast", "TestVisit" },
     })
     use({ "Konfekt/FastFold" })
@@ -79,37 +71,27 @@ return require("packer").startup(function(use)
     use({
         "lewis6991/gitsigns.nvim",
         requires = { "nvim-lua/plenary.nvim" },
-        config = function()
-            require("gitsigns").setup()
-        end,
+        config = function() require("gitsigns").setup() end,
     })
     use({ "lukas-reineke/indent-blankline.nvim" })
     use({
         "lukas-reineke/virt-column.nvim",
-        config = function()
-            require("virt-column").setup()
-        end,
+        config = function() require("virt-column").setup() end,
     })
     use({
         "mfussenegger/nvim-lint",
         rocks = { "luacheck" },
-        config = function()
-            require("config.linters")
-        end,
+        config = function() require("config.linters") end,
     })
     use({
         "benjamineskola/formatter.nvim",
         event = { "BufWritePre" },
-        config = function()
-            require("config.formatters")
-        end,
+        config = function() require("config.formatters") end,
     })
     use({ "moll/vim-bbye" })
     use({
         "neovim/nvim-lspconfig",
-        config = function()
-            require("config.lsp")
-        end,
+        config = function() require("config.lsp") end,
     })
     use({ "nvim-lualine/lualine.nvim", requires = { "nvim-tree/nvim-web-devicons" } })
     use({
@@ -125,24 +107,18 @@ return require("packer").startup(function(use)
         },
         cmd = "Telescope",
         module = { "telescope.actions", "telescope.builtin" },
-        config = function()
-            require("config.telescope")
-        end,
+        config = function() require("config.telescope") end,
     })
     use({
         "nvim-tree/nvim-tree.lua",
-        config = function()
-            require("nvim-tree").setup()
-        end,
+        config = function() require("nvim-tree").setup() end,
         requires = { "nvim-tree/nvim-web-devicons" },
         cmd = { "NvimTreeToggle" },
     })
     use({
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate",
-        config = function()
-            require("config.treesitter")
-        end,
+        config = function() require("config.treesitter") end,
     })
     use({ "nvim-treesitter/nvim-treesitter-refactor", event = { "BufReadPost" } })
     use({ "nvim-treesitter/nvim-treesitter-textobjects" })
@@ -174,15 +150,11 @@ return require("packer").startup(function(use)
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
-    if packer_bootstrap then
-        require("packer").sync()
-    end
+    if packer_bootstrap then require("packer").sync() end
 
     vim.api.nvim_create_autocmd({ "BufWritePost" }, {
         pattern = { "plugins.lua" },
-        callback = function()
-            vim.cmd([[source <afile> | PackerCompile]])
-        end,
+        callback = function() vim.cmd([[source <afile> | PackerCompile]]) end,
         group = vim.api.nvim_create_augroup("packer_user_config", { clear = true }),
     })
 end)

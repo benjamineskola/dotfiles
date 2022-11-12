@@ -46,9 +46,7 @@ cmp.setup({
         end, { "i", "s" }),
     },
     snippet = {
-        expand = function(args)
-            luasnip.lsp_expand(args.body)
-        end,
+        expand = function(args) luasnip.lsp_expand(args.body) end,
     },
     sources = cmp.config.sources({
         { name = "luasnip" },

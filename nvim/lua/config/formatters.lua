@@ -13,9 +13,7 @@ require("formatter").setup({
         markdown = { require("formatter.filetypes.markdown").prettierd },
         ruby = {
             function()
-                if require("utils").has_rubocop() then
-                    return require("formatter.filetypes.ruby").rubocop()
-                end
+                if require("utils").has_rubocop() then return require("formatter.filetypes.ruby").rubocop() end
 
                 return require("formatter.filetypes.ruby").standardrb()
             end,
@@ -31,8 +29,6 @@ require("formatter").setup({
 })
 
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-    callback = function()
-        vim.cmd([[FormatWrite]])
-    end,
+    callback = function() vim.cmd([[FormatWrite]]) end,
     group = vim.api.nvim_create_augroup("autoformat", { clear = true }),
 })

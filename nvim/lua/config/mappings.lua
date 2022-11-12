@@ -8,30 +8,25 @@ map("n", "<Leader>l", "<Cmd>nohl<CR>", { noremap = true })
 
 map("n", "<Leader>u", "<Cmd>MundoToggle<CR>", { noremap = true })
 
-map("n", "<leader>b", function()
-    require("telescope.builtin").buffers()
-end, { noremap = true })
-map("n", "<Leader>f", function()
-    require("telescope.builtin").find_files()
-end, { noremap = true })
-map("n", "<Leader>g", function()
-    require("telescope.builtin").live_grep()
-end, { noremap = true })
-map("n", "<Leader>o", function()
-    require("telescope.builtin").oldfiles()
-end, { noremap = true })
-map({ "n", "v" }, "<Leader>x", function()
-    vim.lsp.buf.code_action()
-end, { noremap = true })
-map("n", "<leader>c", function()
-    require("telescope.builtin").find_files({
-        find_command = {
-            "sh",
-            "-c",
-            "fd --type d --max-depth 1 . $HOME/Code $HOME/Code/Work $HOME/Code/Personal; echo $XDG_CONFIG_HOME",
-        },
-    })
-end, { noremap = true })
+map("n", "<leader>b", function() require("telescope.builtin").buffers() end, { noremap = true })
+map("n", "<Leader>f", function() require("telescope.builtin").find_files() end, { noremap = true })
+map("n", "<Leader>g", function() require("telescope.builtin").live_grep() end, { noremap = true })
+map("n", "<Leader>o", function() require("telescope.builtin").oldfiles() end, { noremap = true })
+map({ "n", "v" }, "<Leader>x", function() vim.lsp.buf.code_action() end, { noremap = true })
+map(
+    "n",
+    "<leader>c",
+    function()
+        require("telescope.builtin").find_files({
+            find_command = {
+                "sh",
+                "-c",
+                "fd --type d --max-depth 1 . $HOME/Code $HOME/Code/Work $HOME/Code/Personal; echo $XDG_CONFIG_HOME",
+            },
+        })
+    end,
+    { noremap = true }
+)
 
 -- avoid ex mode
 map("n", "Q", "<nop>", { noremap = true })
@@ -88,9 +83,7 @@ map(
     "n",
     -- "<expr>",
     "<Leader>vR",
-    function()
-        vim.cmd("terminal %:p " .. vim.fn.join(vim.fn.split(vim.fn.input("Parameters: "), " "), " "))
-    end,
+    function() vim.cmd("terminal %:p " .. vim.fn.join(vim.fn.split(vim.fn.input("Parameters: "), " "), " ")) end,
     { noremap = true }
 )
 

@@ -12,9 +12,7 @@ function M.disableAutoOpenClose()
 end
 
 function M.restoreAutoOpenClose()
-    if state == nil then
-        return
-    end
+    if state == nil then return end
     local troubleOpts = require("trouble.config").options
     troubleOpts.auto_open = state.auto_open
     troubleOpts.auto_close = state.auto_close

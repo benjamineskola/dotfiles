@@ -3,9 +3,7 @@ local lspconfig = require("lspconfig")
 local default_on_attach = function(client)
     if client.server_capabilities.documentFormattingProvider then
         vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-            callback = function(opts)
-                vim.lsp.buf.format({ bufnr = opts.buf })
-            end,
+            callback = function(opts) vim.lsp.buf.format({ bufnr = opts.buf }) end,
             group = vim.api.nvim_create_augroup("FormatSync", { clear = true }),
         })
     end
@@ -58,13 +56,9 @@ lsp_servers = {
 }
 
 for server, config in pairs(lsp_servers) do
-    if config.on_attach == nil then
-        config.on_attach = default_on_attach
-    end
+    if config.on_attach == nil then config.on_attach = default_on_attach end
 
-    if config.package_name == nil then
-        config.package_name = server:gsub("_", "-")
-    end
+    if config.package_name == nil then config.package_name = server:gsub("_", "-") end
 
     lspconfig[server].setup(config)
 end
@@ -73,14 +67,10 @@ local function install_commands()
     local registry = require("mason-registry")
 
     for server, config in pairs(lsp_servers) do
-        if config.package_name == nil then
-            config.package_name = server
-        end
+        if config.package_name == nil then config.package_name = server end
 
         local package = registry.get_package(config.package_name)
-        if not package:is_installed() then
-            package:install()
-        end
+        if not package:is_installed() then package:install() end
     end
 end
 

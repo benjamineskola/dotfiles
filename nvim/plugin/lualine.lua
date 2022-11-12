@@ -17,9 +17,7 @@ require("lualine").setup({
         },
         lualine_x = {
             function()
-                if vim.bo.fileencoding and vim.bo.fileencoding ~= "utf-8" then
-                    return vim.bo.fileencoding
-                end
+                if vim.bo.fileencoding and vim.bo.fileencoding ~= "utf-8" then return vim.bo.fileencoding end
                 return ""
             end,
             {
@@ -36,21 +34,15 @@ require("lualine").setup({
             {
                 "buffers",
                 buffers_color = {
-                    active = function()
-                        return { gui = vim.bo.modified and "italic" or "" }
-                    end,
+                    active = function() return { gui = vim.bo.modified and "italic" or "" } end,
                 },
-                inactive = function()
-                    return { gui = vim.bo.modified and "italic" or "" }
-                end,
+                inactive = function() return { gui = vim.bo.modified and "italic" or "" } end,
             },
         },
         lualine_z = {
             {
                 "tabs",
-                cond = function()
-                    return #vim.api.nvim_list_tabpages() > 1
-                end,
+                cond = function() return #vim.api.nvim_list_tabpages() > 1 end,
             },
         },
     },

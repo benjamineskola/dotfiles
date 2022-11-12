@@ -3,5 +3,4 @@ mdless
 neovim
 pry
 rspec
-rubocop
 standard

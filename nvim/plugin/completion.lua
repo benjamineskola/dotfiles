@@ -9,21 +9,10 @@ end
 
 cmp.setup({
     mapping = {
-        ["<Esc>"] = cmp.mapping(function(fallback)
-            -- if completion selected, cancel it;
-            -- otherwise, close the completion window and fallback (i.e., leave insert mode)
-            if cmp.visible() then
-                if cmp.get_selected_entry() then
-                    cmp.abort()
-                else
-                    cmp.abort()
-                    fallback()
-                end
-            else
-                fallback()
-            end
-        end, { "i", "s" }),
-
+        ["<C-e>"] = cmp.mapping({
+            i = cmp.mapping.abort(),
+            c = cmp.mapping.close(),
+        }),
         ["<CR>"] = cmp.mapping.confirm(),
 
         ["<Tab>"] = cmp.mapping(function(fallback)

@@ -28,6 +28,7 @@ if status is-interactive
     alias fdg 'fd -g'
     alias fetch 'curl -gkLO'
     alias grep egrep
+    alias less bat
     alias psed 'perl -0777 -p -e'
     type -fq rg && alias rg 'rg -S' || alias rg 'grep -ri'
     alias sed 'sed -E'

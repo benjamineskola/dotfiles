@@ -15,7 +15,8 @@ require("telescope").setup({
                     ["<CR>"] = function(prompt_bufnr)
                         local path = require("telescope.actions.state").get_selected_entry(prompt_bufnr).value
                         local f = io.open(path, "r")
-                        local ok, err, code = f:read(1)
+                        if f == nil then return end
+                        local _, _, code = f:read(1)
                         f:close()
                         if code == 21 then -- EISDIR
                             actions.close(prompt_bufnr)

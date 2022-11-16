@@ -17,7 +17,11 @@ cmp.setup({
 
         ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
-                cmp.select_next_item()
+                if not cmp.get_selected_entry() then
+                    cmp.select_next_item()
+                else
+                    cmp.confirm()
+                end
             elseif luasnip.expand_or_jumpable() then
                 luasnip.expand_or_jump()
             elseif has_words_before() then
@@ -27,11 +31,13 @@ cmp.setup({
             end
         end, { "i", "s" }),
         ["<S-Tab>"] = cmp.mapping(function()
-            if cmp.visible() then
-                cmp.select_prev_item()
-            elseif luasnip.jumpable(-1) then
-                luasnip.jump(-1)
-            end
+            if luasnip.jumpable(-1) then luasnip.jump(-1) end
+        end, { "i", "s" }),
+        ["<Down>"] = cmp.mapping(function()
+            if cmp.visible() then cmp.select_next_item() end
+        end, { "i", "s" }),
+        ["<Up>"] = cmp.mapping(function()
+            if cmp.visible() then cmp.select_prev_item() end
         end, { "i", "s" }),
     },
     snippet = {

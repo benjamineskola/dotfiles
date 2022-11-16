@@ -11,17 +11,21 @@ require("lint").linters.tsc = function()
     return {
         cmd = "tsc",
         args = { "--noEmit", "--project", vim.fn.getcwd() },
-        stdin = false,
+        stdin = true,
         ignore_exitcode = true,
         parser = require("lint.parser").from_pattern(
             "(%g+)%((%d+),(%d+)%): (%a+) (%g+): (.+)",
-            { "file", "lnum", "col", "severity", "code", "message" }
+            { "file", "lnum", "col", "severity", "code", "message" },
+            {
+                ["source"] = "tsc",
+            }
         ),
     }
 end
 
 require("lint").linters_by_ft = {
     go = { "golangcilint" },
+    javascript = { "tsc" },
     ruby = { ruby_linter },
     sh = { "shellcheck" },
     typescript = { "tsc" },
@@ -33,7 +37,7 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufWritePost" }, {
 })
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
-    pattern = { "ruby" },
+    pattern = { "ruby", "typescript" },
     callback = function()
         vim.api.nvim_create_autocmd({ "TextChanged" }, {
             callback = function() require("lint").try_lint() end,

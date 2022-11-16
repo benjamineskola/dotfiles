@@ -47,7 +47,7 @@
           }
         ],
         "advanced configuration": {
-          "font": "JetBrainsMono-Thin 14",
+          "font": "FiraCode-Retina 14",
           "algorithm": 1
         }
       },

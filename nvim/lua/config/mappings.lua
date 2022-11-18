@@ -94,3 +94,5 @@ map("n", "<D-M-w>", "<Cmd>Bdelete!<CR>", { noremap = true })
 map("n", "<leader>l", "<cmd>NvimTreeToggle<cr>", { noremap = true })
 
 map("t", "<Esc>", [[<C-\><C-n>]], { noremap = true })
+
+map("n", "<leader>a", "<Cmd>:A<CR>", { noremap = true })

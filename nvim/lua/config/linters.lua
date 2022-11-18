@@ -1,14 +1,5 @@
 local lint = require("lint")
 
-local ruby_linter = "standardrb"
-if require("utils").has_rubocop() then ruby_linter = "rubocop" end
-
-local standardrb = lint.linters.standardrb
-lint.linters.standardrb = function()
-    standardrb.ignore_exitcode = true
-    return standardrb
-end
-
 require("lint").linters.tsc = function()
     return {
         cmd = "tsc",
@@ -28,7 +19,6 @@ end
 require("lint").linters_by_ft = {
     go = { "golangcilint" },
     javascript = { "tsc" },
-    ruby = { ruby_linter },
     sh = { "shellcheck" },
     typescript = { "tsc" },
     vim = { "vint" },

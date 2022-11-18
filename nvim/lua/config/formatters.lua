@@ -12,13 +12,6 @@ require("formatter").setup({
         javascript = { require("formatter.filetypes.javascript").prettierd },
         lua = { require("formatter.filetypes.lua").stylua },
         markdown = { require("formatter.filetypes.markdown").prettierd },
-        ruby = {
-            function()
-                if require("utils").has_rubocop() then return require("formatter.filetypes.ruby").rubocop() end
-
-                return require("formatter.filetypes.ruby").standardrb()
-            end,
-        },
         scss = { require("formatter.filetypes.css").prettierd },
         sh = { require("formatter.filetypes.sh").shfmt },
         typescript = { require("formatter.filetypes.typescript").prettierd },

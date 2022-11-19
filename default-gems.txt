@@ -1,4 +1,5 @@
 bundler
+erb_lint
 mdless
 neovim
 pry

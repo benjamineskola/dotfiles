@@ -1,12 +1,20 @@
+local util = require("formatter.util")
 local remove_trailing_newlines = {
     exe = "perl",
     args = { "-007", "-pe", [[s/\\n+$/\\n/gs]] },
     stdin = true,
 }
 
+local erb_lint = {
+    exe = "erblint",
+    args = { "--autocorrect", util.escape_path(util.get_current_buffer_file_path()) },
+    stdin = false,
+}
+
 require("formatter").setup({
     filetype = {
         css = { require("formatter.filetypes.css").prettierd },
+        eruby = { erb_lint },
         fish = { require("formatter.filetypes.fish").fishindent },
         html = { require("formatter.filetypes.html").prettierd },
         javascript = { require("formatter.filetypes.javascript").prettierd },

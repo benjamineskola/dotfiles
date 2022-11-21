@@ -7,8 +7,16 @@ local remove_trailing_newlines = {
 
 local erb_lint = {
     exe = "erblint",
-    args = { "--autocorrect", util.escape_path(util.get_current_buffer_file_path()) },
-    stdin = false,
+    args = { "--autocorrect", "--stdin", util.escape_path(util.get_current_buffer_file_path()) },
+    stdin = true,
+    ignore_exitcode = true,
+    transform = function(text)
+        while not vim.startswith(text[1], "====") do
+            table.remove(text, 1)
+        end
+        table.remove(text, 1)
+        return text
+    end,
 }
 
 require("formatter").setup({

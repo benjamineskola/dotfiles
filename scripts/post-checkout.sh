@@ -47,8 +47,6 @@ if [ "$(uname -s)" = Darwin ]; then
 
     install_darwin_preferences espanso
     install_darwin_preferences rustfmt
-    link_dir "$HOME/Library/Mobile Documents/com~apple~CloudDocs/Nova/Extensions" "$HOME/Library/Application Support/Nova/Extensions"
-    ln -sfh "$XDG_CONFIG_HOME/Nova/UserConfiguration.json" "$HOME/Library/Application Support/Nova/UserConfiguration.json"
 
     test -d LaunchAgents && mkdir -p ~/Library/LaunchAgents
     for i in LaunchAgents/*.plist; do
@@ -64,6 +62,5 @@ if [ "$(uname -s)" = Darwin ]; then
         fi
     done
 
-    nova/setup.sh
     login.d/macos.sh
 fi

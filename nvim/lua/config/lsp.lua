@@ -38,6 +38,7 @@ lsp_servers = {
             },
         },
     },
+    rome = {},
     rust_analyzer = {},
     ruby_ls = {
         package_name = "ruby-lsp",

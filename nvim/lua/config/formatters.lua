@@ -25,13 +25,11 @@ require("formatter").setup({
         eruby = { erb_lint },
         fish = { require("formatter.filetypes.fish").fishindent },
         html = { require("formatter.filetypes.html").prettierd },
-        javascript = { require("formatter.filetypes.javascript").prettierd },
         json = { require("formatter.filetypes.json").prettierd },
         lua = { require("formatter.filetypes.lua").stylua },
         markdown = { require("formatter.filetypes.markdown").prettierd },
         scss = { require("formatter.filetypes.css").prettierd },
         sh = { require("formatter.filetypes.sh").shfmt },
-        typescript = { require("formatter.filetypes.typescript").prettierd },
         yaml = { require("formatter.filetypes.yaml").prettierd },
         ["*"] = {
             require("formatter.filetypes.any").remove_trailing_whitespace,

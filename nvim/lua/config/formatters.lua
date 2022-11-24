@@ -1,4 +1,6 @@
 local util = require("formatter.util")
+local utils = require("utils")
+
 local remove_trailing_newlines = {
     exe = "perl",
     args = { "-007", "-pe", [[s/\\n+$/\\n/gs]] },
@@ -11,11 +13,25 @@ local rome_lint = {
     ignore_exitcode = true,
 }
 
-local rome_or_prettier = function(filetype)
-    local utils = require("utils")
-    if utils.find_file_in_parent("rome.json", utils.get_git_root()) then return rome_lint end
-
-    return require("formatter.filetypes." .. filetype).prettierd
+local rome_format = function()
+    args = { "format", "--stdin-file-path", util.escape_path(util.get_current_buffer_file_path()) }
+    if not utils.find_file_in_parent("rome.json", utils.get_git_root()) then
+        args = {
+            "format",
+            "--stdin-file-path",
+            util.escape_path(util.get_current_buffer_file_path()),
+            "--indent-style",
+            vim.bo.expandtab and "space" or "tab",
+            "--indent-size",
+            vim.bo.shiftwidth,
+        }
+    end
+    return {
+        exe = "rome",
+        args = args,
+        stdin = true,
+        ignore_exitcode = false,
+    }
 end
 
 local erb_lint = {
@@ -38,13 +54,13 @@ require("formatter").setup({
         eruby = { erb_lint },
         fish = { require("formatter.filetypes.fish").fishindent },
         html = { require("formatter.filetypes.html").prettierd },
-        javascript = { rome_or_prettier("javascript") },
+        javascript = { rome_lint, rome_format },
         json = { require("formatter.filetypes.json").prettierd },
         lua = { require("formatter.filetypes.lua").stylua },
         markdown = { require("formatter.filetypes.markdown").prettierd },
         scss = { require("formatter.filetypes.css").prettierd },
         sh = { require("formatter.filetypes.sh").shfmt },
-        typescript = { rome_or_prettier("typescript") },
+        typescript = { rome_lint, rome_format },
         yaml = { require("formatter.filetypes.yaml").prettierd },
         ["*"] = {
             require("formatter.filetypes.any").remove_trailing_whitespace,

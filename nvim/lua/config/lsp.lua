@@ -1,4 +1,5 @@
 local lspconfig = require("lspconfig")
+local utils = require("utils")
 
 local default_on_attach = function(client)
     if client.server_capabilities.documentFormattingProvider then
@@ -38,7 +39,9 @@ lsp_servers = {
             },
         },
     },
-    rome = {},
+    rome = {
+        on_attach = function() end, -- don't trust lsp to format
+    },
     rust_analyzer = {},
     ruby_ls = {
         package_name = "ruby-lsp",

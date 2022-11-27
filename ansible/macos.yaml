@@ -1,5 +1,8 @@
 - name: Configure macOS workstation
   hosts: local
+  vars:
+    homebrew_brewfile_dir: '{{ lookup("env", "XDG_CONFIG_HOME", default=lookup("env", "HOME") + "/.config") }}'
   roles:
+    - geerlingguy.mac.homebrew
     - system
     - dotfiles

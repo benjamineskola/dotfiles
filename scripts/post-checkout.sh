@@ -10,18 +10,6 @@ if [ -e .git/rebase-merge ] || [ -e .git/rebase-apply ]; then
     exit
 fi
 
-link_dir() {
-    if [ -d "$2" ]; then
-        rm -rf "$2"
-    fi
-
-    ln -sfh "$1" "$2"
-}
-
-install_darwin_preferences() {
-    link_dir "$XDG_CONFIG_HOME/$1" "$HOME/Library/Preferences/$1"
-}
-
 command -v bat && bat cache --build
 
 for i in _* private/_*; do
@@ -44,9 +32,6 @@ if [ "$(uname -s)" = Darwin ]; then
     curl -O https://gist.githubusercontent.com/nicm/ea9cf3c93f22e0246ec858122d9abea1/raw/37ae29fc86e88b48dbc8a674478ad3e7a009f357/tmux-256color
     tic -x tmux-256color
     rm -f tmux-256color
-
-    install_darwin_preferences espanso
-    install_darwin_preferences rustfmt
 
     test -d LaunchAgents && mkdir -p ~/Library/LaunchAgents
     for i in LaunchAgents/*.plist; do

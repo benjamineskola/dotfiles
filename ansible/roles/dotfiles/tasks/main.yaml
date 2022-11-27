@@ -1,0 +1,8 @@
+- name: Link preferences into place
+  file:
+    src: '/Users/ben/.config/{{ item.name }}'
+    dest: '/Users/ben/Library/Preferences{{ item.name }}'
+    state: link
+  loop:
+    - { name: espanso }
+    - { name: rustfmt }

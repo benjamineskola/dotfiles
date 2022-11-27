@@ -66,6 +66,7 @@ cask "rectangle-pro"
 cask "rocket"
 cask "secretive"
 cask "topnotch"
+cask "wezterm"
 
 case `hostname -s`.chomp
 when "MacBook-Pro"

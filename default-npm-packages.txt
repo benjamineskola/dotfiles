@@ -6,6 +6,7 @@ eslint-plugin-node
 eslint-plugin-prettierx
 eslint-plugin-promise
 eslint@^8.0.1
+markdownlint-cli
 prettier
 prettier-plugin-x-babel
 semistandard

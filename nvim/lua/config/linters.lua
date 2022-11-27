@@ -19,6 +19,7 @@ end
 require("lint").linters_by_ft = {
     go = { "golangcilint" },
     javascript = { "tsc" },
+    markdown = { "markdownlint" },
     sh = { "shellcheck" },
     typescript = { "tsc" },
     vim = { "vint" },

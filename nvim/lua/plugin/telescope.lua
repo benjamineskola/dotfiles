@@ -13,7 +13,6 @@ M.projects = function()
             actions.select_default:replace(function()
                 actions.close(prompt_bufnr)
                 local path = require("telescope.actions.state").get_selected_entry(prompt_bufnr).value
-                vim.fn.system("zoxide add " .. vim.fn.shellescape(path, true))
                 vim.cmd.cd(path)
             end)
             return true

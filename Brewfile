@@ -6,6 +6,7 @@ tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/services"
 
+brew "ansible"
 brew "bat"
 brew "chruby"
 brew "chruby-fish"

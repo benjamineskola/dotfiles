@@ -1,0 +1,5 @@
+- name: Ensure .gem points to the right place
+  file:
+    src: /Users/ben/Library/gem
+    dest: /Users/ben/.gem
+    state: link

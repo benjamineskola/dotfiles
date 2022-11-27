@@ -1,5 +1,5 @@
 - name: Ensure .gem points to the right place
   file:
-    src: /Users/ben/Library/gem
-    dest: /Users/ben/.gem
+    src: '{{ lookup("env", "XDG_DATA_HOME", default=lookup("env", "HOME") + "/.local/share") }}/gem'
+    dest: '{{ lookup("env", "HOME") }}/.gem'
     state: link

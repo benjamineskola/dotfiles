@@ -25,3 +25,5 @@ vim.keymap.set("n", "ZQ", "<Cmd>silent only!|bufdo Bdelete!<CR>", { noremap = tr
 vim.keymap.set({ "c", "i" }, "<D-v>", "<C-R>+", { noremap = true })
 vim.keymap.set({ "n", "v" }, "<D-v>", '"*p', { noremap = true })
 vim.keymap.set("v", "<D-c>", '"*y', { noremap = true })
+
+if vim.env.PWD == "/" then vim.cmd.cd(vim.env.HOME) end

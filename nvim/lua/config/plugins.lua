@@ -53,6 +53,7 @@ return require("packer").startup(function(use)
         "L3MON4D3/LuaSnip",
         "rafamadriz/friendly-snippets",
     })
+    use({ "junegunn/goyo.vim", ft = { "markdown" } })
     use({
         "janko/vim-test",
         config = function() vim.g["test#strategy"] = "neovim" end,

@@ -43,6 +43,7 @@ brew "trash"
 brew "tree"
 brew "wget"
 brew "zola"
+brew "zoxide"
 
 cask "airbuddy"
 cask "alfred"

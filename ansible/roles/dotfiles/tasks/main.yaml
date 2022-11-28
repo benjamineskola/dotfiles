@@ -31,3 +31,14 @@
     url: https://iterm2.com/shell_integration/fish
     dest: '{{ config_dir }}/fish/conf.d/zzz_iterm2_shell_integration.fish'
   when: iterm2_integration.matched == 0
+
+- name: Install dotfiles
+  file:
+    src: '{{ item }}'
+    dest: '{{ home }}/{{ item | basename | regex_replace("^_", ".") }}'
+  with_fileglob:
+    - '{{ config_dir }}/_*'
+    - '{{ config_dir }}/private/_*'
+
+- name: Clean up old dotfile links
+  command: find -L "$HOME" -type l -maxdepth 1 -name '.*' -exec rm {} +

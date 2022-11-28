@@ -10,12 +10,6 @@ if [ -e .git/rebase-merge ] || [ -e .git/rebase-apply ]; then
     exit
 fi
 
-for i in _* private/_*; do
-    test -e "$i" &&
-        ln -sfh ".config/$i" "$HOME/.$(basename "$i" | sed 's/^_//')"
-done
-find -L "$HOME" -type l -maxdepth 1 -name '.*' -exec rm {} +
-
 if [ "$(uname -s)" = Darwin ]; then
     curl -O https://gist.githubusercontent.com/nicm/ea9cf3c93f22e0246ec858122d9abea1/raw/37ae29fc86e88b48dbc8a674478ad3e7a009f357/tmux-256color
     tic -x tmux-256color

@@ -6,3 +6,14 @@
   loop:
     - espanso
     - rustfmt
+
+- name: Create iTerm2 script directory
+  file:
+    dest: '{{ data_dir }}/Application Support/iTerm2/Scripts'
+    state: directory
+- name: Link iTerm2 scripts into place
+  copy:
+    src: '{{ item }}'
+    dest: '{{ data_dir }}/Application Support/iTerm2/Scripts'
+  with_fileglob:
+    - '{{ config_dir }}/scripts/iterm*'

@@ -16,3 +16,8 @@
       loop:
         - { name: share }
         - { name: state }
+
+- name: Ensure LaunchAgents directory exists
+  file:
+    dest: '{{ data_dir }}/LaunchAgents'
+    state: directory

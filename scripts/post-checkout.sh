@@ -16,10 +16,6 @@ for i in _* private/_*; do
 done
 find -L "$HOME" -type l -maxdepth 1 -name '.*' -exec rm {} +
 
-if command -v nvim; then
-    nvim --headless -c 'autocmd User PackerComplete quitall' -c 'lua require("config.plugins")' -c 'PackerSync'
-fi
-
 if [ "$(uname -s)" = Darwin ]; then
     if [ -z "$(find "$HOME/.config/fish/conf.d" -maxdepth 1 -name zzz_iterm2_shell_integration.fish -mtime -1)" ]; then
         curl https://iterm2.com/shell_integration/fish >"$HOME/.config/fish/conf.d/zzz_iterm2_shell_integration.fish"

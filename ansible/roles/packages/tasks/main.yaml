@@ -8,3 +8,14 @@
 - name: Rebuild bat cache
   command: bat cache --build
   when: not bat.results.0.stat.exists or not bat.results.1.stat.exists
+
+- name: Vim files newer than a day old
+  find:
+    paths: ['{{ lookup("env", "XDG_DATA_HOME") }}/nvim/site/pack/packer']
+    age: -24h
+    recurse: true
+  register: nvim_pack
+- name: Ensure neovim packages are up to date
+  command: |
+    nvim --headless -c 'autocmd User PackerComplete quitall' -c 'lua require("config.plugins")' -c 'PackerSync'
+  when: nvim_pack.matched == 0

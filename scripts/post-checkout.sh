@@ -10,8 +10,6 @@ if [ -e .git/rebase-merge ] || [ -e .git/rebase-apply ]; then
     exit
 fi
 
-command -v bat && bat cache --build
-
 for i in _* private/_*; do
     test -e "$i" &&
         ln -sfh ".config/$i" "$HOME/.$(basename "$i" | sed 's/^_//')"

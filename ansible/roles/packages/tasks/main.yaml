@@ -1,0 +1,10 @@
+- name: Check if bat syntaxes and themes exist
+  stat:
+    path: '{{ lookup("env", "XDG_CACHE_HOME") }}/bat/{{ item }}.bin'
+  loop:
+    - syntaxes
+    - themes
+  register: bat
+- name: Rebuild bat cache
+  command: bat cache --build
+  when: not bat.results.0.stat.exists or not bat.results.1.stat.exists

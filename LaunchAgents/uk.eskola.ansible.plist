@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>uk.eskola.ansible</string>
+    <key>ProgramArguments</key>
+    <array>
+      <string>/bin/sh</string>
+      <string>-c</string>
+      <string>/opt/homebrew/bin/ansible-galaxy install -r "$XDG_CONFIG_HOME/ansible/requirements.yaml"; /opt/homebrew/bin/ansible-playbook -i "$XDG_CONFIG_HOME/ansible/hosts" "$XDG_CONFIG_HOME/ansible/macos.yaml"</string>
+    </array>
+    <key>StandardErrorPath</key>
+    <string>$HOME/Library/Logs/uk.eskola.ansible.err</string>
+    <key>StandardOutPath</key>
+    <string>$HOME/Library/Logs/uk.eskola.ansible.out</string>
+    <key>StartCalendarInterval</key>
+    <dict>
+      <key>Minute</key>
+      <integer>0</integer>
+    </dict>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>EnvironmentVariables</key>
+    <dict>
+      <key>PATH</key>
+      <string>$PATH</string>
+      <key>XDG_CONFIG_HOME</key>
+      <string>$XDG_CONFIG_HOME</string>
+      <key>XDG_DATA_HOME</key>
+      <string>$XDG_DATA_HOME</string>
+      <key>XDG_CACHE_HOME</key>
+      <string>$XDG_CACHE_HOME</string>
+    </dict>
+  </dict>
+</plist>

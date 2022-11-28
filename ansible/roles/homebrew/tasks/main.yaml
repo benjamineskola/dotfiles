@@ -8,4 +8,6 @@
 - name: Install required Homebrew packages
   when: homebrew_files.matched == 0
   block:
+    - command: brew update
+    - command: brew upgrade
     - command: 'brew bundle --file "{{ homebrew_brewfile_dir }}/Brewfile" install'

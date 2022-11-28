@@ -8,8 +8,6 @@ for dir in ~/bin ~/.config; do
     cd
 done
 
-brew bundle install | grep -v '^Using'
-
 for req in ~/Code/*/requirements*.txt; do
     proj="$(dirname "$req")"
     test -f "$proj/.venv" || pip install -r "$req"

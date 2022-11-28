@@ -17,10 +17,6 @@ done
 find -L "$HOME" -type l -maxdepth 1 -name '.*' -exec rm {} +
 
 if [ "$(uname -s)" = Darwin ]; then
-    if [ -z "$(find "$HOME/.config/fish/conf.d" -maxdepth 1 -name zzz_iterm2_shell_integration.fish -mtime -1)" ]; then
-        curl https://iterm2.com/shell_integration/fish >"$HOME/.config/fish/conf.d/zzz_iterm2_shell_integration.fish"
-    fi
-
     curl -O https://gist.githubusercontent.com/nicm/ea9cf3c93f22e0246ec858122d9abea1/raw/37ae29fc86e88b48dbc8a674478ad3e7a009f357/tmux-256color
     tic -x tmux-256color
     rm -f tmux-256color

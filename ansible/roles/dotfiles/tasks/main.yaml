@@ -17,3 +17,17 @@
     dest: '{{ data_dir }}/Application Support/iTerm2/Scripts'
   with_fileglob:
     - '{{ config_dir }}/scripts/iterm*'
+
+- name: Check age of iTerm2 integration
+  find:
+    paths:
+      - '{{ config_dir }}/fish/conf.d'
+    pattern: zzz_iterm2_shell_integration.fish
+    age: -7d
+  register: iterm2_integration
+
+- name: Install iTerm2 integration
+  get_url:
+    url: https://iterm2.com/shell_integration/fish
+    dest: '{{ config_dir }}/fish/conf.d/zzz_iterm2_shell_integration.fish'
+  when: iterm2_integration.matched == 0

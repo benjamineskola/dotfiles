@@ -1,7 +1,11 @@
 - name: Configure macOS workstation
   hosts: local
   vars:
-    homebrew_brewfile_dir: '{{ lookup("env", "XDG_CONFIG_HOME", default=lookup("env", "HOME") + "/.config") }}'
+    home: '{{ lookup("env", "HOME") }}'
+    config_dir: '{{ lookup("env", "XDG_CONFIG_HOME", default=home + "/.config") }}'
+    data_dir: '{{ lookup("env", "XDG_DATA_HOME", default=home + "/.local/share") }}'
+    cache_dir: '{{ lookup("env", "XDG_CACHE_HOME", default=home + "/.cache") }}'
+    homebrew_brewfile_dir: '{{ config_dir }}'
   roles:
     - system
     - dotfiles

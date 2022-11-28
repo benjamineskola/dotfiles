@@ -1,17 +1,17 @@
 - name: Ensure .gem points to the right place
   file:
-    src: '{{ lookup("env", "XDG_DATA_HOME", default=lookup("env", "HOME") + "/.local/share") }}/gem'
-    dest: '{{ lookup("env", "HOME") }}/.gem'
+    src: '{{ data_dir }}/gem'
+    dest: '{{ home }}/.gem'
     state: link
 
 - name: Ensure default XDG paths are symlinked
   block:
     - file:
-        dest: '{{ lookup("env", "HOME") }}/.local'
+        dest: '{{ home }}/.local'
         state: directory
     - file:
-        src: '{{ lookup("env", "HOME") }}/Library'
-        dest: '{{ lookup("env", "HOME") }}/.local/{{ item.name }}'
+        src: '{{ home }}/Library'
+        dest: '{{ home }}/.local/{{ item.name }}'
         state: link
       loop:
         - { name: share }

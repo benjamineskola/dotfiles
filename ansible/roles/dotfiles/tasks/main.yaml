@@ -1,8 +1,8 @@
 - name: Link preferences into place
   file:
-    src: '{{ lookup("env", "XDG_CONFIG_HOME", default=lookup("env", "HOME") + "/.config") }}/{{ item.name }}'
-    dest: '{{ lookup("env", "HOME") }}/Library/Preferences/{{ item.name }}'
+    src: '{{ config_dir }}/{{ item }}'
+    dest: '{{ home }}/Library/Preferences/{{ item }}'
     state: link
   loop:
-    - { name: espanso }
-    - { name: rustfmt }
+    - espanso
+    - rustfmt

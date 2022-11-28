@@ -1,2 +1,11 @@
+- name: Check Homebrew recency
+  find:
+    paths: [/opt/homebrew]
+    age: -24h
+    recurse: true
+  register: homebrew_files
+
 - name: Install required Homebrew packages
-  command: 'brew bundle --file "{{ homebrew_brewfile_dir }}/Brewfile" install'
+  when: homebrew_files.matched == 0
+  block:
+    - command: 'brew bundle --file "{{ homebrew_brewfile_dir }}/Brewfile" install'

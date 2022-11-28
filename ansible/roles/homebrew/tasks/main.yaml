@@ -1,0 +1,2 @@
+- name: Install required Homebrew packages
+  command: 'brew bundle --file "{{ lookup("env", "XDG_CONFIG_HOME", default=lookup("env", "HOME") + "/.config") }}//Brewfile" install'

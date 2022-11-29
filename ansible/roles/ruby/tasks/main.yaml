@@ -1,0 +1,17 @@
+- name: Install Ruby versions
+  environment:
+    RUBIES_DIR: '{{ data_dir }}/rubies'
+  block:
+    - name: Get available stable versions
+      shell: "ruby-install | sed -n -E '/^[^a-z]+$/,${/[0-9]/{s/ //g;p;}; /[a-z]/q; }'"
+      register: ruby_versions
+    - name: Install stable versions
+      shell: |
+        test -e "$RUBIES_DIR/ruby-{{ item }}" || ruby-install -r "$RUBIES_DIR" -s "$(mktemp -d)" "{{ item }}"
+        chruby-exec {{ item }} -- xargs gem install < {{ config_dir }}/default-gems.txt || true
+      with_items: '{{ ruby_versions.stdout_lines }}'
+    - name: Set newest version as default
+      file:
+        src: '{{ lookup("env", "RUBIES_DIR") }}/ruby-{{ ruby_versions.stdout_lines | last }}'
+        dest: '{{ lookup("env", "RUBIES_DIR") }}/default'
+        state: link

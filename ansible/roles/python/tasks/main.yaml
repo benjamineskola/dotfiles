@@ -13,6 +13,8 @@
         pyenv exec pip install --upgrade pip
         pyenv exec pip install -r {{ config_dir }}/requirements.txt
       with_items: '{{ python_versions.stdout_lines }}'
+      register: python_install
+      changed_when: '"python-build" in python_install.stdout'
     - name: Set newest version as default
       command: 'pyenv global {{ python_versions.stdout_lines | last }}'
     - name: Install additional dependencies for non-virtualenv projects

@@ -7,9 +7,12 @@
       register: ruby_versions
     - name: Install stable versions
       shell: |
-        test -e "$RUBIES_DIR/ruby-{{ item }}" || ruby-install -r "$RUBIES_DIR" -s "$(mktemp -d)" "{{ item }}"
+        test -e "$RUBIES_DIR/ruby-{{ item }}" && exit
+        ruby-install -r "$RUBIES_DIR" -s "$(mktemp -d)" "{{ item }}"
         chruby-exec {{ item }} -- xargs gem install < {{ config_dir }}/default-gems.txt || true
       with_items: '{{ ruby_versions.stdout_lines }}'
+      register: ruby_install
+      changed_when: '">>> Installing ruby " in ruby_install.stdout'
     - name: Set newest version as default
       file:
         src: '{{ lookup("env", "RUBIES_DIR") }}/ruby-{{ ruby_versions.stdout_lines | last }}'

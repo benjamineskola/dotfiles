@@ -7,8 +7,11 @@
       register: ruby_versions
     - name: Install stable versions
       shell: |
-        test -e "$RUBIES_DIR/ruby-{{ item }}" && exit
-        ruby-install -r "$RUBIES_DIR" -s "$(mktemp -d)" "{{ item }}"
+        if brew --prefix capstone 2>/dev/null; then
+          export CXXFLAGS="-I$(brew --prefix capstone)/include"
+          export LDFLAGS="-L$(brew --prefix capstone)/lib"
+        fi
+        ruby-install --no-reinstall --cleanup -r "$RUBIES_DIR" "{{ item }}" -- --enable-shared
         chruby-exec {{ item }} -- xargs gem install < {{ config_dir }}/default-gems.txt || true
       with_items: '{{ ruby_versions.stdout_lines }}'
       register: ruby_install

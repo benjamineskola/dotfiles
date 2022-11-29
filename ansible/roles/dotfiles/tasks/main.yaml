@@ -57,6 +57,12 @@
     dest: '{{ data_dir }}/LaunchAgents/{{item|basename}}'
   with_fileglob:
     - '{{ config_dir }}/LaunchAgents/*.plist'
+  vars:
+    env:
+      PATH: '{{ lookup("env", "PATH") }}'
+      XDG_CONFIG_HOME: '{{ config_dir }}'
+      XDG_DATA_HOME: '{{ data_dir }}'
+      XDG_CACHE_HOME: '{{ cache_dir }}'
 
 - name: Run plists
   community.general.launchd:

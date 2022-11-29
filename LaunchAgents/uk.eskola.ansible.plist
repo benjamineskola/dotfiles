@@ -23,14 +23,10 @@
     <true/>
     <key>EnvironmentVariables</key>
     <dict>
-      <key>PATH</key>
-      <string>{{ lookup("env", "PATH") }}</string>
-      <key>XDG_CONFIG_HOME</key>
-      <string>{{ config_dir }}</string>
-      <key>XDG_DATA_HOME</key>
-      <string>{{ data_dir }}</string>
-      <key>XDG_CACHE_HOME</key>
-      <string>{{ cache_dir }}</string>
+      {% for key, value in env.items() %}
+      <key>{{ key }}</key>
+      <string>{{ value }}</string>
+      {% endfor %}
     </dict>
   </dict>
 </plist>

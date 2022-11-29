@@ -1,3 +1,11 @@
+- name: Ensure dotfiles and scripts are up to date
+  command:
+    cmd: git pull --rebase -q
+    chdir: '{{ item }}'
+  loop:
+    - '{{ config_dir }}'
+    - '{{ home }}/bin'
+
 - name: Link preferences into place
   file:
     src: '{{ config_dir }}/{{ item }}'

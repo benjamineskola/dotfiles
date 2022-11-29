@@ -10,12 +10,12 @@
       <string>exec</string>
       <string>/bin/sh</string>
       <string>-c</string>
-      <string>$XDG_CONFIG_HOME/scripts/run-dir.sh $XDG_CONFIG_HOME/cron.d/hourly $XDG_CONFIG_HOME/private/cron.d/hourly</string>
+      <string>{{ config_dir }}/scripts/run-dir.sh {{ config_dir }}/cron.d/hourly {{ config_dir }}/private/cron.d/hourly</string>
     </array>
     <key>StandardErrorPath</key>
-    <string>$HOME/Library/Logs/uk.eskola.cronhourly.err</string>
+    <string>{{ home }}/Library/Logs/uk.eskola.cronhourly.err</string>
     <key>StandardOutPath</key>
-    <string>$HOME/Library/Logs/uk.eskola.cronhourly.out</string>
+    <string>{{ home }}/Library/Logs/uk.eskola.cronhourly.out</string>
     <key>StartCalendarInterval</key>
     <dict>
       <key>Minute</key>
@@ -24,13 +24,13 @@
     <key>EnvironmentVariables</key>
     <dict>
       <key>PATH</key>
-      <string>$PATH</string>
+      <string>{{ lookup("env", "PATH") }}</string>
       <key>XDG_CONFIG_HOME</key>
-      <string>$XDG_CONFIG_HOME</string>
+      <string>{{ config_dir }}</string>
       <key>XDG_DATA_HOME</key>
-      <string>$XDG_DATA_HOME</string>
+      <string>{{ data_dir }}</string>
       <key>XDG_CACHE_HOME</key>
-      <string>$XDG_CACHE_HOME</string>
+      <string>{{ cache_dir }}</string>
     </dict>
   </dict>
 </plist>

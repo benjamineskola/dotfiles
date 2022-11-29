@@ -10,24 +10,24 @@
       <string>exec</string>
       <string>/bin/sh</string>
       <string>-c</string>
-      <string>$XDG_CONFIG_HOME/scripts/run-dir.sh $XDG_CONFIG_HOME/login.d $XDG_CONFIG_HOME/private/login.d</string>
+      <string>{{ config_dir }}/scripts/run-dir.sh {{ config_dir }}/login.d {{ config_dir }}/private/login.d</string>
     </array>
     <key>RunAtLoad</key>
     <true/>
     <key>StandardErrorPath</key>
-    <string>$HOME/Library/Logs/uk.eskola.logind.err</string>
+    <string>{{ home }}/Library/Logs/uk.eskola.logind.err</string>
     <key>StandardOutPath</key>
-    <string>$HOME/Library/Logs/uk.eskola.logind.out</string>
+    <string>{{ home }}/Library/Logs/uk.eskola.logind.out</string>
     <key>EnvironmentVariables</key>
     <dict>
       <key>PATH</key>
-      <string>$PATH</string>
+      <string>{{ lookup("env", "PATH") }}</string>
       <key>XDG_CONFIG_HOME</key>
-      <string>$XDG_CONFIG_HOME</string>
+      <string>{{ config_dir }}</string>
       <key>XDG_DATA_HOME</key>
-      <string>$XDG_DATA_HOME</string>
+      <string>{{ data_dir }}</string>
       <key>XDG_CACHE_HOME</key>
-      <string>$XDG_CACHE_HOME</string>
+      <string>{{ cache_dir }}</string>
     </dict>
   </dict>
 </plist>

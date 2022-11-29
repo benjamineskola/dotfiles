@@ -8,12 +8,12 @@
     <array>
       <string>/bin/sh</string>
       <string>-c</string>
-      <string>/opt/homebrew/bin/ansible-galaxy install -r "$XDG_CONFIG_HOME/ansible/requirements.yaml"; /opt/homebrew/bin/ansible-playbook -i "$XDG_CONFIG_HOME/ansible/hosts" "$XDG_CONFIG_HOME/ansible/macos.yaml"</string>
+      <string>/opt/homebrew/bin/ansible-galaxy install -r "{{ config_dir }}/ansible/requirements.yaml"; /opt/homebrew/bin/ansible-playbook -i "{{ config_dir }}/ansible/hosts" "{{ config_dir }}/ansible/macos.yaml"</string>
     </array>
     <key>StandardErrorPath</key>
-    <string>$HOME/Library/Logs/uk.eskola.ansible.err</string>
+    <string>{{ home }}/Library/Logs/uk.eskola.ansible.err</string>
     <key>StandardOutPath</key>
-    <string>$HOME/Library/Logs/uk.eskola.ansible.out</string>
+    <string>{{ home }}/Library/Logs/uk.eskola.ansible.out</string>
     <key>StartCalendarInterval</key>
     <dict>
       <key>Minute</key>
@@ -24,13 +24,13 @@
     <key>EnvironmentVariables</key>
     <dict>
       <key>PATH</key>
-      <string>$PATH</string>
+      <string>{{ lookup("env", "PATH") }}</string>
       <key>XDG_CONFIG_HOME</key>
-      <string>$XDG_CONFIG_HOME</string>
+      <string>{{ config_dir }}</string>
       <key>XDG_DATA_HOME</key>
-      <string>$XDG_DATA_HOME</string>
+      <string>{{ data_dir }}</string>
       <key>XDG_CACHE_HOME</key>
-      <string>$XDG_CACHE_HOME</string>
+      <string>{{ cache_dir }}</string>
     </dict>
   </dict>
 </plist>

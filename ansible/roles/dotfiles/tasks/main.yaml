@@ -50,3 +50,26 @@
 
 - name: Clean up old dotfile links
   command: find -L "$HOME" -type l -maxdepth 1 -name '.*' -exec rm {} +
+
+- name: Install plists
+  template:
+    src: '{{ item }}'
+    dest: '{{ data_dir }}/LaunchAgents/{{item|basename}}'
+  with_fileglob:
+    - '{{ config_dir }}/LaunchAgents/*.plist'
+
+- name: Run plists
+  community.general.launchd:
+    name: '{{ item | basename | regex_replace("\.plist$", "") }}'
+    state: started
+  with_fileglob:
+    - '{{ config_dir }}/LaunchAgents/*.plist'
+
+- name: Clean up old plists
+  shell: |
+    for i in "$HOME/Library/LaunchAgents/"uk.eskola.*.plist; do
+        if ! [ -f "$XDG_CONFIG_HOME/LaunchAgents/$(basename "$i")" ]; then
+            launchctl unload "$i"
+            rm "$i"
+        fi
+    done

@@ -1,0 +1,27 @@
+- name: Install Python versions
+  environment:
+    PYENV_ROOT: '{{ data_dir }}/pythons'
+  block:
+    - name: Get available minor versions
+      shell: 'python-build --definitions | grep "^3" | grep -v "[a-z]" | cut -d . -f 1-2 | sort -u --version-sort | tail -n +8'
+      register: python_versions
+    - name: Install latest patch version for each minor version
+      shell: |
+        pyenv install -s {{ item }}
+        eval "$(pyenv init -)"
+        pyenv shell {{ item }}
+        pyenv exec pip install --upgrade pip
+        pyenv exec pip install -r {{ config_dir }}/requirements.txt
+      with_items: '{{ python_versions.stdout_lines }}'
+    - name: Set newest version as default
+      command: 'pyenv global {{ python_versions.stdout_lines | last }}'
+    - name: Install additional dependencies for non-virtualenv projects
+      shell: |
+        eval "$(pyenv init -)"
+        for req in ~/Code/*/requirements*.txt ~/Code/Personal/*/requirements*.txt; do
+          test -f "$req" || continue
+          proj="$(dirname "$req")"
+          test -e "$proj/.venv" && continue
+          echo "$proj" >&2
+          pip install -r "$req"
+        done

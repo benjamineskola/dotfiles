@@ -8,7 +8,7 @@
     <array>
       <string>/bin/sh</string>
       <string>-c</string>
-      <string>/opt/homebrew/bin/ansible-galaxy install -r "{{ config_dir }}/ansible/requirements.yaml"; /opt/homebrew/bin/ansible-playbook -i "{{ config_dir }}/ansible/hosts" "{{ config_dir }}/ansible/macos.yaml"</string>
+      <string>/opt/homebrew/bin/ansible-galaxy install -r "{{ config_dir }}/ansible/requirements.yaml"; /opt/homebrew/bin/ansible-playbook -i "{{ config_dir }}/ansible/hosts" "{{ config_dir }}/ansible/main.yaml"</string>
     </array>
     <key>StandardErrorPath</key>
     <string>{{ home }}/Library/Logs/uk.eskola.ansible.err</string>

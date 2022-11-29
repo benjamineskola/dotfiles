@@ -6,11 +6,11 @@
     data_dir: '{{ lookup("env", "XDG_DATA_HOME", default=home + "/.local/share") }}'
     cache_dir: '{{ lookup("env", "XDG_CACHE_HOME", default=home + "/.cache") }}'
     homebrew_brewfile_dir: '{{ config_dir }}'
-  roles:
-    - system
-    - macos
-    - dotfiles
-    - homebrew
-    - packages
-    - python
-    - ruby
+  tasks:
+    - include_tasks: tasks/system.yaml
+    - include_tasks: tasks/macos.yaml
+    - include_tasks: tasks/dotfiles.yaml
+    - include_tasks: tasks/homebrew.yaml
+    - include_tasks: tasks/packages.yaml
+    - include_tasks: tasks/python.yaml
+    - include_tasks: tasks/ruby.yaml

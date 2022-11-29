@@ -3,7 +3,7 @@
     RUBIES_DIR: '{{ data_dir }}/rubies'
   block:
     - name: Get available stable versions
-      shell: "ruby-install | sed -n -E '/^[^a-z]+$/,${/[0-9]/{s/ //g;p;}; /[a-z]/q; }'"
+      shell: "ruby-install | sed -n -E '/^[^a-z]+$/,${/[0-9]/{s/ //g;p;}; /[a-z]/q; }' | grep -v '^2\\.6\\.'"
       register: ruby_versions
     - name: Install stable versions
       shell: |

@@ -8,6 +8,7 @@
     homebrew_brewfile_dir: '{{ config_dir }}'
   roles:
     - system
+    - macos
     - dotfiles
     - homebrew
     - packages

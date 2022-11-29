@@ -27,6 +27,4 @@ if [ "$(uname -s)" = Darwin ]; then
             rm "$i"
         fi
     done
-
-    login.d/macos.sh
 fi

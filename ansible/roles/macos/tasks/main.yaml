@@ -1,0 +1,7 @@
+- name: Make iterm config behave
+  block:
+    - command: 'defaults write com.googlecode.iterm2 DynamicProfilesPath "{{ config_dir }}/iterm2"'
+    - command: 'defaults write com.googlecode.iterm2 PreferredBaseDir "{{ cache_dir }}/iTerm2"'
+
+- name: Don't automatically rearrange spaces
+  command: defaults write com.apple.dock mru-spaces -bool false

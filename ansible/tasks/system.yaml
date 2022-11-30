@@ -16,8 +16,3 @@
       loop:
         - { name: share }
         - { name: state }
-
-- name: Ensure LaunchAgents directory exists
-  file:
-    dest: '{{ ansible_env.XDG_DATA_HOME }}/LaunchAgents'
-    state: directory

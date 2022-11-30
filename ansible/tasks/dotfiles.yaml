@@ -51,6 +51,11 @@
 - name: Clean up old dotfile links
   command: find -L "$HOME" -type l -maxdepth 1 -name '.*' -exec rm {} +
 
+- name: Ensure LaunchAgents directory exists
+  file:
+    dest: '{{ ansible_env.XDG_DATA_HOME }}/LaunchAgents'
+    state: directory
+
 - name: Generate plists
   template:
     src: 'templates/launchagent.plist.j2'

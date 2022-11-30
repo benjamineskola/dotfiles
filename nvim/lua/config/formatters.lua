@@ -20,17 +20,15 @@ local rome_lint = {
 }
 
 local rome_format = function()
-    args = { "format", "--stdin-file-path", util.escape_path(util.get_current_buffer_file_path()) }
+    local file = util.get_current_buffer_file_path()
+    args = { "format", "--stdin-file-path", util.escape_path(file) }
     if not find_rome_ancestor(util.get_current_buffer_file_dir()) then
-        args = {
-            "format",
-            "--stdin-file-path",
-            util.escape_path(util.get_current_buffer_file_path()),
+        vim.list_extend(args, {
             "--indent-style",
             vim.bo.expandtab and "space" or "tab",
             "--indent-size",
             vim.bo.shiftwidth,
-        }
+        })
     end
     return {
         exe = "rome",

@@ -12,8 +12,8 @@
         - { name: state }
 
 - name: Ensure dotfiles and scripts are up to date
-  command:
-    cmd: git pull --rebase -q
+  shell:
+    cmd: git pull --rebase -q || true
     chdir: '{{ item }}'
   loop:
     - '{{ ansible_env.XDG_CONFIG_HOME }}'

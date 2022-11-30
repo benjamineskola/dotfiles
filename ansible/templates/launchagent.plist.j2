@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>{{ item.name }}</string>
+    <key>ProgramArguments</key>
+    <array>
+    {% if 'use_fdautil' in item and item.use_fdautil %}
+      <string>/usr/local/bin/fdautil</string>
+      <string>exec</string>
+    {% endif %}
+      <string>{% if 'shell' in item %}{{ item.shell }}{% else %}/bin/sh{% endif %}</string>
+      <string>-c</string>
+      <string>{{ item.command }}</string>
+    </array>
+    <key>StandardErrorPath</key>
+    <string>{{ ansible_env.HOME }}/Library/Logs/{{ item.name }}.err</string>
+    <key>StandardOutPath</key>
+    <string>{{ ansible_env.HOME }}/Library/Logs/{{ item.name }}.out</string>
+    {% if 'schedule' in item %}
+    <key>StartCalendarInterval</key>
+    <dict>
+      {% if 'hour' in item.schedule %}
+      <key>Hour</key>
+      <integer>{{ item.schedule.hour }}</integer>
+      {% endif %}
+      {% if 'minute' in item.schedule %}
+      <key>Minute</key>
+      <integer>{{ item.schedule.minute }}</integer>
+      {% endif %}
+    </dict>
+    {% elif 'start_interval' in item %}
+    <key>StartInterval</key>
+    <integer>{{ item.start_interval }}</integer>
+    {% endif %}
+    {% if 'run_at_load' in item and  item.run_at_load %}
+    <key>RunAtLoad</key>
+    <true/>
+    {% endif %}
+    <key>EnvironmentVariables</key>
+    <dict>
+      {% for key in env %}
+      <key>{{ key }}</key>
+      <string>{{ ansible_env[key] }}</string>
+      {% endfor %}
+    </dict>
+  </dict>
+</plist>

@@ -12,18 +12,20 @@
       shell: "ruby-install | sed -n -E '/^[^a-z]+$/,${/[0-9]/{s/ //g;p;}; /[a-z]/q; }' | grep -v '^2\\.6\\.'"
       register: ruby_versions
     - name: Install stable versions
-      shell: |
-        if brew --prefix capstone 2>/dev/null; then
-          export CXXFLAGS="-I$(brew --prefix capstone)/include"
-          export LDFLAGS="-L$(brew --prefix capstone)/lib"
-        fi
-        ruby-install --no-reinstall --cleanup -r "$RUBIES_DIR" "{{ item }}" -- --enable-shared
-        chruby-exec {{ item }} -- xargs gem install < {{ ansible_env.XDG_CONFIG_HOME }}/default-gems.txt || true
+      shell:
+        cmd: |
+          if brew --prefix capstone 2>/dev/null; then
+            export CXXFLAGS="-I$(brew --prefix capstone)/include"
+            export LDFLAGS="-L$(brew --prefix capstone)/lib"
+          fi
+          ruby-install --no-reinstall --cleanup -r "$RUBIES_DIR" "{{ item }}" -- --enable-shared
+          chruby-exec {{ item }} -- xargs gem install < {{ ansible_env.XDG_CONFIG_HOME }}/default-gems.txt || true
+        creates: '{{ ansible_env.XDG_DATA_HOME }}/rubies/ruby-{{ item }}'
       with_items: '{{ ruby_versions.stdout_lines }}'
       register: ruby_install
-      changed_when: '">>> Installing ruby " in ruby_install.stdout'
     - name: Set newest version as default
       file:
         src: '{{ lookup("env", "RUBIES_DIR") }}/ruby-{{ ruby_versions.stdout_lines | last }}'
         dest: '{{ lookup("env", "RUBIES_DIR") }}/default'
         state: link
+      changed_when: 'ruby_install.results | last is changed'

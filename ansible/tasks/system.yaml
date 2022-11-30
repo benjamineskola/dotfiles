@@ -1,9 +1,3 @@
-- name: Ensure .gem points to the right place
-  file:
-    src: '{{ ansible_env.XDG_DATA_HOME }}/gem'
-    dest: '{{ ansible_env.HOME }}/.gem'
-    state: link
-
 - name: Ensure default XDG paths are symlinked
   block:
     - file:

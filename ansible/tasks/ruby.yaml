@@ -1,3 +1,9 @@
+- name: Ensure .gem points to the right place
+  file:
+    src: '{{ ansible_env.XDG_DATA_HOME }}/gem'
+    dest: '{{ ansible_env.HOME }}/.gem'
+    state: link
+
 - name: Install Ruby versions
   environment:
     RUBIES_DIR: '{{ ansible_env.XDG_DATA_HOME }}/rubies'

@@ -8,13 +8,13 @@
     <array>
       <string>/opt/homebrew/bin/fish</string>
       <string>-c</string>
-      <string>{{ home }}/bin/autodarkmode.py | ts</string>
+      <string>{{ ansible_env.HOME }}/bin/autodarkmode.py | ts</string>
     </array>
     <key>StartInterval</key>
     <integer>60</integer>
     <key>StandardErrorPath</key>
-    <string>{{ home }}/Library/Logs/uk.eskola.autodarkmode.err</string>
+    <string>{{ ansible_env.HOME }}/Library/Logs/uk.eskola.autodarkmode.err</string>
     <key>StandardOutPath</key>
-    <string>{{ home }}/Library/Logs/uk.eskola.autodarkmode.out</string>
+    <string>{{ ansible_env.HOME }}/Library/Logs/uk.eskola.autodarkmode.out</string>
   </dict>
 </plist>

@@ -1,6 +1,6 @@
 - name: Check if bat syntaxes and themes exist
   stat:
-    path: '{{ cache_dir }}/bat/{{ item }}.bin'
+    path: '{{ ansible_env.XDG_CACHE_HOME }}/bat/{{ item }}.bin'
   loop:
     - syntaxes
     - themes
@@ -11,7 +11,7 @@
 
 - name: Vim files newer than a day old
   find:
-    paths: ['{{ data_dir }}/nvim/site/pack/packer']
+    paths: ['{{ ansible_env.XDG_DATA_HOME }}/nvim/site/pack/packer']
     age: -24h
     recurse: true
   register: nvim_pack

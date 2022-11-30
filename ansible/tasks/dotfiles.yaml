@@ -3,13 +3,13 @@
     cmd: git pull --rebase -q
     chdir: '{{ item }}'
   loop:
-    - '{{ config_dir }}'
-    - '{{ home }}/bin'
+    - '{{ ansible_env.XDG_CONFIG_HOME }}'
+    - '{{ ansible_env.HOME }}/bin'
 
 - name: Link preferences into place
   file:
-    src: '{{ config_dir }}/{{ item }}'
-    dest: '{{ home }}/Library/Preferences/{{ item }}'
+    src: '{{ ansible_env.XDG_CONFIG_HOME }}/{{ item }}'
+    dest: '{{ ansible_env.HOME }}/Library/Preferences/{{ item }}'
     state: link
   loop:
     - espanso
@@ -17,19 +17,19 @@
 
 - name: Create iTerm2 script directory
   file:
-    dest: '{{ data_dir }}/Application Support/iTerm2/Scripts'
+    dest: '{{ ansible_env.XDG_DATA_HOME }}/Application Support/iTerm2/Scripts'
     state: directory
 - name: Link iTerm2 scripts into place
   copy:
     src: '{{ item }}'
-    dest: '{{ data_dir }}/Application Support/iTerm2/Scripts'
+    dest: '{{ ansible_env.XDG_DATA_HOME }}/Application Support/iTerm2/Scripts'
   with_fileglob:
-    - '{{ config_dir }}/scripts/iterm*'
+    - '{{ ansible_env.XDG_CONFIG_HOME }}/scripts/iterm*'
 
 - name: Check age of iTerm2 integration
   find:
     paths:
-      - '{{ config_dir }}/fish/conf.d'
+      - '{{ ansible_env.XDG_CONFIG_HOME }}/fish/conf.d'
     pattern: zzz_iterm2_shell_integration.fish
     age: -7d
   register: iterm2_integration
@@ -37,16 +37,16 @@
 - name: Install iTerm2 integration
   get_url:
     url: https://iterm2.com/shell_integration/fish
-    dest: '{{ config_dir }}/fish/conf.d/zzz_iterm2_shell_integration.fish'
+    dest: '{{ ansible_env.XDG_CONFIG_HOME }}/fish/conf.d/zzz_iterm2_shell_integration.fish'
   when: iterm2_integration.matched == 0
 
 - name: Install dotfiles
   file:
     src: '{{ item }}'
-    dest: '{{ home }}/{{ item | basename | regex_replace("^_", ".") }}'
+    dest: '{{ ansible_env.HOME }}/{{ item | basename | regex_replace("^_", ".") }}'
   with_fileglob:
-    - '{{ config_dir }}/_*'
-    - '{{ config_dir }}/private/_*'
+    - '{{ ansible_env.XDG_CONFIG_HOME }}/_*'
+    - '{{ ansible_env.XDG_CONFIG_HOME }}/private/_*'
 
 - name: Clean up old dotfile links
   command: find -L "$HOME" -type l -maxdepth 1 -name '.*' -exec rm {} +
@@ -54,22 +54,22 @@
 - name: Install plists
   template:
     src: '{{ item }}'
-    dest: '{{ data_dir }}/LaunchAgents/{{item|basename}}'
+    dest: '{{ ansible_env.XDG_DATA_HOME }}/LaunchAgents/{{ item | basename }}'
   with_fileglob:
-    - '{{ config_dir }}/LaunchAgents/*.plist'
+    - '{{ ansible_env.XDG_CONFIG_HOME }}/LaunchAgents/*.plist'
   vars:
     env:
-      PATH: '{{ lookup("env", "PATH") }}'
-      XDG_CONFIG_HOME: '{{ config_dir }}'
-      XDG_DATA_HOME: '{{ data_dir }}'
-      XDG_CACHE_HOME: '{{ cache_dir }}'
+      - PATH
+      - XDG_CACHE_HOME
+      - XDG_CONFIG_HOME
+      - XDG_DATA_HOME
 
 - name: Run plists
   community.general.launchd:
     name: '{{ item | basename | regex_replace("\.plist$", "") }}'
     state: started
   with_fileglob:
-    - '{{ config_dir }}/LaunchAgents/*.plist'
+    - '{{ ansible_env.XDG_CONFIG_HOME }}/LaunchAgents/*.plist'
 
 - name: Clean up old plists
   shell: |

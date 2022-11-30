@@ -8,12 +8,12 @@
     <array>
       <string>/bin/sh</string>
       <string>-c</string>
-      <string>/opt/homebrew/bin/ansible-galaxy install -r "{{ config_dir }}/ansible/requirements.yaml"; /opt/homebrew/bin/ansible-playbook -i "{{ config_dir }}/ansible/hosts" "{{ config_dir }}/ansible/main.yaml"</string>
+      <string>/opt/homebrew/bin/ansible-galaxy install -r "{{ ansible_env.XDG_CONFIG_HOME }}/ansible/requirements.yaml"; /opt/homebrew/bin/ansible-playbook -i "{{ ansible_env.XDG_CONFIG_HOME }}/ansible/hosts" "{{ ansible_env.XDG_CONFIG_HOME }}/ansible/main.yaml"</string>
     </array>
     <key>StandardErrorPath</key>
-    <string>{{ home }}/Library/Logs/uk.eskola.ansible.err</string>
+    <string>{{ ansible_env.HOME }}/Library/Logs/uk.eskola.ansible.err</string>
     <key>StandardOutPath</key>
-    <string>{{ home }}/Library/Logs/uk.eskola.ansible.out</string>
+    <string>{{ ansible_env.HOME }}/Library/Logs/uk.eskola.ansible.out</string>
     <key>StartCalendarInterval</key>
     <dict>
       <key>Minute</key>
@@ -23,9 +23,9 @@
     <true/>
     <key>EnvironmentVariables</key>
     <dict>
-      {% for key, value in env.items() %}
+      {% for key in env %}
       <key>{{ key }}</key>
-      <string>{{ value }}</string>
+      <string>{{ ansible_env[key] }}</string>
       {% endfor %}
     </dict>
   </dict>

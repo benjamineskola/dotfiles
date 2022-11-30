@@ -1,6 +1,6 @@
 - name: Install Ruby versions
   environment:
-    RUBIES_DIR: '{{ data_dir }}/rubies'
+    RUBIES_DIR: '{{ ansible_env.XDG_DATA_HOME }}/rubies'
   block:
     - name: Get available stable versions
       shell: "ruby-install | sed -n -E '/^[^a-z]+$/,${/[0-9]/{s/ //g;p;}; /[a-z]/q; }' | grep -v '^2\\.6\\.'"
@@ -12,7 +12,7 @@
           export LDFLAGS="-L$(brew --prefix capstone)/lib"
         fi
         ruby-install --no-reinstall --cleanup -r "$RUBIES_DIR" "{{ item }}" -- --enable-shared
-        chruby-exec {{ item }} -- xargs gem install < {{ config_dir }}/default-gems.txt || true
+        chruby-exec {{ item }} -- xargs gem install < {{ ansible_env.XDG_CONFIG_HOME }}/default-gems.txt || true
       with_items: '{{ ruby_versions.stdout_lines }}'
       register: ruby_install
       changed_when: '">>> Installing ruby " in ruby_install.stdout'

@@ -10,12 +10,12 @@
       <string>exec</string>
       <string>/bin/sh</string>
       <string>-c</string>
-      <string>{{ config_dir }}/scripts/run-dir.sh {{ config_dir }}/cron.d/hourly {{ config_dir }}/private/cron.d/hourly</string>
+      <string>{{ ansible_env.XDG_CONFIG_HOME }}/scripts/run-dir.sh {{ ansible_env.XDG_CONFIG_HOME }}/cron.d/hourly {{ ansible_env.XDG_CONFIG_HOME }}/private/cron.d/hourly</string>
     </array>
     <key>StandardErrorPath</key>
-    <string>{{ home }}/Library/Logs/uk.eskola.cronhourly.err</string>
+    <string>{{ ansible_env.HOME }}/Library/Logs/uk.eskola.cronhourly.err</string>
     <key>StandardOutPath</key>
-    <string>{{ home }}/Library/Logs/uk.eskola.cronhourly.out</string>
+    <string>{{ ansible_env.HOME }}/Library/Logs/uk.eskola.cronhourly.out</string>
     <key>StartCalendarInterval</key>
     <dict>
       <key>Minute</key>
@@ -23,9 +23,9 @@
     </dict>
     <key>EnvironmentVariables</key>
     <dict>
-      {% for key, value in env.items() %}
+      {% for key in env %}
       <key>{{ key }}</key>
-      <string>{{ value }}</string>
+      <string>{{ ansible_env[key] }}</string>
       {% endfor %}
     </dict>
   </dict>

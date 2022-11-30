@@ -1,11 +1,7 @@
 - name: Configure macOS workstation
   hosts: local
   vars:
-    home: '{{ lookup("env", "HOME") }}'
-    config_dir: '{{ lookup("env", "XDG_CONFIG_HOME", default=home + "/.config") }}'
-    data_dir: '{{ lookup("env", "XDG_DATA_HOME", default=home + "/.local/share") }}'
-    cache_dir: '{{ lookup("env", "XDG_CACHE_HOME", default=home + "/.cache") }}'
-    homebrew_brewfile_dir: '{{ config_dir }}'
+    homebrew_brewfile_dir: '{{ ansible_env.XDG_CONFIG_HOME }}'
   tasks:
     - include_tasks: tasks/system.yaml
     - include_tasks: tasks/macos.yaml

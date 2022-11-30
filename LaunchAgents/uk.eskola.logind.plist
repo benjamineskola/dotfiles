@@ -10,19 +10,19 @@
       <string>exec</string>
       <string>/bin/sh</string>
       <string>-c</string>
-      <string>{{ config_dir }}/scripts/run-dir.sh {{ config_dir }}/login.d {{ config_dir }}/private/login.d</string>
+      <string>{{ ansible_env.XDG_CONFIG_HOME }}/scripts/run-dir.sh {{ ansible_env.XDG_CONFIG_HOME }}/login.d {{ ansible_env.XDG_CONFIG_HOME }}/private/login.d</string>
     </array>
     <key>RunAtLoad</key>
     <true/>
     <key>StandardErrorPath</key>
-    <string>{{ home }}/Library/Logs/uk.eskola.logind.err</string>
+    <string>{{ ansible_env.HOME }}/Library/Logs/uk.eskola.logind.err</string>
     <key>StandardOutPath</key>
-    <string>{{ home }}/Library/Logs/uk.eskola.logind.out</string>
+    <string>{{ ansible_env.HOME }}/Library/Logs/uk.eskola.logind.out</string>
     <key>EnvironmentVariables</key>
     <dict>
-      {% for key, value in env.items() %}
+      {% for key in env %}
       <key>{{ key }}</key>
-      <string>{{ value }}</string>
+      <string>{{ ansible_env[key] }}</string>
       {% endfor %}
     </dict>
   </dict>

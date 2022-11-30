@@ -1,6 +1,6 @@
 - name: Install Python versions
   environment:
-    PYENV_ROOT: '{{ data_dir }}/pythons'
+    PYENV_ROOT: '{{ ansible_env.XDG_DATA_HOME }}/pythons'
   block:
     - name: Get available minor versions
       shell: 'python-build --definitions | grep "^3" | grep -v "[a-z]" | cut -d . -f 1-2 | sort -u --version-sort | tail -n +8'
@@ -11,7 +11,7 @@
         eval "$(pyenv init -)"
         pyenv shell {{ item }}
         pyenv exec pip install --upgrade pip
-        pyenv exec pip install -r {{ config_dir }}/requirements.txt
+        pyenv exec pip install -r {{ ansible_env.XDG_CONFIG_HOME }}/requirements.txt
       with_items: '{{ python_versions.stdout_lines }}'
       register: python_install
       changed_when: '"python-build" in python_install.stdout'

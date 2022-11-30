@@ -5,9 +5,7 @@
     recurse: true
   register: homebrew_files
 
-- name: Install required Homebrew packages
+- name: Run Homebrew role
   when: homebrew_files.matched == 0
-  block:
-    - command: brew update
-    - command: brew upgrade
-    - command: 'brew bundle --file "{{ homebrew_brewfile_dir }}/Brewfile" install'
+  include_role:
+    name: geerlingguy.mac.homebrew

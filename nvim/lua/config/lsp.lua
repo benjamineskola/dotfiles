@@ -1,5 +1,4 @@
 local lspconfig = require("lspconfig")
-local utils = require("utils")
 
 local default_on_attach = function(client)
     if client.server_capabilities.documentFormattingProvider then

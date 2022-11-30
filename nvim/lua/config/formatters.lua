@@ -1,5 +1,11 @@
 local util = require("formatter.util")
-local utils = require("utils")
+local lsputil = require("lspconfig.util")
+
+local find_rome_ancestor = function(startpath)
+    return lsputil.search_ancestors(startpath, function(path)
+        if lsputil.path.is_file(lsputil.path.join(path, "rome.json")) then return path end
+    end)
+end
 
 local remove_trailing_newlines = {
     exe = "perl",
@@ -15,7 +21,7 @@ local rome_lint = {
 
 local rome_format = function()
     args = { "format", "--stdin-file-path", util.escape_path(util.get_current_buffer_file_path()) }
-    if not utils.find_file_in_parent("rome.json", utils.get_git_root()) then
+    if not find_rome_ancestor(util.get_current_buffer_file_dir()) then
         args = {
             "format",
             "--stdin-file-path",

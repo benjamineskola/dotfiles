@@ -44,6 +44,12 @@
       <key>{{ key }}</key>
       <string>{{ ansible_env[key] }}</string>
       {% endfor %}
+      {% if 'env' in item %}
+      {% for key, value in item.env.items() %}
+      <key>{{ key }}</key>
+      <string>{{ value }}</string>
+      {% endfor %}
+      {% endif %}
     </dict>
   </dict>
 </plist>

@@ -77,10 +77,12 @@
   register: plists
   loop:
     - name: uk.eskola.ansible
-      command: '/opt/homebrew/bin/ansible-galaxy install -r "{{ ansible_env.XDG_CONFIG_HOME }}/ansible/requirements.yaml"; /opt/homebrew/bin/ansible-playbook -i "{{ ansible_env.XDG_CONFIG_HOME }}/ansible/hosts" "{{ ansible_env.XDG_CONFIG_HOME }}/ansible/main.yaml" | /opt/homebrew/bin/ts'
+      command: 'ansible-galaxy install -r "{{ ansible_env.XDG_CONFIG_HOME }}/ansible/requirements.yaml"; ansible-playbook "{{ ansible_env.XDG_CONFIG_HOME }}/ansible/main.yaml" | ts'
       run_at_load: true
       schedule:
         minute: 0
+      env:
+        ANSIBLE_CONFIG: '{{ ansible_env.XDG_CONFIG_HOME }}/ansible/ansible.cfg'
     - name: uk.eskola.crondaily
       command: '{{ ansible_env.XDG_CONFIG_HOME }}/scripts/run-dir.sh {{ ansible_env.XDG_CONFIG_HOME }}/cron.d/daily {{ ansible_env.XDG_CONFIG_HOME }}/private/cron.d/daily'
       use_fdautil: true

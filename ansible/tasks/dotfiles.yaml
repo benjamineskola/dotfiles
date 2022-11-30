@@ -1,3 +1,16 @@
+- name: Ensure default XDG paths are symlinked
+  block:
+    - file:
+        dest: '{{ ansible_env.HOME }}/.local'
+        state: directory
+    - file:
+        src: '{{ ansible_env.HOME }}/Library'
+        dest: '{{ ansible_env.HOME }}/.local/{{ item.name }}'
+        state: link
+      loop:
+        - { name: share }
+        - { name: state }
+
 - name: Ensure dotfiles and scripts are up to date
   command:
     cmd: git pull --rebase -q

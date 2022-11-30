@@ -8,7 +8,7 @@
     <array>
       <string>/bin/sh</string>
       <string>-c</string>
-      <string>/opt/homebrew/bin/ansible-galaxy install -r "{{ ansible_env.XDG_CONFIG_HOME }}/ansible/requirements.yaml"; /opt/homebrew/bin/ansible-playbook -i "{{ ansible_env.XDG_CONFIG_HOME }}/ansible/hosts" "{{ ansible_env.XDG_CONFIG_HOME }}/ansible/main.yaml"</string>
+      <string>/opt/homebrew/bin/ansible-galaxy install -r "{{ ansible_env.XDG_CONFIG_HOME }}/ansible/requirements.yaml"; /opt/homebrew/bin/ansible-playbook -i "{{ ansible_env.XDG_CONFIG_HOME }}/ansible/hosts" "{{ ansible_env.XDG_CONFIG_HOME }}/ansible/main.yaml" | /opt/homebrew/bin/ts</string>
     </array>
     <key>StandardErrorPath</key>
     <string>{{ ansible_env.HOME }}/Library/Logs/uk.eskola.ansible.err</string>

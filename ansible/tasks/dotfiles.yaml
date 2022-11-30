@@ -82,6 +82,13 @@
       command: '{{ ansible_env.HOME }}/bin/autodarkmode.py | ts'
       use_fdautil: true
       start_interval: 60
+    - name: uk.eskola.setenv
+      command: |
+        launchctl setenv XDG_CONFIG_HOME {{ ansible_env.HOME }}/.config
+        launchctl setenv XDG_DATA_HOME   {{ ansible_env.HOME }}/Library
+        launchctl setenv XDG_CACHE_HOME  {{ ansible_env.HOME }}/Library/Caches
+        launchctl setenv XDG_STATE_HOME  {{ ansible_env.HOME }}/Library
+      run_at_load: true
   vars:
     env:
       - PATH

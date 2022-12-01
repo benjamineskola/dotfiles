@@ -1,3 +1,5 @@
+Include /Users/ben/.colima/ssh_config
+
 Host *.unboxedconsulting.com
   User ben.eskola
 

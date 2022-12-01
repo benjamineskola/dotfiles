@@ -94,6 +94,11 @@ return require("packer").startup(function(use)
         "neovim/nvim-lspconfig",
         config = function() require("config.lsp") end,
     })
+    use({
+        "brenoprata10/nvim-highlight-colors",
+        config = function() require("nvim-highlight-colors").setup({}) end,
+        ft = { "css", "scss" },
+    })
     use({ "nvim-lualine/lualine.nvim", requires = { "nvim-tree/nvim-web-devicons" } })
     use({
         "nvim-telescope/telescope.nvim",

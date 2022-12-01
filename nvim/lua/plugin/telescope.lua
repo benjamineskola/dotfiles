@@ -5,9 +5,9 @@ local actions = require("telescope.actions")
 M.projects = function()
     local opts = {
         find_command = {
-            "zoxide",
-            "query",
-            "-l",
+            "sh",
+            "-c",
+            "(zoxide query -l; fd -E Library -E .Trash --type d -H '^\\.(git|hg)$' $HOME -x dirname; echo $HOME) | perl -ne 'print unless $seen{$_}++'",
         },
         attach_mappings = function(prompt_bufnr)
             actions.select_default:replace(function()

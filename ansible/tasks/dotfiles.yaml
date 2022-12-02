@@ -77,7 +77,7 @@
   register: plists
   loop:
     - name: uk.eskola.ansible
-      command: 'ansible-galaxy install -r "{{ ansible_env.XDG_CONFIG_HOME }}/ansible/requirements.yaml"; ansible-playbook "{{ ansible_env.XDG_CONFIG_HOME }}/ansible/main.yaml" | ts'
+      command: '(ansible-galaxy install -r "{{ ansible_env.XDG_CONFIG_HOME }}/ansible/requirements.yaml"; ansible-playbook "{{ ansible_env.XDG_CONFIG_HOME }}/ansible/main.yaml") | ts'
       run_at_load: true
       schedule:
         minute: 0

@@ -100,7 +100,6 @@
       run_at_load: true
     - name: uk.eskola.autodarkmode
       command: '{{ ansible_env.HOME }}/bin/autodarkmode.py | ts'
-      use_fdautil: true
       start_interval: 60
     - name: uk.eskola.setenv
       command: |

@@ -1,6 +1,6 @@
 - name: Check Homebrew recency
   find:
-    paths: [/opt/homebrew]
+    paths: [/opt/homebrew/.git]
     age: -24h
     recurse: true
   register: homebrew_files

@@ -11,3 +11,4 @@
     - include_tasks: tasks/python.yaml
     - include_tasks: tasks/ruby.yaml
     - include_tasks: tasks/rust.yaml
+      when: ansible_hostname == 'MacBook-Pro'

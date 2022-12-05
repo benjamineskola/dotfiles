@@ -72,6 +72,7 @@ cask "zoom"
 case `hostname -s`.chomp
 when "MacBook-Pro"
   brew "get_iplayer"
+  brew "rustup"
 
   cask "arq"
   cask "calibre"

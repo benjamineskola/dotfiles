@@ -7,6 +7,7 @@ set -gx GIT_EDITOR nvim
 
 set -gx LESS "-ImRswFX --mouse"
 set -gx LESSHISTFILE "$XDG_CACHE_HOME/less_history"
+set -gx MANPAGER 'col -bx | bat -l man -p'
 
 set -gx CARGO_DIR $XDG_DATA_HOME/cargo
 set -gx NPM_CONFIG_USERCONFIG "$XDG_CONFIG_HOME/npmrc"

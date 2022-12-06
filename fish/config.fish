@@ -12,7 +12,7 @@ set -gx CARGO_DIR $XDG_DATA_HOME/cargo
 set -gx NPM_CONFIG_USERCONFIG "$XDG_CONFIG_HOME/npmrc"
 set -gx PYENV_ROOT $XDG_DATA_HOME/pythons
 set -gx RUBIES_DIR $XDG_DATA_HOME/rubies
-set -gx RUSTUP_DIR $XDG_DATA_HOME/rustup
+set -gx RUSTUP_HOME $XDG_DATA_HOME/rustup
 
 if [ $OS = Darwin ]
     # Secretive Config

@@ -28,12 +28,12 @@ vim.keymap.set("v", "<D-c>", '"*y', { noremap = true })
 
 if vim.env.PWD == "/" then vim.cmd.cd(vim.env.HOME) end
 
-vim.api.nvim_create_autocmd({ "VimResized" }, {
+vim.api.nvim_create_autocmd({ "VimEnter", "VimResized" }, {
     callback = function()
         if vim.api.nvim_get_option("lines") > 50 then
-            vim.opt.guifont = "Fira Code:h13"
+            vim.g.neovide_scale_factor = 0.925
         else
-            vim.opt.guifont = "Fira Code:h14"
+            vim.g.neovide_scale_factor = 1
         end
     end,
     group = vim.api.nvim_create_augroup("change_font", { clear = true }),

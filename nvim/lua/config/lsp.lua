@@ -77,6 +77,7 @@ lsp_servers = {
             },
         },
     },
+    tsserver = { package_name = "typescript-language-server", setup = false },
     vimls = { package_name = "vim-language-server" },
     yamlls = { package_name = "yaml-language-server" },
 }
@@ -86,7 +87,7 @@ for server, config in pairs(lsp_servers) do
 
     if config.package_name == nil then config.package_name = server:gsub("_", "-") end
 
-    lspconfig[server].setup(config)
+    if config.setup == nil or config.setup ~= false then lspconfig[server].setup(config) end
 end
 
 local function install_commands()

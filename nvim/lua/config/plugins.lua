@@ -53,6 +53,11 @@ return require("packer").startup(function(use)
         "L3MON4D3/LuaSnip",
         "rafamadriz/friendly-snippets",
     })
+    use({
+        "jose-elias-alvarez/typescript.nvim",
+        ft = { "typescript" },
+        config = function() require("typescript").setup({}) end,
+    })
     use({ "junegunn/goyo.vim", ft = { "markdown" } })
     use({
         "janko/vim-test",

@@ -80,6 +80,16 @@ return require("packer").startup(function(use)
         config = function() require("virt-column").setup() end,
     })
     use({
+        "mfussenegger/nvim-dap",
+        requires = {
+            "mfussenegger/nvim-dap-python",
+            "suketa/nvim-dap-ruby",
+            "theHamsta/nvim-dap-virtual-text",
+        },
+        ft = { "python", "ruby" },
+        config = function() require("config.dap").setup() end,
+    })
+    use({
         "mfussenegger/nvim-lint",
         rocks = { "luacheck" },
         config = function() require("config.linters") end,

@@ -1,12 +1,6 @@
 local util = require("formatter.util")
 local lsputil = require("lspconfig.util")
 
-local find_rome_ancestor = function(startpath)
-    return lsputil.search_ancestors(startpath, function(path)
-        if lsputil.path.is_file(lsputil.path.join(path, "rome.json")) then return path end
-    end)
-end
-
 local remove_trailing_newlines = {
     exe = "perl",
     args = { "-007", "-pe", [[s/\\n+$/\\n/gs]] },
@@ -20,9 +14,8 @@ local rome_lint = {
 }
 
 local rome_format = function()
-    local file = util.get_current_buffer_file_path()
-    args = { "format", "--stdin-file-path", util.escape_path(file) }
-    if not find_rome_ancestor(util.get_current_buffer_file_dir()) then
+    args = { "format", "--stdin-file-path", util.escape_path(util.get_current_buffer_file_path()) }
+    if not lsputil.root_pattern("rome.json")(util.get_current_buffer_file_dir()) then
         vim.list_extend(args, {
             "--indent-style",
             vim.bo.expandtab and "space" or "tab",

@@ -1,4 +1,6 @@
 /alacritty/alacritty.local.yml
+/bat/themes/*.tmTheme
+/Brewfile.lock.json
 /.bundle
 /configstore/update-notifier-npm.json
 /fish/completions
@@ -10,6 +12,7 @@
 /gh
 /_gnupg/*
 !/_gnupg/*.conf
+/instaloader/session-*
 /nvim/plugin/packer_compiled.lua
 /src
 /_ssh/id_*

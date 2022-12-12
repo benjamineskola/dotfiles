@@ -17,6 +17,12 @@
     dest: '{{ ansible_env.XDG_CONFIG_HOME }}/bat/themes/tokyonight_night.tmTheme'
   when: bat_theme.matched == 0
 
+- name: Install Bat theme
+  get_url:
+    url: https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/tokyonight_day.tmTheme
+    dest: '{{ ansible_env.XDG_CONFIG_HOME }}/bat/themes/tokyonight_day.tmTheme'
+  when: bat_theme.matched == 0
+
 - name: Check if compiled bat syntaxes and themes exist
   stat:
     path: '{{ ansible_env.XDG_CACHE_HOME }}/bat/{{ item }}.bin'

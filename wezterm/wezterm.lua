@@ -1,5 +1,20 @@
 local wezterm = require("wezterm")
 
+local function set_colour_scheme(window)
+    local overrides = window:get_config_overrides() or {}
+    local dark_mode = os.execute([[defaults read -globalDomain AppleInterfaceStyle]])
+
+    if dark_mode then
+        overrides.color_scheme = "tokyonight"
+        overrides.font = wezterm.font({ family = "Fira Code", weight = "Light", harfbuzz_features = { "zero" } })
+    else
+        overrides.font = wezterm.font({ family = "Fira Code", harfbuzz_features = { "zero" } })
+        overrides.color_scheme = "tokyonight-day"
+    end
+
+    window:set_config_overrides(overrides)
+end
+
 local function resize_font(window)
     local window_size = window:get_dimensions()
     local overrides = window:get_config_overrides() or {}
@@ -15,6 +30,9 @@ end
 
 wezterm.on("window-resized", function(window, _) resize_font(window) end)
 wezterm.on("window-config-reloaded", function(window) resize_font(window) end)
+
+wezterm.on("window-focus-changed", function(window, _) set_colour_scheme(window) end)
+wezterm.on("window-config-reloaded", function(window) set_colour_scheme(window) end)
 
 return {
     color_scheme = "tokyonight",

@@ -24,6 +24,7 @@ fish_add_path -g -p ~/bin
 fish_add_path -g -p $CARGO_DIR/bin
 
 if status is-interactive
+    alias bat 'bat --theme=tokyonight_(defaults read -globalDomain AppleInterfaceStyle >/dev/null 2>&1 && echo night || echo day)'
     alias curl 'curl -gkLsS'
     alias fdd 'fd .'
     alias fdg 'fd -g'

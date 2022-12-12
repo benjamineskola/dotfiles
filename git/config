@@ -8,14 +8,14 @@
 	template = ~/.config/git/git_commit_template
 [core]
 	excludesfile = ~/.config/git/gitignore.global
-	pager = delta --max-line-length=0
+	pager = delta --max-line-length=0 --syntax-theme=tokyonight_$(defaults read -globalDomain AppleInterfaceStyle >/dev/null 2>&1 && echo night || echo day)
 	quotepath = off
 [diff]
 	renames = copy
 [hub]
 	protocol = https
 [interactive]
-	diffFilter = delta --color-only --max-line-length=0
+	diffFilter = delta --color-only --max-line-length=0 --syntax-theme=tokyonight_$(defaults read -globalDomain AppleInterfaceStyle >/dev/null 2>&1 && echo night || echo day)
 [pull]
 	rebase = true
 [push]

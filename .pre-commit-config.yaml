@@ -13,7 +13,7 @@ repos:
         files: '^bundler/config$'
       - id: check-toml
   - repo: https://github.com/benjamineskola/pre-commit-hooks.git
-    rev: af21d0fdea02731583f480bb508fc4dac9ccb703
+    rev: 86f1589d69d424621c34fc275a939ccf34427f12
     hooks:
       - id: shellcheck
         exclude: 'git/template/hooks/pre-commit$'

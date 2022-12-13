@@ -1,6 +1,7 @@
 {
   "arrowParens": "avoid",
   "generatorStarSpacing": true,
+  "printWidth": 120,
   "offsetTernaryExpressions": true,
   "semi": true,
   "singleQuote": true,

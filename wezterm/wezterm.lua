@@ -32,11 +32,11 @@ local function resize_font(window)
     window:set_config_overrides(overrides)
 end
 
-wezterm.on("window-resized", function(window, _) resize_font(window) end)
-wezterm.on("window-config-reloaded", function(window) resize_font(window) end)
+wezterm.on("window-resized", resize_font)
+wezterm.on("window-config-reloaded", resize_font)
 
-wezterm.on("window-focus-changed", function(window, _) set_colour_scheme(window) end)
-wezterm.on("window-config-reloaded", function(window) set_colour_scheme(window) end)
+wezterm.on("window-focus-changed", set_colour_scheme)
+wezterm.on("window-config-reloaded", set_colour_scheme)
 
 return {
     color_scheme = "tokyonight",

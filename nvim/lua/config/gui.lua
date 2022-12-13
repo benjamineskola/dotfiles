@@ -30,7 +30,7 @@ if vim.env.PWD == "/" then vim.cmd.cd(vim.env.HOME) end
 
 vim.api.nvim_create_autocmd({ "VimEnter", "VimResized" }, {
     callback = function()
-        if vim.api.nvim_get_option("lines") > 50 then
+        if vim.api.nvim_get_option("lines") > 50 or vim.api.nvim_get_option("columns") > 170 then
             vim.g.neovide_scale_factor = 0.925
         else
             vim.g.neovide_scale_factor = 1

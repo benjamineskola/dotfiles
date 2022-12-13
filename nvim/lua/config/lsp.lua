@@ -107,3 +107,46 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
 })
 
 vim.env.PATH = vim.fn.stdpath("data") .. "/mason/bin" .. ":" .. vim.env.PATH
+
+vim.api.nvim_create_autocmd("LspAttach", {
+    desc = "LSP actions",
+    callback = function(params)
+        local opts = { noremap = true, buffer = params.buf }
+
+        -- Displays hover information about the symbol under the cursor
+        vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+
+        -- Jump to the definition
+        vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+
+        -- Jump to declaration
+        vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+
+        -- Lists all the implementations for the symbol under the cursor
+        vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+
+        -- Jumps to the definition of the type symbol
+        vim.keymap.set("n", "go", vim.lsp.buf.type_definition, opts)
+
+        -- Lists all the references
+        vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+
+        -- Displays a function's signature information
+        vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
+
+        -- Renames all references to the symbol under the cursor
+        vim.keymap.set("n", "<Leader>r", vim.lsp.buf.rename, opts)
+
+        -- Selects a code action available at the current cursor position
+        vim.keymap.set({ "n", "v" }, "<Leader>x", vim.lsp.buf.code_action, opts)
+
+        -- Show diagnostics in a floating window
+        vim.keymap.set("n", "gl", vim.diagnostic.open_float, opts)
+
+        -- Move to the previous diagnostic
+        vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
+
+        -- Move to the next diagnostic
+        vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
+    end,
+})

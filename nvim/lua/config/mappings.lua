@@ -12,7 +12,6 @@ map("n", "<leader>b", function() require("telescope.builtin").buffers() end, { n
 map("n", "<Leader>f", function() require("telescope.builtin").find_files() end, { noremap = true })
 map("n", "<Leader>g", function() require("telescope.builtin").live_grep() end, { noremap = true })
 map("n", "<Leader>o", function() require("telescope.builtin").oldfiles() end, { noremap = true })
-map({ "n", "v" }, "<Leader>x", function() vim.lsp.buf.code_action() end, { noremap = true })
 map("n", "<leader>c", function() require("plugin.telescope").projects() end, { noremap = true })
 map("n", "<leader>y", function() require("plugin.telescope").yaml_symbols() end, { noremap = true })
 

@@ -1,0 +1,5 @@
+matches:
+  - trigger: chargepoint
+    replace: charge point
+  - trigger: chargepoints
+    replace: charge points

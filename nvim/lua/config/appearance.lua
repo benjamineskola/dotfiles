@@ -7,9 +7,11 @@ local function dark_mode()
     if dark_mode == "true" then
         vim.o.background = "dark"
         vim.cmd([[colo tokyonight-night]])
+        require("lualine").setup()
     else
         vim.o.background = "light"
         vim.cmd([[colo tokyonight-day]])
+        require("lualine").setup()
     end
 end
 

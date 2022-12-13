@@ -58,6 +58,7 @@ matches:
     propagate_case: true
   - regex: "\\b(?i:(?P<title>(lord|lady|sir)))\\b"
     replace: "“{{title}}”"
+    word: true
 
   # social justice
   - trigger: "whitelist"

@@ -108,6 +108,10 @@
         launchctl setenv XDG_CACHE_HOME  {{ ansible_env.HOME }}/Library/Caches
         launchctl setenv XDG_STATE_HOME  {{ ansible_env.HOME }}/Library
       run_at_load: true
+    - name: uk.eskola.colima
+      command: 'colima start; while pgrep -F ~/.colima/default/daemon/daemon.pid; do sleep 60; done'
+      run_at_load: true
+      keepalive: true
   vars:
     env:
       - PATH

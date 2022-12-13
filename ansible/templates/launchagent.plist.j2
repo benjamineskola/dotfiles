@@ -38,6 +38,10 @@
     <key>RunAtLoad</key>
     <true/>
     {% endif %}
+    {% if 'keepalive' in item and  item.keepalive %}
+    <key>KeepAlive</key>
+    <true/>
+    {% endif %}
     <key>EnvironmentVariables</key>
     <dict>
       {% for key in env %}

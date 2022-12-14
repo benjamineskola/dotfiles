@@ -51,6 +51,15 @@ return {
     window_decorations = "RESIZE",
 
     keys = {
+        { mods = "CMD", key = "d", action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
+        { mods = "CMD|SHIFT", key = "d", action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }) },
+        { mods = "CMD", key = "[", action = wezterm.action.ActivatePaneDirection("Prev") },
+        { mods = "CMD", key = "]", action = wezterm.action.ActivatePaneDirection("Next") },
+
+        { mods = "CMD|ALT", key = "UpArrow", action = wezterm.action.AdjustPaneSize({ "Up", 1 }) },
+        { mods = "CMD|ALT", key = "DownArrow", action = wezterm.action.AdjustPaneSize({ "Down", 1 }) },
+        { mods = "CMD|ALT", key = "LeftArrow", action = wezterm.action.AdjustPaneSize({ "Left", 1 }) },
+        { mods = "CMD|ALT", key = "RightArrow", action = wezterm.action.AdjustPaneSize({ "Right", 1 }) },
         {
             mods = "CMD|OPT",
             key = "v",

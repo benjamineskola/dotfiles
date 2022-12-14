@@ -70,9 +70,6 @@ lsp_servers = {
         package_name = "lua-language-server",
         settings = {
             Lua = {
-                runtime = { version = "LuaJIT" },
-                diagnostics = { globals = { "jit", "vim" }, disable = { "lowercase-global" } },
-                workspace = { ignoreDir = { "packer_compiled.lua" } },
                 format = { enable = false },
             },
         },

@@ -1,0 +1,11 @@
+{
+  "diagnostics": {
+    "globals": ["vim"]
+  },
+  "runtime": {
+    "version": "LuaJIT"
+  },
+  "workspace": {
+    "ignoreDir": ["packer_compiled.lua"]
+  }
+}

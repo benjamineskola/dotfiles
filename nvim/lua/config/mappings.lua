@@ -1,4 +1,3 @@
----@diagnostic disable-next-line: unused-local
 vim.g.mapleader = ","
 
 local abbrev = require("utils").abbrev

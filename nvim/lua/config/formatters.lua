@@ -14,7 +14,7 @@ local rome_lint = {
 }
 
 local rome_format = function()
-    args = { "format", "--stdin-file-path", util.escape_path(util.get_current_buffer_file_path()) }
+    local args = { "format", "--stdin-file-path", util.escape_path(util.get_current_buffer_file_path()) }
     if not lsputil.root_pattern("rome.json")(util.get_current_buffer_file_dir()) then
         vim.list_extend(args, {
             "--indent-style",

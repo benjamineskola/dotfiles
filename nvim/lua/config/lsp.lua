@@ -9,7 +9,7 @@ local default_on_attach = function(client)
     end
 end
 
-lsp_servers = {
+local lsp_servers = {
     bashls = { package_name = "bash-language-server" },
     cssls = { package_name = "css-lsp" },
     eslint = { package_name = "eslint-lsp" },

@@ -1,4 +1,4 @@
-local function dark_mode()
+local function set_dark_mode()
     local dark_mode = vim.fn.trim(
         vim.fn.system(
             [[osascript -l JavaScript -e 'Application("System Events").appearancePreferences.darkMode.get()']]
@@ -20,7 +20,7 @@ vim.opt.termguicolors = true
 vim.cmd([[highlight SpellBad guisp=red]])
 
 vim.api.nvim_create_autocmd({ "WinEnter", "CursorHold", "CursorHoldI" }, {
-    callback = dark_mode,
+    callback = set_dark_mode,
     group = vim.api.nvim_create_augroup("dark_mode", { clear = true }),
 })
-dark_mode()
+set_dark_mode()

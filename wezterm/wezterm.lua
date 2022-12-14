@@ -49,4 +49,18 @@ return {
     tab_bar_at_bottom = true,
     use_fancy_tab_bar = false,
     window_decorations = "RESIZE",
+
+    keys = {
+        {
+            mods = "CMD|OPT",
+            key = "v",
+            action = wezterm.action_callback(function(_, pane)
+                local f = assert(io.popen("pbpaste", "r"))
+                local raw_text = assert(f:read("*a"))
+                f:close()
+                local text = wezterm.shell_quote_arg(raw_text)
+                pane:paste(text)
+            end),
+        },
+    },
 }

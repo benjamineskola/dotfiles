@@ -4,11 +4,20 @@ local M = {
             local _, result = hs.osascript.javascript("Application('NetNewsWire').currentArticle.url()")
             return result
         end,
+        Safari = function()
+            local _, result = hs.osascript.javascript("Application('Safari').documents[0].url()")
+            return result
+        end,
     },
     markdown_link = {
         NetNewsWire = function()
             local _, url = hs.osascript.javascript("Application('NetNewsWire').currentArticle.url()")
             local _, title = hs.osascript.javascript("Application('NetNewsWire').currentArticle.title()")
+            return "[" .. title .. "](" .. url .. ")"
+        end,
+        Safari = function()
+            local _, url = hs.osascript.javascript("Application('Safari').documents[0].url()")
+            local _, title = hs.osascript.javascript("Application('Safari').documents[0].name()")
             return "[" .. title .. "](" .. url .. ")"
         end,
     },

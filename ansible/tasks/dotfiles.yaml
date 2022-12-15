@@ -124,3 +124,12 @@
     name: '{{ item.item.name  }}'
     state: started
   loop: '{{ plists.results }}'
+
+- name: Configure logrotate
+  block:
+    - file:
+        path: '/opt/homebrew/etc/logrotate.d'
+        state: directory
+    - template:
+        src: 'templates/logrotate-cron.conf.j2'
+        dest: '/opt/homebrew/etc/logrotate.d/cron.conf'

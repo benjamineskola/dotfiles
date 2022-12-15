@@ -1,3 +1,5 @@
+require("copy_links")
+
 local function reloadConfig(files)
     local doReload = false
     for _, file in pairs(files) do

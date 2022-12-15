@@ -22,13 +22,13 @@ M.get_title = {
     end,
 }
 
-hs.hotkey.bind({ "cmd", "shift" }, "c", function()
+hs.hotkey.bind({ "cmd", "alt", "ctrl" }, "c", function()
     local win = hs.window.focusedWindow()
     local app_name = win:application():name()
     if M.get_url[app_name] then hs.pasteboard.setContents(M.get_url[app_name]()) end
 end)
 
-hs.hotkey.bind({ "cmd", "shift" }, "m", function()
+hs.hotkey.bind({ "cmd", "alt", "ctrl" }, "m", function()
     local win = hs.window.focusedWindow()
     local app_name = win:application():name()
     if M.get_url[app_name] then

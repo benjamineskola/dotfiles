@@ -1,18 +1,7 @@
 require("copy_links")
 
-local function reloadConfig(files)
-    local doReload = false
-    for _, file in pairs(files) do
-        if file:sub(-4) == ".lua" then doReload = true end
-    end
-    if doReload then hs.reload() end
-end
-local configWatcher = hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", function(files)
-    reloadConfig(files)
-
-    hs.alert.show("Config loaded")
-end)
-configWatcher:start()
+hs.loadSpoon("ReloadConfiguration")
+spoon.ReloadConfiguration:start()
 
 local function applicationWatcher(appName, eventType, appObject)
     if eventType == hs.application.watcher.activated then

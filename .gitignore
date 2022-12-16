@@ -12,6 +12,7 @@
 /gh
 /_gnupg/*
 !/_gnupg/*.conf
+/_hammerspoon/Spoons
 /instaloader/session-*
 /nvim/plugin/packer_compiled.lua
 /pre-commit-hooks

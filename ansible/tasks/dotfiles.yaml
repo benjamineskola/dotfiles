@@ -97,7 +97,7 @@
       schedule:
         minute: 0
     - name: uk.eskola.logind
-      command: '{{ ansible_env.XDG_CONFIG_HOME }}/scripts/run-dir.sh {{ ansible_env.XDG_CONFIG_HOME }}/login.d {{ ansible_env.XDG_CONFIG_HOME }}/login.d'
+      command: '{{ ansible_env.XDG_CONFIG_HOME }}/scripts/run-dir.sh {{ ansible_env.XDG_CONFIG_HOME }}/login.d {{ ansible_env.XDG_CONFIG_HOME }}/private/login.d'
       shell: /opt/homebrew/bin/fish
       use_fdautil: true
       run_at_load: true

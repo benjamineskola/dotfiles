@@ -38,9 +38,7 @@ local lsp_servers = {
             },
         },
     },
-    rome = {
-        on_attach = function() end, -- don't trust lsp to format
-    },
+    rome = {},
     rust_analyzer = { setup = false },
     ruby_ls = {
         package_name = "ruby-lsp",

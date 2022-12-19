@@ -13,7 +13,7 @@ repos:
         files: "^bundler/config$"
       - id: check-toml
   - repo: https://github.com/benjamineskola/pre-commit-hooks.git
-    rev: 86f1589d69d424621c34fc275a939ccf34427f12
+    rev: 8898e97256c2e5248fe3feff59c5d30c816b3f6b
     hooks:
       - id: shellcheck
         exclude: "git/template/hooks/pre-commit$"
@@ -22,7 +22,7 @@ repos:
       - id: flake518
       - id: vint
       - id: prettier
-      - id: standard
+      - id: rome
       - id: rubocop
         files: "(Brewfile.*|\\.rb)$"
         types: []

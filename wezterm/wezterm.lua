@@ -1,6 +1,6 @@
 local wezterm = require("wezterm")
 
-local font = { family = "Fira Code", weight = "Light", harfbuzz_features = { "zero" } }
+local font = { family = "Fira Code", harfbuzz_features = { "zero" } }
 
 local function set_colour_scheme(window)
     local overrides = window:get_config_overrides() or {}

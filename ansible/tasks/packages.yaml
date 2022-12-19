@@ -1,31 +1,31 @@
 - name: Ensure Bat theme directory exists
   file:
-    path: '{{ ansible_env.XDG_CONFIG_HOME }}/bat/themes'
+    path: "{{ ansible_env.XDG_CONFIG_HOME }}/bat/themes"
     state: directory
 
 - name: Check age of Bat theme
   find:
     paths:
-      - '{{ ansible_env.XDG_CONFIG_HOME }}/bat/themes'
-    pattern: '*.tmTheme'
+      - "{{ ansible_env.XDG_CONFIG_HOME }}/bat/themes"
+    pattern: "*.tmTheme"
     age: -7d
   register: bat_theme
 
 - name: Install Bat theme
   get_url:
     url: https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/tokyonight_night.tmTheme
-    dest: '{{ ansible_env.XDG_CONFIG_HOME }}/bat/themes/tokyonight_night.tmTheme'
+    dest: "{{ ansible_env.XDG_CONFIG_HOME }}/bat/themes/tokyonight_night.tmTheme"
   when: bat_theme.matched == 0
 
 - name: Install Bat theme
   get_url:
     url: https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/tokyonight_day.tmTheme
-    dest: '{{ ansible_env.XDG_CONFIG_HOME }}/bat/themes/tokyonight_day.tmTheme'
+    dest: "{{ ansible_env.XDG_CONFIG_HOME }}/bat/themes/tokyonight_day.tmTheme"
   when: bat_theme.matched == 0
 
 - name: Check if compiled bat syntaxes and themes exist
   stat:
-    path: '{{ ansible_env.XDG_CACHE_HOME }}/bat/{{ item }}.bin'
+    path: "{{ ansible_env.XDG_CACHE_HOME }}/bat/{{ item }}.bin"
   loop:
     - syntaxes
     - themes
@@ -36,7 +36,7 @@
 
 - name: Vim files newer than a day old
   find:
-    paths: ['{{ ansible_env.XDG_DATA_HOME }}/nvim/site/pack/packer']
+    paths: ["{{ ansible_env.XDG_DATA_HOME }}/nvim/site/pack/packer"]
     age: -24h
     recurse: true
   register: nvim_pack
@@ -50,8 +50,8 @@
     - name: Core
       git:
         repo: git@github.com:Hammerspoon/Spoons.git
-        dest: '{{ ansible_env.XDG_CONFIG_HOME }}/_hammerspoon/Spoons/vendor'
+        dest: "{{ ansible_env.XDG_CONFIG_HOME }}/_hammerspoon/Spoons/vendor"
     - name: Bear
       git:
         repo: git@github.com:dcreemer/hammerspoon-bear.git
-        dest: '{{ ansible_env.XDG_CONFIG_HOME }}/_hammerspoon/Spoons/Bear.spoon'
+        dest: "{{ ansible_env.XDG_CONFIG_HOME }}/_hammerspoon/Spoons/Bear.spoon"

@@ -1,11 +1,11 @@
 - name: Ensure default XDG paths are symlinked
   block:
     - file:
-        dest: '{{ ansible_env.HOME }}/.local'
+        dest: "{{ ansible_env.HOME }}/.local"
         state: directory
     - file:
-        src: '{{ ansible_env.HOME }}/Library'
-        dest: '{{ ansible_env.HOME }}/.local/{{ item.name }}'
+        src: "{{ ansible_env.HOME }}/Library"
+        dest: "{{ ansible_env.HOME }}/.local/{{ item.name }}"
         state: link
       loop:
         - { name: share }
@@ -14,15 +14,15 @@
 - name: Ensure dotfiles and scripts are up to date
   shell:
     cmd: git pull --rebase -q || true
-    chdir: '{{ item }}'
+    chdir: "{{ item }}"
   loop:
-    - '{{ ansible_env.XDG_CONFIG_HOME }}'
-    - '{{ ansible_env.HOME }}/bin'
+    - "{{ ansible_env.XDG_CONFIG_HOME }}"
+    - "{{ ansible_env.HOME }}/bin"
 
 - name: Link preferences into place
   file:
-    src: '{{ ansible_env.XDG_CONFIG_HOME }}/{{ item }}'
-    dest: '{{ ansible_env.HOME }}/Library/Preferences/{{ item }}'
+    src: "{{ ansible_env.XDG_CONFIG_HOME }}/{{ item }}"
+    dest: "{{ ansible_env.HOME }}/Library/Preferences/{{ item }}"
     state: link
   loop:
     - espanso
@@ -30,19 +30,19 @@
 
 - name: Create iTerm2 script directory
   file:
-    dest: '{{ ansible_env.XDG_DATA_HOME }}/Application Support/iTerm2/Scripts'
+    dest: "{{ ansible_env.XDG_DATA_HOME }}/Application Support/iTerm2/Scripts"
     state: directory
 - name: Link iTerm2 scripts into place
   copy:
-    src: '{{ item }}'
-    dest: '{{ ansible_env.XDG_DATA_HOME }}/Application Support/iTerm2/Scripts'
+    src: "{{ item }}"
+    dest: "{{ ansible_env.XDG_DATA_HOME }}/Application Support/iTerm2/Scripts"
   with_fileglob:
-    - '{{ ansible_env.XDG_CONFIG_HOME }}/scripts/iterm*'
+    - "{{ ansible_env.XDG_CONFIG_HOME }}/scripts/iterm*"
 
 - name: Check age of iTerm2 integration
   find:
     paths:
-      - '{{ ansible_env.XDG_CONFIG_HOME }}/fish/conf.d'
+      - "{{ ansible_env.XDG_CONFIG_HOME }}/fish/conf.d"
     pattern: zzz_iterm2_shell_integration.fish
     age: -7d
   register: iterm2_integration
@@ -50,29 +50,29 @@
 - name: Install iTerm2 integration
   get_url:
     url: https://iterm2.com/shell_integration/fish
-    dest: '{{ ansible_env.XDG_CONFIG_HOME }}/fish/conf.d/zzz_iterm2_shell_integration.fish'
+    dest: "{{ ansible_env.XDG_CONFIG_HOME }}/fish/conf.d/zzz_iterm2_shell_integration.fish"
   when: iterm2_integration.matched == 0
 
 - name: Install dotfiles
   file:
-    src: '{{ item }}'
+    src: "{{ item }}"
     dest: '{{ ansible_env.HOME }}/{{ item | basename | regex_replace("^_", ".") }}'
   with_fileglob:
-    - '{{ ansible_env.XDG_CONFIG_HOME }}/_*'
-    - '{{ ansible_env.XDG_CONFIG_HOME }}/private/_*'
+    - "{{ ansible_env.XDG_CONFIG_HOME }}/_*"
+    - "{{ ansible_env.XDG_CONFIG_HOME }}/private/_*"
 
 - name: Clean up old dotfile links
   command: find -L "$HOME" -type l -maxdepth 1 -name '.*' -exec rm {} +
 
 - name: Ensure LaunchAgents directory exists
   file:
-    dest: '{{ ansible_env.XDG_DATA_HOME }}/LaunchAgents'
+    dest: "{{ ansible_env.XDG_DATA_HOME }}/LaunchAgents"
     state: directory
 
 - name: Generate plists
   template:
-    src: 'templates/launchagent.plist.j2'
-    dest: '{{ ansible_env.XDG_DATA_HOME }}/LaunchAgents/{{ item.name }}.plist'
+    src: "templates/launchagent.plist.j2"
+    dest: "{{ ansible_env.XDG_DATA_HOME }}/LaunchAgents/{{ item.name }}.plist"
     lstrip_blocks: true
   register: plists
   loop:
@@ -82,27 +82,27 @@
       schedule:
         minute: 0
       env:
-        ANSIBLE_CONFIG: '{{ ansible_env.XDG_CONFIG_HOME }}/ansible/ansible.cfg'
+        ANSIBLE_CONFIG: "{{ ansible_env.XDG_CONFIG_HOME }}/ansible/ansible.cfg"
     - name: uk.eskola.crondaily
-      command: '{{ ansible_env.XDG_CONFIG_HOME }}/scripts/run-dir.sh {{ ansible_env.XDG_CONFIG_HOME }}/cron.d/daily {{ ansible_env.XDG_CONFIG_HOME }}/private/cron.d/daily'
+      command: "{{ ansible_env.XDG_CONFIG_HOME }}/scripts/run-dir.sh {{ ansible_env.XDG_CONFIG_HOME }}/cron.d/daily {{ ansible_env.XDG_CONFIG_HOME }}/private/cron.d/daily"
       shell: /opt/homebrew/bin/fish
       use_fdautil: true
       schedule:
         hour: 7
         minute: 0
     - name: uk.eskola.cronhourly
-      command: '{{ ansible_env.XDG_CONFIG_HOME }}/scripts/run-dir.sh {{ ansible_env.XDG_CONFIG_HOME }}/cron.d/hourly {{ ansible_env.XDG_CONFIG_HOME }}/private/cron.d/hourly'
+      command: "{{ ansible_env.XDG_CONFIG_HOME }}/scripts/run-dir.sh {{ ansible_env.XDG_CONFIG_HOME }}/cron.d/hourly {{ ansible_env.XDG_CONFIG_HOME }}/private/cron.d/hourly"
       shell: /opt/homebrew/bin/fish
       use_fdautil: true
       schedule:
         minute: 0
     - name: uk.eskola.logind
-      command: '{{ ansible_env.XDG_CONFIG_HOME }}/scripts/run-dir.sh {{ ansible_env.XDG_CONFIG_HOME }}/login.d {{ ansible_env.XDG_CONFIG_HOME }}/private/login.d'
+      command: "{{ ansible_env.XDG_CONFIG_HOME }}/scripts/run-dir.sh {{ ansible_env.XDG_CONFIG_HOME }}/login.d {{ ansible_env.XDG_CONFIG_HOME }}/private/login.d"
       shell: /opt/homebrew/bin/fish
       use_fdautil: true
       run_at_load: true
     - name: uk.eskola.autodarkmode
-      command: '{{ ansible_env.HOME }}/bin/autodarkmode.py | ts'
+      command: "{{ ansible_env.HOME }}/bin/autodarkmode.py | ts"
       start_interval: 60
     - name: uk.eskola.setenv
       command: |
@@ -112,7 +112,7 @@
         launchctl setenv XDG_STATE_HOME  {{ ansible_env.HOME }}/Library
       run_at_load: true
     - name: uk.eskola.colima
-      command: 'colima start; while pgrep -q -F ~/.colima/default/daemon/daemon.pid; do sleep 60; done'
+      command: "colima start; while pgrep -q -F ~/.colima/default/daemon/daemon.pid; do sleep 60; done"
       run_at_load: true
       keepalive: true
   vars:
@@ -124,15 +124,15 @@
 
 - name: Run plists
   community.general.launchd:
-    name: '{{ item.item.name  }}'
+    name: "{{ item.item.name  }}"
     state: started
-  loop: '{{ plists.results }}'
+  loop: "{{ plists.results }}"
 
 - name: Configure logrotate
   block:
     - file:
-        path: '/opt/homebrew/etc/logrotate.d'
+        path: "/opt/homebrew/etc/logrotate.d"
         state: directory
     - template:
-        src: 'templates/logrotate-cron.conf.j2'
-        dest: '/opt/homebrew/etc/logrotate.d/cron.conf'
+        src: "templates/logrotate-cron.conf.j2"
+        dest: "/opt/homebrew/etc/logrotate.d/cron.conf"

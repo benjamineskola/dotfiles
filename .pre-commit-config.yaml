@@ -7,18 +7,18 @@ repos:
       - id: check-yaml
       - id: check-added-large-files
       - id: file-contents-sorter
-        files: '^(tool-versions|fish/fish_plugins|_default-golang-pkgs|default-.*.txt|nvim/lua/config/options.lua)$'
+        files: "^(tool-versions|fish/fish_plugins|_default-golang-pkgs|default-.*.txt|nvim/lua/config/options.lua)$"
       - id: requirements-txt-fixer
       - id: sort-simple-yaml
-        files: '^bundler/config$'
+        files: "^bundler/config$"
       - id: check-toml
   - repo: https://github.com/benjamineskola/pre-commit-hooks.git
     rev: 86f1589d69d424621c34fc275a939ccf34427f12
     hooks:
       - id: shellcheck
-        exclude: 'git/template/hooks/pre-commit$'
+        exclude: "git/template/hooks/pre-commit$"
       - id: shfmt
-        exclude: 'git/template/hooks/pre-commit$'
+        exclude: "git/template/hooks/pre-commit$"
       - id: flake518
       - id: vint
       - id: prettier
@@ -43,4 +43,4 @@ repos:
     hooks:
       - id: black
 
-exclude: '^vim/plugged'
+exclude: "^vim/plugged"

@@ -13,6 +13,7 @@ local lsp_servers = {
     bashls = { package_name = "bash-language-server" },
     cssls = { package_name = "css-lsp" },
     eslint = { package_name = "eslint-lsp" },
+    golangci_lint_ls = { package_name = "golangci-lint-langserver" },
     gopls = {
         settings = { gopls = { gofumpt = true } },
     },

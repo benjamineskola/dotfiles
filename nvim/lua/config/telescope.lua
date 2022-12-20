@@ -26,7 +26,7 @@ M.projects = function()
         attach_mappings = function(prompt_bufnr)
             actions.select_default:replace(function()
                 actions.close(prompt_bufnr)
-                local path = actions.state.get_selected_entry(prompt_bufnr).value
+                local path = require("telescope.actions.state").get_selected_entry(prompt_bufnr).value
                 vim.cmd.cd(path)
             end)
             return true

@@ -68,10 +68,6 @@ return {
         ft = { "python", "ruby" },
         config = function() require("config.dap").setup() end,
     },
-    {
-        "mfussenegger/nvim-lint",
-        config = function() require("config.linters") end,
-    },
     { "moll/vim-bbye", event = { "BufReadPost" } },
     {
         "brenoprata10/nvim-highlight-colors",

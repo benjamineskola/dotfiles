@@ -72,11 +72,6 @@ return {
         "mfussenegger/nvim-lint",
         config = function() require("config.linters") end,
     },
-    {
-        "benjamineskola/formatter.nvim",
-        event = { "BufWritePre" },
-        config = function() require("config.formatters") end,
-    },
     { "moll/vim-bbye", event = { "BufReadPost" } },
     {
         "brenoprata10/nvim-highlight-colors",

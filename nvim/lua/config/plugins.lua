@@ -79,10 +79,6 @@ return {
     },
     { "moll/vim-bbye", event = { "BufReadPost" } },
     {
-        "neovim/nvim-lspconfig",
-        config = function() require("config.lsp") end,
-    },
-    {
         "brenoprata10/nvim-highlight-colors",
         config = function() require("nvim-highlight-colors").setup({}) end,
         ft = { "css", "scss" },

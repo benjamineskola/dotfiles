@@ -86,7 +86,6 @@ return {
         config = function() require("nvim-highlight-colors").setup({}) end,
         ft = { "css", "scss" },
     },
-    { "nvim-lualine/lualine.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
     {
         "nvim-telescope/telescope.nvim",
         dependencies = {

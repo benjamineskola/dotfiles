@@ -19,14 +19,6 @@ return {
         cmd = { "TroubleToggle", "Trouble" },
     },
     {
-        "gelguy/wilder.nvim",
-        dependencies = {
-            "nvim-tree/nvim-web-devicons",
-            { "romgrk/fzy-lua-native" },
-        },
-        config = function() require("config.wilder") end,
-    },
-    {
         "jose-elias-alvarez/typescript.nvim",
         ft = { "typescript" },
         config = function() require("typescript").setup({}) end,

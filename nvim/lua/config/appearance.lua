@@ -19,7 +19,7 @@ vim.opt.termguicolors = true
 
 vim.cmd([[highlight SpellBad guisp=red]])
 
-vim.api.nvim_create_autocmd({ "WinEnter", "CursorHold", "CursorHoldI" }, {
+vim.api.nvim_create_autocmd({ "FocusGained", "CursorHold", "CursorHoldI" }, {
     callback = set_dark_mode,
     group = vim.api.nvim_create_augroup("dark_mode", { clear = true }),
 })

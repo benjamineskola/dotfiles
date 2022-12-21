@@ -36,13 +36,13 @@
 
 - name: Vim files newer than a day old
   find:
-    paths: ["{{ ansible_env.XDG_DATA_HOME }}/nvim/site/pack/packer"]
+    paths: ["{{ ansible_env.XDG_DATA_HOME }}/nvim/lazy"]
     age: -24h
     recurse: true
   register: nvim_pack
 - name: Ensure neovim packages are up to date
   command: |
-    nvim --headless -c 'autocmd User PackerComplete quitall' -c 'lua require("config.plugins")' -c 'PackerSync'
+    nvim --headless -c 'lua require("lazy").sync()' -c 'qall'
   when: nvim_pack.matched == 0
 
 - name: Hammerspoon spoons

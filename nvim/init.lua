@@ -1,6 +1,13 @@
 require("config.options")
-require("config.commands")
-require("config.appearance")
-require("config.mappings")
+require("config.lazy")
 
-if vim.g.neovide then require("config.gui") end
+vim.api.nvim_create_autocmd("User", {
+    pattern = "VeryLazy",
+    callback = function()
+        require("config.commands")
+        require("config.appearance")
+        require("config.mappings")
+
+        if vim.g.neovide then require("config.gui") end
+    end,
+})

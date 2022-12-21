@@ -24,15 +24,10 @@ matches:
     replace: "britain"
     word: true
     propagate_case: true
-  - trigger: ".uk"
-    replace: ".uk"
-    propagate_case: true
-  - triggers: ["UK", "The UK", "the UK"]
-    replace: "Britain"
-    word: true
-  - triggers: ["uk", "the uk"]
-    replace: "britain"
-    word: true
+  - regex: "(?P<start>(^|[^\\.]))(the )?uk"
+    replace: "{{start}}britain"
+  - regex: "(?P<start>(^|[^\\.]))([tT]he )?UK"
+    replace: "{{start}}Britain"
 
   # republican
   - triggers:

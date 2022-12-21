@@ -88,21 +88,6 @@ return {
         ft = { "css", "scss" },
     },
     {
-        "nvim-telescope/telescope.nvim",
-        dependencies = {
-            { "nvim-lua/plenary.nvim" },
-            {
-                "nvim-telescope/telescope-fzf-native.nvim",
-                build = "make",
-            },
-        },
-        cmd = { "Telescope" },
-        config = function()
-            require("config.telescope")
-            require("telescope").load_extension("fzf")
-        end,
-    },
-    {
         "nvim-tree/nvim-tree.lua",
         config = function() require("nvim-tree").setup() end,
         dependencies = { "nvim-tree/nvim-web-devicons" },

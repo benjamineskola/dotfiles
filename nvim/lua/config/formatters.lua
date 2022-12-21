@@ -21,6 +21,12 @@ local erb_lint = {
     end,
 }
 
+local rustfmt_nightly = {
+    exe = "rustfmt",
+    args = { "+nightly" },
+    stdin = true,
+}
+
 require("formatter").setup({
     filetype = {
         css = { require("formatter.filetypes.css").prettierd },
@@ -32,6 +38,7 @@ require("formatter").setup({
         markdown = { require("formatter.filetypes.markdown").prettierd },
         scss = { require("formatter.filetypes.css").prettierd },
         sh = { require("formatter.filetypes.sh").shfmt },
+        rust = { rustfmt_nightly },
         yaml = { require("formatter.filetypes.yaml").prettierd },
         ["*"] = {
             require("formatter.filetypes.any").remove_trailing_whitespace,

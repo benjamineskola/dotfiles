@@ -1,6 +1,19 @@
 local M = {
     "mfussenegger/nvim-lint",
+    ft = {},
 }
+
+M.linters = {
+    javascript = { "tsc" },
+    markdown = { "markdownlint" },
+    sh = { "shellcheck" },
+    typescript = { "tsc" },
+    vim = { "vint" },
+}
+
+for k, _ in pairs(M.linters) do
+    table.insert(M.ft, k)
+end
 
 M.config = function()
     local lint = require("lint")
@@ -21,13 +34,7 @@ M.config = function()
         }
     end
 
-    lint.linters_by_ft = {
-        javascript = { "tsc" },
-        markdown = { "markdownlint" },
-        sh = { "shellcheck" },
-        typescript = { "tsc" },
-        vim = { "vint" },
-    }
+    lint.linters_by_ft = M.linters
 end
 
 M.init = function()

@@ -10,4 +10,4 @@ if not vim.loop.fs_stat(lazypath) then
     })
 end
 vim.opt.runtimepath:prepend(lazypath)
-require("lazy").setup("config.plugins", { defaults = { lazy = true }, change_detection = { enabled = false } })
+require("lazy").setup("config.plugins", { defaults = { lazy = true } })

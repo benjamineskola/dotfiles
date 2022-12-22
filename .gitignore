@@ -14,7 +14,7 @@
 !/_gnupg/*.conf
 /_hammerspoon/Spoons
 /instaloader/session-*
-/nvim/plugin/packer_compiled.lua
+/nvim/lazy-lock.json
 /pre-commit-hooks
 /.pre-commit-hooks.yaml
 /src

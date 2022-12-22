@@ -10,15 +10,6 @@ return {
         config = function() require("tokyonight").setup() end,
     },
     {
-        "folke/trouble.nvim",
-        dependencies = { "nvim-tree/nvim-web-devicons" },
-        config = function()
-            require("trouble").setup({ auto_open = true, auto_close = true })
-            require("trouble-autoopen")
-        end,
-        cmd = { "TroubleToggle", "Trouble" },
-    },
-    {
         "jose-elias-alvarez/typescript.nvim",
         ft = { "typescript" },
         config = function() require("typescript").setup({}) end,

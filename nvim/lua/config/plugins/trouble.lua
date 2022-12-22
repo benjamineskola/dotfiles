@@ -1,4 +1,9 @@
-local M = {}
+local M = {
+    "folke/trouble.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    cmd = { "TroubleToggle", "Trouble" },
+}
+
 local state
 
 function M.disableAutoOpenClose()
@@ -20,14 +25,18 @@ function M.restoreAutoOpenClose()
     require("trouble").refresh({ auto = true, provider = "diagnostics" })
 end
 
-local augroup = vim.api.nvim_create_augroup("user_trouble", { clear = true })
-vim.api.nvim_create_autocmd({ "InsertEnter" }, {
-    callback = M.disableAutoOpenClose,
-    group = augroup,
-})
-vim.api.nvim_create_autocmd({ "InsertLeave" }, {
-    callback = M.restoreAutoOpenClose,
-    group = augroup,
-})
+M.config = function()
+    require("trouble").setup({ auto_open = true, auto_close = true })
+
+    local augroup = vim.api.nvim_create_augroup("user_trouble", { clear = true })
+    vim.api.nvim_create_autocmd({ "InsertEnter" }, {
+        callback = M.disableAutoOpenClose,
+        group = augroup,
+    })
+    vim.api.nvim_create_autocmd({ "InsertLeave" }, {
+        callback = M.restoreAutoOpenClose,
+        group = augroup,
+    })
+end
 
 return M

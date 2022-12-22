@@ -30,20 +30,22 @@ M.config = function()
     }
 end
 
-vim.api.nvim_create_autocmd({ "BufRead", "BufWritePost" }, {
-    callback = function() require("lint").try_lint() end,
-    group = vim.api.nvim_create_augroup("lint", { clear = true }),
-})
+M.init = function()
+    vim.api.nvim_create_autocmd({ "BufRead", "BufWritePost" }, {
+        callback = function() require("lint").try_lint() end,
+        group = vim.api.nvim_create_augroup("lint", { clear = true }),
+    })
 
-vim.api.nvim_create_autocmd({ "FileType" }, {
-    pattern = { "ruby", "typescript" },
-    callback = function()
-        vim.api.nvim_create_autocmd({ "TextChanged" }, {
-            callback = function() require("lint").try_lint() end,
-            group = vim.api.nvim_create_augroup("lint_ft_textchanged", { clear = true }),
-        })
-    end,
-    group = vim.api.nvim_create_augroup("lint_ft_textchanged_setup", { clear = true }),
-})
+    vim.api.nvim_create_autocmd({ "FileType" }, {
+        pattern = { "ruby", "typescript" },
+        callback = function()
+            vim.api.nvim_create_autocmd({ "TextChanged" }, {
+                callback = function() require("lint").try_lint() end,
+                group = vim.api.nvim_create_augroup("lint_ft_textchanged", { clear = true }),
+            })
+        end,
+        group = vim.api.nvim_create_augroup("lint_ft_textchanged_setup", { clear = true }),
+    })
+end
 
 return M

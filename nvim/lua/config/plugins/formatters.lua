@@ -1,6 +1,6 @@
 local M = {
     "mhartington/formatter.nvim",
-    event = { "BufWritePre" },
+    cmd = { "FormatWrite" },
 }
 
 M.config = function()
@@ -51,7 +51,9 @@ M.config = function()
             },
         },
     })
+end
 
+M.init = function()
     vim.api.nvim_create_autocmd({ "BufWritePost" }, {
         callback = function()
             if vim.b.format == nil or vim.b.format == true or vim.b.format == 1 then vim.cmd([[FormatWrite]]) end

@@ -53,16 +53,6 @@ return {
         "lukas-reineke/virt-column.nvim",
         config = function() require("virt-column").setup() end,
     },
-    {
-        "mfussenegger/nvim-dap",
-        dependencies = {
-            "mfussenegger/nvim-dap-python",
-            "suketa/nvim-dap-ruby",
-            "theHamsta/nvim-dap-virtual-text",
-        },
-        ft = { "python", "ruby" },
-        config = function() require("config.dap").setup() end,
-    },
     { "moll/vim-bbye", event = { "BufReadPost" } },
     {
         "brenoprata10/nvim-highlight-colors",

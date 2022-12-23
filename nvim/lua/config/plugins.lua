@@ -1,8 +1,11 @@
 return {
     {
         "christoomey/vim-sort-motion",
-        dependencies = { "kana/vim-textobj-indent" },
+        dependencies = {
+            { "kana/vim-textobj-indent", dependencies = { "kana/vim-textobj-user" } },
+        },
         config = function() vim.g.sort_motion_flags = "i" end,
+        event = { "VeryLazy" },
     },
     {
         "folke/tokyonight.nvim",

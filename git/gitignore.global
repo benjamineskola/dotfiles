@@ -53,3 +53,5 @@ Thumbs.db
 
 # Rubocop cached remote configs
 .rubocop-http*
+
+/node_modules

@@ -7,12 +7,11 @@ return {
     {
         "folke/tokyonight.nvim",
         lazy = false,
-        config = function() require("tokyonight").setup() end,
     },
     {
         "jose-elias-alvarez/typescript.nvim",
         ft = { "typescript" },
-        config = function() require("typescript").setup({}) end,
+        config = true,
     },
     { "junegunn/goyo.vim", ft = { "markdown" } },
     {
@@ -32,34 +31,32 @@ return {
     },
     {
         "lukas-reineke/indent-blankline.nvim",
-        config = function()
-            require("indent_blankline").setup({
-                space_char_blankline = " ",
-                show_current_context = true,
-                show_current_context_start = true,
-            })
-        end,
+        config = {
+            space_char_blankline = " ",
+            show_current_context = true,
+            show_current_context_start = true,
+        },
     },
     {
         "lukas-reineke/virt-column.nvim",
-        config = function() require("virt-column").setup() end,
+        config = true,
     },
     { "moll/vim-bbye", event = { "BufReadPost" } },
     {
         "brenoprata10/nvim-highlight-colors",
-        config = function() require("nvim-highlight-colors").setup({}) end,
+        config = true,
         ft = { "css", "scss" },
     },
     {
         "nvim-tree/nvim-tree.lua",
-        config = function() require("nvim-tree").setup() end,
+        config = true,
         dependencies = { "nvim-tree/nvim-web-devicons" },
         cmd = { "NvimTreeToggle" },
     },
     { "rizzatti/dash.vim" },
     { "sheerun/vim-polyglot" },
     { "simnalamburt/vim-mundo", cmd = "MundoToggle" },
-    { "simrat39/rust-tools.nvim", ft = { "rust", "toml" }, config = function() require("rust-tools").setup() end },
+    { "simrat39/rust-tools.nvim", ft = { "rust", "toml" }, config = true },
     { "tpope/vim-commentary", event = { "VeryLazy" } },
     { "tpope/vim-dispatch", event = { "VeryLazy" } },
     { "tpope/vim-eunuch", event = { "VeryLazy" } },
@@ -74,11 +71,9 @@ return {
     { "williamboman/mason.nvim" },
     {
         "windwp/nvim-autopairs",
-        config = function()
-            require("nvim-autopairs").setup({
-                check_ts = true,
-                enable_afterquote = false,
-            })
-        end,
+        config = {
+            check_ts = true,
+            enable_afterquote = false,
+        },
     },
 }

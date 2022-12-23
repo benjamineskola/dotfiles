@@ -47,7 +47,8 @@ return {
     },
     {
         "lukas-reineke/virt-column.nvim",
-        config = true,
+        config = { char = "│" },
+        event = { "BufRead", "BufNewFile" },
     },
     { "moll/vim-bbye", event = { "BufReadPost" } },
     {

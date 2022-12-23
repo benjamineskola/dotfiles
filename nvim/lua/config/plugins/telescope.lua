@@ -29,11 +29,23 @@ end
 
 M.init = function()
     vim.keymap.set("n", "<leader>b", function() require("telescope.builtin").buffers() end, { noremap = true })
-    vim.keymap.set("n", "<Leader>f", function() require("telescope.builtin").find_files() end, { noremap = true })
+    vim.keymap.set("n", "<Leader>f", M.project_files, { noremap = true })
     vim.keymap.set("n", "<Leader>g", function() require("telescope.builtin").live_grep() end, { noremap = true })
     vim.keymap.set("n", "<Leader>o", function() require("telescope.builtin").oldfiles() end, { noremap = true })
     vim.keymap.set("n", "<leader>c", M.projects, { noremap = true })
     vim.keymap.set("n", "<leader>y", M.yaml_symbols, { noremap = true })
+end
+
+function M.project_files(opts)
+    opts = opts or {}
+    opts.show_untracked = true
+    if vim.loop.fs_stat(".git") then
+        require("telescope.builtin").git_files(opts)
+    else
+        local client = vim.lsp.get_active_clients()[1]
+        if client then opts.cwd = client.config.root_dir end
+        require("telescope.builtin").find_files(opts)
+    end
 end
 
 M.projects = function()

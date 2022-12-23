@@ -66,7 +66,7 @@ return {
     { "tpope/vim-fugitive", dependencies = { "tpope/vim-rhubarb" }, event = { "VeryLazy" } },
     { "tpope/vim-projectionist", event = { "VeryLazy" } },
     { "tpope/vim-ragtag", config = function() vim.g.ragtag_global_maps = true end, event = { "VeryLazy" } },
-    { "tpope/vim-rails", event = { "VeryLazy" } },
+    { "tpope/vim-rails", ft = { "ruby", "eruby" } },
     { "tpope/vim-repeat", event = { "VeryLazy" } },
     { "tpope/vim-sensible", event = { "VeryLazy" } },
     { "tpope/vim-surround", event = { "VeryLazy" } },

@@ -1,5 +1,4 @@
 vim.opt.belloff = "all"
-vim.opt.colorcolumn = "80"
 vim.opt.concealcursor = "nc"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldlevelstart = 99

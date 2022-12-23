@@ -1,1 +1,1 @@
-vim.wo.colorcolumn = "80,88"
+vim.b.colorcolumn = 88

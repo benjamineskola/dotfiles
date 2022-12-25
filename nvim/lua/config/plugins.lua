@@ -5,7 +5,7 @@ return {
             { "kana/vim-textobj-indent", dependencies = { "kana/vim-textobj-user" } },
         },
         config = function() vim.g.sort_motion_flags = "i" end,
-        event = { "VeryLazy" },
+        event = { "BufRead", "BufNewFile" },
     },
     {
         "folke/tokyonight.nvim",
@@ -26,7 +26,7 @@ return {
         config = function() vim.g["test#strategy"] = "neovim" end,
         cmd = { "TestNearest", "TestFile", "TestSuit", "TestLast", "TestVisit" },
     },
-    { "Konfekt/FastFold" },
+    { "Konfekt/FastFold", event = { "BufRead", "BufNewFile" } },
     {
         "kosayoda/nvim-lightbulb",
         config = function()
@@ -43,14 +43,14 @@ return {
             show_current_context = true,
             show_current_context_start = true,
         },
-        event = { "BufReadPost" },
+        event = { "BufRead", "BufNewFile" },
     },
     {
         "lukas-reineke/virt-column.nvim",
         config = { char = "│" },
         event = { "BufRead", "BufNewFile" },
     },
-    { "moll/vim-bbye", event = { "BufReadPost" } },
+    { "moll/vim-bbye", event = { "BufRead", "BufNewFile" } },
     {
         "brenoprata10/nvim-highlight-colors",
         config = true,
@@ -62,8 +62,8 @@ return {
         dependencies = { "nvim-tree/nvim-web-devicons" },
         cmd = { "NvimTreeToggle" },
     },
-    { "rizzatti/dash.vim" },
-    { "sheerun/vim-polyglot" },
+    { "rizzatti/dash.vim", keys = { "<Plug>DashSearch" } },
+    { "sheerun/vim-polyglot", event = { "VeryLazy" } },
     { "simnalamburt/vim-mundo", cmd = "MundoToggle" },
     { "simrat39/rust-tools.nvim", ft = { "rust", "toml" }, config = true },
     { "tpope/vim-commentary", event = { "VeryLazy" } },

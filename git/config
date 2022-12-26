@@ -37,12 +37,15 @@
 	templatedir = ~/.config/git/template
 	defaultBranch = main
 [merge]
-  tool = nvim
+  tool = splice
 [mergetool]
 	prompt = false
 	keepBackup = false
 [mergetool "nvim"]
   cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
+[mergetool "splice"]
+  cmd = "nvim -f $BASE $LOCAL $REMOTE $MERGED -c 'SpliceInit'"
+  trustExitCode = true
 [delta]
 	line-numbers = true
 [rerere]

@@ -74,6 +74,7 @@ return {
     { "sheerun/vim-polyglot", event = { "VeryLazy" } },
     { "simnalamburt/vim-mundo", cmd = "MundoToggle" },
     { "simrat39/rust-tools.nvim", ft = { "rust", "toml" }, config = true },
+    { "sjl/splice.vim", lazy = false },
     { "tpope/vim-commentary", event = { "VeryLazy" } },
     { "tpope/vim-dispatch", event = { "VeryLazy" } },
     { "tpope/vim-eunuch", event = { "VeryLazy" } },

@@ -10,7 +10,6 @@ return {
     },
     {
         "code-biscuits/nvim-biscuits",
-        commit = "d1bb23710",
         config = { cursor_line_only = true },
         event = { "FileType" },
         dependencies = { "nvim-treesitter/nvim-treesitter" },

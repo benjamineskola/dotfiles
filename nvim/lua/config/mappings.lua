@@ -38,24 +38,6 @@ abbrev("c", "'<,'>s", "'<,'>sm", { noreabbrev = true })
 -- allow semicolon instead of colon for command mode
 map("n", ";", ":", { noremap = true })
 
--- edit/source vim configs
-local plugins_file = vim.fn.stdpath("config") .. "/lua/config/plugins.lua"
-local mappings_file = vim.fn.stdpath("config") .. "/lua/config/mappings.lua"
-
-map("n", "<Leader>vv", "<Cmd>edit $MYVIMRC<CR>")
-map("n", "<Leader>vp", "<Cmd>edit " .. plugins_file .. "<CR>")
-map("n", "<Leader>vm", "<Cmd>edit " .. mappings_file .. "<CR>")
-map(
-    "n",
-    "<Leader>vf",
-    "<Cmd>edit " .. vim.fn.stdpath("config") .. "/ftplugin/" .. vim.bo.filetype .. ".vim<CR>",
-    { noremap = true }
-)
-
-map("n", "<Leader>sv", "<Cmd>source $MYVIMRC<CR>", { noremap = true })
-map("n", "<Leader>sp", "<Cmd>runtime " .. plugins_file .. "<CR>", { noremap = true })
-map("n", "<Leader>sm", "<Cmd>runtime " .. mappings_file .. "<CR>", { noremap = true })
-
 -- run current file in a terminal
 map("n", "<Leader>vr", "<Cmd>belowright split +terminal %<CR>", { noremap = true })
 map(

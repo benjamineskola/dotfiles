@@ -10,4 +10,7 @@ if not vim.loop.fs_stat(lazypath) then
     })
 end
 vim.opt.runtimepath:prepend(lazypath)
-require("lazy").setup("config.plugins", { defaults = { lazy = true } })
+require("lazy").setup("config.plugins", {
+    defaults = { lazy = true },
+    dev = { path = vim.fn.isdirectory(vim.fn.expand("~/Code/Personal")) > 0 and "~/Code/Personal" or "~/Code/" },
+})

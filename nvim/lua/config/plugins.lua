@@ -12,7 +12,7 @@ return {
         "code-biscuits/nvim-biscuits",
         config = { cursor_line_only = true },
         event = { "FileType" },
-        dependencies = { "nvim-treesitter/nvim-treesitter" },
+        dependencies = { "nvim-treesitter" },
     },
     {
         "folke/tokyonight.nvim",

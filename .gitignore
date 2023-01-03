@@ -12,7 +12,8 @@
 /gh
 /_gnupg/*
 !/_gnupg/*.conf
-/_hammerspoon/Spoons
+/_hammerspoon/Spoons/Bear.spoon
+/_hammerspoon/Spoons/vendor
 /instaloader/session-*
 /nvim/lazy-lock.json
 /pre-commit-hooks

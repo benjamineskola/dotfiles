@@ -1,4 +1,4 @@
-vim.opt.guifont = "Fira Code:h14"
+vim.opt.guifont = "Input Mono:h14"
 
 vim.g.neovide_hide_mouse_when_typing = true
 vim.g.neovide_cursor_animation_length = 0

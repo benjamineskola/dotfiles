@@ -39,12 +39,13 @@ abbrev("c", "'<,'>s", "'<,'>sm", { noreabbrev = true })
 map("n", ";", ":", { noremap = true })
 
 -- run current file in a terminal
-map("n", "<Leader>vr", "<Cmd>belowright split +terminal %<CR>", { noremap = true })
+map("n", "<Leader>vr", function() vim.cmd("belowright split term://%:p") end, { noremap = true })
 map(
     "n",
-    -- "<expr>",
     "<Leader>vR",
-    function() vim.cmd("terminal %:p " .. vim.fn.join(vim.fn.split(vim.fn.input("Parameters: "), " "), " ")) end,
+    function()
+        vim.cmd("belowright split term://%:p " .. vim.fn.join(vim.fn.split(vim.fn.input("Parameters: "), " "), " "))
+    end,
     { noremap = true }
 )
 

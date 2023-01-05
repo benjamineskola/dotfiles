@@ -26,6 +26,12 @@ M.config = function()
         end,
     }
 
+    local rome_lint = {
+        exe = "rome",
+        args = { "check", "--apply-suggested" },
+        tempfile_postfix = "." .. util.get_current_buffer_file_extension(),
+    }
+
     local cargo_fix = {
         exe = "cargo",
         args = { "fix", "--allow-dirty", "--allow-staged" },
@@ -44,12 +50,14 @@ M.config = function()
             eruby = { erb_lint },
             fish = { require("formatter.filetypes.fish").fishindent },
             html = { require("formatter.filetypes.html").prettierd },
+            javascript = { rome_lint },
             json = { require("formatter.filetypes.json").prettierd },
             lua = { require("formatter.filetypes.lua").stylua },
             markdown = { require("formatter.filetypes.markdown").prettierd },
             scss = { require("formatter.filetypes.css").prettierd },
             sh = { require("formatter.filetypes.sh").shfmt },
             rust = { cargo_fix, rustfmt_nightly },
+            typescript = { rome_lint },
             yaml = { require("formatter.filetypes.yaml").prettierd },
             ["*"] = {
                 require("formatter.filetypes.any").remove_trailing_whitespace,

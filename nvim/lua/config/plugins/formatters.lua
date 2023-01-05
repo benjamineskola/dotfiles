@@ -35,13 +35,8 @@ M.config = function()
     local cargo_fix = {
         exe = "cargo",
         args = { "fix", "--allow-dirty", "--allow-staged" },
+        ignore_exitcode = true,
         no_append = true,
-    }
-
-    local rustfmt_nightly = {
-        exe = "rustfmt",
-        args = { "+nightly" },
-        stdin = true,
     }
 
     require("formatter").setup({
@@ -56,7 +51,7 @@ M.config = function()
             markdown = { require("formatter.filetypes.markdown").prettierd },
             scss = { require("formatter.filetypes.css").prettierd },
             sh = { require("formatter.filetypes.sh").shfmt },
-            rust = { cargo_fix, rustfmt_nightly },
+            rust = { cargo_fix },
             typescript = { rome_lint },
             yaml = { require("formatter.filetypes.yaml").prettierd },
             ["*"] = {

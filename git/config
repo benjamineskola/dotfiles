@@ -10,49 +10,49 @@
 	excludesfile = ~/.config/git/gitignore.global
 	pager = delta --max-line-length=0 --syntax-theme=tokyonight_$(defaults read -globalDomain AppleInterfaceStyle >/dev/null 2>&1 && echo night --dark || echo day --light)
 	quotepath = off
+[delta]
+	line-numbers = true
 [diff]
 	renames = copy
+[format]
+	pretty = %C(auto)%h%Creset %C(auto)%d%Creset %s %C(auto,cyan)(%ad) %C(auto,magenta)<%an>%Creset
 [hub]
 	protocol = https
+[init]
+	templatedir = ~/.config/git/template
+	defaultBranch = main
 [interactive]
 	diffFilter = delta --color-only --max-line-length=0 --syntax-theme=tokyonight_$(defaults read -globalDomain AppleInterfaceStyle >/dev/null 2>&1 && echo night --dark || echo day --light)
+[log]
+	abbrevCommit = true
+	decorate = true
+[merge]
+	tool = splice
+[mergetool]
+	prompt = false
+	keepBackup = false
+[mergetool "nvim"]
+	cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
+[mergetool "splice"]
+	cmd = "nvim -f $BASE $LOCAL $REMOTE $MERGED -c 'SpliceInit'"
+	trustExitCode = true
 [pull]
 	rebase = true
 [push]
 	default = current
 	autoSetupRemote = true
-[user]
-	name = Benjamin Eskola
-	email = ben@eskola.uk
-[log]
-	abbrevCommit = true
-	decorate = true
 [rebase]
 	autoStash = true
 	autosquash = true
 	updateRefs = true
 [status]
-       short = true
-       branch = true
-[init]
-	templatedir = ~/.config/git/template
-	defaultBranch = main
-[merge]
-  tool = splice
-[mergetool]
-	prompt = false
-	keepBackup = false
-[mergetool "nvim"]
-  cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
-[mergetool "splice"]
-  cmd = "nvim -f $BASE $LOCAL $REMOTE $MERGED -c 'SpliceInit'"
-  trustExitCode = true
-[delta]
-	line-numbers = true
+	short = true
+	branch = true
 [rerere]
 	enabled = true
-[format]
-	pretty = %C(auto)%h%Creset %C(auto)%d%Creset %s %C(auto,cyan)(%ad) %C(auto,magenta)<%an>%Creset
+[user]
+	name = Benjamin Eskola
+	email = ben@eskola.uk
 
 [includeIf "gitdir/i:~/Code/Work/"]
 	path = ~/.config/git/config.work

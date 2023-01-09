@@ -30,6 +30,7 @@
 [rebase]
 	autoStash = true
 	autosquash = true
+	updateRefs = true
 [status]
        short = true
        branch = true

@@ -1,13 +1,21 @@
 - name: Install latest Rust version
   environment:
     CARGO_DIR: "{{ ansible_env.XDG_DATA_HOME}}/cargo"
+    CARGO_HOME: "{{ ansible_env.XDG_DATA_HOME}}/cargo"
     RUSTUP_HOME: "{{ ansible_env.XDG_DATA_HOME}}/rustup"
   block:
+    - name: Check if rustup exists
+      stat:
+        path: "{{ ansible_env.CARGO_DIR }}/bin/rustup"
+      register: rustup
+    - name: Initialise rustup
+      command: rustup-init --no-update-default-toolchain --no-modify-path -y
+      when: not rustup.stat.exists
     - name: Set default rust version to stable
-      command: rustup default stable
+      command: "{{ ansible_env.XDG_DATA_HOME }}/cargo/bin/rustup default stable"
     - name: Additionally install nightly
-      command: rustup install nightly
+      command: "{{ ansible_env.XDG_DATA_HOME }}/cargo/bin/rustup install nightly"
     - name: "Use nightly for specific components"
-      command: "rustup component add {{ item }} --toolchain nightly"
+      command: "{{ ansible_env.XDG_DATA_HOME }}/cargo/bin/rustup component add {{ item }} --toolchain nightly"
       loop:
         - rustfmt

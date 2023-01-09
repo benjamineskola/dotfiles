@@ -50,6 +50,7 @@ brew "tmux"
 brew "trash"
 brew "tree"
 brew "wget"
+brew "yq"
 brew "zola"
 brew "zoxide"
 

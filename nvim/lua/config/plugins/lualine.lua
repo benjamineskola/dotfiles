@@ -15,7 +15,7 @@ local function diff_source()
     end
 end
 
-M.config = {
+M.opts = {
     sections = {
         lualine_b = {
             { "b:gitsigns_head", icon = "" },

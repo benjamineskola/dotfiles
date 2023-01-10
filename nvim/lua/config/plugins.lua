@@ -10,7 +10,7 @@ return {
     },
     {
         "code-biscuits/nvim-biscuits",
-        config = { cursor_line_only = true },
+        opts = { cursor_line_only = true },
         event = { "FileType" },
         dependencies = { "nvim-treesitter" },
     },
@@ -58,7 +58,7 @@ return {
     },
     {
         "lukas-reineke/indent-blankline.nvim",
-        config = {
+        opts = {
             space_char_blankline = " ",
             show_current_context = true,
             show_current_context_start = true,
@@ -67,7 +67,7 @@ return {
     },
     {
         "lukas-reineke/virt-column.nvim",
-        config = { char = "│" },
+        opts = { char = "│" },
         event = { "BufRead", "BufNewFile" },
     },
     { "moll/vim-bbye", event = { "BufRead", "BufNewFile" } },
@@ -88,7 +88,7 @@ return {
     {
         "simrat39/rust-tools.nvim",
         ft = { "rust", "toml" },
-        config = {
+        opts = {
             server = {
                 on_attach = function()
                     vim.api.nvim_create_autocmd({ "BufWritePre" }, {
@@ -115,7 +115,7 @@ return {
     { "williamboman/mason.nvim" },
     {
         "windwp/nvim-autopairs",
-        config = {
+        opts = {
             check_ts = true,
             enable_afterquote = false,
         },

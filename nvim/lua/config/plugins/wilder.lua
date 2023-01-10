@@ -1,4 +1,4 @@
-M = {
+local M = {
     "gelguy/wilder.nvim",
     event = "VeryLazy",
     build = ":UpdateRemotePlugins",

@@ -55,7 +55,9 @@ M.projects = function()
         find_command = {
             "sh",
             "-c",
-            "(zoxide query -l; fd -E Library -E .Trash --type d -H '^\\.(git|hg)$' $HOME -x dirname; echo $HOME) | perl -ne 'print unless $seen{$_}++'",
+            [[(zoxide query -l;
+              fd -E Library -E .Trash --type d -H '^\\.(git|hg)$' $HOME -x dirname;
+              echo $HOME) | perl -ne 'print unless $seen{$_}++']],
         },
         attach_mappings = function(prompt_bufnr)
             actions.select_default:replace(function()

@@ -1,6 +1,7 @@
 M = {
     "gelguy/wilder.nvim",
     event = "VeryLazy",
+    build = ":UpdateRemotePlugins",
     dependencies = {
         "nvim-tree/nvim-web-devicons",
         { "romgrk/fzy-lua-native" },

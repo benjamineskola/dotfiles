@@ -45,7 +45,6 @@ if status is-interactive
     alias lal 'ls -la'
     alias lsd 'ls -d'
 
-    type -fq nvim && alias vi nvim
     alias vim vi
     alias neovide 'neovide --notabs'
 

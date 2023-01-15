@@ -4,4 +4,6 @@ mdless
 neovim
 pry
 rspec
+solargraph
+solargraph-rails
 standard

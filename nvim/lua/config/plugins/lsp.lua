@@ -61,30 +61,7 @@ M.config = function()
             end,
         },
         rust_analyzer = { setup = false },
-        ruby_ls = {
-            package_name = "ruby-lsp",
-            on_attach = function(client, bufnr)
-                default_on_attach(client)
-
-                vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePre", "CursorHold" }, {
-                    buffer = bufnr,
-
-                    callback = function()
-                        local params = vim.lsp.util.make_text_document_params(bufnr)
-
-                        client.request("textDocument/diagnostic", { textDocument = params }, function(err, result)
-                            if err then return end
-
-                            vim.lsp.diagnostic.on_publish_diagnostics(
-                                nil,
-                                vim.tbl_extend("keep", params, { diagnostics = result.items }),
-                                { client_id = client.id }
-                            )
-                        end)
-                    end,
-                })
-            end,
-        },
+        solargraph = {},
         sumneko_lua = {
             package_name = "lua-language-server",
             settings = {

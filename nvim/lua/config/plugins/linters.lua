@@ -8,6 +8,7 @@ local linters = {
     markdown = { "markdownlint" },
     sh = { "shellcheck" },
     typescript = { "tsc" },
+    python = { "ruff" },
     vim = { "vint" },
 }
 

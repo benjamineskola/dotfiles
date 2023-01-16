@@ -26,7 +26,7 @@ M.config = function()
             smart_rename = {
                 enable = true,
                 keymaps = {
-                    smart_rename = "<leader>r",
+                    smart_rename = "<leader>rn",
                 },
             },
             navigation = {

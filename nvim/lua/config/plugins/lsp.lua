@@ -128,7 +128,7 @@ M.config = function()
             vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
 
             -- Renames all references to the symbol under the cursor
-            vim.keymap.set("n", "<Leader>r", vim.lsp.buf.rename, opts)
+            vim.keymap.set("n", "<Leader>rn", vim.lsp.buf.rename, opts)
 
             -- Selects a code action available at the current cursor position
             vim.keymap.set({ "n", "v" }, "<Leader>x", vim.lsp.buf.code_action, opts)

@@ -34,7 +34,7 @@ M.config = function()
 
     local cargo_fix = {
         exe = "cargo",
-        args = { "fix", "--allow-dirty", "--allow-staged" },
+        args = { "clippy", "--fix", "--allow-dirty", "--allow-staged" },
         ignore_exitcode = true,
         no_append = true,
     }

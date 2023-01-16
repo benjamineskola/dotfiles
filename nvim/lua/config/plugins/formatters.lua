@@ -63,12 +63,14 @@ M.config = function()
 end
 
 M.init = function()
-    vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-        callback = function()
-            if vim.b.format == nil or vim.b.format == true or vim.b.format == 1 then vim.cmd([[FormatWrite]]) end
-        end,
-        group = vim.api.nvim_create_augroup("autoformat", { clear = true }),
-    })
+    if vim.bo.filetype ~= "rust" then
+        vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+            callback = function()
+                if vim.b.format == nil or vim.b.format == true or vim.b.format == 1 then vim.cmd([[FormatWrite]]) end
+            end,
+            group = vim.api.nvim_create_augroup("autoformat", { clear = true }),
+        })
+    end
 end
 
 return M

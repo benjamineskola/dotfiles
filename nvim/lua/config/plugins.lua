@@ -92,7 +92,10 @@ return {
             server = {
                 on_attach = function()
                     vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-                        callback = function(opts) vim.lsp.buf.format({ bufnr = opts.buf }) end,
+                        callback = function(opts)
+                            vim.lsp.buf.format({ bufnr = opts.buf })
+                            vim.cmd([[FormatWrite]])
+                        end,
                         group = vim.api.nvim_create_augroup("FormatSync", { clear = true }),
                     })
                 end,

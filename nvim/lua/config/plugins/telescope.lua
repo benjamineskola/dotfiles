@@ -27,16 +27,7 @@ M.config = function()
     require("telescope").load_extension("fzf")
 end
 
-M.init = function()
-    vim.keymap.set("n", "<leader>b", function() require("telescope.builtin").buffers() end, { noremap = true })
-    vim.keymap.set("n", "<Leader>f", M.project_files, { noremap = true })
-    vim.keymap.set("n", "<Leader>g", function() require("telescope.builtin").live_grep() end, { noremap = true })
-    vim.keymap.set("n", "<Leader>o", function() require("telescope.builtin").oldfiles() end, { noremap = true })
-    vim.keymap.set("n", "<leader>c", M.projects, { noremap = true })
-    vim.keymap.set("n", "<leader>y", M.yaml_symbols, { noremap = true })
-end
-
-function M.project_files(opts)
+local function project_files(opts)
     opts = opts or {}
     opts.show_untracked = true
     if vim.loop.fs_stat(".git") then
@@ -48,7 +39,7 @@ function M.project_files(opts)
     end
 end
 
-M.projects = function()
+local function projects()
     local actions = require("telescope.actions")
 
     local opts = {
@@ -128,7 +119,7 @@ local function gen_from_yaml_nodes(opts)
     end
 end
 
-M.yaml_symbols = function(opts)
+local function yaml_symbols(opts)
     local conf = require("telescope.config").values
     local finders = require("telescope.finders")
     local pickers = require("telescope.pickers")
@@ -157,6 +148,15 @@ M.yaml_symbols = function(opts)
             previewer = conf.grep_previewer(opts),
         })
         :find()
+end
+
+M.init = function()
+    vim.keymap.set("n", "<leader>b", function() require("telescope.builtin").buffers() end, { noremap = true })
+    vim.keymap.set("n", "<Leader>f", project_files, { noremap = true })
+    vim.keymap.set("n", "<Leader>g", function() require("telescope.builtin").live_grep() end, { noremap = true })
+    vim.keymap.set("n", "<Leader>o", function() require("telescope.builtin").oldfiles() end, { noremap = true })
+    vim.keymap.set("n", "<leader>c", projects, { noremap = true })
+    vim.keymap.set("n", "<leader>y", yaml_symbols, { noremap = true })
 end
 
 return M

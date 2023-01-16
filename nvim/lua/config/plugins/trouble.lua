@@ -6,7 +6,7 @@ local M = {
 
 local state
 
-function M.disableAutoOpenClose()
+local function disableAutoOpenClose()
     local troubleOpts = require("trouble.config").options
     state = {
         auto_open = troubleOpts.auto_open,
@@ -16,7 +16,7 @@ function M.disableAutoOpenClose()
     troubleOpts.auto_close = false
 end
 
-function M.restoreAutoOpenClose()
+local function restoreAutoOpenClose()
     if state == nil then return end
     local troubleOpts = require("trouble.config").options
     troubleOpts.auto_open = state.auto_open
@@ -30,11 +30,11 @@ M.config = function()
 
     local augroup = vim.api.nvim_create_augroup("user_trouble", { clear = true })
     vim.api.nvim_create_autocmd({ "InsertEnter" }, {
-        callback = M.disableAutoOpenClose,
+        callback = disableAutoOpenClose,
         group = augroup,
     })
     vim.api.nvim_create_autocmd({ "InsertLeave" }, {
-        callback = M.restoreAutoOpenClose,
+        callback = restoreAutoOpenClose,
         group = augroup,
     })
 end

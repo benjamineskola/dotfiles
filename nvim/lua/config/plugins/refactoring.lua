@@ -7,7 +7,7 @@ local M = {
     },
 }
 
-M.setup = true
+M.config = true
 M.init = function()
     require("telescope").load_extension("refactoring")
     vim.keymap.set(

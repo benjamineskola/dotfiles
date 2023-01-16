@@ -3,7 +3,7 @@ local M = {
     ft = {},
 }
 
-M.linters = {
+local linters = {
     javascript = { "tsc" },
     markdown = { "markdownlint" },
     sh = { "shellcheck" },
@@ -11,7 +11,7 @@ M.linters = {
     vim = { "vint" },
 }
 
-for k, _ in pairs(M.linters) do
+for k, _ in pairs(linters) do
     table.insert(M.ft, k)
 end
 
@@ -34,7 +34,7 @@ M.config = function()
         }
     end
 
-    lint.linters_by_ft = M.linters
+    lint.linters_by_ft = linters
 end
 
 M.init = function()

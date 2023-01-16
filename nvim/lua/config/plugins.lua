@@ -15,6 +15,15 @@ return {
         dependencies = { "nvim-treesitter" },
     },
     {
+        "cuducos/yaml.nvim",
+        ft = { "yaml" }, -- optional
+        dependencies = {
+            "nvim-treesitter",
+            "telescope.nvim",
+        },
+        config = function() vim.keymap.set({ "n" }, "<leader>y", require("yaml_nvim").telescope, { remap = false }) end,
+    },
+    {
         "folke/tokyonight.nvim",
         lazy = false,
         config = function()

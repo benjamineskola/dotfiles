@@ -52,6 +52,7 @@ M.config = function()
             scss = { require("formatter.filetypes.css").prettierd },
             sh = { require("formatter.filetypes.sh").shfmt },
             rust = { cargo_fix },
+            toml = { require("formatter.filetypes.toml").taplo },
             typescript = { rome_lint },
             yaml = { require("formatter.filetypes.yaml").prettierd },
             ["*"] = {

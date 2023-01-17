@@ -66,6 +66,7 @@ M.config = function()
                 },
             },
         },
+        taplo = {},
         tsserver = { package_name = "typescript-language-server", setup = false },
         vimls = { package_name = "vim-language-server" },
         yamlls = { package_name = "yaml-language-server" },

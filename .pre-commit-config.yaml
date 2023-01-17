@@ -43,6 +43,11 @@ repos:
         entry: luacheck
         language: system
         types: [lua]
+      - id: taplo
+        name: taplo
+        entry: taplo fmt
+        language: system
+        types: [toml]
   - repo: https://github.com/psf/black
     rev: 22.3.0
     hooks:

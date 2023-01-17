@@ -35,11 +35,7 @@ M.config = function()
                     plugins = {
                         autopep8 = { enabled = false },
                         black = { enabled = true },
-                        flake8 = { enabled = true },
-                        mccabe = { enabled = false },
-                        pycodestyle = { enabled = false },
-                        pydocstyle = { enabled = false },
-                        pyflakes = { enabled = false },
+                        ruff = { enabled = true },
                         yapf = { enabled = false },
                     },
                 },

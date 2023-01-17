@@ -16,9 +16,10 @@ M.config = function()
     end
 
     local lsp_servers = {
+        ansiblels = { package_name = "ansible-language-server" },
         bashls = { package_name = "bash-language-server" },
         cssls = { package_name = "css-lsp" },
-        eslint = { package_name = "eslint-lsp" },
+        dockerls = { package_name = "dockerfile-language-server" },
         golangci_lint_ls = { package_name = "golangci-lint-langserver" },
         gopls = {
             settings = { gopls = { gofumpt = true } },
@@ -28,6 +29,7 @@ M.config = function()
         --     settings = { haskell = { formattingProvider = "brittany" } },
         -- },
         jsonls = { package_name = "json-lsp" },
+        marksman = {},
         pylsp = {
             package_name = "python-lsp-server",
             settings = {

@@ -1,7 +1,9 @@
+---
 - name: Ensure Bat theme directory exists
   file:
     path: "{{ ansible_env.XDG_CONFIG_HOME }}/bat/themes"
     state: directory
+    mode: 0700
 
 - name: Check age of Bat theme
   find:
@@ -13,16 +15,11 @@
 
 - name: Install Bat theme
   get_url:
-    url: https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/tokyonight_night.tmTheme
+    url: https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/tokyonight_{{ item }}.tmTheme
     dest: "{{ ansible_env.XDG_CONFIG_HOME }}/bat/themes/tokyonight_night.tmTheme"
+    mode: 0600
   when: bat_theme.matched == 0
-
-- name: Install Bat theme
-  get_url:
-    url: https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/tokyonight_day.tmTheme
-    dest: "{{ ansible_env.XDG_CONFIG_HOME }}/bat/themes/tokyonight_day.tmTheme"
-  when: bat_theme.matched == 0
-
+  loop: [night, day]
 - name: Check if compiled bat syntaxes and themes exist
   stat:
     path: "{{ ansible_env.XDG_CACHE_HOME }}/bat/{{ item }}.bin"
@@ -47,11 +44,11 @@
 
 - name: Hammerspoon spoons
   block:
-    - name: Core
+    - name: Core # noqa latest[git]
       git:
         repo: git@github.com:Hammerspoon/Spoons.git
         dest: "{{ ansible_env.XDG_CONFIG_HOME }}/_hammerspoon/Spoons/vendor"
-    - name: Bear
+    - name: Bear # noqa latest[git]
       git:
         repo: git@github.com:dcreemer/hammerspoon-bear.git
         dest: "{{ ansible_env.XDG_CONFIG_HOME }}/_hammerspoon/Spoons/Bear.spoon"

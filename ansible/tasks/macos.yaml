@@ -1,7 +1,13 @@
+---
 - name: Make iterm config behave
   block:
-    - command: 'defaults write com.googlecode.iterm2 DynamicProfilesPath "{{ ansible_env.XDG_CONFIG_HOME }}/iterm2"'
-    - command: 'defaults write com.googlecode.iterm2 PreferredBaseDir "{{ ansible_env.XDG_CACHE_HOME }}/iTerm2"'
+    - name: Keep profiles in config directory
+      command: defaults write com.googlecode.iterm2 DynamicProfilesPath "{{ ansible_env.XDG_CONFIG_HOME }}/iterm2"
+      changed_when: true
+    - name: Save cache data to a cache directory
+      command: defaults write com.googlecode.iterm2 PreferredBaseDir "{{ ansible_env.XDG_CACHE_HOME }}/iTerm2"
+      changed_when: true
 
 - name: Don't automatically rearrange spaces
   command: defaults write com.apple.dock mru-spaces -bool false
+  changed_when: true

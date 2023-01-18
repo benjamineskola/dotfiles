@@ -1,3 +1,4 @@
+---
 - name: Check Homebrew recency
   find:
     paths: [/opt/homebrew/.git]

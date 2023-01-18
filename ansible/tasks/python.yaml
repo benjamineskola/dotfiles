@@ -1,14 +1,17 @@
+---
 - name: Install Python versions
   environment:
     PYENV_ROOT: "{{ ansible_env.XDG_DATA_HOME }}/pythons"
   block:
     - name: Get available minor versions
-      shell: 'python-build --definitions | grep "^3" | grep -v "[a-z]" | cut -d . -f 1-2 | sort -u --version-sort | tail -n +8'
+      shell: python-build --definitions | grep "^3" | grep -v "[a-z]" | cut -d . -f 1-2 | sort -u --version-sort | tail -n +8
       register: python_minor_versions
+      changed_when: false
     - name: Get patch version for each minor version
-      shell: 'python-build --definitions | grep "^{{ item }}\." | tail -n 1'
+      shell: python-build --definitions | grep "^{{ item }}\." | tail -n 1
       with_items: "{{ python_minor_versions.stdout_lines }}"
       register: python_versions
+      changed_when: false
     - name: Install latest patch version for each minor version
       shell:
         cmd: |
@@ -20,10 +23,8 @@
         creates: "{{ ansible_env.XDG_DATA_HOME }}/pythons/versions/{{ item }}"
       with_items: '{{ python_versions.results | map(attribute="stdout_lines") }}'
       register: python_install
-    - debug:
-        msg: '{{ (python_versions.results | last)["changed"] }}'
     - name: Set newest version as default
-      command: 'pyenv global {{ python_versions.results | map(attribute="stdout_lines") | last | first }}'
+      command: pyenv global {{ python_versions.results | map(attribute="stdout_lines") | last | first }}
       changed_when: python_install.results | last is changed
     - name: Install additional dependencies for non-virtualenv projects
       shell: |
@@ -35,3 +36,5 @@
           echo "$proj" >&2
           pip install -r "$req"
         done
+      register: python_extras
+      changed_when: '"Successfully installed" in python_extras.stdout'

@@ -48,9 +48,13 @@ repos:
         entry: taplo fmt
         language: system
         types: [toml]
+      - id: ansible-lint
+        name: ansible-lint
+        entry: ansible-lint -p --write ansible
+        language: system
+        files: "ansible/.*.ya?ml$"
+        pass_filenames: false
   - repo: https://github.com/psf/black
     rev: 22.3.0
     hooks:
       - id: black
-
-exclude: "^vim/plugged"

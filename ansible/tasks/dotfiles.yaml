@@ -1,9 +1,13 @@
+---
 - name: Ensure default XDG paths are symlinked
   block:
-    - file:
+    - name: Ensure .local exists
+      file:
         dest: "{{ ansible_env.HOME }}/.local"
         state: directory
-    - file:
+        mode: 0700
+    - name: Ensure .local subdirectories are linked into place
+      file:
         src: "{{ ansible_env.HOME }}/Library"
         dest: "{{ ansible_env.HOME }}/.local/{{ item.name }}"
         state: link
@@ -11,13 +15,15 @@
         - { name: share }
         - { name: state }
 
-- name: Ensure dotfiles and scripts are up to date
+- name: Ensure dotfiles and scripts are up to date # noqa command-instead-of-module
   shell:
     cmd: git pull --rebase -q || true
     chdir: "{{ item }}"
   loop:
     - "{{ ansible_env.XDG_CONFIG_HOME }}"
     - "{{ ansible_env.HOME }}/bin"
+  register: git_update
+  changed_when: '"Already up to date." not in git_update.stdout'
 
 - name: Link preferences into place
   file:
@@ -39,10 +45,12 @@
   file:
     dest: "{{ ansible_env.XDG_DATA_HOME }}/Application Support/iTerm2/Scripts"
     state: directory
+    mode: 0700
 - name: Link iTerm2 scripts into place
-  copy:
+  file:
     src: "{{ item }}"
     dest: "{{ ansible_env.XDG_DATA_HOME }}/Application Support/iTerm2/Scripts"
+    state: link
   with_fileglob:
     - "{{ ansible_env.XDG_CONFIG_HOME }}/scripts/iterm*"
 
@@ -58,6 +66,7 @@
   get_url:
     url: https://iterm2.com/shell_integration/fish
     dest: "{{ ansible_env.XDG_CONFIG_HOME }}/fish/conf.d/zzz_iterm2_shell_integration.fish"
+    mode: 0600
   when: iterm2_integration.matched == 0
 
 - name: Install dotfiles
@@ -70,41 +79,54 @@
 
 - name: Clean up old dotfile links
   command: find -L "$HOME" -type l -maxdepth 1 -name '.*' -exec rm {} +
+  changed_when: true
 
 - name: Ensure LaunchAgents directory exists
   file:
     dest: "{{ ansible_env.XDG_DATA_HOME }}/LaunchAgents"
     state: directory
+    mode: 0700
 
 - name: Generate plists
   template:
-    src: "templates/launchagent.plist.j2"
+    src: templates/launchagent.plist.j2
     dest: "{{ ansible_env.XDG_DATA_HOME }}/LaunchAgents/{{ item.name }}.plist"
     lstrip_blocks: true
+    mode: 0600
   register: plists
   loop:
     - name: uk.eskola.ansible
-      command: '(ansible-galaxy install -r "{{ ansible_env.XDG_CONFIG_HOME }}/ansible/requirements.yaml"; ansible-playbook "{{ ansible_env.XDG_CONFIG_HOME }}/ansible/main.yaml") | ts'
+      command: |
+        (
+          ansible-galaxy install -r "{{ ansible_env.XDG_CONFIG_HOME }}/ansible/requirements.yaml"
+          ansible-playbook "{{ ansible_env.XDG_CONFIG_HOME }}/ansible/main.yaml"
+        ) | ts
       run_at_load: true
       schedule:
         minute: 0
       env:
         ANSIBLE_CONFIG: "{{ ansible_env.XDG_CONFIG_HOME }}/ansible/ansible.cfg"
     - name: uk.eskola.crondaily
-      command: "{{ ansible_env.XDG_CONFIG_HOME }}/scripts/run-dir.sh {{ ansible_env.XDG_CONFIG_HOME }}/cron.d/daily {{ ansible_env.XDG_CONFIG_HOME }}/private/cron.d/daily"
+      command: >
+        {{ ansible_env.XDG_CONFIG_HOME }}/scripts/run-dir.sh
+        {{ ansible_env.XDG_CONFIG_HOME }}/cron.d/daily {{ ansible_env.XDG_CONFIG_HOME }}/private/cron.d/daily
       shell: /opt/homebrew/bin/fish
       use_fdautil: true
       schedule:
         hour: 7
         minute: 0
     - name: uk.eskola.cronhourly
-      command: "{{ ansible_env.XDG_CONFIG_HOME }}/scripts/run-dir.sh {{ ansible_env.XDG_CONFIG_HOME }}/cron.d/hourly {{ ansible_env.XDG_CONFIG_HOME }}/private/cron.d/hourly"
+      command: >
+        {{ ansible_env.XDG_CONFIG_HOME }}/scripts/run-dir.sh
+        {{ ansible_env.XDG_CONFIG_HOME }}/cron.d/hourly {{ ansible_env.XDG_CONFIG_HOME }}/private/cron.d/hourly
       shell: /opt/homebrew/bin/fish
       use_fdautil: true
       schedule:
         minute: 0
     - name: uk.eskola.logind
-      command: "{{ ansible_env.XDG_CONFIG_HOME }}/scripts/run-dir.sh {{ ansible_env.XDG_CONFIG_HOME }}/login.d {{ ansible_env.XDG_CONFIG_HOME }}/private/login.d"
+      command: >
+        {{ ansible_env.XDG_CONFIG_HOME }}/scripts/run-dir.sh
+        {{ ansible_env.XDG_CONFIG_HOME }}/login.d {{ ansible_env.XDG_CONFIG_HOME }}/private/login.d
       shell: /opt/homebrew/bin/fish
       use_fdautil: true
       run_at_load: true
@@ -119,7 +141,7 @@
         launchctl setenv XDG_STATE_HOME  {{ ansible_env.HOME }}/Library
       run_at_load: true
     - name: uk.eskola.colima
-      command: "colima start; while pgrep -q -F ~/.colima/default/daemon/daemon.pid; do sleep 60; done"
+      command: colima start; while pgrep -q -F ~/.colima/default/daemon/daemon.pid; do sleep 60; done
       run_at_load: true
       keepalive: true
   vars:
@@ -131,15 +153,19 @@
 
 - name: Run plists
   community.general.launchd:
-    name: "{{ item.item.name  }}"
+    name: "{{ item.item.name }}"
     state: started
   loop: "{{ plists.results }}"
 
 - name: Configure logrotate
   block:
-    - file:
-        path: "/opt/homebrew/etc/logrotate.d"
+    - name: Create logrotate directory
+      file:
+        path: /opt/homebrew/etc/logrotate.d
         state: directory
-    - template:
-        src: "templates/logrotate-cron.conf.j2"
-        dest: "/opt/homebrew/etc/logrotate.d/cron.conf"
+        mode: 0700
+    - name: Create logrotate cron config
+      template:
+        src: templates/logrotate-cron.conf.j2
+        dest: /opt/homebrew/etc/logrotate.d/cron.conf
+        mode: 0600

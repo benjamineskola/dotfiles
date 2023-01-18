@@ -1,3 +1,4 @@
+---
 - name: Configure macOS workstation
   hosts: local
   vars:

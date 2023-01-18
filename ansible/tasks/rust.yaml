@@ -1,8 +1,9 @@
+---
 - name: Install latest Rust version
   environment:
-    CARGO_DIR: "{{ ansible_env.XDG_DATA_HOME}}/cargo"
-    CARGO_HOME: "{{ ansible_env.XDG_DATA_HOME}}/cargo"
-    RUSTUP_HOME: "{{ ansible_env.XDG_DATA_HOME}}/rustup"
+    CARGO_DIR: "{{ ansible_env.XDG_DATA_HOME }}/cargo"
+    CARGO_HOME: "{{ ansible_env.XDG_DATA_HOME }}/cargo"
+    RUSTUP_HOME: "{{ ansible_env.XDG_DATA_HOME }}/rustup"
   block:
     - name: Check if rustup exists
       stat:
@@ -19,7 +20,7 @@
       command: "{{ ansible_env.XDG_DATA_HOME }}/cargo/bin/rustup install nightly"
       register: nightly_install
       changed_when: "'installing component' in nightly_install.stdout"
-    - name: "Use nightly for specific components"
+    - name: Use nightly for specific components
       command: "{{ ansible_env.XDG_DATA_HOME }}/cargo/bin/rustup component add {{ item }} --toolchain nightly"
       register: nightly_component
       changed_when: |

@@ -7,6 +7,7 @@ tap "homebrew/cask-versions"
 tap "homebrew/services"
 
 brew "ansible"
+brew "ansible-lint"
 brew "bat"
 brew "chruby"
 brew "chruby-fish"

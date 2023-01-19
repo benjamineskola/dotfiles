@@ -12,3 +12,4 @@
     - include_tasks: tasks/python.yaml
     - include_tasks: tasks/ruby.yaml
     - include_tasks: tasks/rust.yaml
+    - include_tasks: tasks/node.yaml

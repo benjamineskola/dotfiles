@@ -1,9 +1,0 @@
-bundler
-erb_lint
-mdless
-neovim
-pry
-rspec
-solargraph
-solargraph-rails
-standard

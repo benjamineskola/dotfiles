@@ -17,6 +17,9 @@ set -gx RUBIES_DIR $XDG_DATA_HOME/rubies
 set -gx RUSTUP_HOME $XDG_DATA_HOME/rustup
 set -gx YARN_PREFIX $XDG_DATA_HOME/yarn
 
+set -gx ANSIBLE_HOME $XDG_CONFIG_HOME/ansible
+set -gx ANSIBLE_CONFIG $ANSIBLE_HOME/ansible.cfg
+
 if [ $OS = Darwin ]
     # Secretive Config
     set -gx SSH_AUTH_SOCK /Users/ben/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh

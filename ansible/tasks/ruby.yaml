@@ -31,13 +31,20 @@
         dest: "{{ ansible_env.RUBIES_DIR }}/default"
         state: link
       changed_when: ruby_install.results | last is changed
+    - name: Find installed ruby versions
+      find:
+        paths: ["{{ ansible_env.RUBIES_DIR }}"]
+        recurse: false
+        file_type: directory
+        patterns: [ruby-*]
+      register: installed_rubies
     - name: Install required gems
       shell:
         cmd: |
           test -n "$(chruby-exec {{ item[0] }} -- gem list -q -e '{{ item[1] }}')" || \
             chruby-exec {{ item[0] }} -- gem install '{{ item[1] }}'
       with_nested:
-        - "{{ ruby_versions.stdout_lines }}"
+        - "{{ installed_rubies.files | map(attribute='path') | map('basename') | reject('regex', '^ruby-2.6') }}"
         - "{{ gems }}"
       changed_when: '"gem installed" in gem_install.stdout or "gems installed" in gem_install.stdout'
       register: gem_install

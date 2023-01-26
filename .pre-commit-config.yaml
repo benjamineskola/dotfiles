@@ -41,7 +41,7 @@ repos:
         types: [toml]
       - id: ansible-lint
         name: ansible-lint
-        entry: ansible-lint -p --write ansible
+        entry: ansible-lint -p ansible
         language: system
         files: "ansible/.*.ya?ml$"
         pass_filenames: false

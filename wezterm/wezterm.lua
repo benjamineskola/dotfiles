@@ -1,23 +1,6 @@
 local wezterm = require("wezterm")
 
-local font = { family = "Input Mono", harfbuzz_features = { "zero" } }
-
-local function set_colour_scheme(window)
-    local overrides = window:get_config_overrides() or {}
-    local dark_mode = os.execute([[defaults read -globalDomain AppleInterfaceStyle]])
-
-    if dark_mode then
-        overrides.color_scheme = "tokyonight"
-        local light_font = font
-        light_font.weight = "Light"
-        overrides.font = wezterm.font(light_font)
-    else
-        overrides.font = wezterm.font(font)
-        overrides.color_scheme = "tokyonight-day"
-    end
-
-    window:set_config_overrides(overrides)
-end
+local font = { family = "Input Mono", weight = "Light", harfbuzz_features = { "zero" } }
 
 local function resize_font(window)
     local window_size = window:get_dimensions()
@@ -34,9 +17,6 @@ end
 
 wezterm.on("window-resized", resize_font)
 wezterm.on("window-config-reloaded", resize_font)
-
-wezterm.on("window-focus-changed", set_colour_scheme)
-wezterm.on("window-config-reloaded", set_colour_scheme)
 
 return {
     color_scheme = "tokyonight",

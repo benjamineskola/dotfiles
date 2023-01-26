@@ -8,7 +8,7 @@
 	template = ~/.config/git/git_commit_template
 [core]
 	excludesfile = ~/.config/git/gitignore.global
-	pager = delta --max-line-length=0 --syntax-theme=tokyonight_$(defaults read -globalDomain AppleInterfaceStyle >/dev/null 2>&1 && echo night --dark || echo day --light)
+	pager = delta --max-line-length=0 --syntax-theme=tokyonight_night
 	quotepath = off
 [delta]
 	line-numbers = true
@@ -22,7 +22,7 @@
 	templatedir = ~/.config/git/template
 	defaultBranch = main
 [interactive]
-	diffFilter = delta --color-only --max-line-length=0 --syntax-theme=tokyonight_$(defaults read -globalDomain AppleInterfaceStyle >/dev/null 2>&1 && echo night --dark || echo day --light)
+	diffFilter = delta --color-only --max-line-length=0 --syntax-theme=tokyonight_night
 [log]
 	abbrevCommit = true
 	decorate = true

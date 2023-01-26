@@ -31,7 +31,6 @@ fish_add_path -g -p $GOPATH/bin
 fish_add_path -g -p $YARN_PREFIX/bin
 
 if status is-interactive
-    alias bat 'bat --theme=tokyonight_(defaults read -globalDomain AppleInterfaceStyle >/dev/null 2>&1 && echo night || echo day)'
     alias curl 'curl -gkLsS'
     alias fdd 'fd .'
     alias fdg 'fd -g'

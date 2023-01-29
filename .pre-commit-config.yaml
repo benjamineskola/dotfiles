@@ -28,11 +28,6 @@ repos:
         types: []
   - repo: local
     hooks:
-      - id: fish_indent
-        name: fish_indent
-        entry: fish_indent -w
-        language: system
-        types: [fish]
       - id: stylua
         name: stylua
         entry: stylua --config-path stylua/stylua.toml

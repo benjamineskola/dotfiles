@@ -72,10 +72,11 @@
 - name: Install dotfiles
   file:
     src: "{{ item }}"
-    dest: '{{ ansible_env.HOME }}/{{ item | basename | regex_replace("^_", ".") }}'
+    dest: '{{ ansible_env.HOME }}/{{ item | basename | regex_replace("^_?", ".") }}'
   with_fileglob:
     - "{{ ansible_env.XDG_CONFIG_HOME }}/_*"
     - "{{ ansible_env.XDG_CONFIG_HOME }}/private/_*"
+    - "{{ ansible_env.XDG_CONFIG_HOME }}/zsh/z*"
 
 - name: Clean up old dotfile links
   command: find -L "$HOME" -type l -maxdepth 1 -name '.*' -exec rm {} +

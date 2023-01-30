@@ -73,6 +73,7 @@
   file:
     src: "{{ item }}"
     dest: '{{ ansible_env.HOME }}/{{ item | basename | regex_replace("^_", ".") }}'
+    state: link
   with_fileglob:
     - "{{ ansible_env.XDG_CONFIG_HOME }}/_*"
     - "{{ ansible_env.XDG_CONFIG_HOME }}/private/_*"

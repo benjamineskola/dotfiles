@@ -41,6 +41,7 @@
     - name: Install required gems
       shell:
         cmd: |
+          . $(brew --prefix chruby)/share/chruby/chruby.sh
           test -n "$(chruby-exec {{ item[0] }} -- gem list -q -e '{{ item[1] }}')" || \
             chruby-exec {{ item[0] }} -- gem install '{{ item[1] }}'
       with_nested:

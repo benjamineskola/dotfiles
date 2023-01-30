@@ -78,6 +78,8 @@ plugins=(
     rake
     chruby
     ruby
+    fzf
+    zoxide
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -151,3 +153,8 @@ setopt RC_EXPAND_PARAM
 fpath=(~/.config/zsh/$OS/functions.zwc ~/.config/zsh/functions.zwc $fpath)
 autoload -U ${fpath%.zwc}/*(.N:t)
 zrecompile -p ~/.config/zsh/functions.zwc ~/.config/zsh/functions/*
+
+zle -N fzf-zoxide-widget
+bindkey -M emacs '\ec' fzf-zoxide-widget
+bindkey -M vicmd '\ec' fzf-zoxide-widget
+bindkey -M viins '\ec' fzf-zoxide-widget

@@ -1,0 +1,16 @@
+fzf-zoxide-widget() {
+	local cmd="zoxide query -l"
+	setopt localoptions pipefail no_aliases 2>/dev/null
+	local dir="$(eval "$cmd" | FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} --reverse --bind=ctrl-z:ignore ${FZF_DEFAULT_OPTS-} ${FZF_ALT_C_OPTS-}" $(__fzfcmd) +m)"
+	if [[ -z "$dir" ]]; then
+		zle redisplay
+		return 0
+	fi
+	zle push-line # Clear buffer. Auto-restored on next prompt.
+	BUFFER="z '${dir}'"
+	zle accept-line
+	local ret=$?
+	unset dir # ensure this doesn't end up appearing in prompt expansion
+	zle reset-prompt
+	return $ret
+}

@@ -1,0 +1,26 @@
+vi() {
+    typeset -A hashed_files
+
+    for file in "$@"; do
+        dirname=$(dirname -- $file)
+        GIT_ROOT=$( (cd $dirname; git rev-parse --show-toplevel 2>/dev/null) )
+
+        if ! [ -n "$GIT_ROOT" ]; then
+            GIT_ROOT=$dirname
+        fi
+
+        if [ -z $hashed_files["$GIT_ROOT"] ]; then
+            hashed_files["$GIT_ROOT"]="$file"
+        else
+            hashed_files["$GIT_ROOT"]+=" $file"
+        fi
+    done
+
+    for GIT_ROOT files in ${(kv)hashed_files}; do
+        (
+            export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket-$(echo "$GIT_ROOT" | sha256sum | cut -d ' ' -f 1)
+            export NVR_CMD="neovide -- --listen '$NVIM_LISTEN_ADDRESS'"
+            nvr -s --remote "${=files}"
+        )
+    done
+}

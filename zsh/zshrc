@@ -80,6 +80,7 @@ plugins=(
     ruby
     fzf
     zoxide
+    pyenv
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -144,7 +145,6 @@ alias gs='fish_command_not_found gs' # i never want ghostscript
 
 eval "$(starship init zsh)"
 eval "$(fnm env --use-on-cd)"
-eval "$(pyenv init -)"
 
 RUBIES=($RUBIES_DIR/*)
 chruby default

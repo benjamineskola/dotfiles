@@ -49,6 +49,7 @@ path=(
     ~/bin
     $CARGO_DIR/bin
     $GOPATH/bin
+    $PYENV_ROOT/shims
     $YARN_PREFIX/bin
     $path
 )

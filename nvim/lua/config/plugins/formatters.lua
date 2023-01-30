@@ -55,6 +55,7 @@ M.config = function()
             toml = { require("formatter.filetypes.toml").taplo },
             typescript = { rome_lint },
             yaml = { require("formatter.filetypes.yaml").prettierd },
+            zsh = { require("formatter.filetypes.sh").shfmt },
             ["*"] = {
                 require("formatter.filetypes.any").remove_trailing_whitespace,
                 remove_trailing_newlines,

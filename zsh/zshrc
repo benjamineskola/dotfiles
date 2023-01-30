@@ -120,7 +120,7 @@ alias sed='sed -E'
 alias tf='tail -F'
 
 alias exa='exa --git -b'
-type -f >/dev/null exa && alias ls=exa
+type -f exa >/dev/null && alias ls=exa
 alias ll='ls -l'
 alias la='ls -a'
 alias lal='ls -la'
@@ -147,6 +147,7 @@ eval "$(pyenv init -)"
 RUBIES=($RUBIES_DIR/*)
 chruby default
 
+setopt RC_EXPAND_PARAM
 fpath=(~/.config/zsh/$OS/functions.zwc ~/.config/zsh/functions.zwc $fpath)
-autoload -U ${^fpath%.zwc}/*(.N:t)
+autoload -U ${fpath%.zwc}/*(.N:t)
 zrecompile -p ~/.config/zsh/functions.zwc ~/.config/zsh/functions/*

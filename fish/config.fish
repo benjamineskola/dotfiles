@@ -101,12 +101,13 @@ if status is-interactive
     set pure_color_info magenta
     set pure_color_success green
     set pure_symbol_prompt '$'
+
+    fnm env --use-on-cd --version-file-strategy recursive | source
 end
 
 function dotenv_hook --on-event fish_prompt
     dotenv_load
 end
 
-fnm env --use-on-cd --version-file-strategy recursive | source
 chruby (fd -g -d 1 'ruby-*' "$RUBIES_DIR" -X basename | sort | tail -n 1)
 pyenv init - | source

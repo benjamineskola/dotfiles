@@ -1,43 +1,34 @@
 function vi --wraps nvim
-    set count 1
-    set -l hashed_files
+    set -l sockets
+
+    function varname
+        string escape --style=var "commands_$argv[1]"
+    end
 
     for file in $argv
-        set dirname (dirname -- $file)
-        set -gx GIT_ROOT (pushd $dirname; git rev-parse --show-toplevel 2>/dev/null; popd)
+        set -l dirname (dirname -- $file)
+        set -l socketname /tmp/nvimsocket
 
-        if [ -n "$GIT_ROOT" ]
-            set -gx NVIM_LISTEN_ADDRESS /tmp/nvimsocket-(echo "$GIT_ROOT" | sha256sum | cut -d ' ' -f 1)
-        else
-            set -gx NVIM_LISTEN_ADDRESS /tmp/nvimsocket
-            set -g GIT_ROOT $dirname
+        set -l git_root (pushd $dirname; git rev-parse --show-toplevel 2>/dev/null; popd)
+        if test -n "$git_root"
+            set socketname /tmp/nvimsocket_(echo "$git_root" | sha256sum | cut -d ' ' -f 1)
+            set dirname $git_root
         end
-        set -gx NVR_CMD "neovide -- --listen '$NVIM_LISTEN_ADDRESS'"
 
-        set -a hashed_files "$NVIM_LISTEN_ADDRESS:$GIT_ROOT:$count:$file"
-
-        set count (expr $count + 1)
-    end
-    set hashed_files (for hf in $hashed_files; echo $hf; end | sort)
-
-    set -l commands
-    set -l last_socket /dev/null
-
-    for hf in $hashed_files
-        set -l socket (string split -f 1 ":" $hf)
-        set -l pwd (string split -f 2 ":" $hf)
-        set -l file (string split -f 4 ":" $hf)
-
-        if [ "$socket" != "$last_socket" ]
-            set -a commands "$socket~~~$pwd"
+        set -l _var (varname "$socketname")
+        if ! contains $socketname $sockets
+            set -a sockets $socketname
+            set -f $_var $dirname
         end
-        set commands[-1] (printf "%s~~~%s" $commands[-1] $file)
 
-        set last_socket $socket
+        set -a $_var $file
     end
 
-    for command in $commands
-        set command (string split "~~~" $command)
-        nvr -s --servername "$command[1]" +"cd $command[2]" --remote $command[3..]
+    for socket in $sockets
+        set -l _var (varname "$socket")
+        set -l params $$_var
+
+        set -fx NVR_CMD "neovide -- --listen '$socket'"
+        nvr -s --servername $socket +"cd $params[1]" --remote $params[2..]
     end
 end

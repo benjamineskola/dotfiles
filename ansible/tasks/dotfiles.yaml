@@ -117,7 +117,7 @@
   set_fact:
     cron_items: |
       {{ cron_items | default([]) + [{
-        'name': 'uk.eskola.cron' + ('daily' if 'cron.d/daily' in item else 'hourly')  + '.' + (item | basename),
+        'name': 'uk.eskola.cron' + ('daily' if 'cron.d/daily' in item else 'hourly')  + '.' + (item | basename | splitext | first),
         'command': item + ' | ts',
         'shell': '/opt/homebrew/bin/fish',
         'schedule': {'hour': 7, 'minute': 0} if 'cron.d/daily' in item else {'minute': 0},

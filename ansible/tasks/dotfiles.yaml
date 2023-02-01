@@ -107,23 +107,6 @@
         minute: 0
       env:
         ANSIBLE_CONFIG: "{{ ansible_env.XDG_CONFIG_HOME }}/ansible/ansible.cfg"
-    - name: uk.eskola.crondaily
-      command: >
-        {{ ansible_env.XDG_CONFIG_HOME }}/scripts/run-dir.sh
-        {{ ansible_env.XDG_CONFIG_HOME }}/cron.d/daily {{ ansible_env.XDG_CONFIG_HOME }}/private/cron.d/daily
-      shell: /opt/homebrew/bin/fish
-      use_fdautil: true
-      schedule:
-        hour: 7
-        minute: 0
-    - name: uk.eskola.cronhourly
-      command: >
-        {{ ansible_env.XDG_CONFIG_HOME }}/scripts/run-dir.sh
-        {{ ansible_env.XDG_CONFIG_HOME }}/cron.d/hourly {{ ansible_env.XDG_CONFIG_HOME }}/private/cron.d/hourly
-      shell: /opt/homebrew/bin/fish
-      use_fdautil: true
-      schedule:
-        minute: 0
     - name: uk.eskola.logind
       command: >
         {{ ansible_env.XDG_CONFIG_HOME }}/scripts/run-dir.sh
@@ -148,11 +131,42 @@
       - XDG_CONFIG_HOME
       - XDG_DATA_HOME
 
+- name: Calculate cron plist inputs
+  set_fact:
+    cron_items: |
+      {{ cron_items | default([]) + [{
+        'name': 'uk.eskola.cron' + ('daily' if 'cron.d/daily' in item else 'hourly')  + '.' + (item | basename),
+        'command': item + ' | ts',
+        'shell': '/opt/homebrew/bin/fish',
+        'schedule': {'hour': 7, 'minute': 0} if 'cron.d/daily' in item else {'minute': 0},
+        'run_at_load': 'cron.d/daily' in item
+      }] }}
+  with_fileglob:
+    - "{{ ansible_env.XDG_CONFIG_HOME }}/cron.d/daily/*"
+    - "{{ ansible_env.XDG_CONFIG_HOME }}/private/cron.d/daily/*"
+    - "{{ ansible_env.XDG_CONFIG_HOME }}/cron.d/hourly/*"
+    - "{{ ansible_env.XDG_CONFIG_HOME }}/private/cron.d/hourly/*"
+
+- name: Generate cron plists
+  template:
+    src: templates/launchagent.plist.j2
+    dest: "{{ ansible_env.XDG_DATA_HOME }}/LaunchAgents/{{ item.name }}.plist"
+    lstrip_blocks: true
+    mode: 0600
+  register: plists_cron
+  loop: "{{ cron_items }}"
+  vars:
+    env:
+      - PATH
+      - XDG_CACHE_HOME
+      - XDG_CONFIG_HOME
+      - XDG_DATA_HOME
+
 - name: Run plists
   community.general.launchd:
     name: "{{ item.item.name }}"
     state: started
-  loop: "{{ plists.results }}"
+  loop: "{{ plists.results + plists_cron.results }}"
 
 - name: Configure logrotate
   block:

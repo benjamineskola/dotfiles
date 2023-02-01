@@ -1,13 +1,15 @@
 ---
 - name: Install latest Rust version
+  vars:
+    cargo_dir: "{{ ansible_env.XDG_DATA_HOME }}/cargo"
   environment:
-    CARGO_DIR: "{{ ansible_env.XDG_DATA_HOME }}/cargo"
+    CARGO_DIR: "{{ cargo_dir }}"
     CARGO_HOME: "{{ ansible_env.XDG_DATA_HOME }}/cargo"
     RUSTUP_HOME: "{{ ansible_env.XDG_DATA_HOME }}/rustup"
   block:
     - name: Check if rustup exists
       stat:
-        path: "{{ ansible_env.CARGO_DIR }}/bin/rustup"
+        path: "{{ cargo_dir }}/bin/rustup"
       register: rustup
     - name: Initialise rustup
       command: rustup-init --no-update-default-toolchain --no-modify-path -y

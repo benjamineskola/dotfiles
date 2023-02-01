@@ -96,17 +96,6 @@
     mode: 0600
   register: plists
   loop:
-    - name: uk.eskola.ansible
-      command: |
-        (
-          ansible-galaxy install -r "{{ ansible_env.XDG_CONFIG_HOME }}/ansible/requirements.yaml"
-          ansible-playbook "{{ ansible_env.XDG_CONFIG_HOME }}/ansible/main.yaml"
-        ) | ts
-      run_at_load: true
-      schedule:
-        minute: 0
-      env:
-        ANSIBLE_CONFIG: "{{ ansible_env.XDG_CONFIG_HOME }}/ansible/ansible.cfg"
     - name: uk.eskola.autodarkmode
       command: "{{ ansible_env.HOME }}/bin/autodarkmode.py | ts"
       start_interval: 60

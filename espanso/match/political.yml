@@ -24,9 +24,9 @@ matches:
     replace: "britain"
     word: true
     propagate_case: true
-  - regex: "(?P<start>(^|[^\\.]))(the )?uk"
+  - regex: "(?P<start>(^|\\s))(the )?uk"
     replace: "{{start}}britain"
-  - regex: "(?P<start>(^|[^\\.]))([tT]he )?UK"
+  - regex: "(?P<start>(^|\\s))([tT]he )?UK"
     replace: "{{start}}Britain"
 
   # republican

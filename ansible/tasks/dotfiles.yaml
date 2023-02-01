@@ -107,13 +107,6 @@
         minute: 0
       env:
         ANSIBLE_CONFIG: "{{ ansible_env.XDG_CONFIG_HOME }}/ansible/ansible.cfg"
-    - name: uk.eskola.logind
-      command: >
-        {{ ansible_env.XDG_CONFIG_HOME }}/scripts/run-dir.sh
-        {{ ansible_env.XDG_CONFIG_HOME }}/login.d {{ ansible_env.XDG_CONFIG_HOME }}/private/login.d
-      shell: /opt/homebrew/bin/fish
-      use_fdautil: true
-      run_at_load: true
     - name: uk.eskola.autodarkmode
       command: "{{ ansible_env.HOME }}/bin/autodarkmode.py | ts"
       start_interval: 60

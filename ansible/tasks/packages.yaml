@@ -46,9 +46,9 @@
   block:
     - name: Core # noqa latest[git]
       git:
-        repo: git@github.com:Hammerspoon/Spoons.git
+        repo: https://github.com/Hammerspoon/Spoons.git
         dest: "{{ ansible_env.XDG_CONFIG_HOME }}/_hammerspoon/Spoons/vendor"
     - name: Bear # noqa latest[git]
       git:
-        repo: git@github.com:dcreemer/hammerspoon-bear.git
+        repo: https://github.com/dcreemer/hammerspoon-bear.git
         dest: "{{ ansible_env.XDG_CONFIG_HOME }}/_hammerspoon/Spoons/Bear.spoon"

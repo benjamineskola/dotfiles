@@ -51,8 +51,8 @@ matches:
     replace: "harry windsor"
     word: true
     propagate_case: true
-  - regex: "\\b(?i:(?P<title>(lord|lady|sir)))\\b"
-    replace: "“{{title}}”"
+  - regex: "\\b(?i:(?P<title>(lord|lady|sir)))(?P<after>(\\z|\\W))"
+    replace: "“{{title}}”{{after}}"
     word: true
 
   # social justice

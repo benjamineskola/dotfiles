@@ -12,7 +12,7 @@
     {% endif %}
       <string>{% if 'shell' in item %}{{ item.shell }}{% else %}/bin/sh{% endif %}</string>
       <string>-c</string>
-      <string>{{ item.command }}</string>
+      <string>{{ item.command | e }}</string>
     </array>
     <key>StandardErrorPath</key>
     <string>{{ ansible_env.HOME }}/Library/Logs/{{ item.name }}.err</string>

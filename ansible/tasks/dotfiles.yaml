@@ -144,11 +144,16 @@
       - XDG_CONFIG_HOME
       - XDG_DATA_HOME
 
+- name: Stop changed plists
+  command: launchctl unload ~/Library/LaunchAgents/{{ item.item.name }}.plist
+  changed_when: true
+  loop: "{{ (plists.results + plists_cron.results) | selectattr('changed') }}"
+
 - name: Run plists
   community.general.launchd:
     name: "{{ item.item.name }}"
     state: started
-  loop: "{{ plists.results + plists_cron.results }}"
+  loop: "{{ (plists.results + plists_cron.results) | selectattr('changed') }}"
 
 - name: Configure logrotate
   block:

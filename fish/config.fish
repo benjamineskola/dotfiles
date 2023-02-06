@@ -81,6 +81,7 @@ if status is-interactive
 
     alias gfu git-fixup
     alias gl glgg
+    alias glgp 'glg -p --pretty=medium'
     alias gmv 'git mv'
     alias grsp 'grs -p'
     alias gswm gcm

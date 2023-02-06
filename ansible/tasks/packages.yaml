@@ -43,12 +43,15 @@
   when: nvim_pack.matched == 0
 
 - name: Ensure python-lsp has additional dependencies
-  command: |
-    set -e
-    cd $XDG_DATA_HOME/nvim/mason/packages/python-lsp-server
-    . venv/bin/activate
-    pip install -U --disable-pip-version-check python-lsp-black pyls-isort pylsp-mypy python-lsp-ruff
+  shell:
+    cmd: |
+      set -e
+      . venv/bin/activate
+      pip install -U --disable-pip-version-check python-lsp-black pyls-isort pylsp-mypy python-lsp-ruff
+    chdir: "{{ ansible_env.XDG_DATA_HOME }}/nvim/mason/packages/python-lsp-server"
   when: nvim_pack.matched == 0
+  register: python_lsp
+  changed_when: '"Successfully installed" in python_lsp.stdout'
 
 - name: Hammerspoon spoons
   block:

@@ -109,6 +109,7 @@
   vars:
     env:
       - PATH
+      - SSH_AUTH_SOCK
       - XDG_CACHE_HOME
       - XDG_CONFIG_HOME
       - XDG_DATA_HOME
@@ -140,6 +141,7 @@
   vars:
     env:
       - PATH
+      - SSH_AUTH_SOCK
       - XDG_CACHE_HOME
       - XDG_CONFIG_HOME
       - XDG_DATA_HOME

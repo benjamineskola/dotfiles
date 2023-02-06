@@ -155,6 +155,11 @@
     state: started
   loop: "{{ (plists.results + plists_cron.results) | selectattr('changed') }}"
 
+- name: Tidy plists
+  shell: launchctl unload {{ item | basename }} && rm -f {{ item }}
+  when: item not in ((plists.results + plists_cron.results) | map(attribute='dest'))
+  with_fileglob: "{{ ansible_env.XDG_DATA_HOME }}/LaunchAgents/uk.eskola.*"
+
 - name: Configure logrotate
   block:
     - name: Create logrotate directory

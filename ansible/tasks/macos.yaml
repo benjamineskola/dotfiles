@@ -11,3 +11,23 @@
 - name: Don't automatically rearrange spaces
   command: defaults write com.apple.dock mru-spaces -bool false
   changed_when: true
+
+- name: Check sudoers
+  shell: diff -u {{ ansible_env.ANSIBLE_HOME | quote }}/files/sudoers.txt /etc/sudoers.d/ansible || true
+  check_mode: false
+  changed_when: false
+  register: sudoers
+
+- name: Set up sudoers # noqa: no-handler
+  command: sudo /bin/cp {{ ansible_env.ANSIBLE_HOME | quote }}/files/sudoers.txt /etc/sudoers.d/ansible
+  changed_when: sudoers.stdout_lines or sudoers.stderr_lines
+
+- name: Check touchid for sudo
+  shell: diff -u {{ ansible_env.ANSIBLE_HOME | quote }}/files/sudo.pam.txt /etc/pam.d/sudo || true
+  check_mode: false
+  changed_when: false
+  register: sudo_touchid
+
+- name: Set up touchid for sudo # noqa: no-handler
+  command: sudo /bin/cp {{ ansible_env.ANSIBLE_HOME | quote }}/files/sudo.pam.txt /etc/pam.d/sudo
+  changed_when: sudo_touchid.stdout_lines or sudo_touchid.stderr_lines

@@ -108,7 +108,6 @@
       run_at_load: true
   vars:
     env:
-      - PATH
       - SSH_AUTH_SOCK
       - XDG_CACHE_HOME
       - XDG_CONFIG_HOME
@@ -140,7 +139,6 @@
   loop: "{{ cron_items }}"
   vars:
     env:
-      - PATH
       - SSH_AUTH_SOCK
       - XDG_CACHE_HOME
       - XDG_CONFIG_HOME

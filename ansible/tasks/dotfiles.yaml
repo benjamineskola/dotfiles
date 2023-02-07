@@ -96,9 +96,6 @@
     mode: 0600
   register: plists
   loop:
-    - name: uk.eskola.autodarkmode
-      command: "{{ ansible_env.HOME }}/bin/autodarkmode.py | ts"
-      start_interval: 60
     - name: uk.eskola.setenv
       command: |
         launchctl setenv XDG_CONFIG_HOME {{ ansible_env.HOME }}/.config

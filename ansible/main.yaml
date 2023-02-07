@@ -5,11 +5,12 @@
     homebrew_brewfile_dir: "{{ ansible_env.XDG_CONFIG_HOME }}"
     ansible_become_user: '{{ lookup("env", "USER") }}'
   tasks:
-    - include_tasks: tasks/macos.yaml # noqa name[missing]
-    - include_tasks: tasks/dotfiles.yaml # noqa name[missing]
-    - include_tasks: tasks/homebrew.yaml # noqa name[missing]
-    - include_tasks: tasks/packages.yaml # noqa name[missing]
-    - include_tasks: tasks/python.yaml # noqa name[missing]
-    - include_tasks: tasks/ruby.yaml # noqa name[missing]
-    - include_tasks: tasks/rust.yaml # noqa name[missing]
-    - include_tasks: tasks/node.yaml # noqa name[missing]
+    - name: Run all tasks
+      include_tasks: "{{ task }}"
+      with_fileglob: tasks/*.yaml
+      loop_control:
+        loop_var: task
+      when: "'ANSIBLE_TASK' not in ansible_env"
+    - name: Run specified task
+      include_tasks: tasks/{{ ansible_env.ANSIBLE_TASK }}.yaml
+      when: "'ANSIBLE_TASK' in ansible_env"

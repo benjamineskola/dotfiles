@@ -41,6 +41,7 @@ if status is-interactive
     type -fq rg && alias rg 'rg -S' || alias rg 'grep -ri'
     alias sed 'sed -E'
     alias tf 'tail -F'
+    alias mdless 'mdless --width 72'
 
     alias exa 'exa --git -b'
     type -fq exa && alias ls exa

@@ -104,6 +104,9 @@ if status is-interactive
     set pure_symbol_prompt '$'
 
     fnm env --use-on-cd --version-file-strategy recursive | source
+else
+    # non-interactive shells only
+    fnm env --version-file-strategy recursive | source
 end
 
 function dotenv_hook --on-event fish_prompt

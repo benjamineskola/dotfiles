@@ -94,7 +94,7 @@ return {
     { "rizzatti/dash.vim", keys = { "<Plug>DashSearch" } },
     { "sheerun/vim-polyglot", event = { "VeryLazy" } },
     { "simnalamburt/vim-mundo", cmd = "MundoToggle" },
-    { "sjl/splice.vim", lazy = false },
+    { "simrat39/rust-tools.nvim", ft = { "rust", "toml" }, config = true },
     { "tpope/vim-commentary", event = { "VeryLazy" } },
     { "tpope/vim-dispatch", event = { "VeryLazy" } },
     { "tpope/vim-eunuch", event = { "VeryLazy" } },

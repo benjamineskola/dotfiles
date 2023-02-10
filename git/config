@@ -27,15 +27,12 @@
 	abbrevCommit = true
 	decorate = true
 [merge]
-	tool = splice
+	tool = nvim
 [mergetool]
 	prompt = false
 	keepBackup = false
 [mergetool "nvim"]
 	cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
-[mergetool "splice"]
-	cmd = "nvim -f $BASE $LOCAL $REMOTE $MERGED -c 'SpliceInit'"
-	trustExitCode = true
 [pull]
 	rebase = true
 [push]

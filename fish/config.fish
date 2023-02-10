@@ -38,7 +38,7 @@ if status is-interactive
     alias grep egrep
     alias less bat
     alias psed 'perl -0777 -p -e'
-    type -fq rg && alias rg 'rg -S' || alias rg 'grep -ri'
+    type -fq rg || alias rg 'grep -ri'
     alias sed 'sed -E'
     alias tf 'tail -F'
     alias mdless 'mdless --width 72'

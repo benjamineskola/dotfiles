@@ -5,5 +5,6 @@ build $infile format="pdf":
 	assignments_dir=$(dirname "$infile")
 	module_dir=$(dirname "$assignments_dir")
 	outfile="$assignments_dir"/"$identifier".{{format}}
-	pandoc --bibliography "$module_dir/bibliography.yaml" -ddefaults -o "$outfile" "$infile"
+	bibfile=$(find_in_parent bibliography.yaml "$assignments_dir")
+	pandoc --bibliography "$bibfile" -ddefaults -o "$outfile" "$infile"
 	open "$outfile"

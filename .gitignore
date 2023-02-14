@@ -1,6 +1,5 @@
 /alacritty/alacritty.local.yml
 /Brewfile.lock.json
-/.bundle
 /configstore/update-notifier-npm.json
 /fish/completions
 /fish/conf.d/*_iterm2_shell_integration.fish
@@ -14,8 +13,8 @@
 /_hammerspoon/Spoons/vendor
 /instaloader/session-*
 /nvim/lazy-lock.json
+/nvim/spell
 /pre-commit-hooks
 /.pre-commit-hooks.yaml
-/src
 /_ssh/id_*
 /_ssh/known_hosts

@@ -5,32 +5,6 @@
     state: directory
     mode: 0700
 
-- name: Check age of Bat theme
-  find:
-    paths:
-      - "{{ ansible_env.XDG_CONFIG_HOME }}/bat/themes"
-    pattern: "*.tmTheme"
-    age: -7d
-  register: bat_theme
-
-- name: Install Bat theme
-  get_url:
-    url: https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/tokyonight_{{ item }}.tmTheme
-    dest: "{{ ansible_env.XDG_CONFIG_HOME }}/bat/themes/tokyonight_night.tmTheme"
-    mode: 0600
-  when: bat_theme.matched == 0
-  loop: [night, day]
-- name: Check if compiled bat syntaxes and themes exist
-  stat:
-    path: "{{ ansible_env.XDG_CACHE_HOME }}/bat/{{ item }}.bin"
-  loop:
-    - syntaxes
-    - themes
-  register: bat
-- name: Rebuild bat cache
-  command: bat cache --build
-  when: not bat.results.0.stat.exists or not bat.results.1.stat.exists or bat_theme.matched == 0
-
 - name: Vim files newer than a day old
   find:
     paths: ["{{ ansible_env.XDG_DATA_HOME }}/nvim/lazy"]

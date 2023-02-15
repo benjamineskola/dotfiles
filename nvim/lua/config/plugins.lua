@@ -98,7 +98,7 @@ return {
     { "tpope/vim-commentary", event = { "VeryLazy" } },
     { "tpope/vim-dispatch", event = { "VeryLazy" } },
     { "tpope/vim-eunuch", event = { "VeryLazy" } },
-    { "tpope/vim-fugitive", dependencies = { "tpope/vim-rhubarb" }, event = { "VeryLazy" } },
+    { "tpope/vim-fugitive", dependencies = { "tpope/vim-rhubarb" }, event = { "VeryLazy" }, cmd = { "Gvdiffsplit" } },
     { "tpope/vim-projectionist", event = { "VeryLazy" } },
     { "tpope/vim-ragtag", config = function() vim.g.ragtag_global_maps = true end, event = { "VeryLazy" } },
     { "tpope/vim-rails", ft = { "ruby", "eruby" } },

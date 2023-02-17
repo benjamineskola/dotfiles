@@ -1,8 +1,0 @@
-extends:
-  - standard-with-typescript
-  - "plugin:prettierx/standardx"
-parser: "@typescript-eslint/parser"
-plugins:
-  - "@typescript-eslint"
-  - prettierx
-rules: {}

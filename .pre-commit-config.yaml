@@ -19,7 +19,6 @@ repos:
         exclude: "git/template/hooks/pre-commit$"
       - id: shfmt
         exclude: "git/template/hooks/pre-commit$"
-      - id: flake518
       - id: vint
       - id: prettier
       - id: rome
@@ -58,3 +57,7 @@ repos:
     rev: 22.3.0
     hooks:
       - id: black
+  - repo: https://github.com/charliermarsh/ruff-pre-commit
+    rev: "v0.0.243"
+    hooks:
+      - id: ruff

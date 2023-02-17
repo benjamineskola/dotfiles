@@ -1,12 +1,5 @@
-require: standard
-
-inherit_gem:
-  standard:
-    - config/base.yml
-
-Naming/FileName:
-  Exclude:
-    - "**/*Brewfile*"
+AllCops:
+  DisabledByDefault: true
 
 Layout/LineLength:
   Enabled: true

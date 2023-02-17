@@ -22,9 +22,6 @@ repos:
       - id: vint
       - id: prettier
       - id: rome
-      - id: rubocop
-        files: "(Brewfile.*|\\.rb)$"
-        types: []
   - repo: local
     hooks:
       - id: fish_indent
@@ -53,6 +50,12 @@ repos:
         language: system
         files: "ansible/.*.ya?ml$"
         pass_filenames: false
+      - id: standardrb
+        name: standardrb
+        language: system
+        files: "(Brewfile.*|\\.rb)$"
+        types: []
+        entry: standardrb --fix
   - repo: https://github.com/psf/black
     rev: 22.3.0
     hooks:

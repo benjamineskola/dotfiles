@@ -1,7 +1,7 @@
 function mdwc
     set total 0
     for file in $argv
-        set tmpfile (mktemp)
+        set tmpfile (mktemp).md
         trap "rm -f '$tmpfile'" EXIT INT
 
         perl -0777 -pe 's/^---+\n(\n|.)*?\n---+\n+//' "$file" >"$tmpfile"

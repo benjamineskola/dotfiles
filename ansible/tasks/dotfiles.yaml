@@ -5,7 +5,7 @@
       file:
         dest: "{{ ansible_env.HOME }}/.local"
         state: directory
-        mode: 0700
+        mode: "0700"
     - name: Ensure .local subdirectories are linked into place
       file:
         src: "{{ ansible_env.HOME }}/Library"
@@ -45,7 +45,7 @@
   file:
     dest: "{{ ansible_env.XDG_DATA_HOME }}/Application Support/iTerm2/Scripts"
     state: directory
-    mode: 0700
+    mode: "0700"
 - name: Link iTerm2 scripts into place
   file:
     src: "{{ item }}"
@@ -66,7 +66,7 @@
   get_url:
     url: https://iterm2.com/shell_integration/fish
     dest: "{{ ansible_env.XDG_CONFIG_HOME }}/fish/conf.d/zzz_iterm2_shell_integration.fish"
-    mode: 0600
+    mode: "0600"
   when: iterm2_integration.matched == 0
 
 - name: Install dotfiles
@@ -86,14 +86,14 @@
   file:
     dest: "{{ ansible_env.XDG_DATA_HOME }}/LaunchAgents"
     state: directory
-    mode: 0700
+    mode: "0700"
 
 - name: Generate plists
   template:
     src: templates/launchagent.plist.j2
     dest: "{{ ansible_env.XDG_DATA_HOME }}/LaunchAgents/{{ item.name }}.plist"
     lstrip_blocks: true
-    mode: 0600
+    mode: "0600"
   register: plists
   loop:
     - name: uk.eskola.setenv
@@ -131,7 +131,7 @@
     src: templates/launchagent.plist.j2
     dest: "{{ ansible_env.XDG_DATA_HOME }}/LaunchAgents/{{ item.name }}.plist"
     lstrip_blocks: true
-    mode: 0600
+    mode: "0600"
   register: plists_cron
   loop: "{{ cron_items }}"
   vars:
@@ -156,6 +156,7 @@
   shell: launchctl unload {{ item | basename }} && rm -f {{ item }}
   when: item not in ((plists.results + plists_cron.results) | map(attribute='dest'))
   with_fileglob: "{{ ansible_env.XDG_DATA_HOME }}/LaunchAgents/uk.eskola.*"
+  changed_when: true
 
 - name: Configure logrotate
   block:
@@ -163,9 +164,9 @@
       file:
         path: /opt/homebrew/etc/logrotate.d
         state: directory
-        mode: 0700
+        mode: "0700"
     - name: Create logrotate cron config
       template:
         src: templates/logrotate-cron.conf.j2
         dest: /opt/homebrew/etc/logrotate.d/cron.conf
-        mode: 0600
+        mode: "0600"

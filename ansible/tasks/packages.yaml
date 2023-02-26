@@ -3,7 +3,7 @@
   file:
     path: "{{ ansible_env.XDG_CONFIG_HOME }}/bat/themes"
     state: directory
-    mode: 0700
+    mode: "0700"
 
 - name: Vim files newer than a day old
   find:
@@ -15,6 +15,7 @@
   command: |
     nvim --headless -c 'lua require("lazy").sync()' -c 'qall'
   when: nvim_pack.matched == 0
+  changed_when: true
 
 - name: Ensure python-lsp has additional dependencies
   shell:

@@ -22,6 +22,7 @@
           fnm default {{ node_versions.stdout_lines | last }}
       # creates: "{{ ansible_env.XDG_DATA_HOME }}/Application Support/fnm/aliases/{{ item }}"
       when: node_install.results | last is changed
+      changed_when: true
     - name: Install default packages
       shell:
         cmd: |

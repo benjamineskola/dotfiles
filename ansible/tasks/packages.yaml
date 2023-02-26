@@ -33,7 +33,9 @@
       git:
         repo: https://github.com/Hammerspoon/Spoons.git
         dest: "{{ ansible_env.XDG_CONFIG_HOME }}/_hammerspoon/Spoons/vendor"
+        depth: 1
     - name: Bear # noqa latest[git]
       git:
         repo: https://github.com/dcreemer/hammerspoon-bear.git
         dest: "{{ ansible_env.XDG_CONFIG_HOME }}/_hammerspoon/Spoons/Bear.spoon"
+        depth: 1

@@ -22,7 +22,7 @@
     cmd: |
       set -e
       . venv/bin/activate
-      pip install -U --disable-pip-version-check python-lsp-black pyls-isort pylsp-mypy python-lsp-ruff
+      pip install -U --disable-pip-version-check python-lsp-black pyls-isort pylsp-mypy
     chdir: "{{ ansible_env.XDG_DATA_HOME }}/nvim/mason/packages/python-lsp-server"
   when: nvim_pack.matched == 0
   register: python_lsp

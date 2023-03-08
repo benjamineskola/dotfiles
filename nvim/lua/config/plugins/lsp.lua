@@ -38,7 +38,6 @@ M.config = function()
                     plugins = {
                         autopep8 = { enabled = false },
                         black = { enabled = true },
-                        ruff = { enabled = true },
                         yapf = { enabled = false },
                     },
                 },
@@ -57,6 +56,7 @@ M.config = function()
                 end
             end,
         },
+        ruff_lsp = {},
         rust_analyzer = { setup = false },
         solargraph = {},
         standardrb = {},

@@ -57,6 +57,7 @@
           - mdless
           - neovim
           - pry
+          - reek
           - rspec
           - solargraph
           - solargraph-rails

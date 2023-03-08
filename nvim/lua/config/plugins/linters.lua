@@ -6,6 +6,7 @@ local M = {
 local linters = {
     javascript = { "tsc" },
     markdown = { "markdownlint" },
+    ruby = { "reek" },
     sh = { "shellcheck" },
     typescript = { "tsc" },
     vim = { "vint" },
@@ -18,6 +19,24 @@ end
 M.config = function()
     local lint = require("lint")
 
+    lint.linters.reek = function()
+        return {
+            cmd = "reek",
+            args = { "-s" },
+            stdin = false,
+            ignore_exitcode = true,
+            parser = require("lint.parser").from_pattern(
+                "%s+(%g+):(%d+): (%g+): (.+)%s*%f[[]",
+                { "file", "lnum", "code", "message" },
+                {},
+                {
+                    severity = vim.diagnostic.severity.WARN,
+                    source = "reek",
+                }
+            ),
+        }
+    end
+
     lint.linters.tsc = function()
         return {
             cmd = "tsc",
@@ -27,6 +46,7 @@ M.config = function()
             parser = require("lint.parser").from_pattern(
                 "(%g+)%((%d+),(%d+)%): (%a+) (%g+): (.+)",
                 { "file", "lnum", "col", "severity", "code", "message" },
+                {},
                 {
                     ["source"] = "tsc",
                 }

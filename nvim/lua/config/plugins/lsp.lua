@@ -5,24 +5,7 @@ local M = {
 
 M.config = function()
     local lspconfig = require("lspconfig")
-    local configs = require("lspconfig.configs")
     local util = require("lspconfig.util")
-
-    configs.standardrb = {
-        default_config = {
-            cmd = { "standardrb", "--lsp" },
-            settings = {},
-            init_options = {},
-            filetypes = { "ruby" },
-            root_dir = util.root_pattern("Gemfile", ".git"),
-        },
-        docs = {
-            description = [[standardrb]],
-            default_config = {
-                root_dir = [[root_pattern("Gemfile", ".git")]],
-            },
-        },
-    }
 
     local default_on_attach = function(client)
         if client.server_capabilities.documentFormattingProvider then

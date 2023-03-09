@@ -85,11 +85,12 @@ M.config = function()
     local function install_commands()
         local registry = require("mason-registry")
 
+        require("mason").setup()
         for server, config in pairs(lsp_servers) do
             if config.package_name == nil then config.package_name = server end
 
             local package = registry.get_package(config.package_name)
-            if not package:is_installed() then package:install() end
+            if not package:is_installed() then vim.cmd.MasonInstall(config.package_name) end
         end
     end
 

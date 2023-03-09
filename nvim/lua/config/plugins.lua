@@ -24,6 +24,15 @@ return {
         config = function() vim.keymap.set({ "n" }, "<leader>y", require("yaml_nvim").telescope, { remap = false }) end,
     },
     {
+        "folke/which-key.nvim",
+        event = { "VeryLazy" },
+        config = function()
+            vim.o.timeout = true
+            vim.o.timeoutlen = 300
+            require("which-key").setup()
+        end,
+    },
+    {
         "gbprod/yanky.nvim",
         event = { "VeryLazy" },
         config = true,

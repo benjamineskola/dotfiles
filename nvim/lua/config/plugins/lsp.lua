@@ -60,7 +60,7 @@ M.config = function()
         rust_analyzer = { setup = false },
         solargraph = {},
         standardrb = {},
-        sumneko_lua = {
+        lua_ls = {
             package_name = "lua-language-server",
             settings = {
                 Lua = {

@@ -24,14 +24,6 @@ return {
         config = function() vim.keymap.set({ "n" }, "<leader>y", require("yaml_nvim").telescope, { remap = false }) end,
     },
     {
-        "folke/tokyonight.nvim",
-        lazy = false,
-        config = function()
-            require("tokyonight").setup({ style = "night" })
-            vim.cmd.colorscheme("tokyonight")
-        end,
-    },
-    {
         "gbprod/yanky.nvim",
         event = { "VeryLazy" },
         config = true,
@@ -63,6 +55,14 @@ return {
                 callback = require("nvim-lightbulb").update_lightbulb,
                 group = vim.api.nvim_create_augroup("LightbulbUpdate", { clear = true }),
             })
+        end,
+    },
+    {
+        "loctvl842/monokai-pro.nvim",
+        lazy = false,
+        config = function()
+            require("monokai-pro").setup({ filter = "spectrum" })
+            vim.cmd([[colorscheme monokai-pro]])
         end,
     },
     {

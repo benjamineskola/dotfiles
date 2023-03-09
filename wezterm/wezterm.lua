@@ -19,7 +19,7 @@ wezterm.on("window-resized", resize_font)
 wezterm.on("window-config-reloaded", resize_font)
 
 return {
-    color_scheme = "tokyonight",
+    color_scheme = "Monokai Soda",
     font = wezterm.font(font),
     font_size = 14,
     native_macos_fullscreen_mode = true,

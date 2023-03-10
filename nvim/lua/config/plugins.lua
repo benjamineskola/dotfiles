@@ -9,12 +9,6 @@ return {
         event = { "BufRead", "BufNewFile" },
     },
     {
-        "code-biscuits/nvim-biscuits",
-        opts = { cursor_line_only = true },
-        event = { "FileType" },
-        dependencies = { "nvim-treesitter" },
-    },
-    {
         "cuducos/yaml.nvim",
         ft = { "yaml" }, -- optional
         dependencies = {

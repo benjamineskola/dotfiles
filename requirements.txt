@@ -1,12 +1,7 @@
 bpython
 git+https://gitlab.com/benjamineskola/datecalc.git#egg=datecalc
-jedi
 neovim-remote
 git+https://gitlab.com/benjamineskola/passwordage.git#egg=passwordage
-poetry
-pre-commit
-pynvim
-solargraph-utils.py
 virtualfish
 wheel
 git+https://gitlab.com/benjamineskola/yaml2plist.git#egg=yaml2plist

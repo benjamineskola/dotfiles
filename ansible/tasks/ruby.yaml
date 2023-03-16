@@ -54,7 +54,6 @@
         gems:
           - bundler
           - mdless
-          - neovim
           - pry
           - reek
           - rspec

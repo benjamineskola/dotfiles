@@ -1,2 +1,0 @@
-ben ALL = (root) NOPASSWD: /bin/cp /Users/ben/.config/ansible/files/sudoers.txt /etc/sudoers.d/ansible
-ben ALL = (root) NOPASSWD: /bin/cp /Users/ben/.config/ansible/files/sudo.pam.txt /etc/pam.d/sudo

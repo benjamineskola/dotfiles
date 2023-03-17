@@ -15,6 +15,7 @@ set -gx NPM_CONFIG_USERCONFIG "$XDG_CONFIG_HOME/npmrc"
 set -gx PYENV_ROOT $XDG_DATA_HOME/pythons
 set -gx RUBIES_DIR $XDG_DATA_HOME/rubies
 set -gx RUSTUP_HOME $XDG_DATA_HOME/rustup
+set -gx TFENV_CONFIG_DIR "$XDG_DATA_HOME/tfenv"
 set -gx YARN_PREFIX $XDG_DATA_HOME/yarn
 
 set -gx ANSIBLE_HOME $XDG_CONFIG_HOME/ansible

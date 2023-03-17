@@ -114,5 +114,10 @@ function dotenv_hook --on-event fish_prompt
     dotenv_load
 end
 
+function _virtualenv_hook --on-variable PWD
+    _virtualenv_autoload
+end
+_virtualenv_autoload
+
 chruby (fd -g -d 1 'ruby-*' "$RUBIES_DIR" -X basename | sort | tail -n 1)
 pyenv init - | source

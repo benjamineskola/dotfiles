@@ -26,10 +26,6 @@ function dotenv_load
     # if dotenv exists, source it and record dotenv vars for unsetting later
     set -l _DOTENV_FILES
 
-    if ! [ -e "$XDG_DATA_HOME/dotenv.allow" ]
-        touch "$XDG_DATA_HOME/dotenv.allow"
-    end
-
     if ! dotenv_allowed "$_DOTENV_ROOT/.env" || ! dotenv_allowed "$_DOTENV_ROOT/.env.local"
         set -g _DOTENV_WARNED 1
         return

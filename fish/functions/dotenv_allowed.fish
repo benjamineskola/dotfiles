@@ -1,5 +1,5 @@
 function dotenv_allowed
-    if ! [ -f "$argv[1]" ]
+    if ! [ -f "$argv[1]" ] || ! [ -e "$XDG_DATA_HOME/dotenv.allow" ]
         return 0
     end
 

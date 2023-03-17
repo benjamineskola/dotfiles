@@ -110,7 +110,7 @@ else
     fnm env --version-file-strategy recursive | source
 end
 
-function dotenv_hook --on-event fish_prompt
+function _dotenv_hook --on-event fish_prompt
     dotenv_load
 end
 

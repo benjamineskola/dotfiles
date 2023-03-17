@@ -14,7 +14,6 @@ vim.opt.modeline = false
 vim.opt.mouse.a = true
 vim.opt.number = true
 vim.opt.pastetoggle = "<F10>"
-vim.opt.relativenumber = true
 vim.opt.scrolloff = 5
 vim.opt.shell = "/bin/sh"
 vim.opt.signcolumn = "yes"

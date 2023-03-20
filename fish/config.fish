@@ -38,6 +38,7 @@ if status is-interactive
     alias fdg 'fd -g'
     alias fetch 'curl -gkLO'
     alias grep egrep
+    type -fq hexyl && alias hd hexyl || alias hd 'hexdump -Cvv'
     alias less bat
     alias psed 'perl -0777 -p -e'
     type -fq rg || alias rg 'grep -ri'

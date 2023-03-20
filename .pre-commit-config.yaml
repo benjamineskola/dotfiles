@@ -29,11 +29,6 @@ repos:
         entry: fish_indent -w
         language: system
         types: [fish]
-      - id: stylua
-        name: stylua
-        entry: stylua --config-path stylua/stylua.toml
-        language: system
-        types: [lua]
       - id: luacheck
         name: luacheck
         entry: luacheck
@@ -64,3 +59,8 @@ repos:
     rev: "v0.0.243"
     hooks:
       - id: ruff
+  - repo: https://github.com/JohnnyMorganz/StyLua
+    rev: v0.17.0
+    hooks:
+      - id: stylua-github
+        args: [--config-path, stylua/stylua.toml]

@@ -97,7 +97,7 @@ if status is-interactive
     # alt-shift-. to insert entire previous commandline
     bind \e\> 'commandline -i "$history[1]"'
     bind \eo _fzf_search_directory
-    set fzf_dir_opts "--bind=enter:execute($EDITOR {} &)+abort,alt-enter:accept,alt-v:execute(nvim {} &>/dev/tty)+abort"
+    set fzf_dir_opts "--bind=enter:execute(fish -c '$EDITOR {}' &)+abort,alt-enter:accept,alt-v:execute(nvim {} &>/dev/tty)+abort"
     set fzf_fd_opts --hidden --follow --exclude "{.git,.Trash,Library,Movies,Music,Pictures}"
     bind \ec __fzf_cd
 

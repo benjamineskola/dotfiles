@@ -1,9 +1,7 @@
 set -gx BUNDLE_USER_CACHE "$XDG_CACHE_HOME/bundler"
 set -gx BUNDLE_USER_HOME "$XDG_CONFIG_HOME/bundler"
 
-set -gx EDITOR neovide
-set -gx VISUAL "neovide --nofork"
-set -gx GIT_EDITOR nvim
+set -gx EDITOR hx
 
 set -gx LESS "-ImRswFX --mouse"
 set -gx LESSHISTFILE "$XDG_CACHE_HOME/less_history"
@@ -98,7 +96,7 @@ if status is-interactive
     # alt-shift-. to insert entire previous commandline
     bind \e\> 'commandline -i "$history[1]"'
     bind \eo _fzf_search_directory
-    set fzf_dir_opts "--bind=enter:execute(fish -c '$EDITOR {}' &)+abort,alt-enter:accept,alt-v:execute(nvim {} &>/dev/tty)+abort"
+    set fzf_dir_opts "--bind=enter:execute($EDITOR {} &)+abort,alt-enter:accept,alt-v:execute(nvim {} &>/dev/tty)+abort"
     set fzf_fd_opts --hidden --follow --exclude "{.git,.Trash,Library,Movies,Music,Pictures}"
     bind \ec __fzf_cd
 

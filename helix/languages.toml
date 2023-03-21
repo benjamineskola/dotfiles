@@ -1,0 +1,13 @@
+[[language]]
+name = "python"
+auto-format = true
+config = { pylsp = { plugins = { black = { enabled = true }, ruff = { enabled = true } } } }
+
+[[language]]
+name = "ruby"
+auto-format = true
+language-server = { command = "standardrb", args = ["--lsp"] }
+
+[[language]]
+name = "toml"
+auto-format = true

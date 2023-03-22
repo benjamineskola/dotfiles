@@ -1,0 +1,4 @@
+[[language]]
+name = "ruby"
+auto-format = true
+config = { solargraph = { diagnostics = true }, formatting = true }

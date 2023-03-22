@@ -1,4 +1,47 @@
 [[language]]
+name = "bash"
+indent = { tab-width = 4, unit = "    " }
+formatter = { command = 'shfmt', args = ["-i", "4", "-p"] }
+auto-format = true
+
+[[language]]
+name = "css"
+formatter = { command = 'prettier', args = ["--parser", "css"] }
+auto-format = true
+
+[[language]]
+name = "fish"
+formatter = { command = "fish_indent" }
+auto-format = true
+
+[[language]]
+name = "go"
+auto-format = true
+
+[[language]]
+name = "javascript"
+auto-format = true
+language-server = { command = "rome", args = ["lsp-proxy"] }
+# formatter = { command = "rome", args = [
+#   "format",
+#   "--stdin-file-path",
+#   "test.js",
+# ] }
+
+[[language]]
+name = "json"
+auto-format = true
+formatter = { command = "rome", args = [
+  "format",
+  "--stdin-file-path",
+  "test.json",
+] }
+
+[[language]]
+name = "lua"
+auto-format = true
+
+[[language]]
 name = "python"
 auto-format = true
 config = { pylsp = { plugins = { black = { enabled = true }, ruff = { enabled = true } } } }
@@ -10,4 +53,9 @@ language-server = { command = "standardrb", args = ["--lsp"] }
 
 [[language]]
 name = "toml"
+auto-format = true
+
+[[language]]
+name = "yaml"
+formatter = { command = 'prettier', args = ["--parser", "yaml"] }
 auto-format = true

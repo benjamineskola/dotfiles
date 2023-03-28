@@ -1,5 +1,3 @@
-require("copy_links")
-
 hs.loadSpoon("ReloadConfiguration")
 spoon.ReloadConfiguration:start()
 

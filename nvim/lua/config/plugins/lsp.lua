@@ -39,6 +39,8 @@ M.config = function()
                         autopep8 = { enabled = false },
                         black = { enabled = true },
                         yapf = { enabled = false },
+                        pycodestyle = { enabled = false },
+                        pydocstyle = { enabled = false },
                     },
                 },
             },

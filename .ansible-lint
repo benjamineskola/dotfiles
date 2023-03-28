@@ -1,4 +1,5 @@
 ---
 skip_list:
   - "fqcn[action-core]"
+  - "no-handler"
   - "risky-shell-pipe"

@@ -3,17 +3,25 @@ require("copy_links")
 hs.loadSpoon("ReloadConfiguration")
 spoon.ReloadConfiguration:start()
 
-local function applicationWatcher(appName, eventType, appObject)
-    if eventType == hs.application.watcher.activated then
-        if appName == "PDF Expert" then
-            local _, mode = hs.osascript.javascript('Application("System Events").appearancePreferences.darkMode.get()')
-            local modeName = mode and "Night" or "Day"
+local function darkModeSwitcher(appName, eventType, appObject)
+    local apps = {
+        ["PDF Expert"] = { modeNames = { "Night", "Day" }, menuItem = { "View", "Theme" } },
+        Highlights = { modeNames = { "Night", "Default" }, menuItem = { "View", "PDF Appearance" } },
+    }
 
-            appObject:selectMenuItem({ "View", "Theme", modeName })
+    if eventType == hs.application.watcher.activated or eventType == hs.application.watcher.unhidden then
+        local appData = apps[appName]
+        if appData then
+            local _, darkMode =
+                hs.osascript.javascript('Application("System Events").appearancePreferences.darkMode.get()')
+            local modeName = darkMode and appData.modeNames[1] or appData.modeNames[2]
+            local menuItem = appData.menuItem
+            table.insert(menuItem, #menuItem + 1, modeName)
+            appObject:selectMenuItem(menuItem)
         end
     end
 end
-local appWatcher = hs.application.watcher.new(applicationWatcher)
+local appWatcher = hs.application.watcher.new(darkModeSwitcher)
 appWatcher:start()
 
 local screen_watcher = hs.screen.watcher.new(function()

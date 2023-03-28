@@ -1,0 +1,4 @@
+** linguist-detectable
+.ansible-lint linguist-language=yaml
+.luacheckrc linguist-language=lua
+*prettierrc linguist-language=json

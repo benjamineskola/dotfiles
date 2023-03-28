@@ -46,7 +46,6 @@ M.config = function()
             fish = { require("formatter.filetypes.fish").fishindent },
             html = { require("formatter.filetypes.html").prettierd },
             javascript = { rome_lint },
-            json = { require("formatter.filetypes.json").prettierd },
             lua = { require("formatter.filetypes.lua").stylua },
             markdown = { require("formatter.filetypes.markdown").prettierd },
             scss = { require("formatter.filetypes.css").prettierd },

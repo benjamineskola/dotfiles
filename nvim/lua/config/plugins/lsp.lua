@@ -44,12 +44,22 @@ M.config = function()
             },
         },
         rome = {
+            filetypes = {
+                "javascript",
+                "javascriptreact",
+                "json",
+                "typescript",
+                "typescript.tsx",
+                "typescriptreact",
+                "json",
+                "jsonc",
+            },
             root_dir = function(fname)
                 local root = util.find_package_json_ancestor(fname)
                     or util.find_node_modules_ancestor(fname)
                     or util.find_git_ancestor(fname)
 
-                if root and util.is_file(root .. "/rome.json") then
+                if root and util.path.is_file(root .. "/rome.json") then
                     return root
                 else
                     return vim.env.XDG_CONFIG_HOME

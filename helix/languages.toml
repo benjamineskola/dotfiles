@@ -6,11 +6,11 @@ auto-format = true
 
 [[language]]
 name = "css"
-formatter = { command = 'prettier', args = ["--parser", "css"] }
+formatter = { command = 'prettierd', args = ["dummy.css"] }
 
 [[language]]
 name = "scss"
-formatter = { command = 'prettier', args = ["--parser", "scss"] }
+formatter = { command = 'prettierd', args = ["dummy.scss"] }
 
 [[language]]
 name = "fish"
@@ -23,7 +23,7 @@ config = { gopls = { gofumpt = true } }
 
 [[language]]
 name = "html"
-formatter = { command = 'prettier', args = ["--parser", "html"] }
+formatter = { command = 'prettierd', args = ["dummy.html"] }
 
 [[language]]
 name = "javascript"
@@ -58,7 +58,7 @@ formatter = { command = "stylua", args = [
 [[language]]
 name = "markdown"
 auto-format = true
-formatter = { command = 'prettier', args = ["--parser", "markdown"] }
+formatter = { command = 'prettierd', args = ["dummy.md"] }
 
 [[language]]
 name = "python"
@@ -94,5 +94,5 @@ formatter = { command = "rome", args = [
 
 [[language]]
 name = "yaml"
-formatter = { command = 'prettier', args = ["--parser", "yaml"] }
+formatter = { command = 'prettierd', args = ["dummy.yaml"] }
 auto-format = true

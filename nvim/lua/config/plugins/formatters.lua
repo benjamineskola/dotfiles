@@ -60,20 +60,6 @@ M.config = function()
             },
         },
     })
-
-    local packages = {
-        "erb-lint",
-        "prettierd",
-        "rome",
-        "shfmt",
-        "stylua",
-        "taplo",
-    }
-    local registry = require("mason-registry")
-    for _, package_name in ipairs(packages) do
-        local package = registry.get_package(package_name)
-        if not package:is_installed() then vim.cmd.MasonInstall(package_name) end
-    end
 end
 
 M.init = function()

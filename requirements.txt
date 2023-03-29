@@ -2,5 +2,10 @@ bpython
 git+https://gitlab.com/benjamineskola/datecalc.git#egg=datecalc
 neovim-remote
 git+https://gitlab.com/benjamineskola/passwordage.git#egg=passwordage
+pyls-isort
+pylsp-mypy
+python-lsp-black
+python-lsp-server
+ruff-lsp
 wheel
 git+https://gitlab.com/benjamineskola/yaml2plist.git#egg=yaml2plist

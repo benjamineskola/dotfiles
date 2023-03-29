@@ -30,7 +30,6 @@ fish_add_path -g -p ~/bin
 fish_add_path -g -p $CARGO_DIR/bin
 fish_add_path -g -p $GOPATH/bin
 fish_add_path -g -p $YARN_PREFIX/bin
-fish_add_path -g -p $XDG_DATA_HOME/nvim/mason/bin
 
 if status is-interactive
     alias curl 'curl -gkLsS'

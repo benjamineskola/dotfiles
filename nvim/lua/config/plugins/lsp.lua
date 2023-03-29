@@ -17,22 +17,20 @@ M.config = function()
     end
 
     local lsp_servers = {
-        ansiblels = { package_name = "ansible-language-server" },
-        bashls = { package_name = "bash-language-server" },
-        cssls = { package_name = "css-lsp" },
-        dockerls = { package_name = "dockerfile-language-server" },
-        golangci_lint_ls = { package_name = "golangci-lint-langserver" },
+        ansiblels = {},
+        bashls = {},
+        cssls = {},
+        dockerls = {},
+        golangci_lint_ls = {},
         gopls = {
             settings = { gopls = { gofumpt = true } },
         },
         -- hls = {
-        --     package_name = "haskell-language-server",
         --     settings = { haskell = { formattingProvider = "brittany" } },
         -- },
-        jsonls = { package_name = "json-lsp" },
+        jsonls = {},
         marksman = {},
         pylsp = {
-            package_name = "python-lsp-server",
             settings = {
                 pylsp = {
                     plugins = {
@@ -73,7 +71,6 @@ M.config = function()
         solargraph = {},
         standardrb = {},
         lua_ls = {
-            package_name = "lua-language-server",
             settings = {
                 Lua = {
                     format = { enable = false },
@@ -81,37 +78,16 @@ M.config = function()
             },
         },
         taplo = {},
-        tsserver = { package_name = "typescript-language-server", setup = false },
-        vimls = { package_name = "vim-language-server" },
-        yamlls = { package_name = "yaml-language-server" },
+        tsserver = { setup = false },
+        vimls = {},
+        yamlls = {},
     }
 
     for server, config in pairs(lsp_servers) do
         if config.on_attach == nil then config.on_attach = default_on_attach end
 
-        if config.package_name == nil then config.package_name = server:gsub("_", "-") end
-
         if config.setup == nil or config.setup ~= false then lspconfig[server].setup(config) end
     end
-
-    local function install_commands()
-        local registry = require("mason-registry")
-
-        require("mason").setup()
-        for server, config in pairs(lsp_servers) do
-            if config.package_name == nil then config.package_name = server end
-
-            local package = registry.get_package(config.package_name)
-            if not package:is_installed() then vim.cmd.MasonInstall(config.package_name) end
-        end
-    end
-
-    vim.api.nvim_create_autocmd({ "BufReadPost" }, {
-        callback = install_commands,
-        group = vim.api.nvim_create_augroup("MasonInstall", { clear = true }),
-    })
-
-    vim.env.PATH = vim.fn.stdpath("data") .. "/mason/bin" .. ":" .. vim.env.PATH
 
     vim.api.nvim_create_autocmd("LspAttach", {
         desc = "LSP actions",

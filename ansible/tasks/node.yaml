@@ -31,5 +31,8 @@
       loop:
         - markdownlint-cli
         - prettier
+        - "@fsouza/prettierd"
         - rome
         - typescript
+        - typescript-language-server
+        - vscode-langservers-extracted

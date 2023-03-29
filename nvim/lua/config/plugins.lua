@@ -109,7 +109,6 @@ return {
     { "tpope/vim-sensible", event = { "VeryLazy" } },
     { "tpope/vim-surround", event = { "VeryLazy" } },
     { "tpope/vim-unimpaired", event = { "VeryLazy" } },
-    { "williamboman/mason.nvim" },
     {
         "windwp/nvim-autopairs",
         opts = {

@@ -55,16 +55,6 @@ M.config = function()
     end
 
     lint.linters_by_ft = linters
-
-    local registry = require("mason-registry")
-    for _, packages in pairs(linters) do
-        for _, package_name in ipairs(packages) do
-            if registry.has_package(package) then
-                local package = registry.get_package(package_name)
-                if not package:is_installed() then vim.cmd.MasonInstall(package_name) end
-            end
-        end
-    end
 end
 
 M.init = function()

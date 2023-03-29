@@ -47,6 +47,13 @@ formatter = { command = "rome", args = [
 [[language]]
 name = "lua"
 auto-format = true
+formatter = { command = "stylua", args = [
+  "--config-path",
+  "/Users/ben/.config/stylua/stylua.toml",
+  "--stdin-filepath",
+  "dummy.lua",
+  "-",
+] }
 
 [[language]]
 name = "markdown"

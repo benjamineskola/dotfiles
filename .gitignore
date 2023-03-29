@@ -1,4 +1,5 @@
 /alacritty/alacritty.local.yml
+/bat/themes/*.tmTheme
 /Brewfile.lock.json
 /configstore/update-notifier-npm.json
 /fish/completions

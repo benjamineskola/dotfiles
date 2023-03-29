@@ -19,7 +19,7 @@ wezterm.on("window-resized", resize_font)
 wezterm.on("window-config-reloaded", resize_font)
 
 return {
-    color_scheme = "Monokai Spectrum",
+    color_scheme = "rose-pine",
     font = wezterm.font(font),
     font_size = 14,
     native_macos_fullscreen_mode = true,
@@ -29,6 +29,24 @@ return {
     tab_bar_at_bottom = true,
     use_fancy_tab_bar = false,
     window_decorations = "RESIZE",
+
+    colors = {
+        selection_fg = "#e0def4",
+        selection_bg = "#403d52",
+        cursor_fg = "#e0def4",
+        cursor_bg = "#524f67",
+        tab_bar = {
+            background = "#21202e",
+            inactive_tab = {
+                bg_color = "#21202e",
+                fg_color = "#6e6a86",
+            },
+            active_tab = {
+                bg_color = "#26233a",
+                fg_color = "#e0def4",
+            },
+        },
+    },
 
     keys = {
         { mods = "CMD", key = "d", action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }) },

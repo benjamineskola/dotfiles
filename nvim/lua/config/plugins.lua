@@ -61,14 +61,6 @@ return {
         end,
     },
     {
-        "loctvl842/monokai-pro.nvim",
-        lazy = false,
-        config = function()
-            require("monokai-pro").setup({ filter = "spectrum" })
-            vim.cmd([[colorscheme monokai-pro]])
-        end,
-    },
-    {
         "lukas-reineke/indent-blankline.nvim",
         opts = {
             space_char_blankline = " ",
@@ -95,6 +87,15 @@ return {
         cmd = { "NvimTreeToggle" },
     },
     { "rizzatti/dash.vim", keys = { "<Plug>DashSearch" } },
+    {
+        "rose-pine/neovim",
+        name = "rose-pine",
+        lazy = false,
+        config = function()
+            require("rose-pine").setup()
+            vim.cmd([[colorscheme rose-pine]])
+        end,
+    },
     { "sheerun/vim-polyglot", event = { "VeryLazy" } },
     { "simnalamburt/vim-mundo", cmd = "MundoToggle" },
     { "simrat39/rust-tools.nvim", ft = { "rust", "toml" }, config = true },

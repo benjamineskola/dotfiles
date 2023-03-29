@@ -8,7 +8,7 @@
 	template = ~/.config/git/git_commit_template
 [core]
 	excludesfile = ~/.config/git/gitignore.global
-	pager = delta --max-line-length=0 --syntax-theme='Monokai Extended'
+	pager = delta --max-line-length=0 --syntax-theme='rose-pine'
 	quotepath = off
 [delta]
 	line-numbers = true
@@ -22,7 +22,7 @@
 	templatedir = ~/.config/git/template
 	defaultBranch = main
 [interactive]
-	diffFilter = delta --color-only --max-line-length=0 --syntax-theme='Monokai Extended'
+	diffFilter = delta --color-only --max-line-length=0 --syntax-theme='rose-pine'
 [log]
 	abbrevCommit = true
 	decorate = true

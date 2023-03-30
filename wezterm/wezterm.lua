@@ -69,5 +69,6 @@ return {
                 pane:paste(text)
             end),
         },
+        { mods = "ALT", key = "Enter", action = wezterm.action.DisableDefaultAssignment },
     },
 }

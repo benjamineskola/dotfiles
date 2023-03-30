@@ -96,7 +96,7 @@ return {
             vim.cmd([[colorscheme rose-pine]])
         end,
     },
-    { "sheerun/vim-polyglot", event = { "VeryLazy" } },
+    { "sheerun/vim-polyglot", lazy = false },
     { "simnalamburt/vim-mundo", cmd = "MundoToggle" },
     { "simrat39/rust-tools.nvim", ft = { "rust", "toml" }, config = true },
     { "tpope/vim-commentary", event = { "VeryLazy" } },

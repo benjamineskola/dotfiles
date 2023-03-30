@@ -1,4 +1,4 @@
-function vi --wraps nvim
+function neovide-remote --wraps nvim
     set -l sockets
 
     function varname
@@ -28,7 +28,7 @@ function vi --wraps nvim
         set -l _var (varname "$socket")
         set -l params $$_var
 
-        set -fx NVR_CMD "neovide -- --listen '$socket'"
+        set -fx NVR_CMD "neovide --notabs -- --listen '$socket'"
         nvr -s --servername $socket +"cd $params[1]" --remote $params[2..]
     end
 end

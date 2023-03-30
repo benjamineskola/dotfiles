@@ -1,8 +1,8 @@
 set -gx BUNDLE_USER_CACHE "$XDG_CACHE_HOME/bundler"
 set -gx BUNDLE_USER_HOME "$XDG_CONFIG_HOME/bundler"
 
-set -gx EDITOR neovide
-set -gx VISUAL "neovide --nofork"
+set -gx EDITOR nvim
+set -gx VISUAL neovide-remote
 set -gx GIT_EDITOR nvim
 
 set -gx LESS "-ImRswFX --mouse"
@@ -52,8 +52,9 @@ if status is-interactive
     alias lal 'ls -la'
     alias lsd 'ls -d'
 
+    alias vi neovide-remote
     alias vim vi
-    alias neovide 'neovide --notabs'
+    alias neovide neovide-remote
 
     alias listcops 'rubocop -fo'
     alias openports 'lsof -nP -iTCP -sTCP:LISTEN'
@@ -97,7 +98,7 @@ if status is-interactive
     # alt-shift-. to insert entire previous commandline
     bind \e\> 'commandline -i "$history[1]"'
     bind \eo _fzf_search_directory
-    set fzf_dir_opts "--bind=enter:execute(fish -c '$EDITOR {}' &)+abort,alt-enter:accept,alt-v:execute(nvim {} &>/dev/tty)+abort"
+    set fzf_dir_opts "--bind=enter:become(fish -c '$VISUAL {}' &>/dev/tty),alt-enter:accept,alt-v:become($EDITOR {} >/dev/tty)"
     set fzf_fd_opts --hidden --follow --exclude "{.git,.Trash,Library,Movies,Music,Pictures}"
     bind \ec __fzf_cd
 

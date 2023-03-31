@@ -71,6 +71,13 @@ M.config = function()
         solargraph = {},
         standardrb = {},
         lua_ls = {
+            cmd = {
+                "lua-language-server",
+                "--logpath",
+                vim.env.XDG_CACHE_HOME .. "/lua_ls/logs",
+                "--metapath",
+                vim.env.XDG_CACHE_HOME .. "/lua_ls/meta",
+            },
             settings = {
                 Lua = {
                     format = { enable = false },

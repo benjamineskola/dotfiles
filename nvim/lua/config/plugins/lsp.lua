@@ -29,6 +29,7 @@ M.config = function()
         --     settings = { haskell = { formattingProvider = "brittany" } },
         -- },
         jsonls = {},
+        ltex = { settings = { ltex = { language = "en-gb" } } },
         marksman = {},
         pylsp = {
             settings = {

@@ -3,6 +3,13 @@ local M = {
     event = { "BufReadPost" },
 }
 
+local function want_rubocop(client)
+    local util = require("lspconfig.util")
+    local root = client.workspace_folders[1].name
+
+    return root and util.path.is_file(root .. "/.rubocop.yml")
+end
+
 M.config = function()
     local lspconfig = require("lspconfig")
     local util = require("lspconfig.util")
@@ -14,6 +21,16 @@ M.config = function()
                 group = vim.api.nvim_create_augroup("FormatSync", { clear = true }),
             })
         end
+    end
+
+    local ruby_on_attach = function(client)
+        vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+            callback = function(opts)
+                vim.lsp.buf.format({ bufnr = opts.buf, name = "standardrb" })
+                if want_rubocop(client) then vim.lsp.buf.format({ bufnr = opts.buf, name = "solargraph" }) end
+            end,
+            group = vim.api.nvim_create_augroup("FormatSync", { clear = true }),
+        })
     end
 
     local lsp_servers = {
@@ -59,8 +76,8 @@ M.config = function()
         },
         ruff_lsp = {},
         rust_analyzer = { setup = false },
-        solargraph = {},
-        standardrb = {},
+        solargraph = { on_attach = ruby_on_attach },
+        standardrb = { on_attach = ruby_on_attach },
         lua_ls = {
             cmd = {
                 "lua-language-server",

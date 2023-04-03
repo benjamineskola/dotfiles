@@ -45,16 +45,6 @@ M.config = function()
             },
         },
         rome = {
-            filetypes = {
-                "javascript",
-                "javascriptreact",
-                "json",
-                "typescript",
-                "typescript.tsx",
-                "typescriptreact",
-                "json",
-                "jsonc",
-            },
             root_dir = function(fname)
                 local root = util.find_package_json_ancestor(fname)
                     or util.find_node_modules_ancestor(fname)

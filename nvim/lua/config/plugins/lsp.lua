@@ -93,6 +93,8 @@ M.config = function()
             },
         },
         taplo = {},
+        terraformls = {},
+        tflint = {},
         tsserver = { setup = false },
         vimls = {},
         yamlls = {},

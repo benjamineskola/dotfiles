@@ -6,13 +6,7 @@ local M = {
 
 local function diff_source()
     local gitsigns = vim.b.gitsigns_status_dict
-    if gitsigns then
-        return {
-            added = gitsigns.added,
-            modified = gitsigns.changed,
-            removed = gitsigns.removed,
-        }
-    end
+    if gitsigns then return { added = gitsigns.added, modified = gitsigns.changed, removed = gitsigns.removed } end
 end
 
 M.opts = {
@@ -22,35 +16,14 @@ M.opts = {
             { "diff", source = diff_source },
         },
         lualine_x = {
-            function()
-                if vim.bo.fileencoding and vim.bo.fileencoding ~= "utf-8" then return vim.bo.fileencoding end
-                return ""
-            end,
-            {
-                "fileformat",
-                symbols = {
-                    unix = "",
-                },
-            },
+            function() return vim.bo.fileencoding and vim.bo.fileencoding ~= "utf-8" and vim.bo.fileencoding or "" end,
+            { "fileformat", symbols = { unix = "" } },
             "filetype",
         },
     },
     tabline = {
-        lualine_a = {
-            {
-                "buffers",
-                buffers_color = {
-                    active = function() return { gui = vim.bo.modified and "italic" or "" } end,
-                },
-                inactive = function() return { gui = vim.bo.modified and "italic" or "" } end,
-            },
-        },
-        lualine_z = {
-            {
-                "tabs",
-                cond = function() return #vim.api.nvim_list_tabpages() > 1 end,
-            },
-        },
+        lualine_a = { { "buffers" } },
+        lualine_z = { { "tabs", cond = function() return #vim.api.nvim_list_tabpages() > 1 end } },
     },
 }
 

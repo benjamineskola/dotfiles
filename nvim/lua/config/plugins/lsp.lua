@@ -10,18 +10,18 @@ local function want_rubocop(client)
     return root and util.path.is_file(root .. "/.rubocop.yml")
 end
 
+M.default_on_attach = function(client)
+    if client.server_capabilities.documentFormattingProvider then
+        vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+            callback = function(opts) vim.lsp.buf.format({ bufnr = opts.buf }) end,
+            group = vim.api.nvim_create_augroup("FormatSync", { clear = true }),
+        })
+    end
+end
+
 M.config = function()
     local lspconfig = require("lspconfig")
     local util = require("lspconfig.util")
-
-    local default_on_attach = function(client)
-        if client.server_capabilities.documentFormattingProvider then
-            vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-                callback = function(opts) vim.lsp.buf.format({ bufnr = opts.buf }) end,
-                group = vim.api.nvim_create_augroup("FormatSync", { clear = true }),
-            })
-        end
-    end
 
     local ruby_on_attach = function(client)
         vim.api.nvim_create_autocmd({ "BufWritePre" }, {
@@ -101,7 +101,7 @@ M.config = function()
     }
 
     for server, config in pairs(lsp_servers) do
-        if config.on_attach == nil then config.on_attach = default_on_attach end
+        if config.on_attach == nil then config.on_attach = M.default_on_attach end
 
         if config.setup == nil or config.setup ~= false then lspconfig[server].setup(config) end
     end

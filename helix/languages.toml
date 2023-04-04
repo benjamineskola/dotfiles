@@ -71,6 +71,12 @@ config = { pylsp = { plugins = { black = { enabled = true }, ruff = { enabled = 
 name = "ruby"
 auto-format = true
 language-server = { command = "standardrb", args = ["--lsp"] }
+formatter = { command = "standardrb", args = [
+  "--stdin",
+  "dummy.rb",
+  "--fix",
+  "--stderr",
+] }
 
 [[language]]
 name = "rust"

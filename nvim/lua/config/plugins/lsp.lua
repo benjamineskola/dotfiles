@@ -13,8 +13,8 @@ end
 M.default_on_attach = function(client)
     if client.server_capabilities.documentFormattingProvider then
         vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-            callback = function(opts) vim.lsp.buf.format({ bufnr = opts.buf }) end,
-            group = vim.api.nvim_create_augroup("FormatSync", { clear = true }),
+            callback = function(opts) vim.lsp.buf.format({ bufnr = opts.buf, name = client.name }) end,
+            group = vim.api.nvim_create_augroup("autoformat_" .. client.name, { clear = true }),
         })
     end
 end
@@ -29,7 +29,7 @@ M.config = function()
                 vim.lsp.buf.format({ bufnr = opts.buf, name = "standardrb" })
                 if want_rubocop(client) then vim.lsp.buf.format({ bufnr = opts.buf, name = "solargraph" }) end
             end,
-            group = vim.api.nvim_create_augroup("FormatSync", { clear = true }),
+            group = vim.api.nvim_create_augroup("autoformat_ruby", { clear = true }),
         })
     end
 

@@ -1,4 +1,4 @@
-vim.g.mapleader = ","
+vim.g.mapleader = " "
 
 local abbrev = require("utils").abbrev
 local map = vim.keymap.set

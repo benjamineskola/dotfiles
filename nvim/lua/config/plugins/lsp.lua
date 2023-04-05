@@ -42,9 +42,7 @@ M.config = function()
         gopls = {
             settings = { gopls = { gofumpt = true } },
         },
-        -- hls = {
-        --     settings = { haskell = { formattingProvider = "brittany" } },
-        -- },
+        hls = { settings = { haskell = { formattingProvider = "brittany" } } },
         jsonls = {},
         ltex = { settings = { ltex = { language = "en-gb" } } },
         marksman = {},
@@ -86,11 +84,7 @@ M.config = function()
                 "--metapath",
                 vim.env.XDG_CACHE_HOME .. "/lua_ls/meta",
             },
-            settings = {
-                Lua = {
-                    format = { enable = false },
-                },
-            },
+            settings = { Lua = { format = { enable = false } } },
         },
         taplo = {},
         terraformls = {},
@@ -111,41 +105,18 @@ M.config = function()
         callback = function(params)
             local opts = { noremap = true, buffer = params.buf }
 
-            -- Displays hover information about the symbol under the cursor
-            vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-
-            -- Jump to the definition
-            vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-
-            -- Jump to declaration
-            vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-
-            -- Lists all the implementations for the symbol under the cursor
-            vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-
-            -- Jumps to the definition of the type symbol
-            vim.keymap.set("n", "go", vim.lsp.buf.type_definition, opts)
-
-            -- Lists all the references
-            vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-
-            -- Displays a function's signature information
-            vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
-
-            -- Renames all references to the symbol under the cursor
-            vim.keymap.set("n", "<Leader>rn", vim.lsp.buf.rename, opts)
-
-            -- Selects a code action available at the current cursor position
-            vim.keymap.set({ "n", "v" }, "<Leader>x", vim.lsp.buf.code_action, opts)
-
-            -- Show diagnostics in a floating window
-            vim.keymap.set("n", "gl", vim.diagnostic.open_float, opts)
-
-            -- Move to the previous diagnostic
-            vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
-
-            -- Move to the next diagnostic
-            vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
+            vim.keymap.set("n", "K", vim.lsp.buf.hover, opts) -- Display hover information
+            vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts) -- Jump to the definition
+            vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- Jump to declaration
+            vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts) -- List all implementations
+            vim.keymap.set("n", "go", vim.lsp.buf.type_definition, opts) -- Jump to definition of type symbol
+            vim.keymap.set("n", "gr", vim.lsp.buf.references, opts) -- List all references
+            vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts) -- Display function signature information
+            vim.keymap.set("n", "<Leader>rn", vim.lsp.buf.rename, opts) -- Rename all references
+            vim.keymap.set({ "n", "v" }, "<Leader>x", vim.lsp.buf.code_action, opts) -- Select code action
+            vim.keymap.set("n", "gl", vim.diagnostic.open_float, opts) -- Show diagnostics
+            vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts) -- Move to previous diagnostic
+            vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts) -- Move to next diagnostic
         end,
     })
 end

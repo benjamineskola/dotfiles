@@ -5,5 +5,4 @@ vim.b.colorcolumn = tonumber(
             .. [[ 2>/dev/null | grep '^max_width ' | cut -d '=' -f 2]]
     )
 )
-vim.bo.expandtab = true
 vim.bo.shiftwidth = 4

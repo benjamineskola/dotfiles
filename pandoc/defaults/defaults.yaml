@@ -1,5 +1,5 @@
 from: markdown+raw_attribute
-pdf-engine: xelatex
+pdf-engine: typst
 citeproc: true
 csl: "${HOME}/Code/csl/modern-humanities-research-association.csl"
 metadata:
@@ -12,8 +12,3 @@ variables:
   mainfontoptions:
     - Numbers=OldStyle
     - SmallCapsFont=Valkyrie A Caps
-  header-includes: |
-    \usepackage[Latin,Diacritics]{ucharclasses}
-    \newfontfamily\myfallbackfont{Gentium Plus}
-    \setTransitionsFor{LatinExtendedAdditional}{\myfallbackfont}{\normalfont}
-    \setTransitionsFor{SpacingModifierLetters}{\myfallbackfont}{\normalfont}

@@ -55,6 +55,7 @@ M.config = function()
                         yapf = { enabled = false },
                         pycodestyle = { enabled = false },
                         pydocstyle = { enabled = false },
+                        ruff = { enabled = false },
                     },
                 },
             },

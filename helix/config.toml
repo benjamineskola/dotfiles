@@ -1,1 +1,16 @@
 theme = "rose_pine"
+
+[editor]
+cursorline = true
+
+[editor.indent-guides]
+render = true
+character = "│"
+skip-levels = 1
+
+[editor.lsp]
+display-inlay-hints = true
+
+[editor.soft-wrap]
+enable = true
+wrap-indicator = ""

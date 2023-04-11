@@ -10,6 +10,7 @@ set -gx LESSHISTFILE "$XDG_CACHE_HOME/less_history"
 set -gx MANPAGER 'col -bx | bat -l man -p'
 
 set -gx CARGO_DIR $XDG_DATA_HOME/cargo
+set -gx CARGO_INSTALL_ROOT $CARGO_DIR
 set -gx GOPATH $XDG_DATA_HOME/go
 set -gx NPM_CONFIG_USERCONFIG "$XDG_CONFIG_HOME/npmrc"
 set -gx PYENV_ROOT $XDG_DATA_HOME/pythons

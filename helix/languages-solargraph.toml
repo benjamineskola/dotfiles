@@ -1,4 +1,12 @@
 [[language]]
 name = "ruby"
 auto-format = true
-config = { solargraph = { diagnostics = true }, formatting = true }
+formatter = { command = "rubocop", args = [
+  "--autocorrect",
+  "--stdin",
+  "dummy.rb",
+  "--stderr",
+  "--fail-level",
+  "fatal",
+] }
+language-servers = ["solargraph"]

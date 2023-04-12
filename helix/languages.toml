@@ -19,7 +19,6 @@ auto-format = true
 
 [[language]]
 name = "go"
-config = { gopls = { gofumpt = true } }
 
 [[language]]
 name = "html"
@@ -28,7 +27,7 @@ formatter = { command = 'prettierd', args = ["dummy.html"] }
 [[language]]
 name = "javascript"
 auto-format = true
-language-server = { command = "rome", args = ["lsp-proxy"] }
+language-servers = ["typescript", "rome"]
 formatter = { command = "rome", args = [
   "format",
   "--stdin-file-path",
@@ -38,6 +37,7 @@ formatter = { command = "rome", args = [
 [[language]]
 name = "json"
 auto-format = true
+language-servers = ["json-ls", "rome"]
 formatter = { command = "rome", args = [
   "format",
   "--stdin-file-path",
@@ -58,19 +58,18 @@ formatter = { command = "stylua", args = [
 [[language]]
 name = "markdown"
 auto-format = true
-language-server = { command = "ltex-ls" }
-config = { ltex = { language = "en-GB" } }
+language-servers = ["marksman", "ltex-ls"]
 formatter = { command = 'prettierd', args = ["dummy.md"] }
 
 [[language]]
 name = "python"
 auto-format = true
-config = { pylsp = { plugins = { black = { enabled = true }, ruff = { enabled = true } } } }
+language-servers = ["pylsp", "ruff"]
 
 [[language]]
 name = "ruby"
 auto-format = true
-language-server = { command = "standardrb", args = ["--lsp"] }
+language-servers = ["standardrb", "solargraph"]
 formatter = { command = "standardrb", args = [
   "--stdin",
   "dummy.rb",
@@ -104,3 +103,27 @@ formatter = { command = "rome", args = [
 name = "yaml"
 formatter = { command = 'prettierd', args = ["dummy.yaml"] }
 auto-format = true
+
+[language-server.gopls]
+config = { gopls = { gofumpt = true } }
+
+[language-server.ltex-ls]
+command = "ltex-ls"
+config = { ltex = { language = "en-GB" } }
+
+[language-server.pylsp]
+config = { pylsp = { plugins = { black = { enabled = true }, pycodestyle = { enabled = false }, pydocstyle = { enabled = false } } } }
+
+[language-server.rome]
+command = "rome"
+args = ["lsp-proxy"]
+
+[language-server.ruff]
+command = "ruff-lsp"
+
+[language-server.solargraph]
+config = { solargraph = { diagnostics = true }, formatting = true }
+
+[language-server.standardrb]
+command = "standardrb"
+args = ["--lsp"]

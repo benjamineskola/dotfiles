@@ -35,7 +35,6 @@ M.config = function()
                 extra_filetypes = { "json" },
             }),
             null_ls.builtins.formatting.shfmt,
-            null_ls.builtins.formatting.stylua,
             null_ls.builtins.formatting.taplo,
             null_ls.builtins.formatting.trim_newlines,
             null_ls.builtins.formatting.trim_whitespace,

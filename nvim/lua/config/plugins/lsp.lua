@@ -85,7 +85,13 @@ M.config = function()
                 "--metapath",
                 vim.env.XDG_CACHE_HOME .. "/lua_ls/meta",
             },
-            settings = { Lua = { format = { enable = false } } },
+            settings = {
+                Lua = {
+                    format = {
+                        defaultConfig = { align_continuous_rect_table_field = "false", align_array_table = "false" },
+                    },
+                },
+            },
         },
         taplo = {},
         terraformls = {},

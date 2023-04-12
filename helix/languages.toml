@@ -39,7 +39,7 @@ formatter = { command = "rome", args = ["format", "--stdin-file-path", "test.jso
 [[language]]
 name = "lua"
 auto-format = true
-formatter = { command = "stylua", args = ["--search-parent-directories", "--stdin-filepath", "dummy.lua", "-"] }
+indent = { tab-width = 4, unit = "    " }
 
 [[language]]
 name = "markdown"
@@ -82,6 +82,10 @@ config = { gopls = { gofumpt = true } }
 [language-server.ltex-ls]
 command = "ltex-ls"
 config = { ltex = { language = "en-GB" } }
+
+[language-server.lua-language-server.config.Lua.format.defaultConfig]
+align_continuous_rect_table_field = "false"
+align_array_table = "false"
 
 [language-server.pylsp]
 config = { pylsp = { plugins = { black = { enabled = true }, pycodestyle = { enabled = false }, pydocstyle = { enabled = false } } } }

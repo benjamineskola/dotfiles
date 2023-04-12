@@ -28,32 +28,18 @@ formatter = { command = 'prettierd', args = ["dummy.html"] }
 name = "javascript"
 auto-format = true
 language-servers = ["typescript", "rome"]
-formatter = { command = "rome", args = [
-  "format",
-  "--stdin-file-path",
-  "test.js",
-] }
+formatter = { command = "rome", args = ["format", "--stdin-file-path", "test.js"] }
 
 [[language]]
 name = "json"
 auto-format = true
 language-servers = ["json-ls", "rome"]
-formatter = { command = "rome", args = [
-  "format",
-  "--stdin-file-path",
-  "test.json",
-] }
+formatter = { command = "rome", args = ["format", "--stdin-file-path", "test.json"] }
 
 [[language]]
 name = "lua"
 auto-format = true
-formatter = { command = "stylua", args = [
-  "--config-path",
-  "/Users/ben/.config/stylua/stylua.toml",
-  "--stdin-filepath",
-  "dummy.lua",
-  "-",
-] }
+formatter = { command = "stylua", args = ["--search-parent-directories", "--stdin-filepath", "dummy.lua", "-"] }
 
 [[language]]
 name = "markdown"
@@ -70,21 +56,11 @@ language-servers = ["pylsp", "ruff"]
 name = "ruby"
 auto-format = true
 language-servers = ["standardrb", "solargraph"]
-formatter = { command = "standardrb", args = [
-  "--stdin",
-  "dummy.rb",
-  "--fix",
-  "--stderr",
-] }
+formatter = { command = "standardrb", args = ["--stdin", "dummy.rb", "--fix", "--stderr"] }
 
 [[language]]
 name = "rust"
-formatter = { command = "cargo", args = [
-  "clippy",
-  "--fix",
-  "--allow-dirty",
-  "--allow-staged",
-] }
+formatter = { command = "cargo", args = ["clippy", "--fix", "--allow-dirty", "--allow-staged"] }
 
 [[language]]
 name = "toml"
@@ -93,11 +69,7 @@ auto-format = true
 [[language]]
 name = "typescript"
 auto-format = true
-formatter = { command = "rome", args = [
-  "format",
-  "--stdin-file-path",
-  "test.ts",
-] }
+formatter = { command = "rome", args = ["format", "--stdin-file-path", "dummy.ts"] }
 
 [[language]]
 name = "yaml"

@@ -28,7 +28,7 @@ formatter = { command = 'prettierd', args = ["dummy.html"] }
 [[language]]
 name = "javascript"
 auto-format = true
-language-servers = ["typescript", "rome"]
+language-servers = ["typescript-language-server", "rome"]
 formatter = { command = "rome", args = ["format", "--stdin-file-path", "test.js"] }
 
 [[language]]
@@ -70,6 +70,7 @@ auto-format = true
 name = "typescript"
 auto-format = true
 formatter = { command = "rome", args = ["format", "--stdin-file-path", "dummy.ts"] }
+language-servers = ["typescript-language-server", "rome"]
 
 [[language]]
 name = "yaml"

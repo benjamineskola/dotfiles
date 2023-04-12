@@ -1,9 +1,9 @@
 set -gx BUNDLE_USER_CACHE "$XDG_CACHE_HOME/bundler"
 set -gx BUNDLE_USER_HOME "$XDG_CONFIG_HOME/bundler"
 
-set -gx EDITOR nvim
-set -gx VISUAL neovide-remote
-set -gx GIT_EDITOR nvim
+set -gx EDITOR hx
+set -gx VISUAL hx
+set -gx GIT_EDITOR hx
 
 set -gx LESS "-ImRswFX --mouse"
 set -gx LESSHISTFILE "$XDG_CACHE_HOME/less_history"
@@ -53,9 +53,10 @@ if status is-interactive
     alias lal 'ls -la'
     alias lsd 'ls -d'
 
-    alias vi neovide-remote
-    alias vim vi
-    alias neovide neovide-remote
+    alias vi hx
+    alias vim hx
+    alias nvim hx
+    alias neovide hx
 
     alias listcops 'rubocop -fo'
     alias openports 'lsof -nP -iTCP -sTCP:LISTEN'

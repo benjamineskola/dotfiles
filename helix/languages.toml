@@ -92,8 +92,8 @@ config = { ltex = { language = "en-GB" } }
 align_continuous_rect_table_field = "false"
 align_array_table = "false"
 
-[language-server.pylsp]
-config = { pylsp = { plugins = { black = { enabled = true }, pycodestyle = { enabled = false }, pydocstyle = { enabled = false } } } }
+[language-server.pylsp.config.pylsp]
+plugins = { pycodestyle = { enabled = false }, pydocstyle = { enabled = false } } # these two are overriden by ruff
 
 [language-server.rome]
 command = "rome"

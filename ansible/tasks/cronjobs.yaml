@@ -1,0 +1,89 @@
+---
+- name: Ensure LaunchAgents directory exists
+  file:
+    dest: "{{ ansible_env.XDG_DATA_HOME }}/LaunchAgents"
+    state: directory
+    mode: "0700"
+
+- name: Generate plists
+  template:
+    src: templates/launchagent.plist.j2
+    dest: "{{ ansible_env.XDG_DATA_HOME }}/LaunchAgents/{{ item.name }}.plist"
+    lstrip_blocks: true
+    mode: "0600"
+  register: plists
+  loop:
+    - name: uk.eskola.setenv
+      command: |
+        launchctl setenv XDG_CONFIG_HOME {{ ansible_env.HOME }}/.config
+        launchctl setenv XDG_DATA_HOME   {{ ansible_env.HOME }}/Library
+        launchctl setenv XDG_CACHE_HOME  {{ ansible_env.HOME }}/Library/Caches
+        launchctl setenv XDG_STATE_HOME  {{ ansible_env.HOME }}/Library
+      run_at_load: true
+  vars:
+    env:
+      - SSH_AUTH_SOCK
+      - XDG_CACHE_HOME
+      - XDG_CONFIG_HOME
+      - XDG_DATA_HOME
+
+- name: Calculate cron plist inputs
+  set_fact:
+    cron_items: |
+      {{ cron_items | default([]) + [{
+        'name': 'uk.eskola.cron' + ('daily' if 'cron.d/daily' in item else 'hourly')  + '.' + (item | basename | splitext | first),
+        'command': '/bin/bash -c "' + item + ' 1> >(ts >&1) 2> >(ts >&2)"',
+        'shell': '/opt/homebrew/bin/fish',
+        'schedule': {'hour': 7, 'minute': 0} if 'cron.d/daily' in item else {'minute': 0},
+        'run_at_load': 'cron.d/daily' in item
+      }] }}
+  with_fileglob:
+    - "{{ ansible_env.XDG_CONFIG_HOME }}/cron.d/daily/*"
+    - "{{ ansible_env.XDG_CONFIG_HOME }}/private/cron.d/daily/*"
+    - "{{ ansible_env.XDG_CONFIG_HOME }}/cron.d/hourly/*"
+    - "{{ ansible_env.XDG_CONFIG_HOME }}/private/cron.d/hourly/*"
+
+- name: Generate cron plists
+  template:
+    src: templates/launchagent.plist.j2
+    dest: "{{ ansible_env.XDG_DATA_HOME }}/LaunchAgents/{{ item.name }}.plist"
+    lstrip_blocks: true
+    mode: "0600"
+  register: plists_cron
+  loop: "{{ cron_items }}"
+  vars:
+    env:
+      - SSH_AUTH_SOCK
+      - XDG_CACHE_HOME
+      - XDG_CONFIG_HOME
+      - XDG_DATA_HOME
+
+- name: Stop changed plists
+  command: launchctl unload {{ item.item.name }}.plist
+  changed_when: true
+  loop: "{{ (plists.results + plists_cron.results) | selectattr('changed') }}"
+
+- name: Run plists
+  community.general.launchd:
+    name: "{{ item.item.name }}"
+    state: started
+  loop: "{{ (plists.results + plists_cron.results) | selectattr('changed') }}"
+
+- name: Tidy plists
+  shell: launchctl unload {{ item | basename }} && rm -f {{ item }}
+  when: item not in ((plists.results + plists_cron.results) | map(attribute='dest'))
+  with_fileglob: "{{ ansible_env.XDG_DATA_HOME }}/LaunchAgents/uk.eskola.*"
+  changed_when: true
+
+- name: Configure logrotate
+  block:
+    - name: Create logrotate directory
+      file:
+        path: /opt/homebrew/etc/logrotate.d
+        state: directory
+        mode: "0700"
+    - name: Create logrotate cron config
+      template:
+        src: templates/logrotate-cron.conf.j2
+        dest: /opt/homebrew/etc/logrotate.d/cron.conf
+        mode: "0600"

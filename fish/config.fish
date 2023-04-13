@@ -9,8 +9,8 @@ set -gx LESS "-ImRswFX --mouse"
 set -gx LESSHISTFILE "$XDG_CACHE_HOME/less_history"
 set -gx MANPAGER 'col -bx | bat -l man -p'
 
-set -gx CARGO_DIR $XDG_DATA_HOME/cargo
-set -gx CARGO_INSTALL_ROOT $CARGO_DIR
+set -gx CARGO_HOME $XDG_DATA_HOME/cargo
+set -gx CARGO_INSTALL_ROOT $CARGO_HOME
 set -gx GOPATH $XDG_DATA_HOME/go
 set -gx NPM_CONFIG_USERCONFIG "$XDG_CONFIG_HOME/npmrc"
 set -gx PYENV_ROOT $XDG_DATA_HOME/pythons
@@ -28,7 +28,7 @@ if [ $OS = Darwin ]
 end
 
 fish_add_path -g -p ~/bin
-fish_add_path -g -p $CARGO_DIR/bin
+fish_add_path -g -p $CARGO_HOME/bin
 fish_add_path -g -p $GOPATH/bin
 fish_add_path -g -p $YARN_PREFIX/bin
 

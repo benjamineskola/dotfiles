@@ -1,30 +1,29 @@
 ---
 - name: Install latest Rust version
   vars:
-    cargo_dir: "{{ ansible_env.XDG_DATA_HOME }}/cargo"
+    cargo_home: "{{ ansible_env.XDG_DATA_HOME }}/cargo"
   environment:
-    CARGO_DIR: "{{ cargo_dir }}"
-    CARGO_HOME: "{{ ansible_env.XDG_DATA_HOME }}/cargo"
+    CARGO_HOME: "{{ cargo_home }}"
     RUSTUP_HOME: "{{ ansible_env.XDG_DATA_HOME }}/rustup"
   block:
     - name: Check if rustup exists
       stat:
-        path: "{{ cargo_dir }}/bin/rustup"
+        path: "{{ cargo_home }}/bin/rustup"
       register: rustup
     - name: Initialise rustup
       command: rustup-init --no-update-default-toolchain --no-modify-path -y
       when: not rustup.stat.exists
       changed_when: true
     - name: Set default rust version to stable
-      command: "{{ ansible_env.XDG_DATA_HOME }}/cargo/bin/rustup default stable"
+      command: "{{ cargo_home }}/bin/rustup default stable"
       register: stable_install
       changed_when: "'unchanged' not in stable_install.stdout"
     - name: Additionally install nightly
-      command: "{{ ansible_env.XDG_DATA_HOME }}/cargo/bin/rustup install nightly"
+      command: "{{ cargo_home }}/bin/rustup install nightly"
       register: nightly_install
       changed_when: "'installing component' in nightly_install.stdout"
     - name: Use nightly for specific components
-      command: "{{ ansible_env.XDG_DATA_HOME }}/cargo/bin/rustup component add {{ item }} --toolchain nightly"
+      command: "{{ cargo_home }}/bin/rustup component add {{ item }} --toolchain nightly"
       register: nightly_component
       changed_when: |
         "component '" + item + "' for target 'aarch64-apple-darwin' is up to date" not in nightly_component.stderr

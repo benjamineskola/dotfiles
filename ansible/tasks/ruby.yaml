@@ -40,16 +40,11 @@
         file_type: directory
         patterns: [ruby-*]
       register: installed_rubies
-    - name: Install required gems
-      shell:
-        cmd: |
-          test -n "$(chruby-exec {{ item[0] }} -- gem list -q -e '{{ item[1] }}')" || \
-            chruby-exec {{ item[0] }} -- gem install '{{ item[1] }}'
-      with_nested:
-        - "{{ installed_rubies.files | map(attribute='path') | map('basename') | reject('regex', '^ruby-2.6') }}"
-        - "{{ gems }}"
-      changed_when: '"gem installed" in gem_install.stdout or "gems installed" in gem_install.stdout'
-      register: gem_install
+    - name: Create Gemfile
+      template:
+        src: templates/Gemfile.j2
+        dest: "{{ rubies_dir }}/Gemfile"
+        mode: "0600"
       vars:
         gems:
           - bundler
@@ -60,3 +55,11 @@
           - solargraph
           - solargraph-rails
           - standard
+    - name: Install required gems
+      shell:
+        cmd: |
+          chruby-exec {{ item }} -- bundle install --gemfile="$RUBIES_DIR/Gemfile"
+          rm -f "$RUBIES_DIR/Gemfile.lock"
+      with_items: "{{ ruby_versions.stdout_lines }}"
+      register: gem_install
+      changed_when: "'Installing' in gem_install.stdout"

@@ -55,11 +55,17 @@
           - solargraph
           - solargraph-rails
           - standard
+    - name: Find installed rubies
+      find:
+        paths: ["{{ rubies_dir }}"]
+        patterns: [ruby-*]
+        file_type: directory
+      register: installed_rubies
     - name: Install required gems
       shell:
         cmd: |
-          chruby-exec {{ item }} -- bundle install --gemfile="$RUBIES_DIR/Gemfile"
+          chruby-exec $(basename {{ item.path }}) -- bundle install --gemfile="$RUBIES_DIR/Gemfile"
           rm -f "$RUBIES_DIR/Gemfile.lock"
-      with_items: "{{ ruby_versions.stdout_lines }}"
+      with_items: "{{ installed_rubies.files }}"
       register: gem_install
       changed_when: "'Installing' in gem_install.stdout"

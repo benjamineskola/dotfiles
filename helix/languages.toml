@@ -88,6 +88,9 @@ config = { command = ["golangci-lint", "run", "--enable-all", "--out-format", "j
 command = "ltex-ls"
 config = { ltex = { language = "en-GB" } }
 
+[language-server.lua-language-server]
+args = ["--logpath", "$XDG_CACHE_HOME/lua_ls/logs", "--metapath", "$XDG_CACHE_HOME/lua_ls/meta"]
+
 [language-server.lua-language-server.config.Lua.format.defaultConfig]
 align_continuous_rect_table_field = "false"
 align_array_table = "false"

@@ -23,7 +23,7 @@
             export LDFLAGS="-L$(brew --prefix capstone)/lib"
           fi
           RUBY_TMP="$(mktemp -d)"
-          ruby-install --no-reinstall --cleanup -r "$RUBIES_DIR" -s "$RUBY_TMP" "{{ item }}" -- --enable-shared
+          ruby-install --no-install-deps --no-reinstall --cleanup -r "$RUBIES_DIR" -s "$RUBY_TMP" "{{ item }}" # -- --enable-shared
         creates: "{{ ansible_env.XDG_DATA_HOME }}/rubies/ruby-{{ item }}"
       with_items: "{{ ruby_versions.stdout_lines }}"
       register: ruby_install

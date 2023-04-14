@@ -87,6 +87,15 @@ cask "secretive"
 cask "wezterm"
 cask "zoom"
 
+# ruby builddeps
+brew "automake"
+brew "bison"
+brew "gdbm"
+brew "libffi"
+brew "libyaml"
+brew "openssl@3"
+brew "readline"
+
 case `hostname -s`.chomp
 when "MacBook-Pro"
   brew "flyctl"

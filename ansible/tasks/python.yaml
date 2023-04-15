@@ -13,28 +13,27 @@
       register: python_versions
       changed_when: false
     - name: Install latest patch version for each minor version
-      shell:
-        cmd: |
-          pyenv install -s {{ item }}
-          eval "$(pyenv init -)"
-          pyenv shell {{ item }}
-          pyenv exec pip install --upgrade pip
-          pyenv exec pip install -r {{ ansible_env.XDG_CONFIG_HOME }}/requirements.txt
+      command:
+        cmd: pyenv install -s {{ item }}
         creates: "{{ ansible_env.XDG_DATA_HOME }}/pythons/versions/{{ item }}"
       with_items: '{{ python_versions.results | map(attribute="stdout_lines") }}'
       register: python_install
     - name: Set newest version as default
       command: pyenv global {{ python_versions.results | map(attribute="stdout_lines") | last | first }}
       changed_when: python_install.results | last is changed
-    - name: Install additional dependencies for non-virtualenv projects
-      shell: |
-        eval "$(pyenv init -)"
-        for req in ~/Code/*/requirements*.txt ~/Code/Personal/*/requirements*.txt; do
-          test -f "$req" || continue
-          proj="$(dirname "$req")"
-          test -e "$proj/.venv" && continue
-          echo "$proj" >&2
-          pip install -r "$req"
-        done
-      register: python_extras
-      changed_when: '"Successfully installed" in python_extras.stdout'
+    - name: Find installed python versions
+      find:
+        paths: ["{{ ansible_env.XDG_DATA_HOME }}/pythons/versions"]
+        recurse: false
+        file_type: directory
+      register: installed_pythons
+    - name: Upgrade Pip
+      command: "{{ item }}/bin/python -m pip install --upgrade pip"
+      loop: "{{ installed_pythons.files | map(attribute='path') }}"
+      changed_when: "'Requirement already satisfied: pip' not in upgrade_pip.stdout"
+      register: upgrade_pip
+    - name: Install required packages
+      command: "{{ item }}/bin/python -m pip install -r {{ ansible_env.XDG_CONFIG_HOME }}/requirements.txt"
+      loop: "{{ installed_pythons.files | map(attribute='path') }}"
+      changed_when: "'Successfully installed' in python_requirements.stdout"
+      register: python_requirements

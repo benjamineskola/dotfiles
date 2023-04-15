@@ -40,21 +40,6 @@
         file_type: directory
         patterns: [ruby-*]
       register: installed_rubies
-    - name: Create Gemfile
-      template:
-        src: templates/Gemfile.j2
-        dest: "{{ rubies_dir }}/Gemfile"
-        mode: "0600"
-      vars:
-        gems:
-          - bundler
-          - mdless
-          - pry
-          - reek
-          - rspec
-          - solargraph
-          - solargraph-rails
-          - standard
     - name: Find installed rubies
       find:
         paths: ["{{ rubies_dir }}"]
@@ -62,10 +47,9 @@
         file_type: directory
       register: installed_rubies
     - name: Install required gems
-      shell:
-        cmd: |
-          chruby-exec $(basename {{ item.path }}) -- bundle install --gemfile="$RUBIES_DIR/Gemfile"
-          rm -f "$RUBIES_DIR/Gemfile.lock"
+      shell: |
+        chruby-exec $(basename {{ item.path }}) -- bundle install --gemfile="{{ ansible_env.XDG_CONFIG_HOME }}/Gemfile"
+        rm -f "{{ ansible_env.XDG_CONFIG_HOME }}/Gemfile.lock"
       with_items: "{{ installed_rubies.files }}"
       register: gem_install
       changed_when: "'Installing' in gem_install.stdout"

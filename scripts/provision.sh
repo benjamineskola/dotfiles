@@ -28,6 +28,14 @@ fi
 for script in "$XDG_CONFIG_HOME"/scripts/provision.d/*.sh; do
     SCRIPT_NAME=$(basename "$script" .sh)
     export SCRIPT_NAME
+
+    case "$SCRIPT_NAME" in
+    os-"$(uname -s | tr "[:upper:]" "[:lower:]")")
+        SCRIPT_NAME=$(uname -s | tr "[:upper:]" "[:lower:]")
+        ;;
+    os-*) continue ;;
+    esac
+
     if [ "$VERBOSE" -gt 1 ]; then
         # shellcheck source=/dev/null
         . "$script"

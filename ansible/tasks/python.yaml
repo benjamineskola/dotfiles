@@ -30,10 +30,40 @@
     - name: Upgrade Pip
       command: "{{ item }}/bin/python -m pip install --upgrade pip"
       loop: "{{ installed_pythons.files | map(attribute='path') }}"
-      changed_when: "'Requirement already satisfied: pip' not in upgrade_pip.stdout"
+      changed_when: false
       register: upgrade_pip
+      async: 600
+      poll: 0
+    - name: Check pip upgrade status
+      async_status:
+        jid: "{{ item.ansible_job_id }}"
+      loop: "{{ upgrade_pip.results }}"
+      register: async_poll_results
+      until: async_poll_results.finished
+      retries: 30
+      changed_when: "'Requirement already satisfied: pip' not in async_poll_results.stdout"
+    - name: Cleanup
+      async_status:
+        jid: "{{ item.ansible_job_id }}"
+        mode: cleanup
+      loop: "{{ upgrade_pip.results }}"
     - name: Install required packages
       command: "{{ item }}/bin/python -m pip install -r {{ ansible_env.XDG_CONFIG_HOME }}/requirements.txt"
       loop: "{{ installed_pythons.files | map(attribute='path') }}"
-      changed_when: "'Successfully installed' in python_requirements.stdout"
+      changed_when: false
       register: python_requirements
+      async: 600
+      poll: 0
+    - name: Check package install status
+      async_status:
+        jid: "{{ item.ansible_job_id }}"
+      loop: "{{ python_requirements.results }}"
+      register: async_poll_results
+      until: async_poll_results.finished
+      retries: 30
+      changed_when: "'Successfully installed' in async_poll_results.stdout"
+    - name: Cleanup
+      async_status:
+        jid: "{{ item.ansible_job_id }}"
+        mode: cleanup
+      loop: "{{ python_requirements.results }}"

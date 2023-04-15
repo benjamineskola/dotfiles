@@ -39,12 +39,6 @@ repos:
         entry: taplo fmt
         language: system
         types: [toml]
-      - id: ansible-lint
-        name: ansible-lint
-        entry: ansible-lint -p --write ansible
-        language: system
-        files: "ansible/.*.ya?ml$"
-        pass_filenames: false
       - id: standardrb
         name: standardrb
         language: system

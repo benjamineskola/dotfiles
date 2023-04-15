@@ -7,7 +7,6 @@ tap "homebrew/services"
 
 brew "ansible"
 brew "ansible-language-server"
-brew "ansible-lint"
 brew "bash-language-server"
 brew "bat"
 brew "chruby"
@@ -119,6 +118,7 @@ when "MacBook-Pro"
 when /^Unboxed/
   tap "heroku/brew"
 
+  brew "ansible-lint"
   brew "awscli"
   brew "heroku/brew/heroku"
   brew "imagemagick"

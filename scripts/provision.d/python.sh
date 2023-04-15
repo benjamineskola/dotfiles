@@ -21,10 +21,12 @@ pyenv global "$patch_version"
 
 log "Upgrade pip"
 for PYTHON in "$PYENV_ROOT/versions"/*/bin/python; do
-    $PYTHON -m pip install --upgrade pip
+    $PYTHON -m pip install --upgrade pip &
 done
+wait
 
 log "Install global requirements"
 for PYTHON in "$PYENV_ROOT/versions"/*/bin/python; do
-    $PYTHON -m pip install -r "$XDG_CONFIG_HOME/requirements.txt"
+    $PYTHON -m pip install -r "$XDG_CONFIG_HOME/requirements.txt" &
 done
+wait

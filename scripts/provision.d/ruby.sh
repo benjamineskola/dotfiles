@@ -26,7 +26,11 @@ ln -sfh "$RUBIES_DIR/ruby-$DEFAULT_VERSION" "$RUBIES_DIR/default"
 
 log "Install default gems for all installed rubies"
 for installation in "$RUBIES_DIR"/ruby-*; do
-    version=$(basename "$installation" | cut -d '-' -f 2)
-    chruby-exec "$version" -- bundle install --gemfile "$XDG_CONFIG_HOME/Gemfile"
-    rm -f "$XDG_CONFIG_HOME/Gemfile.lock"
+    (
+        cp "$XDG_CONFIG_HOME/Gemfile" "$installation"
+        version=$(basename "$installation" | cut -d '-' -f 2)
+        chruby-exec "$version" -- bundle install --gemfile "$installation/Gemfile"
+        rm -f "$installation/Gemfile" "$installation/Gemfile.lock"
+    ) &
 done
+wait

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>$JOB_NAME</string>
+    <key>ProgramArguments</key>
+    <array>
+      <string>/opt/homebrew/bin/fish</string>
+      <string>-c</string>
+      <string>/bin/bash -c "'$JOB_PATH' 1> >(ts >&amp;1) 2> >(ts >&amp;2)"</string>
+    </array>
+    <key>StandardErrorPath</key>
+    <string>$HOME/Library/Logs/$JOB_NAME.err</string>
+    <key>StandardOutPath</key>
+    <string>$HOME/Library/Logs/$JOB_NAME.out</string>
+    <key>StartCalendarInterval</key>
+    <dict>$JOB_SCHEDULE</dict>
+  </dict>
+</plist>

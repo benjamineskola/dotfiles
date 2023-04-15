@@ -10,3 +10,14 @@ if [ -z "$(find /opt/homebrew -type f -mtime -1 | head -n 1)" ]; then
     brew bundle --global install
     brew bundle --global cleanup
 fi
+
+log "Link preferences into place"
+# shellcheck disable=SC2043
+for pref in espanso; do
+    ln -sfh "$XDG_CONFIG_HOME/$pref" "$HOME/Library/Preferences/$pref"
+done
+log "Link application support into place"
+# shellcheck disable=SC2043
+for pref in rustfmt; do
+    ln -sfh "$XDG_CONFIG_HOME/$pref" "$HOME/Library/Application Support/$pref"
+done

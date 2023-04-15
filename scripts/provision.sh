@@ -36,11 +36,17 @@ for script in "$XDG_CONFIG_HOME"/scripts/provision.d/*.sh; do
     os-*) continue ;;
     esac
 
+    start=$(date +%s)
     if [ "$VERBOSE" -gt 1 ]; then
         # shellcheck source=/dev/null
         . "$script"
     else
         # shellcheck source=/dev/null
         . "$script" >/dev/null
+    fi
+    end=$(date +%s)
+
+    if [ "$VERBOSE" -gt 0 ]; then
+        log "done in $((end - start)) seconds"
     fi
 done

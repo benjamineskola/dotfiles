@@ -1,0 +1,7 @@
+@fsouza/prettierd
+markdownlint-cli
+prettier
+rome
+typescript
+typescript-language-server
+vscode-langservers-extracted

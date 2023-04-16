@@ -4,10 +4,11 @@ set -e
 
 VERBOSE=0
 
-while getopts vd arg; do
+while getopts vdo: arg; do
     case $arg in
     v) VERBOSE=$((VERBOSE + 1)) ;;
     d) VERBOSE=$((VERBOSE + 2)) ;;
+    o) ONLY="$OPTARG" ;;
     *)
         exit 1
         ;;
@@ -46,6 +47,10 @@ ln_relative() {
 for script in "$XDG_CONFIG_HOME"/scripts/provision.d/*.sh; do
     SCRIPT_NAME=$(basename "$script" .sh)
     export SCRIPT_NAME
+
+    if [ -n "$ONLY" ] && [ "$ONLY" != "$SCRIPT_NAME" ]; then
+        continue
+    fi
 
     case "$SCRIPT_NAME" in
     os-"$(uname -s | tr "[:upper:]" "[:lower:]")")

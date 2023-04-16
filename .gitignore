@@ -12,8 +12,8 @@
 !/_gnupg/*.conf
 /_hammerspoon/Spoons/Bear.spoon
 /_hammerspoon/Spoons/vendor
+/helix/runtime
 /instaloader/session-*
-/nvim/lazy-lock.json
 /nvim/spell
 /pre-commit-hooks
 /.pre-commit-hooks.yaml

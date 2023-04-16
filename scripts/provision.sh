@@ -25,6 +25,25 @@ if [ "$VERBOSE" -gt 1 ]; then
     set -x
 fi
 
+relpath() {
+    pos="${1%%/}"
+    ref="${2%%/}"
+    down=''
+
+    while :; do
+        test "$pos" = '/' && break
+        case "$ref" in $pos/*) break ;; esac
+        down="../$down"
+        pos=${pos%/*}
+    done
+
+    echo "$down${ref##"$pos/"}"
+}
+
+ln_relative() {
+    ln -sfh "$(relpath "$(dirname "$2")" "$(realpath "$1")")" "$2"
+}
+
 for script in "$XDG_CONFIG_HOME"/scripts/provision.d/*.sh; do
     SCRIPT_NAME=$(basename "$script" .sh)
     export SCRIPT_NAME

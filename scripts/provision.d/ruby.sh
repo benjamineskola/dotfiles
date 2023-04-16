@@ -2,7 +2,7 @@
 set -e
 
 log "Ensure .gem points to the right place"
-ln -sfh "$XDG_DATA_HOME/gem" ~/.gem
+ln_relative "$XDG_DATA_HOME/gem" ~/.gem
 
 RUBIES_DIR=${RUBIES_DIR:-$XDG_DATA_HOME/rubies}
 
@@ -22,7 +22,7 @@ done
 
 log "Set default ruby version to the latest"
 DEFAULT_VERSION="$(echo "${CURRENT_VERSIONS}" | tail -n 1)"
-ln -sfh "$RUBIES_DIR/ruby-$DEFAULT_VERSION" "$RUBIES_DIR/default"
+ln_relative "$RUBIES_DIR/ruby-$DEFAULT_VERSION" "$RUBIES_DIR/default"
 
 log "Install default gems for all installed rubies"
 for installation in "$RUBIES_DIR"/ruby-*; do

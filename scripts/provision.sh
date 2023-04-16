@@ -4,25 +4,24 @@ set -e
 
 VERBOSE=0
 
-case "$1" in
--v | --verbose)
-    VERBOSE=1
-    ;;
--d | --debug)
-    VERBOSE=2
-    ;;
-esac
+while getopts vd arg; do
+    case $arg in
+    v) VERBOSE=$((VERBOSE + 1)) ;;
+    d) VERBOSE=$((VERBOSE + 2)) ;;
+    *)
+        exit 1
+        ;;
+    esac
+done
+shift $((OPTIND - 1))
 
 if [ "$VERBOSE" -gt 0 ]; then
     log() {
         printf "==> %s [%s]\n" "$SCRIPT_NAME" "$@" >&2
     }
+    if [ "$VERBOSE" -gt 1 ]; then set -x; fi
 else
     log() { :; }
-fi
-
-if [ "$VERBOSE" -gt 1 ]; then
-    set -x
 fi
 
 relpath() {

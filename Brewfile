@@ -115,7 +115,7 @@ when "MacBook-Pro"
   cask "steam"
   cask "vlc"
   cask "zotero"
-when /^Unboxed/
+when /^Ben-Eskolas-Macbook/
   tap "heroku/brew"
 
   brew "ansible-lint"

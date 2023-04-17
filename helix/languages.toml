@@ -59,10 +59,6 @@ auto-format = true
 language-servers = ["standardrb", "solargraph"]
 
 [[language]]
-name = "rust"
-formatter = { command = "cargo", args = ["clippy", "--fix", "--allow-dirty", "--allow-staged"] }
-
-[[language]]
 name = "toml"
 auto-format = true
 

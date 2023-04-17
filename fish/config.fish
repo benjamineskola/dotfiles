@@ -78,7 +78,7 @@ if status is-interactive
         alias $cmd "run_with_bundler $cmd"
     end
 
-    alias dj 'run_with_virtualenv python manage.py'
+    alias dj 'python manage.py'
     alias djs 'dj shell_plus'
     alias djrs 'dj runserver'
     alias djmm 'dj makemigrations'
@@ -92,10 +92,6 @@ if status is-interactive
     alias grsp 'grs -p'
     alias gswm gcm
     alias gs 'fish_command_not_found gs' # i never want ghostscript
-
-    for cmd in mypy pytest invoke
-        alias $cmd "run_with_virtualenv $cmd"
-    end
 
     # alt-shift-. to insert entire previous commandline
     bind \e\> 'commandline -i "$history[1]"'

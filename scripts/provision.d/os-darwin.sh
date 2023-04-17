@@ -60,11 +60,11 @@ if [ "$(hostname -s)" = MacBook-Pro ]; then
 
         schedule_type="$(basename "$(dirname "$JOB_PATH")")"
 
-        JOB_SCHEDULE="<key>Hour</key><integer>7</integer>"
+        JOB_SCHEDULE="<key>Minute</key><integer>0</integer>"
         JOB_NAME="uk.eskola.cron$schedule_type.$JOB_NAME"
 
-        if [ "$schedule_type" = hourly ]; then
-            JOB_SCHEDULE="$JOB_SCHEDULE<key>Minute</key><integer>0</integer>"
+        if [ "$schedule_type" = daily ]; then
+            JOB_SCHEDULE="$JOB_SCHEDULE<key>Hour</key><integer>7</integer>"
         fi
 
         TMP_PATH="$TMPDIR/$JOB_NAME.plist"

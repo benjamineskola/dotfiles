@@ -7,7 +7,7 @@ VERBOSE=0
 while getopts vdo: arg; do
     case $arg in
     v) VERBOSE=$((VERBOSE + 1)) ;;
-    d) VERBOSE=$((VERBOSE + 2)) ;;
+    d) VERBOSE=$((VERBOSE + 3)) ;;
     o) ONLY="$OPTARG" ;;
     *)
         exit 1
@@ -20,7 +20,7 @@ if [ "$VERBOSE" -gt 0 ]; then
     log() {
         printf "==> %s [%s]\n" "$SCRIPT_NAME" "$@" >&2
     }
-    if [ "$VERBOSE" -gt 1 ]; then set -x; fi
+    if [ "$VERBOSE" -gt 2 ]; then set -x; fi
 else
     log() { :; }
 fi

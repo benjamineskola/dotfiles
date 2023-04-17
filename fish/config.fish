@@ -32,6 +32,8 @@ fish_add_path -g -p $CARGO_HOME/bin
 fish_add_path -g -p $GOPATH/bin
 fish_add_path -g -p $YARN_PREFIX/bin
 
+fish_add_path -g -a /usr/local/*bin
+
 if status is-interactive
     alias curl 'curl -gkLsS'
     alias fdd 'fd .'

@@ -34,6 +34,7 @@ return {
         ansi = { "#363537", "#ff6188", "#a9dc76", "#fc9867", "#ab9df2", "#ff6188", "#78dce8", "#fdf9f3" },
         background = "#2d2a2e",
         brights = { "#908e8f", "#ff6188", "#a9dc76", "#ffd866", "#ab9df2", "#ff6188", "#78dce8", "#fdf9f3" },
+        cursor_bg = "#5b595c",
         tab_bar = {
             background = "#363537",
             inactive_tab = { bg_color = "#363537", fg_color = "#fdf9f3" },

@@ -41,7 +41,7 @@ function dotenv_load
             set -a _DOTENV_VARS (cut -d '=' -f 1 $_DOTENV_ROOT/$file)
             set -a _DOTENV_FILES $_DOTENV_ROOT/$file
             set vars_pattern (string join '|' $_DOTENV_VARS)
-            eval "export "(egrep -h "^($vars_pattern)=" $_DOTENV_ROOT/$file | tail -n 1)
+            eval "export "(egrep -h "^($vars_pattern)=" $_DOTENV_ROOT/$file)
         end
     end
 

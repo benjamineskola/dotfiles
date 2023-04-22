@@ -13,4 +13,7 @@ display-inlay-hints = true
 
 [editor.soft-wrap]
 enable = true
-wrap-indicator = ""
+
+[keys.normal]
+"[" = { e = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"] }
+"]" = { e = ["extend_to_line_bounds", "delete_selection", "paste_after"] }

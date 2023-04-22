@@ -22,6 +22,8 @@ set -gx YARN_PREFIX $XDG_DATA_HOME/yarn
 set -gx ANSIBLE_HOME $XDG_CONFIG_HOME/ansible
 set -gx ANSIBLE_CONFIG $ANSIBLE_HOME/ansible.cfg
 
+set -gx VIMINIT 'let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
+
 if [ $OS = Darwin ]
     # Secretive Config
     set -gx SSH_AUTH_SOCK /Users/ben/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh

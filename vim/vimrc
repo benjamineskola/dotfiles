@@ -1,0 +1,58 @@
+if !has('nvim')
+  set directory=$XDG_CACHE_HOME/vim,~/,/tmp
+  set backupdir=$XDG_CACHE_HOME/vim,~/,/tmp
+  set viminfo+=n$XDG_CACHE_HOME/vim/viminfo
+  set runtimepath=$XDG_CONFIG_HOME/vim,$XDG_CONFIG_HOME/vim/after,$VIM,$VIMRUNTIME
+  let $MYVIMRC='$XDG_CONFIG_HOME/vim/vimrc'
+endif
+
+filetype plugin indent on
+syntax on
+
+set belloff=all
+set concealcursor=nc
+set expandtab
+set foldlevelstart=99
+set foldmethod=expr
+set grepformat=%f:%l:%c:%m
+set grepprg=rg\ --vimgrep\ $*
+set hidden
+set history=10000
+set hlsearch
+set ignorecase
+set nomodeline
+set mouse+=a
+set number
+set pastetoggle=<F10>
+set scrolloff=5
+set shell=/bin/sh
+set shiftwidth=2
+set signcolumn=yes
+set smartcase
+set spell
+set spelllang=en_gb
+set termguicolors
+set title
+set undofile
+set viewoptions=folds
+
+if has('nvim')
+  set foldexpr='nvim_treesitter#foldexpr()'
+  set inccommand=nosplit
+
+  tnoremap <Esc> <C-\><C-n>
+else
+  set nofsync
+endif
+
+let mapleader=' '
+
+colo habamax
+highlight SpellBad guisp=red
+
+nnoremap <Leader>l <Cmd>nohl<CR>
+cnoremap <C-A> <Home>
+
+" reformat selection/paragraph
+vnoremap Q gw
+nnoremap Q gwap " Overwrites default binding for Ex mode

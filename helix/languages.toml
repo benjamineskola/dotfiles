@@ -33,7 +33,6 @@ formatter = { command = "rome", args = ["format", "--stdin-file-path", "test.js"
 
 [[language]]
 name = "json"
-auto-format = true
 language-servers = ["vscode-json-language-server", "rome"]
 formatter = { command = "rome", args = ["format", "--stdin-file-path", "test.json"] }
 

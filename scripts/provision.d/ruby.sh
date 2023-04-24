@@ -23,6 +23,7 @@ done
 log "Set default ruby version to the latest"
 DEFAULT_VERSION="$(echo "${CURRENT_VERSIONS}" | tail -n 1)"
 ln_relative "$RUBIES_DIR/ruby-$DEFAULT_VERSION" "$RUBIES_DIR/default"
+echo "$DEFAULT_VERSION" >~/.ruby-version
 
 log "Install default gems for all installed rubies"
 for installation in "$RUBIES_DIR"/ruby-*; do

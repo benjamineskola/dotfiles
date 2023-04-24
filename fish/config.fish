@@ -124,5 +124,4 @@ function _virtualenv_hook --on-variable PWD
 end
 _virtualenv_autoload
 
-chruby (fd -g -d 1 'ruby-*' "$RUBIES_DIR" -X basename | sort | tail -n 1)
 pyenv init - | source

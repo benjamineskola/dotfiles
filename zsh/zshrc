@@ -38,6 +38,7 @@ alias neovide=hx
 alias listcops='rubocop -fo'
 alias openports='lsof -nP -iTCP -sTCP:LISTEN'
 alias fontname='fc-scan --format "%{postscriptname}\n"'
+alias ruby-install="ruby-install -r '\$RUBIES_DIR -s '\$RUBY_TMP'"
 
 alias dj='python manage.py'
 alias djs='dj shell_plus'

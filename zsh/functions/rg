@@ -1,0 +1,6 @@
+#!/usr/bin/env zsh
+if [[ -t 1 ]]; then
+	command rg --color=always --heading -S "$@" | command less
+else
+	command rg -S "$@"
+fi

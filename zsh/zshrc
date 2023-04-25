@@ -92,3 +92,4 @@ zrecompile -p "$XDG_CONFIG_HOME/zsh/functions.zwc" "$XDG_CONFIG_HOME"/zsh/functi
 
 autoload -U add-zsh-hook
 add-zsh-hook chpwd _virtualenv_autoload
+add-zsh-hook precmd _dotenv_load

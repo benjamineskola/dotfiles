@@ -1,0 +1,26 @@
+#!/usr/bin/env zsh
+
+# argparse --name=git-fixup y/yes -- $argv
+# || return
+
+rev=$(git rev-parse "$1")
+shift
+
+noninteractive_rebase() {
+	env GIT_SEQUENCE_EDITOR=cat git rebase -i "$1^" | grep -v '^#'
+}
+
+# if ! [ $_flag_yes ]; then
+#     git show --stat "$rev"
+#     printf "Fixup? y/N"
+#     read confirm
+#     if [ "$confirm" != y ] && [ "$confirm" != Y ]; then
+#         return
+#     fi
+# fi
+
+if [[ $# -gt 0 ]]; then
+	git commit --fixup "$rev" "$@" && noninteractive_rebase "$rev"
+else
+	git commit --fixup "$rev" && noninteractive_rebase "$rev"
+fi

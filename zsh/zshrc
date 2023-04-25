@@ -88,3 +88,6 @@ fpath+=("$XDG_CONFIG_HOME/zsh/functions.zwc")
 # shellcheck disable=SC2296,SC2086
 autoload -U ${fpath%.zwc}/*(.N:t)
 zrecompile -p "$XDG_CONFIG_HOME/zsh/functions.zwc" "$XDG_CONFIG_HOME"/zsh/functions/*
+
+autoload -U add-zsh-hook
+add-zsh-hook chpwd _virtualenv_autoload

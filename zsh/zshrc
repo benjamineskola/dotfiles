@@ -82,3 +82,9 @@ bindkey '^[OB' history-substring-search-down
 setopt SHARE_HISTORY
 # shellcheck disable=SC2034
 SAVEHIST=999999999
+
+setopt RC_EXPAND_PARAM
+fpath+=("$XDG_CONFIG_HOME/zsh/functions.zwc")
+# shellcheck disable=SC2296,SC2086
+autoload -U ${fpath%.zwc}/*(.N:t)
+zrecompile -p "$XDG_CONFIG_HOME/zsh/functions.zwc" "$XDG_CONFIG_HOME"/zsh/functions/*

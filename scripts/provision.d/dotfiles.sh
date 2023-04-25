@@ -21,6 +21,9 @@ log "Install dotfiles"
 for file in "$XDG_CONFIG_HOME"/_* "$XDG_CONFIG_HOME"/private/_*; do
     ln_relative "$file" "$HOME/$(basename "$file" | tr _ .)"
 done
+for file in "$XDG_CONFIG_HOME"/zsh/z*; do
+    ln_relative "$file" "$HOME/.$(basename "$file")"
+done
 
 log "Clean up old dotfile links"
 find -L "$HOME" -type l -maxdepth 1 -name '.*' -exec rm {} +

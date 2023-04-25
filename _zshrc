@@ -1,0 +1,77 @@
+source "$(brew --prefix antigen)/share/antigen/antigen.zsh"
+antigen use oh-my-zsh
+antigen bundle git
+antigen bundle bundler
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-history-substring-search
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen apply
+
+alias curl='curl -gkLsS'
+
+alias fdd='fd .'
+alias fdg='fd -g'
+alias fetch='curl -gkLO'
+alias grep=egrep
+if whence -p hexyl >/dev/null; then alias hd=hexyl; else alias hd='hexdump -Cvv'; fi
+alias less=bat
+alias psed='perl -0777 -p -e'
+whence -p rg >/dev/null || alias rg='grep -ri'
+alias sed='sed -E'
+alias tf='tail -F'
+alias mdless='mdless --width 72'
+alias exa='exa --git -b'
+
+whence -p exa >/dev/null && alias ls=exa
+alias ll='ls -l'
+alias la='ls -a'
+alias lal='ls -la'
+alias lsd='ls -d'
+
+alias vi=hx
+alias vim=hx
+alias nvim=hx
+alias neovide=hx
+
+alias listcops='rubocop -fo'
+alias openports='lsof -nP -iTCP -sTCP:LISTEN'
+alias fontname='fc-scan --format "%{postscriptname}\n"'
+
+alias dj='python manage.py'
+alias djs='dj shell_plus'
+alias djrs='dj runserver'
+alias djmm='dj makemigrations'
+alias djm='dj migrate'
+alias djcsu='dj createsuperuser'
+
+alias gfu=git-fixup
+alias gl=glgg
+alias glgp='glg -p --pretty=medium'
+alias gmv='git mv'
+alias grsp='grs -p'
+alias gswm=gcm
+# alias gs='fish_command_not_found gs' # i never want ghostscript
+
+
+autoload -Uz compinit
+compinit
+
+fpath+=("$(brew --prefix)/share/zsh/site-functions")
+autoload -U promptinit; promptinit
+prompt pure
+
+eval "$(zoxide init zsh)"
+
+source "$(brew --prefix chruby)/share/chruby/chruby.sh"
+source "$(brew --prefix chruby)/share/chruby/auto.sh"
+export RUBIES=("$RUBIES_DIR"/ruby-*)
+eval "$(fnm env --use-on-cd --version-file-strategy recursive)"
+eval "$(pyenv init -)"
+
+bindkey '^[[1;3C' forward-word
+bindkey '^[[1;3D' backward-word
+bindkey '^[OA' history-substring-search-up
+bindkey '^[OB' history-substring-search-down
+
+setopt SHARE_HISTORY
+SAVEHIST=999999999

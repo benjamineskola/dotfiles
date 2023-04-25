@@ -18,11 +18,9 @@ for repo in "$XDG_CONFIG_HOME" "$HOME/bin" "$HOME/bin"/*/; do
 done
 
 log "Install dotfiles"
-for file in "$XDG_CONFIG_HOME"/_* "$XDG_CONFIG_HOME"/private/_*; do
-    ln_relative "$file" "$HOME/$(basename "$file" | tr _ .)"
-done
-for file in "$XDG_CONFIG_HOME"/zsh/z*; do
-    ln_relative "$file" "$HOME/.$(basename "$file")"
+for file in "$XDG_CONFIG_HOME"/_* "$XDG_CONFIG_HOME"/private/_* "$XDG_CONFIG_HOME"/zsh/z*; do
+    basename=${file##*/}
+    ln_relative "$file" "$HOME/.${basename#_}"
 done
 
 log "Clean up old dotfile links"

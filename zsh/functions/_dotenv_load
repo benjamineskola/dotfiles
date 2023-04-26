@@ -50,14 +50,14 @@ if ! _dotenv_allowed "$_DOTENV_ROOT/.env" || ! _dotenv_allowed "$_DOTENV_ROOT/.e
     return
 fi
 
-if [[ -n $_DOTENV_VARS ]]; then
+if [[ -n "$_DOTENV_VARS" ]]; then
     return
 fi
 
 typeset -ga _DOTENV_VARS
 for file in .env .env.local; do
     if [ -e $_DOTENV_ROOT/$file ]; then
-        typeset -a _DOTENV_VARS
+        typeset -ga _DOTENV_VARS
         _DOTENV_VARS+=($(cut -d '=' -f 1 $_DOTENV_ROOT/$file))
         _DOTENV_FILES+=($_DOTENV_ROOT/$file)
         vars_pattern="${(j[|])_DOTENV_VARS}"

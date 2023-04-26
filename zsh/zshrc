@@ -3,10 +3,10 @@
 autoload -Uz compinit
 
 # shellcheck disable=SC2144,SC2157
-if [[ -n ${ZDOTDIR:-$HOME}/.zcompdump*(N.mh+24) ]]; then
-	compinit -u
+if [[ -n ${XDG_CACHE_HOME}/zcompdump*(N.mh+24) ]]; then
+	compinit -u -d "$XDG_CACHE_HOME/zcompdump"
 else
-	compinit -uC
+	compinit -u -d "$XDG_CACHE_HOME/zcompdump" -C
 fi
 # shellcheck source=/dev/null
 . /opt/homebrew/opt/antidote/share/antidote/antidote.zsh

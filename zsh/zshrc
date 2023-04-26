@@ -1,7 +1,9 @@
 # shellcheck shell=ksh
 
 autoload -Uz compinit
-if [[ -n ${ZDOTDIR:-$HOME}/.zcompdump(#qN.mh+24) ]]; then
+
+# shellcheck disable=SC2144,SC2157
+if [[ -n ${ZDOTDIR:-$HOME}/.zcompdump*(N.mh+24) ]]; then
 	compinit -u
 else
 	compinit -uC

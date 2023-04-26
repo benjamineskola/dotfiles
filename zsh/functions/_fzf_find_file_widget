@@ -1,0 +1,6 @@
+#!/usr/bin/env zsh
+
+fd . -t f . | fzf --bind="enter:become(exec $EDITOR {} &>/dev/tty),alt-enter:accept"
+ret=$?
+zle reset-prompt
+return $ret

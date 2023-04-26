@@ -1,0 +1,6 @@
+#!/usr/bin/env zsh
+
+zi
+ret=$?
+zle reset-prompt
+return $ret

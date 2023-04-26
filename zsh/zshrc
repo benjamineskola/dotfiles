@@ -93,3 +93,13 @@ zrecompile -p "$XDG_CONFIG_HOME/zsh/functions.zwc" "$XDG_CONFIG_HOME"/zsh/functi
 autoload -U add-zsh-hook
 add-zsh-hook chpwd _virtualenv_autoload
 add-zsh-hook precmd _dotenv_load
+
+export FZF_DEFAULT_OPTS='--cycle --layout=reverse --border --height=90% --preview-window=wrap'
+export _ZO_FZF_OPTS="$FZF_DEFAULT_OPTS --preview=\"echo '\'{}\'' | cut -f 2 | xargs exa -l\""
+. "$(brew --prefix fzf)/shell/key-bindings.zsh"
+
+zle -N _fzf_cd_widget
+zle -N _fzf_find_file_widget
+
+bindkey '\ec' _fzf_cd_widget
+bindkey '\eo' _fzf_find_file_widget

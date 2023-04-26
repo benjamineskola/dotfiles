@@ -19,3 +19,5 @@
 /.pre-commit-hooks.yaml
 /_ssh/id_*
 /_ssh/known_hosts
+/zsh/plugins.zsh
+*.zwc

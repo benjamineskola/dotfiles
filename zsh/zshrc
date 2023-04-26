@@ -1,13 +1,14 @@
 # shellcheck shell=ksh
+
+autoload -Uz compinit
+if [[ -n ${ZDOTDIR:-$HOME}/.zcompdump(#qN.mh+24) ]]; then
+	compinit -u
+else
+	compinit -uC
+fi
 # shellcheck source=/dev/null
-source "$(brew --prefix antigen)/share/antigen/antigen.zsh"
-antigen use oh-my-zsh
-antigen bundle git
-antigen bundle bundler
-antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle zsh-users/zsh-history-substring-search
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen apply
+. /opt/homebrew/opt/antidote/share/antidote/antidote.zsh
+antidote load "$XDG_CONFIG_HOME/zsh/plugins.txt"
 
 alias curl='curl -gkLsS'
 
@@ -55,15 +56,9 @@ alias grsp='grs -p'
 alias gswm=gcm
 # alias gs='fish_command_not_found gs' # i never want ghostscript
 
-autoload -Uz compinit
-compinit
-
 if [[ $OSTYPE == darwin* ]]; then
 	fpath+=("$(brew --prefix)/share/zsh/site-functions") # in case this is system zsh not homebrew
 fi
-autoload -U promptinit
-promptinit
-prompt pure
 
 eval "$(zoxide init zsh)"
 

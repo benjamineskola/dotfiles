@@ -55,3 +55,8 @@ Thumbs.db
 .rubocop-http*
 
 /node_modules
+
+# dotenv/direnv
+.env
+.env.*
+.envrc

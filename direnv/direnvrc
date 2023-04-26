@@ -1,0 +1,7 @@
+# shellcheck shell=sh
+
+layout_python-venv() {
+	VIRTUAL_ENV=.venv
+	layout python "${1:-python3}"
+	dotenv
+}

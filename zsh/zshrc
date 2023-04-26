@@ -87,9 +87,6 @@ fpath+=("$XDG_CONFIG_HOME/zsh/functions.zwc")
 autoload -U ${fpath%.zwc}/*(.N:t)
 zrecompile -p "$XDG_CONFIG_HOME/zsh/functions.zwc" "$XDG_CONFIG_HOME"/zsh/functions/*
 
-autoload -U add-zsh-hook
-add-zsh-hook chpwd _virtualenv_autoload
-
 eval "$(direnv hook zsh)"
 
 export FZF_DEFAULT_OPTS='--cycle --layout=reverse --border --height=90% --preview-window=wrap'

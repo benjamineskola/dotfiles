@@ -57,15 +57,15 @@ alias gswm=gcm
 # alias gs='fish_command_not_found gs' # i never want ghostscript
 
 if [[ $OSTYPE == darwin* ]]; then
-	fpath+=("$(brew --prefix)/share/zsh/site-functions") # in case this is system zsh not homebrew
+	fpath+=("$HOMEBREW_PREFIX/share/zsh/site-functions") # in case this is system zsh not homebrew
 fi
 
 eval "$(zoxide init zsh)"
 
 # shellcheck source=/dev/null
-source "$(brew --prefix chruby)/share/chruby/chruby.sh"
+source "$HOMEBREW_PREFIX/opt/chruby/share/chruby/chruby.sh"
 # shellcheck source=/dev/null
-source "$(brew --prefix chruby)/share/chruby/auto.sh"
+source "$HOMEBREW_PREFIX/opt/chruby/share/chruby/auto.sh"
 export RUBIES=("$RUBIES_DIR"/ruby-*)
 eval "$(fnm env --use-on-cd --version-file-strategy recursive)"
 eval "$(pyenv init -)"
@@ -94,7 +94,8 @@ eval "$(direnv hook zsh)"
 
 export FZF_DEFAULT_OPTS='--cycle --layout=reverse --border --height=90% --preview-window=wrap'
 export _ZO_FZF_OPTS="$FZF_DEFAULT_OPTS --preview=\"echo '\'{}\'' | cut -f 2 | xargs exa -l\""
-. "$(brew --prefix fzf)/shell/key-bindings.zsh"
+# shellcheck source=/dev/null
+. "$HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.zsh"
 
 zle -N _fzf_cd_widget
 zle -N _fzf_find_file_widget

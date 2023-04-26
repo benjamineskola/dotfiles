@@ -101,3 +101,5 @@ zle -N _fzf_find_file_widget
 
 bindkey '\ec' _fzf_cd_widget
 bindkey '\eo' _fzf_find_file_widget
+
+WORDCHARS=${WORDCHARS/\//}

@@ -50,6 +50,8 @@ Thumbs.db
 \#*\#
 *.pyc
 .mypy_cache
+.venv
+venv
 
 # Rubocop cached remote configs
 .rubocop-http*

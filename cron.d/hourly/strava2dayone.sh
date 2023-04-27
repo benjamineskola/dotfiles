@@ -6,7 +6,7 @@ pgrep -lf /dayone.py && exit 1
 
 PYTHON=python
 if [ -d ./.venv ]; then
-    PYTHON=$PWD/.venv/bin/python
+	PYTHON=$PWD/.venv/bin/python
 fi
 
 $PYTHON ./dayone.py run

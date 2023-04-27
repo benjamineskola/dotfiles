@@ -11,13 +11,13 @@ CURRENT_VERSIONS="$(curl -sS https://raw.githubusercontent.com/postmodern/ruby-v
 
 log "Install all current stable versions"
 for version in $CURRENT_VERSIONS; do
-    if brew --prefix capstone 2>/dev/null; then
-        CXXFLAGS="-I$(brew --prefix capstone)/include"
-        LDFLAGS="-L$(brew --prefix capstone)/lib"
-        export CXXFLAGS LDFLAGS
-    fi
-    RUBY_TMP="$(mktemp -d)"
-    ruby-install --no-install-deps --no-reinstall --cleanup -r "$RUBIES_DIR" -s "$RUBY_TMP" "$version"
+	if brew --prefix capstone 2>/dev/null; then
+		CXXFLAGS="-I$(brew --prefix capstone)/include"
+		LDFLAGS="-L$(brew --prefix capstone)/lib"
+		export CXXFLAGS LDFLAGS
+	fi
+	RUBY_TMP="$(mktemp -d)"
+	ruby-install --no-install-deps --no-reinstall --cleanup -r "$RUBIES_DIR" -s "$RUBY_TMP" "$version"
 done
 
 log "Set default ruby version to the latest"
@@ -27,11 +27,11 @@ echo "$DEFAULT_VERSION" >~/.ruby-version
 
 log "Install default gems for all installed rubies"
 for installation in "$RUBIES_DIR"/ruby-*; do
-    (
-        cp "$XDG_CONFIG_HOME/Gemfile" "$installation"
-        version=$(basename "$installation" | cut -d '-' -f 2)
-        chruby-exec "$version" -- bundle install --gemfile "$installation/Gemfile"
-        rm -f "$installation/Gemfile" "$installation/Gemfile.lock"
-    ) &
+	(
+		cp "$XDG_CONFIG_HOME/Gemfile" "$installation"
+		version=$(basename "$installation" | cut -d '-' -f 2)
+		chruby-exec "$version" -- bundle install --gemfile "$installation/Gemfile"
+		rm -f "$installation/Gemfile" "$installation/Gemfile.lock"
+	) &
 done
 wait

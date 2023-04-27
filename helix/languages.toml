@@ -1,7 +1,7 @@
 [[language]]
 name = "bash"
-indent = { tab-width = 4, unit = "    " }
-formatter = { command = 'shfmt', args = ["-i", "4", "-p"] }
+indent = { tab-width = 4, unit = "\t" }
+formatter = { command = 'shfmt', args = ["-i", "0", "-ln=bash", "-s"] }
 auto-format = true
 
 [[language]]

@@ -3,6 +3,6 @@ augroup filetypedetect_local
 augroup END
 
 augroup filetype_settings_local
-  autocmd FileType fish,lua,python,rust,sh set sw=4
-  autocmd FileType go,just,make set sw=0 ts=4 noexpandtab
+  autocmd FileType fish,lua,python,rust set sw=4
+  autocmd FileType go,just,make,sh set sw=0 ts=4 noexpandtab
 augroup END

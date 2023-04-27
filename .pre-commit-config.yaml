@@ -17,8 +17,17 @@ repos:
     hooks:
       - id: shellcheck
         exclude: "git/template/hooks/pre-commit$"
+      - id: shellcheck
+        name: shellcheck (zsh)
+        files: "^zsh/(z|functions/).*"
+        types: []
+        args: ["--shell=bash"]
       - id: shfmt
         exclude: "git/template/hooks/pre-commit$"
+      - id: shfmt
+        name: shfmt (zsh)
+        files: "^zsh/(z|functions/).*"
+        types: []
       - id: vint
       - id: prettier
       - id: rome

@@ -33,11 +33,6 @@ repos:
       - id: rome
   - repo: local
     hooks:
-      - id: fish_indent
-        name: fish_indent
-        entry: fish_indent -w
-        language: system
-        types: [fish]
       - id: luacheck
         name: luacheck
         entry: luacheck

@@ -13,11 +13,6 @@ name = "scss"
 formatter = { command = 'prettierd', args = ["dummy.scss"] }
 
 [[language]]
-name = "fish"
-formatter = { command = "fish_indent" }
-auto-format = true
-
-[[language]]
 name = "go"
 language-servers = ["gopls", "golangci-lint"]
 

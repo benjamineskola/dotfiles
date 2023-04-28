@@ -75,9 +75,9 @@ if [ "$(hostname -s)" = MacBook-Pro ]; then
 
 		if [ -e "$INSTALL_PATH" ]; then
 			if ! cmp -s "$TMP_PATH" "$INSTALL_PATH"; then
-				launchctl unload "$JOB_NAME.plist"
+				launchctl unload "$INSTALL_PATH.plist"
 				cp -f "$TMP_PATH" "$INSTALL_PATH"
-				launchctl load "$JOB_NAME.plist"
+				launchctl load "$INSTALL_PATH.plist"
 			fi
 			rm -f "$TMP_PATH"
 		fi

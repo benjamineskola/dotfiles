@@ -6,9 +6,9 @@
     <string>$JOB_NAME</string>
     <key>ProgramArguments</key>
     <array>
-      <string>/opt/homebrew/bin/fish</string>
+      <string>/bin/zsh</string>
       <string>-c</string>
-      <string>/bin/bash -c "'$JOB_PATH' 1> >(ts >&amp;1) 2> >(ts >&amp;2)"</string>
+      <string>$JOB_PATH 1> >(ts >&amp;1) 2> >(ts >&amp;2)</string>
     </array>
     <key>StandardErrorPath</key>
     <string>$HOME/Library/Logs/$JOB_NAME.err</string>

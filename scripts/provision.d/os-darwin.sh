@@ -41,6 +41,10 @@ else
 	git clone --depth 1 https://github.com/dcreemer/hammerspoon-bear.git "$XDG_CONFIG_HOME/_hammerspoon/Spoons/Bear.spoon"
 fi
 
+log "Link docker-compose into place"
+mkdir -p ~/.docker/cli-plugins
+ln -sfh /opt/homebrew/opt/docker-compose/bin/docker-compose ~/.docker/cli-plugins/docker-compose
+
 log "Ensure LaunchAgents directory exists"
 AGENT_DIR="$HOME/Library/LaunchAgents"
 mkdir -p "$AGENT_DIR"

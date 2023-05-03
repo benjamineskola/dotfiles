@@ -21,6 +21,10 @@ name = "html"
 formatter = { command = 'prettierd', args = ["dummy.html"] }
 
 [[language]]
+name = "ini"
+file-types = [{ suffix = "aws/config" }, { suffix = "aws/credentials" }]
+
+[[language]]
 name = "javascript"
 auto-format = true
 language-servers = ["typescript-language-server", "rome"]

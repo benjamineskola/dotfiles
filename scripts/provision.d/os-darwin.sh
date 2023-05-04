@@ -79,12 +79,15 @@ if [ "$(hostname -s)" = MacBook-Pro ]; then
 
 		if [ -e "$INSTALL_PATH" ]; then
 			if ! cmp -s "$TMP_PATH" "$INSTALL_PATH"; then
-				launchctl unload "$INSTALL_PATH.plist"
+				launchctl unload "$INSTALL_PATH"
 				cp -f "$TMP_PATH" "$INSTALL_PATH"
-				launchctl load "$INSTALL_PATH.plist"
+				launchctl load "$INSTALL_PATH"
 			fi
-			rm -f "$TMP_PATH"
+		else
+			cp -f "$TMP_PATH" "$INSTALL_PATH"
+			launchctl load "$INSTALL_PATH"
 		fi
+		rm -f "$TMP_PATH"
 	done
 
 	log "Configure logrotate"

@@ -5,8 +5,6 @@ tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/services"
 
-brew "ansible"
-brew "ansible-language-server"
 brew "antidote"
 brew "bash-language-server"
 brew "bat"
@@ -121,7 +119,6 @@ when "MacBook-Pro"
 when /^Ben-Eskolas-MacBook/
   tap "heroku/brew"
 
-  brew "ansible-lint"
   brew "awscli"
   brew "crystal" # for trello-cli
   brew "heroku/brew/heroku"

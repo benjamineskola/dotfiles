@@ -70,8 +70,8 @@ eval "$(fnm env --use-on-cd --version-file-strategy recursive)"
 
 bindkey '^[[1;3C' forward-word
 bindkey '^[[1;3D' backward-word
-bindkey '^[OA' history-substring-search-up
-bindkey '^[OB' history-substring-search-down
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 
 setopt SHARE_HISTORY
 HISTFILE=$XDG_CACHE_HOME/zsh_history

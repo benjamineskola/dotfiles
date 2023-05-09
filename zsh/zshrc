@@ -65,12 +65,8 @@ fi
 eval "$(zoxide init zsh)"
 
 # shellcheck source=/dev/null
-source "$HOMEBREW_PREFIX/opt/chruby/share/chruby/chruby.sh"
-# shellcheck source=/dev/null
 source "$HOMEBREW_PREFIX/opt/chruby/share/chruby/auto.sh"
-export RUBIES=("$RUBIES_DIR"/ruby-*)
 eval "$(fnm env --use-on-cd --version-file-strategy recursive)"
-eval "$(pyenv init -)"
 
 bindkey '^[[1;3C' forward-word
 bindkey '^[[1;3D' backward-word

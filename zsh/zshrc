@@ -73,7 +73,7 @@ bindkey '^[[1;3D' backward-word
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
-setopt SHARE_HISTORY
+setopt SHARE_HISTORY EXTENDED_HISTORY HIST_IGNORE_DUPS
 HISTFILE=$XDG_CACHE_HOME/zsh_history
 HISTSIZE=999999999
 # shellcheck disable=SC2034

@@ -6,6 +6,7 @@ tap "homebrew/cask-versions"
 tap "homebrew/services"
 
 brew "antidote"
+brew "atuin"
 brew "bash-language-server"
 brew "bat"
 brew "chruby"

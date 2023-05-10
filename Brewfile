@@ -56,6 +56,7 @@ brew "shfmt"
 brew "stylua"
 brew "taplo"
 brew "terraform-ls"
+brew "tfenv"
 brew "tflint"
 brew "trash"
 brew "tree"
@@ -124,7 +125,6 @@ when /^Ben-Eskolas-MacBook/
   brew "crystal" # for trello-cli
   brew "heroku/brew/heroku"
   brew "imagemagick"
-  brew "tfenv"
 
   cask "breaktimer"
   cask "firefox"

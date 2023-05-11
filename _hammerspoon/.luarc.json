@@ -1,6 +1,6 @@
 {
   "diagnostics": {
-    "globals": ["hs"]
+    "globals": ["hs", "spoon"]
   },
   "workspace": {
     "ignoreDir": ["Spoons"]

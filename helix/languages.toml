@@ -38,6 +38,7 @@ formatter = { command = "rome", args = ["format", "--stdin-file-path", "test.jso
 [[language]]
 name = "lua"
 auto-format = true
+roots = [".luarc.json"]
 indent = { tab-width = 4, unit = "    " }
 
 [[language]]

@@ -27,12 +27,10 @@
 	abbrevCommit = true
 	decorate = true
 [merge]
-	tool = nvim
+	tool = meld
 [mergetool]
 	prompt = false
 	keepBackup = false
-[mergetool "nvim"]
-	cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
 [pull]
 	rebase = true
 [push]

@@ -98,18 +98,9 @@ bindkey '\eo' _fzf_find_file_widget
 
 WORDCHARS=${WORDCHARS/\//}
 
-prompt_pure_set_title() { :; }
-title_idle() {
-	PWD2=${PWD/$HOME/~}
-	print -Pn "\e]0;${PWD2##*/}\a"
-}
-title_active() {
-	PWD2=${PWD/$HOME/~}
-	print -Pn "\e]0;${1//(caffeinate|sudo|doas) /}: ${PWD2##*/}\a"
-}
-
-autoload -U add-zsh-hook
-add-zsh-hook precmd title_idle
-add-zsh-hook preexec title_active
+# shellcheck disable=SC2034,SC2016
+PURE_PROMPT_TITLE_IDLE='${${PWD/$HOME/~}:t}'
+# shellcheck disable=SC2034,SC2016
+PURE_PROMPT_TITLE_ACTIVE='${4//(caffeinate|sudo|doas|exec) /}: ${${PWD/$HOME/~}:t}'
 
 eval "$(atuin init zsh --disable-up-arrow)"

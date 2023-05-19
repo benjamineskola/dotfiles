@@ -1,6 +1,6 @@
 local wezterm = require("wezterm")
 
-local font = { family = "Fira Code", weight = "Light", harfbuzz_features = { "zero" } }
+local font = { family = "Input Mono", weight = "Light" }
 
 local function resize_font(window)
     local window_size = window:get_dimensions()
@@ -48,7 +48,6 @@ return {
         { mods = "CMD|SHIFT", key = "d", action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }) },
         { mods = "CMD", key = "[", action = wezterm.action.ActivatePaneDirection("Prev") },
         { mods = "CMD", key = "]", action = wezterm.action.ActivatePaneDirection("Next") },
-
         { mods = "CMD|ALT", key = "UpArrow", action = wezterm.action.AdjustPaneSize({ "Up", 1 }) },
         { mods = "CMD|ALT", key = "DownArrow", action = wezterm.action.AdjustPaneSize({ "Down", 1 }) },
         { mods = "CMD|ALT", key = "LeftArrow", action = wezterm.action.AdjustPaneSize({ "Left", 1 }) },

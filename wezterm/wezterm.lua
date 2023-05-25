@@ -20,7 +20,7 @@ wezterm.on("window-config-reloaded", resize_font)
 
 return {
     color_scheme = "Monokai Pro (Gogh)",
-    enable_kitty_keyboard = true,
+    enable_kitty_keyboard = false,
     font = wezterm.font(font),
     font_size = 14,
     native_macos_fullscreen_mode = true,

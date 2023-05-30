@@ -58,6 +58,8 @@ alias grsp='grs -p'
 alias gswm=gcm
 # alias gs='fish_command_not_found gs' # i never want ghostscript
 
+setopt AUTO_CD AUTO_PUSHD
+
 if [[ $OSTYPE == darwin* ]]; then
 	fpath+=("$HOMEBREW_PREFIX/share/zsh/site-functions") # in case this is system zsh not homebrew
 fi
@@ -84,6 +86,7 @@ fpath+=("$XDG_CONFIG_HOME/zsh/functions.zwc")
 # shellcheck disable=SC2296,SC2086
 autoload -U ${fpath%.zwc}/*(.N:t)
 zrecompile -p "$XDG_CONFIG_HOME/zsh/functions.zwc" "$XDG_CONFIG_HOME"/zsh/functions/*
+setopt NO_RC_EXPAND_PARAM
 
 eval "$(direnv hook zsh)"
 

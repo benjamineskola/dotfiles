@@ -1,5 +1,6 @@
 bpython
 git+https://gitlab.com/benjamineskola/datecalc.git#egg=datecalc
+djlint
 neovim-remote
 git+https://gitlab.com/benjamineskola/passwordage.git#egg=passwordage
 pyls-isort

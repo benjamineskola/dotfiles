@@ -49,14 +49,14 @@ log "Ensure LaunchAgents directory exists"
 AGENT_DIR="$HOME/Library/LaunchAgents"
 mkdir -p "$AGENT_DIR"
 
-if [ "$(hostname -s)" = MacBook-Pro ]; then
-	log "Install setenv.plist"
-	if ! cmp -s "$XDG_CONFIG_HOME/setenv.plist" "$AGENT_DIR/uk.eskola.setenv.plist"; then
-		launchctl unload uk.eskola.setenv.plist
-		cp "$XDG_CONFIG_HOME/setenv.plist" "$AGENT_DIR/uk.eskola.setenv.plist"
-		launchctl load uk.eskola.setenv.plist
-	fi
+log "Install setenv.plist"
+if ! cmp -s "$XDG_CONFIG_HOME/setenv.plist" "$AGENT_DIR/uk.eskola.setenv.plist"; then
+	launchctl unload "$AGENT_DIR/uk.eskola.setenv.plist"
+	cp "$XDG_CONFIG_HOME/setenv.plist" "$AGENT_DIR/uk.eskola.setenv.plist"
+	launchctl load "$AGENT_DIR/uk.eskola.setenv.plist"
+fi
 
+if [ "$(hostname -s)" = MacBook-Pro ]; then
 	log "Generate cronjobs"
 	template="$XDG_CONFIG_HOME/cron.d/LaunchAgent.tmpl"
 	for JOB_PATH in "$XDG_CONFIG_HOME"/cron.d/*/* "$XDG_CONFIG_HOME"/private/cron.d/*/*; do

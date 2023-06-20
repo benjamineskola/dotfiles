@@ -1,5 +1,15 @@
 Include /Users/ben/.colima/ssh_config
 
+Host *.openbsd.amsterdam vmhost
+  Hostname server19.openbsd.amsterdam
+  User eskola
+  Port 31415
+
+Host eskola.uk vm
+  Hostname eskola.uk
+  User eskola
+  ForwardAgent yes
+
 Host *.unboxedconsulting.com
   User ben.eskola
 

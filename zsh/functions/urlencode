@@ -1,0 +1,7 @@
+cmd=(jq -Rr @uri)
+
+if [ $# -gt 0 ]; then
+	"${cmd[@]}" <<<"$1"
+else
+	"${cmd[@]}"
+fi

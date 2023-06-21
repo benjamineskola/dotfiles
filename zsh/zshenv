@@ -47,8 +47,11 @@ export VIMINIT="let \$MYVIMRC='$XDG_CONFIG_HOME/vim/vimrc' | source \$MYVIMRC"
 
 path=(~/bin "$CARGO_HOME/bin" "$GOPATH/bin" "$YARN_PREFIX/bin" /usr/local/*bin "${path[@]}")
 
-# shellcheck source=/dev/null
-source "$HOMEBREW_PREFIX/opt/chruby/share/chruby/chruby.sh"
-export RUBIES=("$RUBIES_DIR"/ruby-*)
+if [[ -d $RUBIES_DIR ]]; then
+	# shellcheck source=/dev/null
+	source "$HOMEBREW_PREFIX/opt/chruby/share/chruby/chruby.sh"
+	export RUBIES=("$RUBIES_DIR"/ruby-*)
+fi
+
 eval "$(fnm env --version-file-strategy recursive)"
 eval "$(pyenv init -)"

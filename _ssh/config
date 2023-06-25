@@ -7,7 +7,6 @@ Host *.openbsd.amsterdam vmhost
 
 Host eskola.uk vm
   Hostname eskola.uk
-  User eskola
   ForwardAgent yes
 
 Host *.unboxedconsulting.com

@@ -12,7 +12,7 @@ fi
 . /opt/homebrew/opt/antidote/share/antidote/antidote.zsh
 antidote load "$XDG_CONFIG_HOME/zsh/plugins.txt"
 
-alias curl='curl -gkLsS'
+alias curl='curl -gLsS --compressed'
 
 alias fdd='fd .'
 alias fdg='fd -g'

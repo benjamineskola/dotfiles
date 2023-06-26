@@ -122,6 +122,9 @@ when "MacBook-Pro"
 when /^Ben-Eskolas-MacBook/
   tap "heroku/brew"
 
+  brew "ansible"
+  brew "ansible-language-server"
+  brew "ansible-lint"
   brew "awscli"
   brew "crystal" # for trello-cli
   brew "heroku/brew/heroku"

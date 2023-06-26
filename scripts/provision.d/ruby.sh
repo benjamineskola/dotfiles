@@ -2,6 +2,7 @@
 set -e
 
 log "Ensure .gem points to the right place"
+mkdir -p "$XDG_DATA_HOME/gem"
 ln_relative "$XDG_DATA_HOME/gem" ~/.gem
 
 RUBIES_DIR=${RUBIES_DIR:-$XDG_DATA_HOME/rubies}

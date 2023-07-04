@@ -1,13 +1,5 @@
-AllCops:
-  DisabledByDefault: true
+require: standard
 
-Layout/LineLength:
-  Enabled: true
-Layout/MultilineArrayLineBreaks:
-  Enabled: true
-Layout/MultilineHashKeyLineBreaks:
-  Enabled: true
-Layout/MultilineMethodArgumentLineBreaks:
-  Enabled: true
-Layout/MultilineMethodParameterLineBreaks:
-  Enabled: true
+inherit_gem:
+  standard:
+    - config/base.yml

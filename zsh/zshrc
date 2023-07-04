@@ -95,6 +95,8 @@ eval "$(direnv hook zsh)"
 
 export FZF_DEFAULT_OPTS='--cycle --layout=reverse --border --height=90% --preview-window=wrap'
 export _ZO_FZF_OPTS="$FZF_DEFAULT_OPTS --preview=\"echo '\'{}\'' | cut -f 2 | xargs exa -l\""
+# shellcheck source=/dev/null
+. "$HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.zsh"
 
 zle -N _fzf_cd_widget
 zle -N _fzf_find_file_widget
@@ -120,5 +122,3 @@ add-zsh-hook preexec title_active
 
 # case-insensitive (all),partial-word and then substring completion
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
-
-eval "$(atuin init zsh --disable-up-arrow)"

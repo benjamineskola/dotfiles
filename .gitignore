@@ -14,7 +14,7 @@
 /_hammerspoon/Spoons/vendor
 /helix/runtime
 /instaloader/session-*
-/nvim/spell
+/vim/spell
 /pre-commit-hooks
 /.pre-commit-hooks.yaml
 /_ssh/id_*

@@ -130,13 +130,13 @@ setopt PROMPT_SUBST
 # shellcheck disable=SC2034
 ZSH_THEME_GIT_PROMPT_DIRTY="%F{magenta}*%f"
 # shellcheck disable=SC2034
-ZSH_THEME_GIT_PROMPT_BEHIND_REMOTE=" %F{blue%}⇣%f}"
+ZSH_THEME_GIT_PROMPT_BEHIND_REMOTE=" %F{blue%}⇣%f"
 # shellcheck disable=SC2034
 ZSH_THEME_GIT_PROMPT_AHEAD_REMOTE=" %F{blue%}⇡%f"
 # shellcheck disable=SC2034
 ZSH_THEME_GIT_PROMPT_DIVERGED_REMOTE="%F{blue%}⇣⇡%f"
 # shellcheck disable=SC2034,SC2016
-PROMPT='$preprompt%F{blue}%~%f %F{242}$(git_prompt_info)%f$(git_remote_status)
+PROMPT='$preprompt%F{blue}%~%f %F{242}$(git_prompt_info)%f $(git_remote_status)
 %F{242}${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV)) }%f%(?.%F{green}.%F{red})$%f '
 
 update_prompt() {

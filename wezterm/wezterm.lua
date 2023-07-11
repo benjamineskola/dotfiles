@@ -19,7 +19,7 @@ wezterm.on("window-resized", resize_font)
 wezterm.on("window-config-reloaded", resize_font)
 
 return {
-    color_scheme = "rose-pine",
+    color_scheme = "Monokai Pro (Gogh)",
     enable_kitty_keyboard = false,
     font = wezterm.font(font),
     font_size = 14,
@@ -32,11 +32,14 @@ return {
     window_decorations = "RESIZE",
 
     colors = {
-        selection_bg = "#403d52",
+        ansi = { "#363537", "#ff6188", "#a9dc76", "#fc9867", "#ab9df2", "#ff6188", "#78dce8", "#fdf9f3" },
+        background = "#2d2a2e",
+        brights = { "#908e8f", "#ff6188", "#a9dc76", "#ffd866", "#ab9df2", "#ff6188", "#78dce8", "#fdf9f3" },
+        cursor_bg = "#5b595c",
         tab_bar = {
-            background = "#21202e",
-            inactive_tab = { bg_color = "#1f1d2e", fg_color = "#908caa" },
-            active_tab = { bg_color = "#26233a", fg_color = "#e0def4" },
+            background = "#363537",
+            inactive_tab = { bg_color = "#363537", fg_color = "#fdf9f3" },
+            active_tab = { bg_color = "#2d2a2e", fg_color = "#fdf9f3" },
         },
     },
 

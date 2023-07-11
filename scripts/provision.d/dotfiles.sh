@@ -20,6 +20,7 @@ done
 log "Install dotfiles"
 for file in "$XDG_CONFIG_HOME"/_* "$XDG_CONFIG_HOME"/private/_* "$XDG_CONFIG_HOME"/zsh/z*; do
 	basename=${file##*/}
+	basename=${basename%.zsh}
 	ln_relative "$file" "$HOME/.${basename#_}"
 done
 

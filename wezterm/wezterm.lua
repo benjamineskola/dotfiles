@@ -18,6 +18,17 @@ end
 wezterm.on("window-resized", resize_font)
 wezterm.on("window-config-reloaded", resize_font)
 
+local monokai = {
+    red = "#ff6188",
+    orange = "#fc9867",
+    yellow = "#ffd866",
+    green = "#a9dc76",
+    blue = "#78dce8",
+    purple = "#ab9df2",
+    white = "#fcfcfa",
+    black = "#2d2a2e",
+}
+
 return {
     color_scheme = "Monokai Pro (Gogh)",
     enable_kitty_keyboard = false,
@@ -32,14 +43,27 @@ return {
     window_decorations = "RESIZE",
 
     colors = {
-        ansi = { "#363537", "#ff6188", "#a9dc76", "#fc9867", "#ab9df2", "#ff6188", "#78dce8", "#fdf9f3" },
+        ansi = {
+            monokai.black,
+            monokai.red,
+            monokai.green,
+            monokai.yellow,
+            monokai.blue,
+            monokai.purple,
+            monokai.orange,
+            monokai.white,
+        },
         background = "#2d2a2e",
-        brights = { "#908e8f", "#ff6188", "#a9dc76", "#ffd866", "#ab9df2", "#ff6188", "#78dce8", "#fdf9f3" },
         cursor_bg = "#5b595c",
-        tab_bar = {
-            background = "#363537",
-            inactive_tab = { bg_color = "#363537", fg_color = "#fdf9f3" },
-            active_tab = { bg_color = "#2d2a2e", fg_color = "#fdf9f3" },
+        brights = {
+            monokai.black,
+            monokai.red,
+            monokai.green,
+            monokai.yellow,
+            monokai.blue,
+            monokai.purple,
+            monokai.orange,
+            monokai.white,
         },
     },
 

@@ -26,7 +26,7 @@ local monokai = {
     blue = "#78dce8",
     purple = "#ab9df2",
     white = "#fcfcfa",
-    black = "#2d2a2e",
+    black = "#5b595c",
 }
 
 return {

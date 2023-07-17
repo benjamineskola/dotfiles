@@ -136,16 +136,13 @@ ZSH_THEME_GIT_PROMPT_AHEAD_REMOTE=" %F{blue%}⇡%f"
 # shellcheck disable=SC2034
 ZSH_THEME_GIT_PROMPT_DIVERGED_REMOTE="%F{blue%}⇣⇡%f"
 # shellcheck disable=SC2034,SC2016
-PROMPT='$preprompt%F{blue}%~%f %F{242}$(git_prompt_info)%f$(git_remote_status)%F{yellow}$(_prompt_show_elapsed)%f
+PROMPT='$(_prompt_has_suspended_jobs)%F{blue}%~%f %F{242}$(git_prompt_info)%f$(git_remote_status)%F{yellow}$(_prompt_show_elapsed)%f
 %F{242}${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV)) }%f%(?.%F{green}.%F{red}[$pipestatus] )$%f '
 
-update_prompt() {
+_prompt_has_suspended_jobs() {
 	# shellcheck disable=SC2154
 	if [[ $jobstates =~ suspended: ]]; then
-		preprompt='%F{red}✦ '
-	else
-		# shellcheck disable=SC2034
-		preprompt=''
+		print -Pn '%F{red}✦ '
 	fi
 }
 _prompt_show_elapsed() {
@@ -158,6 +155,5 @@ _prompt_end_timer() {
 	_elapsed=$((SECONDS - _start))
 }
 
-add-zsh-hook precmd update_prompt
 add-zsh-hook preexec _prompt_start_timer
 add-zsh-hook precmd _prompt_end_timer

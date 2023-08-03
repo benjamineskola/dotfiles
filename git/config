@@ -27,10 +27,13 @@
 	abbrevCommit = true
 	decorate = true
 [merge]
-	tool = meld
+	tool = smerge
 [mergetool]
 	prompt = false
 	keepBackup = false
+[mergetool "smerge"]
+	cmd = smerge mergetool \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
+	trustExitCode = true
 [pull]
 	rebase = true
 [push]

@@ -18,7 +18,15 @@ language-servers = ["gopls", "golangci-lint"]
 
 [[language]]
 name = "html"
-formatter = { command = 'djlint', args = ["--reformat", "--format-js", "--format-css", "--quiet", "-"] }
+formatter = { command = 'djlint', args = [
+  "--reformat",
+  "--indent",
+  "2",
+  "--format-js",
+  "--format-css",
+  "--quiet",
+  "-",
+] }
 
 [[language]]
 name = "ini"

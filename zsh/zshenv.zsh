@@ -57,4 +57,6 @@ if type fnm >/dev/null; then
 	eval "$(fnm env --version-file-strategy recursive)"
 fi
 
-eval "$(pyenv init -)"
+if type pyenv >/dev/null; then
+	eval "$(pyenv init -)"
+fi

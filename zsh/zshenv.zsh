@@ -53,5 +53,8 @@ if [[ -d $RUBIES_DIR ]]; then
 	export RUBIES=("$RUBIES_DIR"/ruby-*)
 fi
 
-eval "$(fnm env --version-file-strategy recursive)"
+if type fnm >/dev/null; then
+	eval "$(fnm env --version-file-strategy recursive)"
+fi
+
 eval "$(pyenv init -)"

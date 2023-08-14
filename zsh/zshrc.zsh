@@ -71,7 +71,9 @@ if [[ -d $RUBIES_DIR ]]; then
 	source "$HOMEBREW_PREFIX/opt/chruby/share/chruby/auto.sh"
 fi
 
-eval "$(fnm env --use-on-cd --version-file-strategy recursive)"
+if type fnm >/dev/null; then
+	eval "$(fnm env --use-on-cd --version-file-strategy recursive)"
+fi
 
 bindkey '^[[1;3C' forward-word
 bindkey '^[[1;3D' backward-word

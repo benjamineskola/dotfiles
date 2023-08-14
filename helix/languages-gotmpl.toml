@@ -1,0 +1,6 @@
+[[language]]
+formatter = { command = 'sh', args = [
+  "-c",
+  "sed -E 's,\\{\\{,{%,g;s,}},%},g' | djlint --custom-blocks define,range,with --reformat --quiet - | sed -E 's,\\{%,{{,g;s,%},}},g'",
+] }
+name = "html"

@@ -128,3 +128,19 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:
 setopt PROMPT_SUBST
 
 eval "$(starship init zsh)"
+
+# shellcheck disable=SC2034
+PERIOD=60
+periodic_git_fetch() {
+	command git rev-parse --is-inside-work-tree &>/dev/null || return 0
+	(git fetch --all -p &) >/dev/null 2>&1
+}
+add-zsh-hook periodic periodic_git_fetch
+add-zsh-hook chpwd periodic_git_fetch
+
+TMOUT=1
+TRAPALRM() {
+	if [[ $WIDGET == "" || $WIDGET == "accept-line" ]]; then
+		zle reset-prompt
+	fi
+}

@@ -102,9 +102,11 @@ export _ZO_FZF_OPTS="$FZF_DEFAULT_OPTS --preview=\"echo '\'{}\'' | cut -f 2 | xa
 
 zle -N _fzf_cd_widget
 zle -N _fzf_find_file_widget
+zle -N _fzf_branch_picker_widget
 
 bindkey '\ec' _fzf_cd_widget
 bindkey '\eo' _fzf_find_file_widget
+bindkey '\eg' _fzf_branch_picker_widget
 
 WORDCHARS=${WORDCHARS/\//}
 

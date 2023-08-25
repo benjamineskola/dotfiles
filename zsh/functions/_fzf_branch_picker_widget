@@ -1,0 +1,5 @@
+b="$(git branch | fzf | tr -d '* ')"
+git switch "$b"
+ret=$?
+zle reset-prompt
+return $ret

@@ -17,6 +17,14 @@ name = "go"
 language-servers = ["gopls", "golangci-lint"]
 
 [[language]]
+name = "gotmpl"
+formatter = { command = 'sh', args = [
+  "-c",
+  "sed -E 's,\\{\\{,{%,g;s,}},%},g' | djlint --custom-blocks define,range,with --reformat --quiet - | sed -E 's,\\{%,{{,g;s,%},}},g'",
+] }
+auto-format = true
+
+[[language]]
 name = "html"
 formatter = { command = 'djlint', args = [
   "--reformat",

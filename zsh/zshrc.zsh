@@ -145,4 +145,5 @@ TRAPALRM() {
 	if [[ $WIDGET == "" || $WIDGET == "accept-line" ]]; then
 		zle reset-prompt
 	fi
+	true
 }

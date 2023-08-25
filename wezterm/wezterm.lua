@@ -1,6 +1,6 @@
 local wezterm = require("wezterm")
 
-local font = { family = "Input Mono", weight = "Light" }
+local font = { family = "SF Mono", weight = "Light" }
 
 local function resize_font(window)
     local window_size = window:get_dimensions()
@@ -34,6 +34,7 @@ return {
     enable_kitty_keyboard = false,
     font = wezterm.font(font),
     font_size = 14,
+    harfbuzz_features = { "calt=0", "dlig=0" }, -- differs by font, could also be clig or liga
     native_macos_fullscreen_mode = true,
     send_composed_key_when_left_alt_is_pressed = false,
     send_composed_key_when_right_alt_is_pressed = true,

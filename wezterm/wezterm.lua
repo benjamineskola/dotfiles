@@ -1,6 +1,6 @@
 local wezterm = require("wezterm")
 
-local font = { family = "SF Mono", weight = "Light" }
+local font = { family = "JetBrains Mono", weight = "Light" }
 
 local function resize_font(window)
     local window_size = window:get_dimensions()

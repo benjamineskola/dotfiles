@@ -13,7 +13,7 @@ repos:
         files: "^bundler/config$"
       - id: check-toml
   - repo: https://github.com/benjamineskola/pre-commit-hooks.git
-    rev: af9758ce9c3d144b9fb589f8f35c1a52a3580efc
+    rev: 4761ba6944c20d3bdaed5d3e60d28addc9c8f9b0
     hooks:
       - id: shellcheck
         exclude: "git/template/hooks/pre-commit$"
@@ -30,7 +30,7 @@ repos:
         types: []
       - id: vint
       - id: prettier
-      - id: rome
+      - id: biome
   - repo: local
     hooks:
       - id: luacheck

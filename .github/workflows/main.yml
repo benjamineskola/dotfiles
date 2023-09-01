@@ -37,7 +37,7 @@ jobs:
           sudo apt-get install shfmt fish luarocks
           sudo luarocks install luacheck
           pip install vim-vint ansible-lint
-          yarn add prettier rome @taplo/cli
+          yarn add prettier biome @taplo/cli
           gem install standard
           echo node_modules/.bin >> $GITHUB_PATH
       - uses: pre-commit/action@v3.0.0

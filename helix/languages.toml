@@ -43,13 +43,13 @@ file-types = [{ suffix = "aws/config" }, { suffix = "aws/credentials" }]
 [[language]]
 name = "javascript"
 auto-format = true
-language-servers = ["typescript-language-server", "rome"]
-formatter = { command = "rome", args = ["format", "--stdin-file-path", "test.js"] }
+language-servers = ["typescript-language-server", "biome"]
+formatter = { command = "biome", args = ["format", "--stdin-file-path", "test.js"] }
 
 [[language]]
 name = "json"
-language-servers = ["vscode-json-language-server", "rome"]
-formatter = { command = "rome", args = ["format", "--stdin-file-path", "test.json"] }
+language-servers = ["vscode-json-language-server", "biome"]
+formatter = { command = "biome", args = ["format", "--stdin-file-path", "test.json"] }
 
 [[language]]
 name = "lua"
@@ -80,8 +80,8 @@ auto-format = true
 [[language]]
 name = "typescript"
 auto-format = true
-formatter = { command = "rome", args = ["format", "--stdin-file-path", "dummy.ts"] }
-language-servers = ["typescript-language-server", "rome"]
+formatter = { command = "biome", args = ["format", "--stdin-file-path", "dummy.ts"] }
+language-servers = ["typescript-language-server", "biome"]
 
 [[language]]
 name = "yaml"
@@ -109,8 +109,8 @@ align_array_table = "false"
 [language-server.pylsp.config.pylsp]
 plugins = { pycodestyle = { enabled = false }, pydocstyle = { enabled = false } } # these two are overriden by ruff
 
-[language-server.rome]
-command = "rome"
+[language-server.biome]
+command = "biome"
 args = ["lsp-proxy"]
 
 [language-server.ruff]

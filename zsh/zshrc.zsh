@@ -142,15 +142,24 @@ add-zsh-hook chpwd periodic_git_fetch
 
 TMOUT=1
 TRAPALRM() {
-	command git rev-parse --is-inside-work-tree &>/dev/null || return 0
+	if [[ $BUFFER != "" && $WIDGET != "" && $WIDGET != "accept-line" ]]; then
+		return 0
+	fi
+
+	res="$(
+		{
+			s=$(stty -g)
+			stty sane
+			command git rev-parse --is-inside-work-tree
+			stty "${s[@]}"
+		} </dev/tty
+	)"
+	test "$res" = "true" || return 0
+
 	head=$(git rev-parse HEAD)
-	remote_branch=$(git rev-parse --abbrev-ref --symbolic-full-name "@{u}")
-	remote_commit=$(git rev-parse "$remote_branch")
+	remote_commit=$(git rev-parse "@{u}" 2>/dev/null)
 
 	test "$head" = "$remote_commit" && return 0
 
-	if [[ $WIDGET == "" || $WIDGET == "accept-line" ]]; then
-		zle reset-prompt
-	fi
-	true
+	zle reset-prompt
 }

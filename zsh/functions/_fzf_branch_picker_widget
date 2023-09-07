@@ -1,5 +1,10 @@
 b="$(git branch | fzf | tr -d '* ')"
-git switch "$b"
-ret=$?
+
+ret=0
+if [[ $b != "" ]]; then
+	git switch "$b"
+	ret=$?
+fi
+
 zle reset-prompt
 return $ret

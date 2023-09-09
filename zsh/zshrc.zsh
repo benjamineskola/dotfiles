@@ -25,9 +25,9 @@ whence -p rg >/dev/null || alias rg='grep -ri'
 alias sed='sed -E'
 alias tf='tail -F'
 alias mdless='mdless --width 72'
-alias exa='exa --git -b'
+alias eza='eza --git -b'
 
-whence -p exa >/dev/null && alias ls=exa
+whence -p eza >/dev/null && alias ls=eza
 alias ll='ls -l'
 alias la='ls -a'
 alias lal='ls -la'
@@ -96,7 +96,7 @@ setopt NO_RC_EXPAND_PARAM
 eval "$(direnv hook zsh)"
 
 export FZF_DEFAULT_OPTS='--cycle --layout=reverse --border --height=90% --preview-window=wrap'
-export _ZO_FZF_OPTS="$FZF_DEFAULT_OPTS --preview=\"echo '\'{}\'' | cut -f 2 | xargs exa -l\""
+export _ZO_FZF_OPTS="$FZF_DEFAULT_OPTS --preview=\"echo '\'{}\'' | cut -f 2 | xargs eza -l\""
 # shellcheck source=/dev/null
 . "$HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.zsh"
 

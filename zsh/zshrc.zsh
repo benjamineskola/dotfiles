@@ -25,9 +25,9 @@ whence -p rg >/dev/null || alias rg='grep -ri'
 alias sed='sed -E'
 alias tf='tail -F'
 alias mdless='mdless --width 72'
-alias exa='exa --git -b'
+alias eza='eza --git -b'
 
-whence -p exa >/dev/null && alias ls=exa
+whence -p eza >/dev/null && alias ls=eza
 alias ll='ls -l'
 alias la='ls -a'
 alias lal='ls -la'

@@ -13,6 +13,11 @@ name = "scss"
 formatter = { command = 'prettierd', args = ["dummy.scss"] }
 
 [[language]]
+name = "erb"
+formatter = { command = 'sh', args = ["-c", "erblint --autocorrect --stdin /dev/null | sed -E '1,/^===/d'"] }
+auto-format = true
+
+[[language]]
 name = "go"
 language-servers = ["gopls", "golangci-lint"]
 

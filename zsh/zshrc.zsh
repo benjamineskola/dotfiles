@@ -138,6 +138,7 @@ __git_prompt_git() { git "$@"; }
 PERIOD=60
 periodic_git_fetch() {
 	command git rev-parse --is-inside-work-tree &>/dev/null || return 0
+
 	(git fetch --all -p &) >/dev/null 2>&1
 }
 add-zsh-hook periodic periodic_git_fetch
@@ -159,10 +160,16 @@ TRAPALRM() {
 	)"
 	test "$res" = "true" || return 0
 
-	head=$(git rev-parse HEAD)
-	remote_commit=$(git rev-parse "@{u}" 2>/dev/null)
-
-	test "$head" = "$remote_commit" && return 0
-
-	zle reset-prompt
+	new_remote=$(git rev-parse "@{u}" 2>/dev/null)
+	if [ "$__GIT_LAST_HEAD" != "$new_remote" ]; then
+		zle reset-prompt
+		__GIT_LAST_HEAD=$new_remote
+	fi
 }
+
+__GIT_LAST_HEAD=""
+save_git_info() {
+	__GIT_LAST_HEAD=$(git rev-parse "@{u}" 2>/dev/null)
+}
+add-zsh-hook chpwd save_git_info
+save_git_info

@@ -56,6 +56,7 @@ alias glgp='glg -p --pretty=medium'
 alias gmv='git mv'
 alias grsp='grs -p'
 alias gswm=gcm
+alias gmt='git mergetool'
 # alias gs='fish_command_not_found gs' # i never want ghostscript
 
 setopt AUTO_CD AUTO_PUSHD

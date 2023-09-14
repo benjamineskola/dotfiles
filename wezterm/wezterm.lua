@@ -2,22 +2,6 @@ local wezterm = require("wezterm")
 
 local font = { family = "JetBrains Mono", weight = "Light" }
 
-local function resize_font(window)
-    local window_size = window:get_dimensions()
-    local overrides = window:get_config_overrides() or {}
-
-    if window_size.dpi < 100 then
-        overrides.font_size = 13
-    else
-        overrides.font_size = 14
-    end
-
-    window:set_config_overrides(overrides)
-end
-
-wezterm.on("window-resized", resize_font)
-wezterm.on("window-config-reloaded", resize_font)
-
 local monokai = {
     red = "#ff6188",
     orange = "#fc9867",
@@ -33,7 +17,7 @@ return {
     color_scheme = "Monokai Pro (Gogh)",
     enable_kitty_keyboard = false,
     font = wezterm.font(font),
-    font_size = 14,
+    font_size = 13,
     harfbuzz_features = { "calt=0", "dlig=0" }, -- differs by font, could also be clig or liga
     native_macos_fullscreen_mode = true,
     send_composed_key_when_left_alt_is_pressed = false,

@@ -150,7 +150,7 @@ TRAPALRM() {
 		{
 			s=$(stty -g)
 			stty sane
-			command git rev-parse --is-inside-work-tree
+			command git rev-parse --is-inside-work-tree 2>/dev/null
 			stty "${s[@]}"
 		} </dev/tty
 	)"

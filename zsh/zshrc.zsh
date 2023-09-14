@@ -153,16 +153,22 @@ TRAPALRM() {
 	res="$(command git rev-parse --is-inside-work-tree 2>/dev/null </dev/tty)"
 	test "$res" = "true" || return 0
 
-	new_remote=$(git rev-parse "@{u}" 2>/dev/null)
-	if [ "$__GIT_LAST_HEAD" != "$new_remote" ]; then
+	local_head=$(git rev-parse HEAD 2>/dev/null)
+	remote_head=$(git rev-parse "@{u}" 2>/dev/null)
+	if [[ $__GIT_LAST_REMOTE != "$remote_head" ]] ||
+		[[ $__GIT_LAST_HEAD != "$local_head" ]] ||
+		{ [[ $local_head == "$remote_head" ]] && [[ $__GIT_LAST_REMOTE != "$local_head" ]]; }; then
 		zle reset-prompt
-		__GIT_LAST_HEAD=$new_remote
+		__GIT_LAST_HEAD=$local_head
+		__GIT_LAST_REMOTE=$remote_head
 	fi
 }
 
 __GIT_LAST_HEAD=""
+__GIT_LAST_REMOTE=""
 save_git_info() {
-	__GIT_LAST_HEAD=$(git rev-parse "@{u}" 2>/dev/null)
+	__GIT_LAST_HEAD=$(git rev-parse HEAD 2>/dev/null)
+	__GIT_LAST_REMOTE=$(git rev-parse "@{u}" 2>/dev/null)
 }
 add-zsh-hook chpwd save_git_info
 save_git_info

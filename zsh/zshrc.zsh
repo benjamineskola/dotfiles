@@ -144,7 +144,7 @@ periodic_git_fetch() {
 add-zsh-hook periodic periodic_git_fetch
 add-zsh-hook chpwd periodic_git_fetch
 
-TMOUT=1
+TMOUT=5
 TRAPALRM() {
 	if [[ $BUFFER != "" && $WIDGET != "" && $WIDGET != "accept-line" ]]; then
 		return 0

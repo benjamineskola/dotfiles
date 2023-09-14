@@ -132,6 +132,8 @@ setopt PROMPT_SUBST
 
 eval "$(starship init zsh)"
 
+__git_prompt_git() { git "$@"; }
+
 # shellcheck disable=SC2034
 PERIOD=60
 periodic_git_fetch() {

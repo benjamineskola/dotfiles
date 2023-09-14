@@ -150,14 +150,7 @@ TRAPALRM() {
 		return 0
 	fi
 
-	res="$(
-		{
-			s=$(stty -g)
-			stty sane
-			command git rev-parse --is-inside-work-tree 2>/dev/null
-			stty "${s[@]}"
-		} </dev/tty
-	)"
+	res="$(command git rev-parse --is-inside-work-tree 2>/dev/null </dev/tty)"
 	test "$res" = "true" || return 0
 
 	new_remote=$(git rev-parse "@{u}" 2>/dev/null)

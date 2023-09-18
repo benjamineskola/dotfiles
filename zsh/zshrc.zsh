@@ -118,7 +118,9 @@ title_idle() {
 }
 title_active() {
 	PWD2=${PWD/$HOME/~}
-	print -Pn "\e]0;${1//(caffeinate|sudo|doas) /}: ${PWD2##*/}\a"
+	CMD=${1//(caffeinate|sudo|doas) /}
+	CMD=${CMD//\%/%%}
+	print -Pn "\e]0;${CMD}: ${PWD2##*/}\a"
 }
 
 autoload -U add-zsh-hook

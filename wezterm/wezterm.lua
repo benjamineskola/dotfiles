@@ -2,19 +2,8 @@ local wezterm = require("wezterm")
 
 local font = { family = "JetBrains Mono", weight = "Light" }
 
-local monokai = {
-    red = "#ff6188",
-    orange = "#fc9867",
-    yellow = "#ffd866",
-    green = "#a9dc76",
-    blue = "#78dce8",
-    purple = "#ab9df2",
-    white = "#fcfcfa",
-    black = "#5b595c",
-}
-
 return {
-    color_scheme = "Monokai Pro (Gogh)",
+    color_scheme = "Catppuccin Mocha",
     enable_kitty_keyboard = false,
     font = wezterm.font(font),
     font_size = 13,
@@ -26,31 +15,6 @@ return {
     tab_bar_at_bottom = true,
     use_fancy_tab_bar = false,
     window_decorations = "RESIZE",
-
-    colors = {
-        ansi = {
-            monokai.black,
-            monokai.red,
-            monokai.green,
-            monokai.yellow,
-            monokai.blue,
-            monokai.purple,
-            monokai.orange,
-            monokai.white,
-        },
-        background = "#2d2a2e",
-        cursor_bg = "#5b595c",
-        brights = {
-            monokai.black,
-            monokai.red,
-            monokai.green,
-            monokai.yellow,
-            monokai.blue,
-            monokai.purple,
-            monokai.orange,
-            monokai.white,
-        },
-    },
 
     keys = {
         { mods = "CMD", key = "d", action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }) },

@@ -1,4 +1,4 @@
-theme = "monokai_pro"
+theme = "catppuccin_mocha"
 
 [editor]
 cursorline = true
